@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Sites | MMexy Tanzania</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* CSS yote ile ile kutoka zanzibar-beaches.html */
+        
+        /* Ongeza baadhi ya styles maalum kwa Historical Sites */
+        .historical-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1580136579317-57c3c12b16b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+        .site-feature {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(101, 67, 33, 0.05));
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--artistic-brown);
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--artistic-brown);
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Sawa na zanzibar-beaches.html -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-mountain logo-icon" aria-hidden="true"></i>
+                    <h1>MMexy Tanzania</h1>
+                </div>
+               
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li>
+                            <a href="index.html#destinations">Destinations</a>
+                            <ul class="dropdown">
+                                <li><a href="mountain-climbing.html">Mountain Climbing</a></li>
+                                <li><a href="tanzania-safaris.html">Tanzania Safaris</a></li>
+                                <li><a href="zanzibar-beaches.html">Zanzibar Beaches</a></li>
+                                <li><a href="cultural-tourism.html">Cultural Tourism</a></li>
+                                <li><a href="historical-sites.html">Historical Sites</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li class="language-selector">
+                            <select id="language-select">
+                                <option value="en">English</option>
+                                <option value="sw">Kiswahili</option>
+                            </select>
+                        </li>
+                    </ul>
+                </nav>
+               
+                <div class="mobile-menu" id="mobile-menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Historical Sites Hero Section -->
+    <section class="destination-hero historical-hero">
+        <div class="destination-hero-content">
+            <h1>Historical Sites Tanzania</h1>
+            <p>Explore Ancient Ruins, Colonial Heritage and Archaeological Wonders</p>
+            <button class="btn" onclick="openBookingModal()">Book Historical Tour</button>
