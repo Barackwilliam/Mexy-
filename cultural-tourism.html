@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/header.css">
+
     <style>
         :root {
             --primary: #1a6d38;
@@ -96,101 +98,7 @@
             background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(34, 139, 34, 0.05));
         }
 
-        header {
-            background: linear-gradient(rgba(26, 109, 56, 0.95), rgba(139, 69, 19, 0.9)), url('https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--safari-orange);
-        }
-       
-        .header-scrolled {
-            background: rgba(26, 109, 56, 0.98);
-            padding: 0.5rem 0;
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(15px);
-        }
-       
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-       
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-       
-        .logo h1 {
-            font-size: 2rem;
-            margin-left: 12px;
-            font-family: 'Cinzel', serif;
-            background: linear-gradient(135deg, #fff, var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-       
-        .logo-icon {
-            font-size: 2.2rem;
-            color: var(--secondary);
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-        }
-       
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-       
-        nav ul li {
-            margin-left: 1.8rem;
-            position: relative;
-        }
-       
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-            padding: 8px 0;
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-        }
-       
-        nav ul li a:hover {
-            color: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: linear-gradient(135deg, rgba(26, 109, 56, 0.95), rgba(139, 69, 19, 0.9));
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            min-width: 240px;
-            z-index: 1001;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        nav ul li:hover .dropdown {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
+      
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
@@ -899,54 +807,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .premium-footer {
-            background: linear-gradient(135deg, var(--artistic-brown), var(--primary));
-            color: white;
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer-content-overlay {
-            position: relative;
-            z-index: 2;
-            background: linear-gradient(
-                135deg,
-                rgba(139, 69, 19, 0.85) 0%,
-                rgba(26, 109, 56, 0.9) 100%
-            );
-            backdrop-filter: blur(5px);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 0;
-            padding: 80px 0 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-column h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            color: var(--secondary);
-            font-family: 'Cinzel', serif;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-bottom {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 25px 0;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 50px;
-        }
-
+      
         .tribe-feature {
             background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(34, 139, 34, 0.05));
             border-radius: 15px;
@@ -1037,44 +898,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-mountain logo-icon" aria-hidden="true"></i>
-                    <h1>MMexy Tanzania</h1>
-                </div>
-               
-                <nav>
-                    <ul id="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#about">About</a></li>
-                        <li>
-                            <a href="index.html#destinations">Destinations</a>
-                            <ul class="dropdown">
-                                <li><a href="mountain-climbing.html">Mountain Climbing</a></li>
-                                <li><a href="tanzania-safaris.html">Tanzania Safaris</a></li>
-                                <li><a href="zanzibar-beaches.html">Zanzibar Beaches</a></li>
-                                <li><a href="cultural-tourism.html">Cultural Tourism</a></li>
-                                <li><a href="historical-sites.html">Historical Sites</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                        <li class="language-selector">
-                            <select id="language-select">
-                                <option value="en">English</option>
-                                <option value="sw">Kiswahili</option>
-                            </select>
-                        </li>
-                    </ul>
-                </nav>
-               
-                <div class="mobile-menu" id="mobile-menu">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-    </header>
+      <div id="header-placeholder"></div>
 
     <!-- Cultural Tourism Hero Section -->
     <section class="destination-hero">
@@ -1106,36 +930,6 @@
                         <li>Traditional cooking experiences</li>
                         <li>Community development projects</li>
                     </ul>
-                </div>
-
-                <div class="package-features">
-                    <h3>Cultural Experience Features</h3>
-                    <div class="card-features">
-                        <div class="feature">
-                            <i class="fas fa-home" aria-hidden="true"></i>
-                            <span>Homestay Accommodation</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-users" aria-hidden="true"></i>
-                            <span>Community Interaction</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-utensils" aria-hidden="true"></i>
-                            <span>Traditional Meals</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-music" aria-hidden="true"></i>
-                            <span>Cultural Performances</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-hands-helping" aria-hidden="true"></i>
-                            <span>Community Support</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                            <span>Cultural Education</span>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -1201,36 +995,7 @@
                 </div>
             </div>
 
-            <!-- Includes & Excludes -->
-            <div class="includes-excludes">
-                <div class="includes-box">
-                    <h3><i class="fas fa-check-circle"></i> What's Included</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Community homestay accommodation</li>
-                        <li><i class="fas fa-check"></i> All traditional meals</li>
-                        <li><i class="fas fa-check"></i> Local guide services</li>
-                        <li><i class="fas fa-check"></i> Cultural performance fees</li>
-                        <li><i class="fas fa-check"></i> Craft workshop materials</li>
-                        <li><i class="fas fa-check"></i> Community development contribution</li>
-                        <li><i class="fas fa-check"></i> Transportation between communities</li>
-                        <li><i class="fas fa-check"></i> Cultural orientation session</li>
-                    </ul>
-                </div>
-
-                <div class="excludes-box">
-                    <h3><i class="fas fa-times-circle"></i> What's Excluded</h3>
-                    <ul>
-                        <li><i class="fas fa-times"></i> International flights</li>
-                        <li><i class="fas fa-times"></i> Tanzania visa fees</li>
-                        <li><i class="fas fa-times"></i> Travel insurance</li>
-                        <li><i class="fas fa-times"></i> Alcoholic beverages</li>
-                        <li><i class="fas fa-times"></i> Personal shopping</li>
-                        <li><i class="fas fa-times"></i> Optional activities</li>
-                        <li><i class="fas fa-times"></i> Tips for guides and hosts</li>
-                        <li><i class="fas fa-times"></i> Personal expenses</li>
-                    </ul>
-                </div>
-            </div>
+           
 
             <!-- Itinerary -->
             <div class="itinerary">
@@ -1276,95 +1041,72 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+             <!-- Includes & Excludes -->
+            <div class="includes-excludes">
+                <div class="includes-box">
+                    <h3><i class="fas fa-check-circle"></i> What's Included</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Community homestay accommodation</li>
+                        <li><i class="fas fa-check"></i> All traditional meals</li>
+                        <li><i class="fas fa-check"></i> Local guide services</li>
+                        <li><i class="fas fa-check"></i> Cultural performance fees</li>
+                        <li><i class="fas fa-check"></i> Craft workshop materials</li>
+                        <li><i class="fas fa-check"></i> Community development contribution</li>
+                        <li><i class="fas fa-check"></i> Transportation between communities</li>
+                        <li><i class="fas fa-check"></i> Cultural orientation session</li>
+                    </ul>
+                </div>
+
+                <div class="excludes-box">
+                    <h3><i class="fas fa-times-circle"></i> What's Excluded</h3>
+                    <ul>
+                        <li><i class="fas fa-times"></i> International flights</li>
+                        <li><i class="fas fa-times"></i> Tanzania visa fees</li>
+                        <li><i class="fas fa-times"></i> Travel insurance</li>
+                        <li><i class="fas fa-times"></i> Alcoholic beverages</li>
+                        <li><i class="fas fa-times"></i> Personal shopping</li>
+                        <li><i class="fas fa-times"></i> Optional activities</li>
+                        <li><i class="fas fa-times"></i> Tips for guides and hosts</li>
+                        <li><i class="fas fa-times"></i> Personal expenses</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
+     <!-- Booking Section -->
     <section class="booking-section-destination">
         <div class="container">
             <div class="booking-cta">
                 <h2>Ready for Cultural Immersion?</h2>
                 <p class="normal-text">Book your authentic cultural experience and connect with Tanzania's living traditions.</p>
-                <button class="btn" onclick="openBookingModal()">Book Cultural Experience</button>
+                <button class="btn" onclick="openCulturalBookingModal()">Book Cultural Experience</button>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="premium-footer">
-        <div class="footer-content-overlay">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-column footer-about">
-                        <h3>About MMexy Tanzania</h3>
-                        <p>MMexy Tanzania Adventures is your premier gateway to authentic Tanzanian experiences. We specialize in crafting unforgettable journeys through Tanzania's most iconic destinations.</p>
-                        <div class="footer-social">
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Quick Links</h3>
-                        <ul class="footer-links">
-                            <li><a href="index.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
-                            <li><a href="index.html#about"><i class="fas fa-chevron-right" aria-hidden="true"></i> About Us</a></li>
-                            <li><a href="index.html#destinations"><i class="fas fa-chevron-right" aria-hidden="true"></i> Destinations</a></li>
-                            <li><a href="mountain-climbing.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Mountain Climbing</a></li>
-                            <li><a href="tanzania-safaris.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Safari Tours</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Contact Info</h3>
-                        <ul class="footer-contact-info">
-                            <li>
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Head Office</strong><br>
-                                    P.O. Box 1234, Arusha<br>
-                                    Tanzania, East Africa
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-phone" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Phone</strong><br>
-                                    +255 714 331 051<br>
-                                    +255 987 654 321
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-envelope" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Email</strong><br>
-                                    info@mmexy.com<br>
-                                    bookings@mmexy.com
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="footer-copyright">
-                        <p>&copy; 2025 MMexy Tanzania Adventures. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+   
+<div id="footer-placeholder"></div>
+
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+</script>
+
 
     <!-- Premium Booking Modal -->
-    <div class="premium-modal" id="premium-modal">
+    <div class="premium-modal" id="cultural-premium-modal">
         <div class="premium-modal-content">
             <div class="premium-modal-header">
                 <h2>Book Your Cultural Experience</h2>
-                <button class="close-premium-modal" id="close-premium-modal">&times;</button>
+                <button class="close-premium-modal" id="close-cultural-premium-modal">&times;</button>
             </div>
             <div class="premium-modal-body">
                 <!-- Booking Steps -->
@@ -1375,7 +1117,7 @@
                     </div>
                     <div class="booking-step" data-step="2">
                         <div class="step-number">2</div>
-                        <div class="step-label">Group Type</div>
+                        <div class="step-label">Travel Style</div>
                     </div>
                     <div class="booking-step" data-step="3">
                         <div class="step-number">3</div>
@@ -1384,8 +1126,8 @@
                 </div>
 
                 <!-- Step 1: Package Level Selection -->
-                <div class="booking-section active" id="step-1">
-                    <h3 style="text-align: center; margin-bottom: 30px; color: var(--premium-gold);">Choose Your Cultural Experience</h3>
+                <div class="booking-section active" id="cultural-step-1">
+                    <h3 class="step-title">Choose Your Cultural Experience</h3>
                     <div class="package-levels">
                         <div class="package-level local" data-level="local">
                             <div class="level-icon">
@@ -1433,23 +1175,36 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-next-btn" onclick="culturalNextStep(2)">
+                            <span>Next: Travel Style</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                     <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="closePremiumModal()">Cancel</button>
-                        <button class="modal-btn btn-primary" onclick="nextStep(2)">Next: Group Type</button>
+                        <button class="modal-btn btn-secondary" onclick="closeCulturalPremiumModal()">Cancel</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="culturalNextStep(2)">Next: Travel Style</button>
                     </div>
                 </div>
 
-                <!-- Step 2: Group Type Selection -->
-                <div class="booking-section" id="step-2">
-                    <h3 style="text-align: center; margin-bottom: 30px; color: var(--premium-gold);">Select Your Group Type</h3>
+                <!-- Step 2: Travel Style Selection -->
+                <div class="booking-section" id="cultural-step-2">
+                    <h3 class="step-title">Select Your Travel Style</h3>
                     <div class="group-selection">
                         <div class="group-options">
                             <div class="group-option" data-group="single">
                                 <div class="group-icon">
                                     <i class="fas fa-user"></i>
                                 </div>
-                                <div class="group-name">Single Traveler</div>
+                                <div class="group-name">Solo Traveler</div>
                                 <div class="group-description">Perfect for solo cultural explorers</div>
+                            </div>
+                            <div class="group-option" data-group="double">
+                                <div class="group-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="group-name">Couple Package</div>
+                                <div class="group-description">Perfect for couples</div>
                             </div>
                             <div class="group-option" data-group="family">
                                 <div class="group-icon">
@@ -1463,18 +1218,16 @@
                                     <i class="fas fa-user-friends"></i>
                                 </div>
                                 <div class="group-name">Group Adventure</div>
-                                <div class="group-description">Custom group size</div>
+                                <div class="group-description">2-30 people</div>
                             </div>
                         </div>
 
                         <!-- People Counter (Visible for Group Adventure) -->
-                        <div class="people-counter" id="people-counter" style="display: none;">
-                            <button class="counter-btn" onclick="changePeopleCount(-1)">-</button>
-                            <div class="people-count" id="people-count">4</div>
-                            <button class="counter-btn" onclick="changePeopleCount(1)">+</button>
-                            <div style="margin-left: 20px; font-size: 0.9rem; opacity: 0.8;">
-                                People in group
-                            </div>
+                        <div class="people-counter" id="cultural-people-counter" style="display: none;">
+                            <div class="counter-label">Group Size:</div>
+                            <button class="counter-btn" onclick="culturalChangePeopleCount(-1)">-</button>
+                            <div class="people-count" id="cultural-people-count">4</div>
+                            <button class="counter-btn" onclick="culturalChangePeopleCount(1)">+</button>
                         </div>
                     </div>
 
@@ -1482,77 +1235,108 @@
                     <div class="price-summary">
                         <div class="price-breakdown">
                             <div class="price-item">
-                                <span class="price-label" id="package-type-label">Basic Package</span>
-                                <span class="price-value" id="base-price">$150</span>
+                                <span class="price-label" id="cultural-package-type-label">Basic Package</span>
+                                <span class="price-value" id="cultural-base-price">$150</span>
                             </div>
                             <div class="price-item">
-                                <span class="price-label" id="group-type-label">Single Traveler</span>
-                                <span class="price-value" id="group-multiplier">x1</span>
+                                <span class="price-label" id="cultural-group-type-label">Solo Traveler</span>
+                                <span class="price-value" id="cultural-group-multiplier">x1</span>
                             </div>
-                            <div class="price-item" id="people-item" style="display: none;">
-                                <span class="price-label" id="people-count-label">4 people</span>
-                                <span class="price-value" id="people-multiplier">x4</span>
+                            <div class="price-item" id="cultural-people-item" style="display: none;">
+                                <span class="price-label" id="cultural-people-count-label">4 people</span>
+                                <span class="price-value" id="cultural-people-multiplier">x4</span>
+                            </div>
+                            <!-- Discount Display -->
+                            <div class="price-item" id="cultural-discount-item" style="display: none;">
+                                <span class="price-label discount-label">Group Discount (20%)</span>
+                                <span class="price-value discount-value" id="cultural-discount-amount">-$120</span>
                             </div>
                         </div>
                         <div class="total-price">
                             <span class="total-label">Total Price:</span>
-                            <span class="total-value" id="total-price">$150</span>
+                            <span class="total-value" id="cultural-total-price">$150</span>
+                        </div>
+                        <!-- Original Price Display -->
+                        <div class="original-price" id="cultural-original-price" style="display: none;">
+                            <span class="original-label">Original Price:</span>
+                            <span class="original-value" id="cultural-original-value">$600</span>
                         </div>
                     </div>
 
+                    <div class="mobile-actions">
+                        <button class="mobile-next-btn" onclick="culturalNextStep(3)">
+                            <span>Next: Book Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                     <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="prevStep(1)">Back</button>
-                        <button class="modal-btn btn-primary" onclick="nextStep(3)">Next: Book Now</button>
+                        <button class="modal-btn btn-secondary" onclick="culturalPrevStep(1)">Back</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="culturalNextStep(3)">Next: Book Now</button>
                     </div>
                 </div>
 
                 <!-- Step 3: Final Booking -->
-                <div class="booking-section" id="step-3">
-                    <h3 style="text-align: center; margin-bottom: 30px; color: var(--premium-gold);">Confirm Your Booking</h3>
+                <div class="booking-section" id="cultural-step-3">
+                    <h3 class="step-title">Confirm Your Booking</h3>
                     
                     <div class="price-summary">
-                        <h4 style="margin-bottom: 20px; color: var(--premium-gold);">Booking Summary</h4>
+                        <h4 class="summary-title">Booking Summary</h4>
                         <div class="price-breakdown">
                             <div class="price-item">
                                 <span class="price-label">Destination:</span>
-                                <span class="price-value" id="summary-destination">Cultural Tourism</span>
+                                <span class="price-value" id="cultural-summary-destination">Cultural Tourism</span>
                             </div>
                             <div class="price-item">
                                 <span class="price-label">Package Level:</span>
-                                <span class="price-value" id="summary-package">Basic</span>
+                                <span class="price-value" id="cultural-summary-package">Basic</span>
                             </div>
                             <div class="price-item">
-                                <span class="price-label">Group Type:</span>
-                                <span class="price-value" id="summary-group">Single Traveler</span>
+                                <span class="price-label">Travel Style:</span>
+                                <span class="price-value" id="cultural-summary-group">Solo Traveler</span>
                             </div>
-                            <div class="price-item" id="summary-people-item" style="display: none;">
+                            <div class="price-item" id="cultural-summary-people-item" style="display: none;">
                                 <span class="price-label">Number of People:</span>
-                                <span class="price-value" id="summary-people">4</span>
+                                <span class="price-value" id="cultural-summary-people">4</span>
                             </div>
                             <div class="price-item">
                                 <span class="price-label">Duration:</span>
-                                <span class="price-value" id="summary-duration">2-5 Days</span>
+                                <span class="price-value" id="cultural-summary-duration">2-5 Days</span>
+                            </div>
+                            <div class="price-item" id="cultural-summary-discount-item" style="display: none;">
+                                <span class="price-label discount-label">Group Discount Applied:</span>
+                                <span class="price-value discount-value" id="cultural-summary-discount">20%</span>
                             </div>
                         </div>
                         <div class="total-price">
                             <span class="total-label">Total Amount:</span>
-                            <span class="total-value" id="summary-total">$150</span>
+                            <span class="total-value" id="cultural-summary-total">$150</span>
+                        </div>
+                        <!-- Original Price Display in Summary -->
+                        <div class="original-price" id="cultural-summary-original-price" style="display: none;">
+                            <span class="original-label">Original Price:</span>
+                            <span class="original-value" id="cultural-summary-original-value">$600</span>
                         </div>
                     </div>
 
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
-                        <h4 style="margin-bottom: 15px; color: var(--premium-gold);">Contact Information</h4>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                            <input type="text" placeholder="First Name" style="padding: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); border-radius: 5px; color: white;">
-                            <input type="text" placeholder="Last Name" style="padding: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); border-radius: 5px; color: white;">
-                            <input type="email" placeholder="Email Address" style="padding: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); border-radius: 5px; color: white; grid-column: 1 / -1;">
-                            <input type="tel" placeholder="Phone Number" style="padding: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); border-radius: 5px; color: white; grid-column: 1 / -1;">
+                    <div class="contact-form">
+                        <h4 class="summary-title">Contact Information</h4>
+                        <div class="form-grid">
+                            <input type="text" id="cultural-firstName" placeholder="First Name" class="form-input">
+                            <input type="text" id="cultural-lastName" placeholder="Last Name" class="form-input">
+                            <input type="email" id="cultural-email" placeholder="Email Address" class="form-input full-width">
+                            <input type="tel" id="cultural-phone" placeholder="Phone Number" class="form-input full-width">
                         </div>
                     </div>
 
+                    <div class="mobile-actions">
+                        <button class="mobile-complete-btn" onclick="culturalCompleteBooking()">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Complete Booking</span>
+                        </button>
+                    </div>
                     <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="prevStep(2)">Back</button>
-                        <button class="modal-btn btn-primary" onclick="completeBooking()">
+                        <button class="modal-btn btn-secondary" onclick="culturalPrevStep(2)">Back</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="culturalCompleteBooking()">
                             <i class="fas fa-credit-card"></i> Complete Booking
                         </button>
                     </div>
@@ -1561,57 +1345,309 @@
         </div>
     </div>
 
-    <script>
-        // Initialize AOS (Animate On Scroll)
-        if (typeof AOS !== 'undefined') {
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true,
-                mirror: false
-            });
+    <style>
+        /* Cultural Experience Specific Mobile Styles */
+        .premium-modal-content {
+            width: 95%;
+            max-width: 500px;
+            margin: 20px auto;
+            max-height: 90vh;
+            overflow-y: auto;
         }
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
+        
+        .step-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--premium-gold);
+            font-size: 1.3rem;
+        }
+        
+        .package-levels {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .package-level {
+            padding: 20px;
+            margin-bottom: 0;
+            background: rgba(205, 127, 50, 0.1);
+            border: 2px solid rgba(205, 127, 50, 0.3);
+        }
+        
+        .package-level.selected {
+            border-color: var(--premium-gold);
+            background: rgba(218, 165, 32, 0.1);
+        }
+        
+        .group-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .group-option {
+            padding: 15px;
+            min-height: 100px;
+            background: rgba(205, 127, 50, 0.05);
+            border: 2px solid rgba(205, 127, 50, 0.2);
+        }
+        
+        .group-option.selected {
+            border-color: var(--premium-gold);
+            background: rgba(218, 165, 32, 0.1);
+        }
+        
+        .group-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        
+        .group-name {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        
+        .group-description {
+            font-size: 0.8rem;
+        }
+        
+        .mobile-actions {
+            position: sticky;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 20px 15px 15px;
+            margin: 20px -20px -20px;
+            z-index: 100;
+        }
+        
+        .mobile-next-btn, .mobile-complete-btn {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--premium-gold);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-complete-btn {
+            background: #28a745;
+            color: white;
+        }
+        
+        .mobile-next-btn:hover, .mobile-complete-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        .form-input {
+            padding: 14px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .summary-title {
+            margin-bottom: 15px;
+            color: var(--premium-gold);
+            font-size: 1.1rem;
+        }
+        
+        .price-summary {
+            padding: 15px;
+            margin: 15px 0;
+            background: rgba(205, 127, 50, 0.1);
+        }
+        
+        .people-counter {
+            padding: 12px;
+            margin: 15px 0;
+            background: rgba(205, 127, 50, 0.1);
+            border-radius: 10px;
+        }
+        
+        /* Discount Styles */
+        .discount-label {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .discount-value {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .original-price {
+            text-align: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255,255,255,0.3);
+        }
+        
+        .original-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-decoration: line-through;
+        }
+        
+        .original-value {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+        
+        /* Hide desktop buttons on mobile */
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
             }
-        });
+            
+            .modal-actions {
+                display: none;
+            }
+            
+            .premium-modal-body {
+                padding-bottom: 80px;
+            }
+        }
+        
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .mobile-actions {
+                display: none;
+            }
+            
+            .package-levels {
+                flex-direction: row;
+                gap: 20px;
+            }
+            
+            .group-options {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            
+            .premium-modal-content {
+                max-width: 800px;
+            }
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 480px) {
+            .premium-modal-content {
+                width: 100%;
+                margin: 10px;
+                max-height: 95vh;
+            }
+            
+            .premium-modal-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .step-title {
+                font-size: 1.1rem;
+            }
+            
+            .booking-steps {
+                gap: 5px;
+            }
+            
+            .step-label {
+                font-size: 0.7rem;
+            }
+            
+            .package-level {
+                padding: 15px;
+            }
+            
+            .level-features li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 
-        // Booking System Variables
-        let currentBooking = {
+    <script>
+        // Cultural Experience Booking System Variables
+        let culturalCurrentBooking = {
             destination: 'cultural',
             packageLevel: 'local',
             groupType: 'single',
             peopleCount: 4,
             basePrice: 150,
-            totalPrice: 150
+            totalPrice: 150,
+            originalPrice: 150,
+            discountApplied: false,
+            discountAmount: 0,
+            contactInfo: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: ''
+            }
         };
 
         // Price configuration for cultural tourism
-        const packagePrices = {
+        const culturalPackagePrices = {
             local: 150,
             vip: 300,
             vvip: 500
         };
 
-        const groupMultipliers = {
+        const culturalGroupMultipliers = {
             single: 1,
+            double: 2,
             family: 2.5,
             group: 1
         };
 
-        // Modal Navigation
-        function showStep(stepNumber) {
+        // Cultural Experience Modal Navigation
+        function culturalShowStep(stepNumber) {
             document.querySelectorAll('.booking-section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            document.getElementById(`step-${stepNumber}`).classList.add('active');
+            document.getElementById(`cultural-step-${stepNumber}`).classList.add('active');
             
             document.querySelectorAll('.booking-step').forEach(step => {
                 step.classList.remove('active');
@@ -1621,180 +1657,354 @@
             });
 
             if (stepNumber === 3) {
-                updateBookingSummary();
+                culturalUpdateBookingSummary();
+            }
+            
+            // Scroll to top when changing steps on mobile
+            if (window.innerWidth <= 768) {
+                document.querySelector('.premium-modal-body').scrollTop = 0;
             }
         }
 
-        function nextStep(step) {
-            showStep(step);
+        function culturalNextStep(step) {
+            culturalShowStep(step);
         }
 
-        function prevStep(step) {
-            showStep(step);
+        function culturalPrevStep(step) {
+            culturalShowStep(step);
         }
 
-        // Package Level Selection
-        document.querySelectorAll('.package-level').forEach(level => {
+        // Cultural Experience Package Level Selection
+        document.querySelectorAll('#cultural-premium-modal .package-level').forEach(level => {
             level.addEventListener('click', function() {
-                document.querySelectorAll('.package-level').forEach(l => {
+                document.querySelectorAll('#cultural-premium-modal .package-level').forEach(l => {
                     l.classList.remove('selected');
                 });
                 
                 this.classList.add('selected');
                 
-                currentBooking.packageLevel = this.dataset.level;
-                updatePrice();
+                culturalCurrentBooking.packageLevel = this.dataset.level;
+                culturalUpdatePrice();
             });
         });
 
-        // Group Type Selection
-        document.querySelectorAll('.group-option').forEach(option => {
+        // Cultural Experience Travel Style Selection
+        document.querySelectorAll('#cultural-premium-modal .group-option').forEach(option => {
             option.addEventListener('click', function() {
-                document.querySelectorAll('.group-option').forEach(opt => {
+                document.querySelectorAll('#cultural-premium-modal .group-option').forEach(opt => {
                     opt.classList.remove('selected');
                 });
                 
                 this.classList.add('selected');
                 
-                currentBooking.groupType = this.dataset.group;
+                culturalCurrentBooking.groupType = this.dataset.group;
                 
-                const peopleCounter = document.getElementById('people-counter');
-                if (currentBooking.groupType === 'group') {
+                const peopleCounter = document.getElementById('cultural-people-counter');
+                if (culturalCurrentBooking.groupType === 'group') {
                     peopleCounter.style.display = 'flex';
-                    document.getElementById('people-item').style.display = 'flex';
+                    document.getElementById('cultural-people-item').style.display = 'flex';
+                    // Set minimum for group adventure
+                    culturalCurrentBooking.peopleCount = 2;
+                    document.getElementById('cultural-people-count').textContent = culturalCurrentBooking.peopleCount;
                 } else {
                     peopleCounter.style.display = 'none';
-                    document.getElementById('people-item').style.display = 'none';
+                    document.getElementById('cultural-people-item').style.display = 'none';
+                    
+                    // Set default people counts for other options
+                    if (culturalCurrentBooking.groupType === 'single') {
+                        culturalCurrentBooking.peopleCount = 1;
+                    } else if (culturalCurrentBooking.groupType === 'double') {
+                        culturalCurrentBooking.peopleCount = 2;
+                    } else if (culturalCurrentBooking.groupType === 'family') {
+                        culturalCurrentBooking.peopleCount = 4;
+                    }
                 }
                 
-                updatePrice();
+                culturalUpdatePrice();
             });
         });
 
-        // People Counter
-        function changePeopleCount(change) {
-            let newCount = currentBooking.peopleCount + change;
+        // Cultural Experience People Counter
+        function culturalChangePeopleCount(change) {
+            let newCount = culturalCurrentBooking.peopleCount + change;
             
-            if (newCount < 4) newCount = 4;
-            if (newCount > 20) newCount = 20;
+            if (newCount < 2) newCount = 2;
+            if (newCount > 30) newCount = 30;
             
-            currentBooking.peopleCount = newCount;
-            document.getElementById('people-count').textContent = newCount;
-            updatePrice();
+            culturalCurrentBooking.peopleCount = newCount;
+            document.getElementById('cultural-people-count').textContent = newCount;
+            culturalUpdatePrice();
         }
 
-        // Price Calculation
-        function updatePrice() {
-            const basePrice = packagePrices[currentBooking.packageLevel] || 150;
-            currentBooking.basePrice = basePrice;
+        // Cultural Experience Price Calculation with Discount
+        function culturalUpdatePrice() {
+            const basePrice = culturalPackagePrices[culturalCurrentBooking.packageLevel] || 150;
+            culturalCurrentBooking.basePrice = basePrice;
             
-            let multiplier = groupMultipliers[currentBooking.groupType];
+            let multiplier = culturalGroupMultipliers[culturalCurrentBooking.groupType];
             
-            if (currentBooking.groupType === 'group') {
-                multiplier = currentBooking.peopleCount * 0.9;
+            if (culturalCurrentBooking.groupType === 'group') {
+                multiplier = culturalCurrentBooking.peopleCount;
+            } else if (culturalCurrentBooking.groupType === 'double') {
+                multiplier = 2;
             }
             
-            currentBooking.totalPrice = basePrice * multiplier;
+            // Calculate original price
+            culturalCurrentBooking.originalPrice = basePrice * multiplier;
             
-            updatePriceDisplay();
+            // Apply 20% discount for groups of 3 or more people
+            if (culturalCurrentBooking.peopleCount >= 3 && culturalCurrentBooking.groupType === 'group') {
+                culturalCurrentBooking.discountApplied = true;
+                culturalCurrentBooking.discountAmount = culturalCurrentBooking.originalPrice * 0.2;
+                culturalCurrentBooking.totalPrice = culturalCurrentBooking.originalPrice - culturalCurrentBooking.discountAmount;
+            } else {
+                culturalCurrentBooking.discountApplied = false;
+                culturalCurrentBooking.discountAmount = 0;
+                culturalCurrentBooking.totalPrice = culturalCurrentBooking.originalPrice;
+            }
+            
+            culturalUpdatePriceDisplay();
         }
 
-        function updatePriceDisplay() {
-            document.getElementById('base-price').textContent = `$${currentBooking.basePrice}`;
-            document.getElementById('package-type-label').textContent = 
-                `${currentBooking.packageLevel.toUpperCase()} Package`;
+        function culturalUpdatePriceDisplay() {
+            document.getElementById('cultural-base-price').textContent = `$${culturalCurrentBooking.basePrice}`;
+            document.getElementById('cultural-package-type-label').textContent = 
+                `${culturalCurrentBooking.packageLevel.toUpperCase()} Package`;
             
-            const groupLabel = document.getElementById('group-type-label');
-            const groupMultiplier = document.getElementById('group-multiplier');
+            const groupLabel = document.getElementById('cultural-group-type-label');
+            const groupMultiplier = document.getElementById('cultural-group-multiplier');
             
-            if (currentBooking.groupType === 'single') {
-                groupLabel.textContent = 'Single Traveler';
+            if (culturalCurrentBooking.groupType === 'single') {
+                groupLabel.textContent = 'Solo Traveler';
                 groupMultiplier.textContent = 'x1';
-            } else if (currentBooking.groupType === 'family') {
+            } else if (culturalCurrentBooking.groupType === 'double') {
+                groupLabel.textContent = 'Couple Package';
+                groupMultiplier.textContent = 'x2';
+            } else if (culturalCurrentBooking.groupType === 'family') {
                 groupLabel.textContent = 'Family Package';
                 groupMultiplier.textContent = 'x2.5';
             } else {
                 groupLabel.textContent = 'Group Adventure';
-                groupMultiplier.textContent = `x${currentBooking.peopleCount}`;
+                groupMultiplier.textContent = `x${culturalCurrentBooking.peopleCount}`;
                 
-                document.getElementById('people-count-label').textContent = 
-                    `${currentBooking.peopleCount} people`;
-                document.getElementById('people-multiplier').textContent = 
-                    `x${currentBooking.peopleCount}`;
+                document.getElementById('cultural-people-count-label').textContent = 
+                    `${culturalCurrentBooking.peopleCount} people`;
+                document.getElementById('cultural-people-multiplier').textContent = 
+                    `x${culturalCurrentBooking.peopleCount}`;
             }
             
-            document.getElementById('total-price').textContent = 
-                `$${Math.round(currentBooking.totalPrice)}`;
+            // Show/hide discount
+            const discountItem = document.getElementById('cultural-discount-item');
+            const originalPriceDisplay = document.getElementById('cultural-original-price');
+            
+            if (culturalCurrentBooking.discountApplied) {
+                discountItem.style.display = 'flex';
+                originalPriceDisplay.style.display = 'block';
+                document.getElementById('cultural-discount-amount').textContent = `-$${Math.round(culturalCurrentBooking.discountAmount)}`;
+                document.getElementById('cultural-original-value').textContent = `$${Math.round(culturalCurrentBooking.originalPrice)}`;
+            } else {
+                discountItem.style.display = 'none';
+                originalPriceDisplay.style.display = 'none';
+            }
+            
+            document.getElementById('cultural-total-price').textContent = 
+                `$${Math.round(culturalCurrentBooking.totalPrice)}`;
         }
 
-        function updateBookingSummary() {
-            document.getElementById('summary-destination').textContent = 'Cultural Tourism';
-            document.getElementById('summary-package').textContent = 
-                currentBooking.packageLevel.toUpperCase();
-            document.getElementById('summary-group').textContent = 
-                currentBooking.groupType === 'single' ? 'Single Traveler' : 
-                currentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure';
-            document.getElementById('summary-total').textContent = 
-                `$${Math.round(currentBooking.totalPrice)}`;
-            document.getElementById('summary-duration').textContent = '2-5 Days';
+        function culturalUpdateBookingSummary() {
+            document.getElementById('cultural-summary-destination').textContent = 'Cultural Tourism';
+            document.getElementById('cultural-summary-package').textContent = 
+                culturalCurrentBooking.packageLevel.toUpperCase();
             
-            const peopleItem = document.getElementById('summary-people-item');
-            const peopleValue = document.getElementById('summary-people');
-            if (currentBooking.groupType === 'group') {
+            let groupText = '';
+            if (culturalCurrentBooking.groupType === 'single') {
+                groupText = 'Solo Traveler';
+            } else if (culturalCurrentBooking.groupType === 'double') {
+                groupText = 'Couple Package';
+            } else if (culturalCurrentBooking.groupType === 'family') {
+                groupText = 'Family Package';
+            } else {
+                groupText = 'Group Adventure';
+            }
+            
+            document.getElementById('cultural-summary-group').textContent = groupText;
+            document.getElementById('cultural-summary-total').textContent = 
+                `$${Math.round(culturalCurrentBooking.totalPrice)}`;
+            document.getElementById('cultural-summary-duration').textContent = '2-5 Days';
+            
+            const peopleItem = document.getElementById('cultural-summary-people-item');
+            const peopleValue = document.getElementById('cultural-summary-people');
+            const discountItem = document.getElementById('cultural-summary-discount-item');
+            const originalPriceDisplay = document.getElementById('cultural-summary-original-price');
+            
+            if (culturalCurrentBooking.groupType === 'group') {
                 peopleItem.style.display = 'flex';
-                peopleValue.textContent = currentBooking.peopleCount;
+                peopleValue.textContent = culturalCurrentBooking.peopleCount;
             } else {
                 peopleItem.style.display = 'none';
             }
+            
+            if (culturalCurrentBooking.discountApplied) {
+                discountItem.style.display = 'flex';
+                originalPriceDisplay.style.display = 'block';
+                document.getElementById('cultural-summary-discount').textContent = '20%';
+                document.getElementById('cultural-summary-original-value').textContent = `$${Math.round(culturalCurrentBooking.originalPrice)}`;
+            } else {
+                discountItem.style.display = 'none';
+                originalPriceDisplay.style.display = 'none';
+            }
         }
 
-        // Complete Booking
-        function completeBooking() {
+        // Collect Cultural Experience contact information
+        function culturalCollectContactInfo() {
+            culturalCurrentBooking.contactInfo = {
+                firstName: document.getElementById('cultural-firstName').value,
+                lastName: document.getElementById('cultural-lastName').value,
+                email: document.getElementById('cultural-email').value,
+                phone: document.getElementById('cultural-phone').value
+            };
+        }
+
+        // Send Cultural Experience booking to WhatsApp and Email
+        function culturalSendBooking() {
+            culturalCollectContactInfo();
+            
+            const discountText = culturalCurrentBooking.discountApplied ? 
+                `*Discount Applied:* 20% (Saved: $${Math.round(culturalCurrentBooking.discountAmount)})` : 
+                '';
+            
+            const summary = `
+🎭 *NEW CULTURAL EXPERIENCE BOOKING* 🌍
+
+*Destination:* Cultural Tourism
+*Package Level:* ${culturalCurrentBooking.packageLevel.toUpperCase()}
+*Travel Style:* ${culturalCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
+                culturalCurrentBooking.groupType === 'double' ? 'Couple Package' : 
+                culturalCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
+${culturalCurrentBooking.groupType === 'group' ? `*Number of People:* ${culturalCurrentBooking.peopleCount}` : ''}
+${culturalCurrentBooking.discountApplied ? `*Original Price:* $${Math.round(culturalCurrentBooking.originalPrice)}` : ''}
+${discountText}
+*Duration:* 2-5 Days
+*Total Amount:* $${Math.round(culturalCurrentBooking.totalPrice)}
+
+*Contact Information:*
+*Name:* ${culturalCurrentBooking.contactInfo.firstName} ${culturalCurrentBooking.contactInfo.lastName}
+*Email:* ${culturalCurrentBooking.contactInfo.email}
+*Phone:* ${culturalCurrentBooking.contactInfo.phone}
+
+*Booking Time:* ${new Date().toLocaleString()}
+            `.trim();
+
+            // Send to WhatsApp
+            const whatsappMessage = encodeURIComponent(summary);
+            const whatsappUrl = `https://wa.me/255750910158?text=${whatsappMessage}`;
+            
+            // Send to Email
+            const emailSubject = encodeURIComponent('New Cultural Experience Booking');
+            const emailBody = encodeURIComponent(summary);
+            const emailUrl = `mailto:barackwilliam12@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Also open email client
+            setTimeout(() => {
+                window.open(emailUrl, '_blank');
+            }, 1000);
+        }
+
+        // Complete Cultural Experience Booking
+        function culturalCompleteBooking() {
+            culturalCollectContactInfo();
+            
+            // Basic validation
+            if (!culturalCurrentBooking.contactInfo.firstName || !culturalCurrentBooking.contactInfo.lastName) {
+                alert('Please enter your name');
+                return;
+            }
+            
+            if (!culturalCurrentBooking.contactInfo.email && !culturalCurrentBooking.contactInfo.phone) {
+                alert('Please enter either email or phone number');
+                return;
+            }
+
+            const discountText = culturalCurrentBooking.discountApplied ? 
+                `\nDiscount: 20% (Saved: $${Math.round(culturalCurrentBooking.discountAmount)})` : 
+                '';
+                
+            const originalPriceText = culturalCurrentBooking.discountApplied ? 
+                `\nOriginal Price: $${Math.round(culturalCurrentBooking.originalPrice)}` : 
+                '';
+
             const summary = `
 Destination: Cultural Tourism
-Package: ${currentBooking.packageLevel.toUpperCase()}
-Group Type: ${currentBooking.groupType === 'single' ? 'Single Traveler' : currentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
-${currentBooking.groupType === 'group' ? `People: ${currentBooking.peopleCount}` : ''}
-Total: $${Math.round(currentBooking.totalPrice)}
+Package: ${culturalCurrentBooking.packageLevel.toUpperCase()}
+Travel Style: ${culturalCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
+                culturalCurrentBooking.groupType === 'double' ? 'Couple Package' : 
+                culturalCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
+${culturalCurrentBooking.groupType === 'group' ? `People: ${culturalCurrentBooking.peopleCount}` : ''}${originalPriceText}${discountText}
+Total: $${Math.round(culturalCurrentBooking.totalPrice)}
+
+Contact: ${culturalCurrentBooking.contactInfo.firstName} ${culturalCurrentBooking.contactInfo.lastName}
+Email: ${culturalCurrentBooking.contactInfo.email}
+Phone: ${culturalCurrentBooking.contactInfo.phone}
             `.trim();
             
-            alert(`Booking Confirmed!\n\n${summary}\n\nThank you for choosing MMexy Tanzania Adventures!`);
-            closePremiumModal();
+            // Send booking information
+            culturalSendBooking();
+            
+            alert(`Cultural Experience Booking Information Sent!\n\n${summary}\n\nWe have sent your booking details to our team via WhatsApp and email. We will contact you shortly to confirm your cultural immersion!`);
+            closeCulturalPremiumModal();
         }
 
-        // Open Booking Modal
-        function openBookingModal() {
+        // Open Cultural Experience Booking Modal
+        function openCulturalBookingModal() {
             // Reset to first step
-            showStep(1);
+            culturalShowStep(1);
             
             // Set default selections
-            document.querySelector('.package-level.local').click();
-            document.querySelector('.group-option[data-group="single"]').click();
+            document.querySelector('#cultural-premium-modal .package-level.local').click();
+            document.querySelector('#cultural-premium-modal .group-option[data-group="single"]').click();
+            
+            // Clear form fields
+            document.getElementById('cultural-firstName').value = '';
+            document.getElementById('cultural-lastName').value = '';
+            document.getElementById('cultural-email').value = '';
+            document.getElementById('cultural-phone').value = '';
             
             // Show modal
-            document.getElementById('premium-modal').style.display = 'block';
+            document.getElementById('cultural-premium-modal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
-        // Close modal
-        function closePremiumModal() {
-            document.getElementById('premium-modal').style.display = 'none';
+        // Close Cultural Experience modal
+        function closeCulturalPremiumModal() {
+            document.getElementById('cultural-premium-modal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        document.getElementById('close-premium-modal').addEventListener('click', closePremiumModal);
+        document.getElementById('close-cultural-premium-modal').addEventListener('click', closeCulturalPremiumModal);
 
         window.addEventListener('click', function(e) {
-            if (e.target === document.getElementById('premium-modal')) {
-                closePremiumModal();
+            if (e.target === document.getElementById('cultural-premium-modal')) {
+                closeCulturalPremiumModal();
             }
         });
 
-        // Initialize default selections when page loads
+        // Initialize Cultural Experience default selections when modal opens
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.package-level.local').click();
-            document.querySelector('.group-option[data-group="single"]').click();
+            // Cultural Experience modal will initialize when opened
+        });
+
+        // Prevent form submission on enter
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.target.classList.contains('form-input')) {
+                e.preventDefault();
+            }
         });
     </script>
+
+        <script src="assets/js/includes.js"></script>
+
 </body>
 </html>

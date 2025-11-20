@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MMexy Tanzania Adventures | Our Story & Mission</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/header.css">
+
+    <style>
+        :root {
+            --primary: #1a6d38;
+            --secondary: #f9a825;
+            --accent: #1565c0;
+            --light: #f5f5f5;
+            --dark: #333333;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --premium-gold: #ffd700;
+            --premium-silver: #c0c0c0;
+            --premium-bronze: #cd7f32;
+            --artistic-brown: #8B4513;
+            --safari-orange: #FF8C00;
+            --nature-green: #228B22;
+        }
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+       
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+       
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+       
+        /* Artistic Text Styles */
+        .artistic-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--artistic-brown), var(--safari-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: inline-block;
+        }
+
+        .artistic-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--safari-orange), transparent);
+        }
+
+        .elegant-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--artistic-brown);
+            line-height: 1.8;
+        }
+
+        .safari-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--artistic-brown);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .safari-heading::before {
+            content: '❖';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--safari-orange);
+            font-size: 1.2rem;
+        }
+
+        .safari-heading::after {
+            content: '❖';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--safari-orange);
+            font-size: 1.2rem;
+        }
+
+        .calligraphic-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            background: linear-gradient(135deg, var(--artistic-brown), var(--nature-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .ornamental-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, var(--artistic-brown), var(--safari-orange), var(--nature-green)) 1;
+            padding: 20px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(34, 139, 34, 0.05));
+        }
+
+        .ornamental-border::before {
+            content: '✦';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 10px;
+            color: var(--safari-orange);
+            font-size: 1.2rem;
+        }
+
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), var(--safari-orange));
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            font-size: 1.1rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+       
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(26, 109, 56, 0.8), rgba(139, 69, 19, 0.7)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .about-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(135deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        .breadcrumb span {
+            color: white;
+        }
+
+        /* Detailed About Sections */
+        .detailed-about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-section {
+            margin-bottom: 80px;
+        }
+
+        .about-section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-section-title h2 {
+            font-size: 2.5rem;
+            color: var(--artistic-brown);
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .about-section-title .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--artistic-brown), var(--safari-orange));
+            margin: 0 auto;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .story-text h3 {
+            font-size: 1.8rem;
+            color: var(--artistic-brown);
+            margin-bottom: 1.5rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .story-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: var(--light);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--artistic-brown), var(--safari-orange));
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--safari-orange);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: var(--safari-orange);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: var(--artistic-brown);
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="rgba(139, 69, 19, 0.05)" stroke-width="0.5"><circle cx="50" cy="50" r="40"/></svg>');
+            background-size: 100px 100px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 30px 20px;
+        }
+
+        .member-info h3 {
+            font-size: 1.5rem;
+            color: var(--artistic-brown);
+            margin-bottom: 0.5rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .member-info .position {
+            color: var(--safari-orange);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--artistic-brown), var(--primary));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: 'Cinzel', serif;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Back to Home */
+        .back-to-home {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Premium Footer Styles */
+        .premium-footer {
+            background: linear-gradient(135deg, var(--artistic-brown), var(--primary));
+            color: white;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .slider-track {
+            display: flex;
+            width: calc(200% * 8);
+            animation: slide 60s linear infinite;
+        }
+
+        .slide {
+            width: 12.5%;
+            height: 100%;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.3) sepia(0.3) hue-rotate(180deg);
+            opacity: 0.15;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-12.5% * 4));
+            }
+        }
+
+        .footer-content-overlay {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(
+                135deg,
+                rgba(139, 69, 19, 0.85) 0%,
+                rgba(26, 109, 56, 0.9) 100%
+            );
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 0;
+            padding: 80px 0 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            font-family: 'Cinzel', serif;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--safari-orange));
+            border-radius: 2px;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-family: 'Merriweather', serif;
+            opacity: 0.95;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: 'Merriweather', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(8px);
+        }
+
+        .footer-links a i {
+            color: var(--safari-orange);
+            font-size: 0.8rem;
+        }
+
+        .footer-contact-info {
+            list-style: none;
+        }
+
+        .footer-contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-family: 'Merriweather', serif;
+            opacity: 0.95;
+        }
+
+        .footer-contact-info li i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 20px;
+            font-family: 'Merriweather', serif;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: 'Merriweather', serif;
+            transition: all 0.3s;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px rgba(249, 168, 37, 0.2);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--safari-orange));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-social a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 25px 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-copyright {
+            font-family: 'Merriweather', serif;
+            opacity: 0.9;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: 'Merriweather', serif;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--secondary);
+        }
+
+        /* Mobile Navigation Styles */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1999;
+            backdrop-filter: blur(5px);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 320px;
+            height: 100%;
+            background: linear-gradient(135deg, #1a6d38 0%, #8B4513 100%);
+            z-index: 2000;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+            border-right: 3px solid var(--safari-orange);
+        }
+
+        .mobile-nav.open {
+            left: 0;
+        }
+
+        .mobile-nav-header {
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-nav-logo {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .mobile-nav-logo i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-right: 10px;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .mobile-nav-logo h2 {
+            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(135deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .close-mobile-nav {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .close-mobile-nav:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .mobile-nav-content {
+            padding: 20px 0;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .mobile-nav-links li a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-family: 'Cinzel', serif;
+        }
+
+        .mobile-nav-links li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 30px;
+            color: var(--secondary);
+        }
+
+        .mobile-nav-links li a i {
+            transition: transform 0.3s;
+        }
+
+        .mobile-nav-links li.active a i {
+            transform: rotate(180deg);
+        }
+
+        .mobile-dropdown {
+            display: none;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0;
+        }
+
+        .mobile-dropdown li {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown li a {
+            padding: 15px 25px 15px 40px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-dropdown li a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--secondary);
+        }
+
+        .mobile-nav-footer {
+            padding: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        .mobile-language-selector {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            color: white;
+            margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .mobile-language-selector option {
+            color: var(--dark);
+        }
+
+        .mobile-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .mobile-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content nav {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .language-selector {
+                display: none;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .footer-legal {
+                gap: 15px;
+                justify-content: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-hero {
+                height: 50vh;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+      <div id="header-placeholder"></div>
+
+    <!-- Detailed About Content -->
+    <section class="detailed-about">
+        <div class="container">
+            <!-- Our Heritage Section -->
+            <div class="about-section">
+                <div class="about-section-title">
+                    <h2>Our Heritage</h2>
+                    <div class="divider"></div>
+                    <p class="elegant-text">A decade of excellence in Tanzanian tourism</p>
+                </div>
+
+                <div class="story-content">
+                    <div class="story-text">
+                        <h3>From Humble Beginnings</h3>
+                        <p class="elegant-text">Founded in 2010 by passionate Tanzanian guides, MMexy Tanzania Adventures began as a small family operation with a simple mission: to share the authentic beauty of Tanzania with the world.</p>
+                        <p>What started with just two guides and one vehicle has grown into one of Tanzania's most respected tourism companies, serving thousands of travelers from across the globe. Our founders, Juma Mwinyi and Asha Hassan, combined their extensive knowledge of Tanzanian culture and wildlife to create experiences that go beyond typical tourism.</p>
+                        <p>We believe that every traveler deserves to experience the real Tanzania - not just the popular tourist spots, but the hidden gems, the local communities, and the authentic cultural exchanges that make our country truly special.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Our humble beginnings">
+                    </div>
+                </div>
+
+                <div class="story-content">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Our growth journey">
+                    </div>
+                    <div class="story-text">
+                        <h3>Growth & Excellence</h3>
+                        <p>Over the past decade, we've expanded our operations while maintaining our commitment to quality and authenticity. Today, we operate across all major Tanzanian destinations with a team of over 50 experienced professionals including guides, drivers, hospitality staff, and conservation experts.</p>
+                        <p class="elegant-text">Our growth has been guided by one principle: exceptional experiences create lifelong memories. We've carefully selected each team member for their expertise, passion, and commitment to sustainable tourism.</p>
+                        <p>From the snow-capped peak of Kilimanjaro to the pristine beaches of Zanzibar, from the vast Serengeti plains to the historical sites of Bagamoyo, we've built relationships with local communities and conservation areas to ensure our operations benefit both travelers and Tanzanians alike.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission & Vision Section -->
+            <div class="about-section">
+                <div class="about-section-title">
+                    <h2>Our Mission & Vision</h2>
+                    <div class="divider"></div>
+                    <p class="elegant-text">Guiding principles that drive our excellence</p>
+                </div>
+
+                <div class="story-content">
+                    <div class="story-text">
+                        <h3>Our Mission</h3>
+                        <p class="elegant-text">To provide authentic, sustainable, and unforgettable Tanzanian experiences that connect travelers with the rich cultural heritage and breathtaking natural wonders of our country while supporting local communities and conservation efforts.</p>
+                        <p>We achieve this through carefully crafted itineraries that balance adventure with cultural immersion, luxury with authenticity, and exploration with conservation. Every journey with us contributes to local economies and environmental protection initiatives.</p>
+                        <div class="ornamental-border">
+                            <p class="calligraphic-text">"We don't just show you Tanzania - we help you experience it, understand it, and fall in love with it, just as we have."</p>
+                        </div>
+                    </div>
+                    <div class="story-text">
+                        <h3>Our Vision</h3>
+                        <p class="elegant-text">To be Tanzania's leading tourism company, recognized globally for our commitment to excellence, sustainability, and creating transformative travel experiences that inspire and educate.</p>
+                        <p>We envision a future where tourism becomes a powerful force for positive change - protecting natural habitats, preserving cultural traditions, and creating sustainable livelihoods for local communities. Through our work, we aim to set new standards for responsible tourism in East Africa.</p>
+                        <p>Our vision extends beyond business success to creating lasting positive impacts on Tanzania's people, wildlife, and environment for generations to come.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Values Section -->
+            <div class="about-section">
+                <div class="about-section-title">
+                    <h2>Our Values</h2>
+                    <div class="divider"></div>
+                    <p class="elegant-text">The principles that guide every decision we make</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Integrity</h3>
+                        <p>We operate with honesty and transparency in all our dealings, building trust with our clients and partners. Every promise made is a promise kept, ensuring you can book with confidence.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Sustainability</h3>
+                        <p>We're committed to eco-friendly practices and supporting conservation efforts across Tanzania. Our operations are designed to minimize environmental impact while maximizing positive community benefits.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community</h3>
+                        <p>We invest in local communities and employ Tanzanian experts to share authentic cultural experiences. A portion of every booking goes toward community development projects.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Excellence</h3>
+                        <p>We strive for the highest standards in service, safety, and customer satisfaction in everything we do. From our vehicles to our guides, only the best is good enough for our guests.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Passion</h3>
+                        <p>Our team is driven by genuine love for Tanzania and its people. This passion translates into unforgettable experiences that go beyond typical tourist activities.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Safety</h3>
+                        <p>Your wellbeing is our top priority. We maintain the highest safety standards across all our operations, with trained staff and emergency protocols for every activity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="about-section-title">
+                <h2>Meet Our Team</h2>
+                <div class="divider"></div>
+                <p class="elegant-text">The passionate experts behind your unforgettable experiences</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="data:image/jpeg;base64,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" alt="Founder & CEO">
+                    <div class="member-info">
+                        <h3>(Jina la Founder)</h3>
+                        <p class="position">Founder & CEO</p>
+                        <p>With over (_____) years in tourism, (weka jina eg. Juma) vision drives our commitment to authentic Tanzanian experiences. His extensive knowledge of Tanzanian culture and wildlife ensures every journey is both educational and transformative.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0sxKm3v_phhfI_0n3tsPLxlXlxNZqlbIxzw&s" alt="Head of Operations">
+                    <div class="member-info">
+                        <h3>(Jina la Operator)</h3>
+                        <p class="position">Head of Operations</p>
+                        <p>(_____) ensures every detail of your journey is perfectly coordinated for a seamless experience. With a background in hospitality management, she brings luxury and efficiency to every aspect of our operations.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://static.vecteezy.com/system/resources/previews/042/332/098/non_2x/default-avatar-profile-icon-grey-photo-placeholder-female-no-photo-images-for-unfilled-user-profile-greyscale-illustration-for-socail-media-web-vector.jpg" alt="Senior Safari Guide">
+                    <div class="member-info">
+                        <h3>(Jina la Assistant)</h3>
+                        <p class="position">Senior Safari Guide</p>
+                        <p>(jina eg jafari) extensive knowledge of wildlife and ecosystems makes every safari an educational adventure. Fluent in five languages, he has been guiding wildlife enthusiasts through Tanzania's national parks for over (_____) years.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home -->
+    <div class="container">
+        <div class="back-to-home">
+            <a href="index.html" class="btn">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                Back to Home
+            </a>
+        </div>
+    </div>
+
+    
+<div id="footer-placeholder"></div>
+
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+</script>
+
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Mobile Navigation Functionality
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const closeMobileNav = document.getElementById('close-mobile-nav');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+        const mobileLanguageSelect = document.getElementById('mobile-language-select');
+
+        // Open mobile nav
+        mobileMenu.addEventListener('click', function() {
+            mobileNav.classList.add('open');
+            mobileNavOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close mobile nav
+        function closeMobileNavigation() {
+            mobileNav.classList.remove('open');
+            mobileNavOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Close all dropdowns
+            mobileDropdownToggles.forEach(toggle => {
+                toggle.parentElement.classList.remove('active');
+            });
+        }
+
+        closeMobileNav.addEventListener('click', closeMobileNavigation);
+        mobileNavOverlay.addEventListener('click', closeMobileNavigation);
+
+        // Mobile dropdown functionality
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parent = this.parentElement;
+                const isActive = parent.classList.contains('active');
+                
+                // Close all other dropdowns
+                mobileDropdownToggles.forEach(t => {
+                    t.parentElement.classList.remove('active');
+                });
+                
+                // Toggle current dropdown
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile language selector
+        mobileLanguageSelect.addEventListener('change', function() {
+            alert(`Language changed to: ${this.options[this.selectedIndex].text}`);
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Close mobile nav when clicking on a link
+        document.querySelectorAll('.mobile-nav-links a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!this.classList.contains('mobile-dropdown-toggle')) {
+                    closeMobileNavigation();
+                }
+            });
+        });
+
+        // Language selector
+        document.getElementById('language-select').addEventListener('change', function() {
+            alert(`Language changed to: ${this.options[this.selectedIndex].text}`);
+        });
+
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our latest updates soon.`);
+            this.reset();
+        });
+
+        // Add hover effects to team members
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add animation to value cards on scroll
+        const valueCards = document.querySelectorAll('.value-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        valueCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+        <script src="assets/js/includes.js"></script>
+
+</body>
+</html>

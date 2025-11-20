@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zanzibar Beaches | MMexy Tanzania</title>
+    <title>Waterfall Adventures | MMexy Tanzania</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/header.css">
 
     <style>
         :root {
@@ -50,15 +50,6 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        /* Normal paragraph text style */
-        .normal-text {
-            font-family: 'Merriweather', serif;
-            font-style: normal;
-            color: var(--dark);
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
        
         /* Artistic Text Styles */
         .artistic-title {
@@ -71,6 +62,13 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
             display: inline-block;
+        }
+
+        .elegant-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--artistic-brown);
+            line-height: 1.8;
         }
 
         .safari-heading {
@@ -101,11 +99,10 @@
         }
 
         
-
         /* Destination Hero Section */
         .destination-hero {
             height: 60vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.tanzaniaodyssey.com/site/odyssey-image-proxy/area/zanzibar=400976-330.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -372,7 +369,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba');
             background-size: cover;
             opacity: 0.1;
             z-index: 0;
@@ -767,7 +764,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-       
         /* Responsive Design */
         @media (max-width: 992px) {
             .package-details {
@@ -850,14 +846,15 @@
     </style>
 </head>
 <body>
-      <div id="header-placeholder"></div>
+
+   <div id="header-placeholder"></div>
 
     <!-- Destination Hero Section -->
     <section class="destination-hero">
         <div class="destination-hero-content">
-            <h1>Zanzibar Beach Paradise</h1>
-            <p>White Sands, Turquoise Waters, and Tropical Bliss</p>
-            <button class="btn" onclick="openBookingModal()">Book Your Beach Getaway</button>
+            <h1>Waterfall Adventures</h1>
+            <p>Discover Tanzania's Hidden Waterfall Wonders</p>
+            <button class="btn" onclick="openWaterfallBookingModal()">Book Your Waterfall Adventure</button>
         </div>
     </section>
 
@@ -865,98 +862,75 @@
     <section class="destination-content">
         <div class="container">
             <div class="section-title">
-                <h2>Zanzibar Island Escape</h2>
-                <p class="normal-text">3-7 Days of Tropical Relaxation and Cultural Discovery</p>
+                <h2>Tanzania Waterfall Expedition</h2>
+                <p class="elegant-text">2-4 Days of Refreshing Waterfall Exploration</p>
             </div>
 
             <div class="package-details">
                 <div class="package-description">
-                    <h3>About This Beach Getaway</h3>
-                    <p class="normal-text">Discover the tropical paradise of Zanzibar, where pristine white sand beaches meet crystal-clear turquoise waters. Our Zanzibar beach packages offer the perfect blend of relaxation, adventure, and cultural immersion. From luxurious beach resorts to authentic spice tours, experience the best of this Indian Ocean gem.</p>
+                    <h3>About This Adventure</h3>
+                    <p class="elegant-text">Immerse yourself in the breathtaking beauty of Tanzania's most spectacular waterfalls. From thundering cascades to serene natural pools, our waterfall tours take you through lush rainforests and scenic landscapes to discover nature's most mesmerizing water displays.</p>
                     
                     <h4>Key Highlights</h4>
                     <ul>
-                        <li>Pristine white sand beaches</li>
-                        <li>World-class snorkeling and diving</li>
-                        <li>Historic Stone Town exploration</li>
-                        <li>Spice plantation tours</li>
-                        <li>Luxury beachfront accommodation</li>
+                        <li>Swim in natural waterfall pools</li>
+                        <li>Hike through pristine rainforests</li>
+                        <li>Professional local guides</li>
+                        <li>Photography opportunities</li>
+                        <li>Traditional picnic lunches</li>
+                        <li>Cultural experiences with local communities</li>
                     </ul>
                 </div>
-
+            </div>
 
             <!-- Itinerary -->
             <div class="itinerary">
-                <h3 class="section-title">5-Day Zanzibar Beach Escape Itinerary</h3>
+                <h3 class="section-title">3-Day Waterfall Discovery Itinerary</h3>
                 
                 <div class="itinerary-day">
                     <div class="day-header">
-                        <div class="day-title">Day 1: Arrival in Zanzibar</div>
-                        <div class="day-duration">Beach Resort</div>
+                        <div class="day-title">Day 1: Arrival & Materuni Waterfalls</div>
+                        <div class="day-duration">4-5 hours</div>
                     </div>
                     <div class="day-activities">
-                        Arrive at Zanzibar International Airport, transfer to your beachfront resort. Settle in and enjoy your first sunset over the Indian Ocean. Welcome dinner and orientation.
+                        Arrive at your accommodation near Moshi. Morning hike to Materuni Waterfalls through coffee plantations. Swim in the natural pool and enjoy traditional Chagga lunch. Return to accommodation for relaxation.
                     </div>
                 </div>
 
                 <div class="itinerary-day">
                     <div class="day-header">
-                        <div class="day-title">Day 2: Beach Relaxation & Water Sports</div>
-                        <div class="day-duration">Full Day Beach Activities</div>
+                        <div class="day-title">Day 2: Marangu Waterfalls & Cultural Experience</div>
+                        <div class="day-duration">6-7 hours</div>
                     </div>
                     <div class="day-activities">
-                        Morning at leisure to enjoy the beach. Afternoon snorkeling session to explore the coral reefs. Optional water sports activities including kayaking and paddle boarding.
+                        Full day exploring Marangu's multiple waterfalls. Visit the stunning Ndoro and Kinukamori falls. Experience Chagga culture with traditional dances and local cuisine. Optional coffee tour in the afternoon.
                     </div>
                 </div>
 
                 <div class="itinerary-day">
                     <div class="day-header">
-                        <div class="day-title">Day 3: Spice Tour & Stone Town</div>
-                        <div class="day-duration">Cultural Exploration</div>
+                        <div class="day-title">Day 3: Kikuletwa Hot Springs & Departure</div>
+                        <div class="day-duration">5-6 hours</div>
                     </div>
                     <div class="day-activities">
-                        Morning spice plantation tour to learn about Zanzibar's famous spices. Afternoon guided tour of historic Stone Town, visiting the Old Fort, House of Wonders, and local markets.
-                    </div>
-                </div>
-
-                <div class="itinerary-day">
-                    <div class="day-header">
-                        <div class="day-title">Day 4: Prison Island & Dolphin Tour</div>
-                        <div class="day-duration">Island Excursion</div>
-                    </div>
-                    <div class="day-activities">
-                        Boat trip to Prison Island to see giant tortoises and enjoy snorkeling. Afternoon dolphin watching tour in Kizimkazi. Sunset dhow cruise with traditional music.
-                    </div>
-                </div>
-
-                <div class="itinerary-day">
-                    <div class="day-header">
-                        <div class="day-title">Day 5: Departure</div>
-                        <div class="day-duration">Farewell</div>
-                    </div>
-                    <div class="day-activities">
-                        Morning at leisure for last-minute beach time and souvenir shopping. Transfer to Zanzibar International Airport for departure with unforgettable memories.
+                        Morning visit to Kikuletwa Hot Springs - a natural oasis with crystal-clear waters. Swim and relax in the warm springs. Enjoy final traditional lunch before departure transfer.
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-
-      
+            
             <!-- Includes & Excludes -->
             <div class="includes-excludes">
                 <div class="includes-box">
                     <h3><i class="fas fa-check-circle"></i> What's Included</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Beachfront hotel accommodation</li>
-                        <li><i class="fas fa-check"></i> All meals (breakfast, lunch, dinner)</li>
-                        <li><i class="fas fa-check"></i> Airport transfers</li>
-                        <li><i class="fas fa-check"></i> Snorkeling equipment rental</li>
-                        <li><i class="fas fa-check"></i> Spice plantation tour</li>
-                        <li><i class="fas fa-check"></i> Stone Town guided tour</li>
-                        <li><i class="fas fa-check"></i> Beach activities</li>
-                        <li><i class="fas fa-check"></i> Hotel taxes and service charges</li>
+                        <li><i class="fas fa-check"></i> Professional local guides</li>
+                        <li><i class="fas fa-check"></i> All park and entrance fees</li>
+                        <li><i class="fas fa-check"></i> Accommodation for 2 nights</li>
+                        <li><i class="fas fa-check"></i> All meals during the tour</li>
+                        <li><i class="fas fa-check"></i> Transportation to/from waterfalls</li>
+                        <li><i class="fas fa-check"></i> Traditional picnic lunches</li>
+                        <li><i class="fas fa-check"></i> Bottled drinking water</li>
+                        <li><i class="fas fa-check"></i> Cultural experiences</li>
                     </ul>
                 </div>
 
@@ -967,26 +941,27 @@
                         <li><i class="fas fa-times"></i> Tanzania visa fees</li>
                         <li><i class="fas fa-times"></i> Travel insurance</li>
                         <li><i class="fas fa-times"></i> Alcoholic beverages</li>
-                        <li><i class="fas fa-times"></i> Optional activities</li>
                         <li><i class="fas fa-times"></i> Personal expenses</li>
-                        <li><i class="fas fa-times"></i> Spa treatments</li>
-                        <li><i class="fas fa-times"></i> Tips for staff</li>
+                        <li><i class="fas fa-times"></i> Tips for guides</li>
+                        <li><i class="fas fa-times"></i> Optional activities</li>
+                        <li><i class="fas fa-times"></i> Additional accommodation</li>
                     </ul>
                 </div>
             </div>
-
-       <!-- Booking Section -->
+        </div>
+    </section>
+    <!-- Booking Section -->
     <section class="booking-section-destination">
         <div class="container">
             <div class="booking-cta">
-                <h2>Ready for Your Zanzibar Escape?</h2>
-                <p class="normal-text">Book your beach paradise today and experience the ultimate tropical getaway.</p>
-                <button class="btn" onclick="openZanzibarBookingModal()">Book Your Beach Getaway</button>
+                <h2>Ready for Your Waterfall Adventure?</h2>
+                <p class="elegant-text">Book your waterfall exploration today and experience the magic of Tanzania's natural water wonders.</p>
+                <button class="btn" onclick="openWaterfallBookingModal()">Book Your Waterfall Adventure</button>
             </div>
         </div>
     </section>
 
-    
+  
 <div id="footer-placeholder"></div>
 
 <script>
@@ -999,11 +974,11 @@
 
 
     <!-- Premium Booking Modal -->
-    <div class="premium-modal" id="zanzibar-premium-modal">
+    <div class="premium-modal" id="waterfall-premium-modal">
         <div class="premium-modal-content">
             <div class="premium-modal-header">
-                <h2>Book Your Zanzibar Beach Getaway</h2>
-                <button class="close-premium-modal" id="close-zanzibar-premium-modal">&times;</button>
+                <h2>Book Your Waterfall Adventure</h2>
+                <button class="close-premium-modal" id="close-waterfall-premium-modal">&times;</button>
             </div>
             <div class="premium-modal-body">
                 <!-- Booking Steps -->
@@ -1023,34 +998,34 @@
                 </div>
 
                 <!-- Step 1: Package Level Selection -->
-                <div class="booking-section active" id="zanzibar-step-1">
-                    <h3 class="step-title">Choose Your Beach Experience</h3>
+                <div class="booking-section active" id="waterfall-step-1">
+                    <h3 class="step-title">Choose Your Waterfall Experience</h3>
                     <div class="package-levels">
                         <div class="package-level local" data-level="local">
                             <div class="level-icon">
-                                <i class="fas fa-umbrella-beach"></i>
+                                <i class="fas fa-water"></i>
                             </div>
                             <div class="level-name">STANDARD</div>
-                            <div class="level-price">$300</div>
+                            <div class="level-price">$180</div>
                             <ul class="level-features">
-                                <li><i class="fas fa-check"></i> Beach Hotel Accommodation</li>
-                                <li><i class="fas fa-check"></i> Breakfast Included</li>
-                                <li><i class="fas fa-check"></i> Airport Transfers</li>
-                                <li><i class="fas fa-check"></i> Basic Beach Activities</li>
+                                <li><i class="fas fa-check"></i> 2-Day Waterfall Tour</li>
+                                <li><i class="fas fa-check"></i> Local Guide</li>
+                                <li><i class="fas fa-check"></i> Basic Accommodation</li>
+                                <li><i class="fas fa-check"></i> Traditional Meals</li>
                             </ul>
                         </div>
                         <div class="package-level vip" data-level="vip">
                             <div class="level-icon">
-                                <i class="fas fa-crown"></i>
+                                <i class="fas fa-hiking"></i>
                             </div>
                             <div class="level-name">COMFORT</div>
-                            <div class="level-price">$500</div>
+                            <div class="level-price">$280</div>
                             <ul class="level-features">
-                                <li><i class="fas fa-check"></i> Beachfront Resort</li>
+                                <li><i class="fas fa-check"></i> 3-Day Complete Tour</li>
+                                <li><i class="fas fa-check"></i> Expert Guide</li>
+                                <li><i class="fas fa-check"></i> Comfort Accommodation</li>
                                 <li><i class="fas fa-check"></i> All Meals Included</li>
-                                <li><i class="fas fa-check"></i> Private Transfers</li>
-                                <li><i class="fas fa-check"></i> Water Sports Activities</li>
-                                <li><i class="fas fa-check"></i> Spice Tour Included</li>
+                                <li><i class="fas fa-check"></i> Photography Service</li>
                             </ul>
                         </div>
                         <div class="package-level vvip" data-level="vvip">
@@ -1058,31 +1033,31 @@
                                 <i class="fas fa-gem"></i>
                             </div>
                             <div class="level-name">LUXURY</div>
-                            <div class="level-price">$800</div>
+                            <div class="level-price">$420</div>
                             <ul class="level-features">
-                                <li><i class="fas fa-check"></i> Luxury Beach Resort</li>
-                                <li><i class="fas fa-check"></i> Premium All-Inclusive</li>
-                                <li><i class="fas fa-check"></i> Private Villa</li>
-                                <li><i class="fas fa-check"></i> All Activities Included</li>
+                                <li><i class="fas fa-check"></i> 4-Day Luxury Tour</li>
+                                <li><i class="fas fa-check"></i> Private Guide</li>
+                                <li><i class="fas fa-check"></i> Luxury Accommodation</li>
+                                <li><i class="fas fa-check"></i> Gourmet Meals</li>
+                                <li><i class="fas fa-check"></i> Private Transport</li>
                                 <li><i class="fas fa-check"></i> Spa Treatments</li>
-                                <li><i class="fas fa-check"></i> Private Boat Excursions</li>
                             </ul>
                         </div>
                     </div>
                     <div class="mobile-actions">
-                        <button class="mobile-next-btn" onclick="zanzibarNextStep(2)">
+                        <button class="mobile-next-btn" onclick="waterfallNextStep(2)">
                             <span>Next: Travel Style</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                     <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="closeZanzibarPremiumModal()">Cancel</button>
-                        <button class="modal-btn btn-primary desktop-only" onclick="zanzibarNextStep(2)">Next: Travel Style</button>
+                        <button class="modal-btn btn-secondary" onclick="closeWaterfallPremiumModal()">Cancel</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="waterfallNextStep(2)">Next: Travel Style</button>
                     </div>
                 </div>
 
                 <!-- Step 2: Travel Style Selection -->
-                <div class="booking-section" id="zanzibar-step-2">
+                <div class="booking-section" id="waterfall-step-2">
                     <h3 class="step-title">Select Your Travel Style</h3>
                     <div class="group-selection">
                         <div class="group-options">
@@ -1091,7 +1066,7 @@
                                     <i class="fas fa-user"></i>
                                 </div>
                                 <div class="group-name">Solo Traveler</div>
-                                <div class="group-description">Perfect for solo beach lovers</div>
+                                <div class="group-description">Perfect for solo adventurers</div>
                             </div>
                             <div class="group-option" data-group="double">
                                 <div class="group-icon">
@@ -1117,11 +1092,11 @@
                         </div>
 
                         <!-- People Counter (Visible for Group Adventure) -->
-                        <div class="people-counter" id="zanzibar-people-counter" style="display: none;">
+                        <div class="people-counter" id="waterfall-people-counter" style="display: none;">
                             <div class="counter-label">Group Size:</div>
-                            <button class="counter-btn" onclick="zanzibarChangePeopleCount(-1)">-</button>
-                            <div class="people-count" id="zanzibar-people-count">4</div>
-                            <button class="counter-btn" onclick="zanzibarChangePeopleCount(1)">+</button>
+                            <button class="counter-btn" onclick="waterfallChangePeopleCount(-1)">-</button>
+                            <div class="people-count" id="waterfall-people-count">4</div>
+                            <button class="counter-btn" onclick="waterfallChangePeopleCount(1)">+</button>
                         </div>
                     </div>
 
@@ -1129,48 +1104,48 @@
                     <div class="price-summary">
                         <div class="price-breakdown">
                             <div class="price-item">
-                                <span class="price-label" id="zanzibar-package-type-label">Standard Package</span>
-                                <span class="price-value" id="zanzibar-base-price">$300</span>
+                                <span class="price-label" id="waterfall-package-type-label">Standard Package</span>
+                                <span class="price-value" id="waterfall-base-price">$180</span>
                             </div>
                             <div class="price-item">
-                                <span class="price-label" id="zanzibar-group-type-label">Solo Traveler</span>
-                                <span class="price-value" id="zanzibar-group-multiplier">x1</span>
+                                <span class="price-label" id="waterfall-group-type-label">Solo Traveler</span>
+                                <span class="price-value" id="waterfall-group-multiplier">x1</span>
                             </div>
-                            <div class="price-item" id="zanzibar-people-item" style="display: none;">
-                                <span class="price-label" id="zanzibar-people-count-label">4 people</span>
-                                <span class="price-value" id="zanzibar-people-multiplier">x4</span>
+                            <div class="price-item" id="waterfall-people-item" style="display: none;">
+                                <span class="price-label" id="waterfall-people-count-label">4 people</span>
+                                <span class="price-value" id="waterfall-people-multiplier">x4</span>
                             </div>
                             <!-- Discount Display -->
-                            <div class="price-item" id="zanzibar-discount-item" style="display: none;">
+                            <div class="price-item" id="waterfall-discount-item" style="display: none;">
                                 <span class="price-label discount-label">Group Discount (20%)</span>
-                                <span class="price-value discount-value" id="zanzibar-discount-amount">-$240</span>
+                                <span class="price-value discount-value" id="waterfall-discount-amount">-$144</span>
                             </div>
                         </div>
                         <div class="total-price">
                             <span class="total-label">Total Price:</span>
-                            <span class="total-value" id="zanzibar-total-price">$300</span>
+                            <span class="total-value" id="waterfall-total-price">$180</span>
                         </div>
                         <!-- Original Price Display -->
-                        <div class="original-price" id="zanzibar-original-price" style="display: none;">
+                        <div class="original-price" id="waterfall-original-price" style="display: none;">
                             <span class="original-label">Original Price:</span>
-                            <span class="original-value" id="zanzibar-original-value">$1,200</span>
+                            <span class="original-value" id="waterfall-original-value">$720</span>
                         </div>
                     </div>
 
                     <div class="mobile-actions">
-                        <button class="mobile-next-btn" onclick="zanzibarNextStep(3)">
+                        <button class="mobile-next-btn" onclick="waterfallNextStep(3)">
                             <span>Next: Book Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                     <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="zanzibarPrevStep(1)">Back</button>
-                        <button class="modal-btn btn-primary desktop-only" onclick="zanzibarNextStep(3)">Next: Book Now</button>
+                        <button class="modal-btn btn-secondary" onclick="waterfallPrevStep(1)">Back</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="waterfallNextStep(3)">Next: Book Now</button>
                     </div>
                 </div>
 
                 <!-- Step 3: Final Booking -->
-                <div class="booking-section" id="zanzibar-step-3">
+                <div class="booking-section" id="waterfall-step-3">
                     <h3 class="step-title">Confirm Your Booking</h3>
                     
                     <div class="price-summary">
@@ -1178,59 +1153,59 @@
                         <div class="price-breakdown">
                             <div class="price-item">
                                 <span class="price-label">Destination:</span>
-                                <span class="price-value" id="zanzibar-summary-destination">Zanzibar Beaches</span>
+                                <span class="price-value" id="waterfall-summary-destination">Tanzania Waterfalls</span>
                             </div>
                             <div class="price-item">
                                 <span class="price-label">Package Level:</span>
-                                <span class="price-value" id="zanzibar-summary-package">Standard</span>
+                                <span class="price-value" id="waterfall-summary-package">Standard</span>
                             </div>
                             <div class="price-item">
                                 <span class="price-label">Travel Style:</span>
-                                <span class="price-value" id="zanzibar-summary-group">Solo Traveler</span>
+                                <span class="price-value" id="waterfall-summary-group">Solo Traveler</span>
                             </div>
-                            <div class="price-item" id="zanzibar-summary-people-item" style="display: none;">
+                            <div class="price-item" id="waterfall-summary-people-item" style="display: none;">
                                 <span class="price-label">Number of People:</span>
-                                <span class="price-value" id="zanzibar-summary-people">4</span>
+                                <span class="price-value" id="waterfall-summary-people">4</span>
                             </div>
                             <div class="price-item">
                                 <span class="price-label">Duration:</span>
-                                <span class="price-value" id="zanzibar-summary-duration">3-7 Days</span>
+                                <span class="price-value" id="waterfall-summary-duration">2-4 Days</span>
                             </div>
-                            <div class="price-item" id="zanzibar-summary-discount-item" style="display: none;">
+                            <div class="price-item" id="waterfall-summary-discount-item" style="display: none;">
                                 <span class="price-label discount-label">Group Discount Applied:</span>
-                                <span class="price-value discount-value" id="zanzibar-summary-discount">20%</span>
+                                <span class="price-value discount-value" id="waterfall-summary-discount">20%</span>
                             </div>
                         </div>
                         <div class="total-price">
                             <span class="total-label">Total Amount:</span>
-                            <span class="total-value" id="zanzibar-summary-total">$300</span>
+                            <span class="total-value" id="waterfall-summary-total">$180</span>
                         </div>
                         <!-- Original Price Display in Summary -->
-                        <div class="original-price" id="zanzibar-summary-original-price" style="display: none;">
+                        <div class="original-price" id="waterfall-summary-original-price" style="display: none;">
                             <span class="original-label">Original Price:</span>
-                            <span class="original-value" id="zanzibar-summary-original-value">$1,200</span>
+                            <span class="original-value" id="waterfall-summary-original-value">$720</span>
                         </div>
                     </div>
 
                     <div class="contact-form">
                         <h4 class="summary-title">Contact Information</h4>
                         <div class="form-grid">
-                            <input type="text" id="zanzibar-firstName" placeholder="First Name" class="form-input">
-                            <input type="text" id="zanzibar-lastName" placeholder="Last Name" class="form-input">
-                            <input type="email" id="zanzibar-email" placeholder="Email Address" class="form-input full-width">
-                            <input type="tel" id="zanzibar-phone" placeholder="Phone Number" class="form-input full-width">
+                            <input type="text" id="waterfall-firstName" placeholder="First Name" class="form-input">
+                            <input type="text" id="waterfall-lastName" placeholder="Last Name" class="form-input">
+                            <input type="email" id="waterfall-email" placeholder="Email Address" class="form-input full-width">
+                            <input type="tel" id="waterfall-phone" placeholder="Phone Number" class="form-input full-width">
                         </div>
                     </div>
 
                     <div class="mobile-actions">
-                        <button class="mobile-complete-btn" onclick="zanzibarCompleteBooking()">
+                        <button class="mobile-complete-btn" onclick="waterfallCompleteBooking()">
                             <i class="fas fa-credit-card"></i>
                             <span>Complete Booking</span>
                         </button>
                     </div>
                     <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="zanzibarPrevStep(2)">Back</button>
-                        <button class="modal-btn btn-primary desktop-only" onclick="zanzibarCompleteBooking()">
+                        <button class="modal-btn btn-secondary" onclick="waterfallPrevStep(2)">Back</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="waterfallCompleteBooking()">
                             <i class="fas fa-credit-card"></i> Complete Booking
                         </button>
                     </div>
@@ -1240,7 +1215,7 @@
     </div>
 
     <style>
-        /* Zanzibar Specific Mobile Styles */
+        /* Waterfall Specific Mobile Styles */
         .premium-modal-content {
             width: 95%;
             max-width: 500px;
@@ -1266,8 +1241,8 @@
         .package-level {
             padding: 20px;
             margin-bottom: 0;
-            background: rgba(0, 105, 148, 0.1);
-            border: 2px solid rgba(0, 105, 148, 0.3);
+            background: rgba(139, 69, 19, 0.1);
+            border: 2px solid rgba(139, 69, 19, 0.3);
         }
         
         .package-level.selected {
@@ -1285,8 +1260,8 @@
         .group-option {
             padding: 15px;
             min-height: 100px;
-            background: rgba(0, 105, 148, 0.05);
-            border: 2px solid rgba(0, 105, 148, 0.2);
+            background: rgba(139, 69, 19, 0.05);
+            border: 2px solid rgba(139, 69, 19, 0.2);
         }
         
         .group-option.selected {
@@ -1385,13 +1360,13 @@
         .price-summary {
             padding: 15px;
             margin: 15px 0;
-            background: rgba(0, 105, 148, 0.1);
+            background: rgba(139, 69, 19, 0.1);
         }
         
         .people-counter {
             padding: 12px;
             margin: 15px 0;
-            background: rgba(0, 105, 148, 0.1);
+            background: rgba(139, 69, 19, 0.1);
             border-radius: 10px;
         }
         
@@ -1502,15 +1477,15 @@
     </style>
 
     <script>
-        // Zanzibar Booking System Variables
-        let zanzibarCurrentBooking = {
-            destination: 'zanzibar',
+        // Waterfall Booking System Variables
+        let waterfallCurrentBooking = {
+            destination: 'waterfall',
             packageLevel: 'local',
             groupType: 'single',
             peopleCount: 4,
-            basePrice: 300,
-            totalPrice: 300,
-            originalPrice: 300,
+            basePrice: 180,
+            totalPrice: 180,
+            originalPrice: 180,
             discountApplied: false,
             discountAmount: 0,
             contactInfo: {
@@ -1521,29 +1496,29 @@
             }
         };
 
-        // Price configuration for zanzibar beaches
-        const zanzibarPackagePrices = {
-            local: 300,
-            vip: 500,
-            vvip: 800
+        // Price configuration for waterfall adventures
+        const waterfallPackagePrices = {
+            local: 180,
+            vip: 280,
+            vvip: 420
         };
 
-        const zanzibarGroupMultipliers = {
+        const waterfallGroupMultipliers = {
             single: 1,
             double: 2,
             family: 2.5,
             group: 1
         };
 
-        // Zanzibar Modal Navigation
-        function zanzibarShowStep(stepNumber) {
-            document.querySelectorAll('.booking-section').forEach(section => {
+        // Waterfall Modal Navigation
+        function waterfallShowStep(stepNumber) {
+            document.querySelectorAll('#waterfall-premium-modal .booking-section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            document.getElementById(`zanzibar-step-${stepNumber}`).classList.add('active');
+            document.getElementById(`waterfall-step-${stepNumber}`).classList.add('active');
             
-            document.querySelectorAll('.booking-step').forEach(step => {
+            document.querySelectorAll('#waterfall-premium-modal .booking-step').forEach(step => {
                 step.classList.remove('active');
                 if (parseInt(step.dataset.step) <= stepNumber) {
                     step.classList.add('active');
@@ -1551,240 +1526,240 @@
             });
 
             if (stepNumber === 3) {
-                zanzibarUpdateBookingSummary();
+                waterfallUpdateBookingSummary();
             }
             
             // Scroll to top when changing steps on mobile
             if (window.innerWidth <= 768) {
-                document.querySelector('.premium-modal-body').scrollTop = 0;
+                document.querySelector('#waterfall-premium-modal .premium-modal-body').scrollTop = 0;
             }
         }
 
-        function zanzibarNextStep(step) {
-            zanzibarShowStep(step);
+        function waterfallNextStep(step) {
+            waterfallShowStep(step);
         }
 
-        function zanzibarPrevStep(step) {
-            zanzibarShowStep(step);
+        function waterfallPrevStep(step) {
+            waterfallShowStep(step);
         }
 
-        // Zanzibar Package Level Selection
-        document.querySelectorAll('#zanzibar-premium-modal .package-level').forEach(level => {
+        // Waterfall Package Level Selection
+        document.querySelectorAll('#waterfall-premium-modal .package-level').forEach(level => {
             level.addEventListener('click', function() {
-                document.querySelectorAll('#zanzibar-premium-modal .package-level').forEach(l => {
+                document.querySelectorAll('#waterfall-premium-modal .package-level').forEach(l => {
                     l.classList.remove('selected');
                 });
                 
                 this.classList.add('selected');
                 
-                zanzibarCurrentBooking.packageLevel = this.dataset.level;
-                zanzibarUpdatePrice();
+                waterfallCurrentBooking.packageLevel = this.dataset.level;
+                waterfallUpdatePrice();
             });
         });
 
-        // Zanzibar Travel Style Selection
-        document.querySelectorAll('#zanzibar-premium-modal .group-option').forEach(option => {
+        // Waterfall Travel Style Selection
+        document.querySelectorAll('#waterfall-premium-modal .group-option').forEach(option => {
             option.addEventListener('click', function() {
-                document.querySelectorAll('#zanzibar-premium-modal .group-option').forEach(opt => {
+                document.querySelectorAll('#waterfall-premium-modal .group-option').forEach(opt => {
                     opt.classList.remove('selected');
                 });
                 
                 this.classList.add('selected');
                 
-                zanzibarCurrentBooking.groupType = this.dataset.group;
+                waterfallCurrentBooking.groupType = this.dataset.group;
                 
-                const peopleCounter = document.getElementById('zanzibar-people-counter');
-                if (zanzibarCurrentBooking.groupType === 'group') {
+                const peopleCounter = document.getElementById('waterfall-people-counter');
+                if (waterfallCurrentBooking.groupType === 'group') {
                     peopleCounter.style.display = 'flex';
-                    document.getElementById('zanzibar-people-item').style.display = 'flex';
+                    document.getElementById('waterfall-people-item').style.display = 'flex';
                     // Set minimum for group adventure
-                    zanzibarCurrentBooking.peopleCount = 2;
-                    document.getElementById('zanzibar-people-count').textContent = zanzibarCurrentBooking.peopleCount;
+                    waterfallCurrentBooking.peopleCount = 2;
+                    document.getElementById('waterfall-people-count').textContent = waterfallCurrentBooking.peopleCount;
                 } else {
                     peopleCounter.style.display = 'none';
-                    document.getElementById('zanzibar-people-item').style.display = 'none';
+                    document.getElementById('waterfall-people-item').style.display = 'none';
                     
                     // Set default people counts for other options
-                    if (zanzibarCurrentBooking.groupType === 'single') {
-                        zanzibarCurrentBooking.peopleCount = 1;
-                    } else if (zanzibarCurrentBooking.groupType === 'double') {
-                        zanzibarCurrentBooking.peopleCount = 2;
-                    } else if (zanzibarCurrentBooking.groupType === 'family') {
-                        zanzibarCurrentBooking.peopleCount = 4;
+                    if (waterfallCurrentBooking.groupType === 'single') {
+                        waterfallCurrentBooking.peopleCount = 1;
+                    } else if (waterfallCurrentBooking.groupType === 'double') {
+                        waterfallCurrentBooking.peopleCount = 2;
+                    } else if (waterfallCurrentBooking.groupType === 'family') {
+                        waterfallCurrentBooking.peopleCount = 4;
                     }
                 }
                 
-                zanzibarUpdatePrice();
+                waterfallUpdatePrice();
             });
         });
 
-        // Zanzibar People Counter
-        function zanzibarChangePeopleCount(change) {
-            let newCount = zanzibarCurrentBooking.peopleCount + change;
+        // Waterfall People Counter
+        function waterfallChangePeopleCount(change) {
+            let newCount = waterfallCurrentBooking.peopleCount + change;
             
             if (newCount < 2) newCount = 2;
             if (newCount > 30) newCount = 30;
             
-            zanzibarCurrentBooking.peopleCount = newCount;
-            document.getElementById('zanzibar-people-count').textContent = newCount;
-            zanzibarUpdatePrice();
+            waterfallCurrentBooking.peopleCount = newCount;
+            document.getElementById('waterfall-people-count').textContent = newCount;
+            waterfallUpdatePrice();
         }
 
-        // Zanzibar Price Calculation with Discount
-        function zanzibarUpdatePrice() {
-            const basePrice = zanzibarPackagePrices[zanzibarCurrentBooking.packageLevel] || 300;
-            zanzibarCurrentBooking.basePrice = basePrice;
+        // Waterfall Price Calculation with Discount
+        function waterfallUpdatePrice() {
+            const basePrice = waterfallPackagePrices[waterfallCurrentBooking.packageLevel] || 180;
+            waterfallCurrentBooking.basePrice = basePrice;
             
-            let multiplier = zanzibarGroupMultipliers[zanzibarCurrentBooking.groupType];
+            let multiplier = waterfallGroupMultipliers[waterfallCurrentBooking.groupType];
             
-            if (zanzibarCurrentBooking.groupType === 'group') {
-                multiplier = zanzibarCurrentBooking.peopleCount;
-            } else if (zanzibarCurrentBooking.groupType === 'double') {
+            if (waterfallCurrentBooking.groupType === 'group') {
+                multiplier = waterfallCurrentBooking.peopleCount;
+            } else if (waterfallCurrentBooking.groupType === 'double') {
                 multiplier = 2;
             }
             
             // Calculate original price
-            zanzibarCurrentBooking.originalPrice = basePrice * multiplier;
+            waterfallCurrentBooking.originalPrice = basePrice * multiplier;
             
             // Apply 20% discount for groups of 3 or more people
-            if (zanzibarCurrentBooking.peopleCount >= 3 && zanzibarCurrentBooking.groupType === 'group') {
-                zanzibarCurrentBooking.discountApplied = true;
-                zanzibarCurrentBooking.discountAmount = zanzibarCurrentBooking.originalPrice * 0.2;
-                zanzibarCurrentBooking.totalPrice = zanzibarCurrentBooking.originalPrice - zanzibarCurrentBooking.discountAmount;
+            if (waterfallCurrentBooking.peopleCount >= 3 && waterfallCurrentBooking.groupType === 'group') {
+                waterfallCurrentBooking.discountApplied = true;
+                waterfallCurrentBooking.discountAmount = waterfallCurrentBooking.originalPrice * 0.2;
+                waterfallCurrentBooking.totalPrice = waterfallCurrentBooking.originalPrice - waterfallCurrentBooking.discountAmount;
             } else {
-                zanzibarCurrentBooking.discountApplied = false;
-                zanzibarCurrentBooking.discountAmount = 0;
-                zanzibarCurrentBooking.totalPrice = zanzibarCurrentBooking.originalPrice;
+                waterfallCurrentBooking.discountApplied = false;
+                waterfallCurrentBooking.discountAmount = 0;
+                waterfallCurrentBooking.totalPrice = waterfallCurrentBooking.originalPrice;
             }
             
-            zanzibarUpdatePriceDisplay();
+            waterfallUpdatePriceDisplay();
         }
 
-        function zanzibarUpdatePriceDisplay() {
-            document.getElementById('zanzibar-base-price').textContent = `$${zanzibarCurrentBooking.basePrice}`;
-            document.getElementById('zanzibar-package-type-label').textContent = 
-                `${zanzibarCurrentBooking.packageLevel.toUpperCase()} Package`;
+        function waterfallUpdatePriceDisplay() {
+            document.getElementById('waterfall-base-price').textContent = `$${waterfallCurrentBooking.basePrice}`;
+            document.getElementById('waterfall-package-type-label').textContent = 
+                `${waterfallCurrentBooking.packageLevel.toUpperCase()} Package`;
             
-            const groupLabel = document.getElementById('zanzibar-group-type-label');
-            const groupMultiplier = document.getElementById('zanzibar-group-multiplier');
+            const groupLabel = document.getElementById('waterfall-group-type-label');
+            const groupMultiplier = document.getElementById('waterfall-group-multiplier');
             
-            if (zanzibarCurrentBooking.groupType === 'single') {
+            if (waterfallCurrentBooking.groupType === 'single') {
                 groupLabel.textContent = 'Solo Traveler';
                 groupMultiplier.textContent = 'x1';
-            } else if (zanzibarCurrentBooking.groupType === 'double') {
+            } else if (waterfallCurrentBooking.groupType === 'double') {
                 groupLabel.textContent = 'Couple Package';
                 groupMultiplier.textContent = 'x2';
-            } else if (zanzibarCurrentBooking.groupType === 'family') {
+            } else if (waterfallCurrentBooking.groupType === 'family') {
                 groupLabel.textContent = 'Family Package';
                 groupMultiplier.textContent = 'x2.5';
             } else {
                 groupLabel.textContent = 'Group Adventure';
-                groupMultiplier.textContent = `x${zanzibarCurrentBooking.peopleCount}`;
+                groupMultiplier.textContent = `x${waterfallCurrentBooking.peopleCount}`;
                 
-                document.getElementById('zanzibar-people-count-label').textContent = 
-                    `${zanzibarCurrentBooking.peopleCount} people`;
-                document.getElementById('zanzibar-people-multiplier').textContent = 
-                    `x${zanzibarCurrentBooking.peopleCount}`;
+                document.getElementById('waterfall-people-count-label').textContent = 
+                    `${waterfallCurrentBooking.peopleCount} people`;
+                document.getElementById('waterfall-people-multiplier').textContent = 
+                    `x${waterfallCurrentBooking.peopleCount}`;
             }
             
             // Show/hide discount
-            const discountItem = document.getElementById('zanzibar-discount-item');
-            const originalPriceDisplay = document.getElementById('zanzibar-original-price');
+            const discountItem = document.getElementById('waterfall-discount-item');
+            const originalPriceDisplay = document.getElementById('waterfall-original-price');
             
-            if (zanzibarCurrentBooking.discountApplied) {
+            if (waterfallCurrentBooking.discountApplied) {
                 discountItem.style.display = 'flex';
                 originalPriceDisplay.style.display = 'block';
-                document.getElementById('zanzibar-discount-amount').textContent = `-$${Math.round(zanzibarCurrentBooking.discountAmount)}`;
-                document.getElementById('zanzibar-original-value').textContent = `$${Math.round(zanzibarCurrentBooking.originalPrice)}`;
+                document.getElementById('waterfall-discount-amount').textContent = `-$${Math.round(waterfallCurrentBooking.discountAmount)}`;
+                document.getElementById('waterfall-original-value').textContent = `$${Math.round(waterfallCurrentBooking.originalPrice)}`;
             } else {
                 discountItem.style.display = 'none';
                 originalPriceDisplay.style.display = 'none';
             }
             
-            document.getElementById('zanzibar-total-price').textContent = 
-                `$${Math.round(zanzibarCurrentBooking.totalPrice)}`;
+            document.getElementById('waterfall-total-price').textContent = 
+                `$${Math.round(waterfallCurrentBooking.totalPrice)}`;
         }
 
-        function zanzibarUpdateBookingSummary() {
-            document.getElementById('zanzibar-summary-destination').textContent = 'Zanzibar Beaches';
-            document.getElementById('zanzibar-summary-package').textContent = 
-                zanzibarCurrentBooking.packageLevel.toUpperCase();
+        function waterfallUpdateBookingSummary() {
+            document.getElementById('waterfall-summary-destination').textContent = 'Tanzania Waterfalls';
+            document.getElementById('waterfall-summary-package').textContent = 
+                waterfallCurrentBooking.packageLevel.toUpperCase();
             
             let groupText = '';
-            if (zanzibarCurrentBooking.groupType === 'single') {
+            if (waterfallCurrentBooking.groupType === 'single') {
                 groupText = 'Solo Traveler';
-            } else if (zanzibarCurrentBooking.groupType === 'double') {
+            } else if (waterfallCurrentBooking.groupType === 'double') {
                 groupText = 'Couple Package';
-            } else if (zanzibarCurrentBooking.groupType === 'family') {
+            } else if (waterfallCurrentBooking.groupType === 'family') {
                 groupText = 'Family Package';
             } else {
                 groupText = 'Group Adventure';
             }
             
-            document.getElementById('zanzibar-summary-group').textContent = groupText;
-            document.getElementById('zanzibar-summary-total').textContent = 
-                `$${Math.round(zanzibarCurrentBooking.totalPrice)}`;
-            document.getElementById('zanzibar-summary-duration').textContent = '3-7 Days';
+            document.getElementById('waterfall-summary-group').textContent = groupText;
+            document.getElementById('waterfall-summary-total').textContent = 
+                `$${Math.round(waterfallCurrentBooking.totalPrice)}`;
+            document.getElementById('waterfall-summary-duration').textContent = '2-4 Days';
             
-            const peopleItem = document.getElementById('zanzibar-summary-people-item');
-            const peopleValue = document.getElementById('zanzibar-summary-people');
-            const discountItem = document.getElementById('zanzibar-summary-discount-item');
-            const originalPriceDisplay = document.getElementById('zanzibar-summary-original-price');
+            const peopleItem = document.getElementById('waterfall-summary-people-item');
+            const peopleValue = document.getElementById('waterfall-summary-people');
+            const discountItem = document.getElementById('waterfall-summary-discount-item');
+            const originalPriceDisplay = document.getElementById('waterfall-summary-original-price');
             
-            if (zanzibarCurrentBooking.groupType === 'group') {
+            if (waterfallCurrentBooking.groupType === 'group') {
                 peopleItem.style.display = 'flex';
-                peopleValue.textContent = zanzibarCurrentBooking.peopleCount;
+                peopleValue.textContent = waterfallCurrentBooking.peopleCount;
             } else {
                 peopleItem.style.display = 'none';
             }
             
-            if (zanzibarCurrentBooking.discountApplied) {
+            if (waterfallCurrentBooking.discountApplied) {
                 discountItem.style.display = 'flex';
                 originalPriceDisplay.style.display = 'block';
-                document.getElementById('zanzibar-summary-discount').textContent = '20%';
-                document.getElementById('zanzibar-summary-original-value').textContent = `$${Math.round(zanzibarCurrentBooking.originalPrice)}`;
+                document.getElementById('waterfall-summary-discount').textContent = '20%';
+                document.getElementById('waterfall-summary-original-value').textContent = `$${Math.round(waterfallCurrentBooking.originalPrice)}`;
             } else {
                 discountItem.style.display = 'none';
                 originalPriceDisplay.style.display = 'none';
             }
         }
 
-        // Collect Zanzibar contact information
-        function zanzibarCollectContactInfo() {
-            zanzibarCurrentBooking.contactInfo = {
-                firstName: document.getElementById('zanzibar-firstName').value,
-                lastName: document.getElementById('zanzibar-lastName').value,
-                email: document.getElementById('zanzibar-email').value,
-                phone: document.getElementById('zanzibar-phone').value
+        // Collect Waterfall contact information
+        function waterfallCollectContactInfo() {
+            waterfallCurrentBooking.contactInfo = {
+                firstName: document.getElementById('waterfall-firstName').value,
+                lastName: document.getElementById('waterfall-lastName').value,
+                email: document.getElementById('waterfall-email').value,
+                phone: document.getElementById('waterfall-phone').value
             };
         }
 
-        // Send Zanzibar booking to WhatsApp and Email
-        function zanzibarSendBooking() {
-            zanzibarCollectContactInfo();
+        // Send Waterfall booking to WhatsApp and Email
+        function waterfallSendBooking() {
+            waterfallCollectContactInfo();
             
-            const discountText = zanzibarCurrentBooking.discountApplied ? 
-                `*Discount Applied:* 20% (Saved: $${Math.round(zanzibarCurrentBooking.discountAmount)})` : 
+            const discountText = waterfallCurrentBooking.discountApplied ? 
+                `*Discount Applied:* 20% (Saved: $${Math.round(waterfallCurrentBooking.discountAmount)})` : 
                 '';
             
             const summary = `
-🏝️ *NEW ZANZIBAR BEACH GETAWAY BOOKING* 🌊
+💧 *NEW WATERFALL ADVENTURE BOOKING* 🌊
 
-*Destination:* Zanzibar Beaches
-*Package Level:* ${zanzibarCurrentBooking.packageLevel.toUpperCase()}
-*Travel Style:* ${zanzibarCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
-                zanzibarCurrentBooking.groupType === 'double' ? 'Couple Package' : 
-                zanzibarCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
-${zanzibarCurrentBooking.groupType === 'group' ? `*Number of People:* ${zanzibarCurrentBooking.peopleCount}` : ''}
-${zanzibarCurrentBooking.discountApplied ? `*Original Price:* $${Math.round(zanzibarCurrentBooking.originalPrice)}` : ''}
+*Destination:* Tanzania Waterfalls
+*Package Level:* ${waterfallCurrentBooking.packageLevel.toUpperCase()}
+*Travel Style:* ${waterfallCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
+                waterfallCurrentBooking.groupType === 'double' ? 'Couple Package' : 
+                waterfallCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
+${waterfallCurrentBooking.groupType === 'group' ? `*Number of People:* ${waterfallCurrentBooking.peopleCount}` : ''}
+${waterfallCurrentBooking.discountApplied ? `*Original Price:* $${Math.round(waterfallCurrentBooking.originalPrice)}` : ''}
 ${discountText}
-*Duration:* 3-7 Days
-*Total Amount:* $${Math.round(zanzibarCurrentBooking.totalPrice)}
+*Duration:* 2-4 Days
+*Total Amount:* $${Math.round(waterfallCurrentBooking.totalPrice)}
 
 *Contact Information:*
-*Name:* ${zanzibarCurrentBooking.contactInfo.firstName} ${zanzibarCurrentBooking.contactInfo.lastName}
-*Email:* ${zanzibarCurrentBooking.contactInfo.email}
-*Phone:* ${zanzibarCurrentBooking.contactInfo.phone}
+*Name:* ${waterfallCurrentBooking.contactInfo.firstName} ${waterfallCurrentBooking.contactInfo.lastName}
+*Email:* ${waterfallCurrentBooking.contactInfo.email}
+*Phone:* ${waterfallCurrentBooking.contactInfo.phone}
 
 *Booking Time:* ${new Date().toLocaleString()}
             `.trim();
@@ -1794,7 +1769,7 @@ ${discountText}
             const whatsappUrl = `https://wa.me/255750910158?text=${whatsappMessage}`;
             
             // Send to Email
-            const emailSubject = encodeURIComponent('New Zanzibar Beach Getaway Booking');
+            const emailSubject = encodeURIComponent('New Waterfall Adventure Booking');
             const emailBody = encodeURIComponent(summary);
             const emailUrl = `mailto:barackwilliam12@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
@@ -1807,87 +1782,87 @@ ${discountText}
             }, 1000);
         }
 
-        // Complete Zanzibar Booking
-        function zanzibarCompleteBooking() {
-            zanzibarCollectContactInfo();
+        // Complete Waterfall Booking
+        function waterfallCompleteBooking() {
+            waterfallCollectContactInfo();
             
             // Basic validation
-            if (!zanzibarCurrentBooking.contactInfo.firstName || !zanzibarCurrentBooking.contactInfo.lastName) {
+            if (!waterfallCurrentBooking.contactInfo.firstName || !waterfallCurrentBooking.contactInfo.lastName) {
                 alert('Please enter your name');
                 return;
             }
             
-            if (!zanzibarCurrentBooking.contactInfo.email && !zanzibarCurrentBooking.contactInfo.phone) {
+            if (!waterfallCurrentBooking.contactInfo.email && !waterfallCurrentBooking.contactInfo.phone) {
                 alert('Please enter either email or phone number');
                 return;
             }
 
-            const discountText = zanzibarCurrentBooking.discountApplied ? 
-                `\nDiscount: 20% (Saved: $${Math.round(zanzibarCurrentBooking.discountAmount)})` : 
+            const discountText = waterfallCurrentBooking.discountApplied ? 
+                `\nDiscount: 20% (Saved: $${Math.round(waterfallCurrentBooking.discountAmount)})` : 
                 '';
                 
-            const originalPriceText = zanzibarCurrentBooking.discountApplied ? 
-                `\nOriginal Price: $${Math.round(zanzibarCurrentBooking.originalPrice)}` : 
+            const originalPriceText = waterfallCurrentBooking.discountApplied ? 
+                `\nOriginal Price: $${Math.round(waterfallCurrentBooking.originalPrice)}` : 
                 '';
 
             const summary = `
-Destination: Zanzibar Beaches
-Package: ${zanzibarCurrentBooking.packageLevel.toUpperCase()}
-Travel Style: ${zanzibarCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
-                zanzibarCurrentBooking.groupType === 'double' ? 'Couple Package' : 
-                zanzibarCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
-${zanzibarCurrentBooking.groupType === 'group' ? `People: ${zanzibarCurrentBooking.peopleCount}` : ''}${originalPriceText}${discountText}
-Total: $${Math.round(zanzibarCurrentBooking.totalPrice)}
+Destination: Tanzania Waterfalls
+Package: ${waterfallCurrentBooking.packageLevel.toUpperCase()}
+Travel Style: ${waterfallCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
+                waterfallCurrentBooking.groupType === 'double' ? 'Couple Package' : 
+                waterfallCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
+${waterfallCurrentBooking.groupType === 'group' ? `People: ${waterfallCurrentBooking.peopleCount}` : ''}${originalPriceText}${discountText}
+Total: $${Math.round(waterfallCurrentBooking.totalPrice)}
 
-Contact: ${zanzibarCurrentBooking.contactInfo.firstName} ${zanzibarCurrentBooking.contactInfo.lastName}
-Email: ${zanzibarCurrentBooking.contactInfo.email}
-Phone: ${zanzibarCurrentBooking.contactInfo.phone}
+Contact: ${waterfallCurrentBooking.contactInfo.firstName} ${waterfallCurrentBooking.contactInfo.lastName}
+Email: ${waterfallCurrentBooking.contactInfo.email}
+Phone: ${waterfallCurrentBooking.contactInfo.phone}
             `.trim();
             
             // Send booking information
-            zanzibarSendBooking();
+            waterfallSendBooking();
             
-            alert(`Zanzibar Booking Information Sent!\n\n${summary}\n\nWe have sent your booking details to our team via WhatsApp and email. We will contact you shortly to confirm your beach getaway!`);
-            closeZanzibarPremiumModal();
+            alert(`Waterfall Booking Information Sent!\n\n${summary}\n\nWe have sent your booking details to our team via WhatsApp and email. We will contact you shortly to confirm your waterfall adventure!`);
+            closeWaterfallPremiumModal();
         }
 
-        // Open Zanzibar Booking Modal
-        function openZanzibarBookingModal() {
+        // Open Waterfall Booking Modal
+        function openWaterfallBookingModal() {
             // Reset to first step
-            zanzibarShowStep(1);
+            waterfallShowStep(1);
             
             // Set default selections
-            document.querySelector('#zanzibar-premium-modal .package-level.local').click();
-            document.querySelector('#zanzibar-premium-modal .group-option[data-group="single"]').click();
+            document.querySelector('#waterfall-premium-modal .package-level.local').click();
+            document.querySelector('#waterfall-premium-modal .group-option[data-group="single"]').click();
             
             // Clear form fields
-            document.getElementById('zanzibar-firstName').value = '';
-            document.getElementById('zanzibar-lastName').value = '';
-            document.getElementById('zanzibar-email').value = '';
-            document.getElementById('zanzibar-phone').value = '';
+            document.getElementById('waterfall-firstName').value = '';
+            document.getElementById('waterfall-lastName').value = '';
+            document.getElementById('waterfall-email').value = '';
+            document.getElementById('waterfall-phone').value = '';
             
             // Show modal
-            document.getElementById('zanzibar-premium-modal').style.display = 'block';
+            document.getElementById('waterfall-premium-modal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
-        // Close Zanzibar modal
-        function closeZanzibarPremiumModal() {
-            document.getElementById('zanzibar-premium-modal').style.display = 'none';
+        // Close Waterfall modal
+        function closeWaterfallPremiumModal() {
+            document.getElementById('waterfall-premium-modal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        document.getElementById('close-zanzibar-premium-modal').addEventListener('click', closeZanzibarPremiumModal);
+        document.getElementById('close-waterfall-premium-modal').addEventListener('click', closeWaterfallPremiumModal);
 
         window.addEventListener('click', function(e) {
-            if (e.target === document.getElementById('zanzibar-premium-modal')) {
-                closeZanzibarPremiumModal();
+            if (e.target === document.getElementById('waterfall-premium-modal')) {
+                closeWaterfallPremiumModal();
             }
         });
 
-        // Initialize Zanzibar default selections when modal opens
+        // Initialize Waterfall default selections when modal opens
         document.addEventListener('DOMContentLoaded', function() {
-            // Zanzibar modal will initialize when opened
+            // Waterfall modal will initialize when opened
         });
 
         // Prevent form submission on enter
@@ -1897,6 +1872,7 @@ Phone: ${zanzibarCurrentBooking.contactInfo.phone}
             }
         });
     </script>
+
     <script src="assets/js/includes.js"></script>
 
 </body>

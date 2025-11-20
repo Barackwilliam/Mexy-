@@ -138,192 +138,14 @@
             font-size: 1.2rem;
         }
 
-        /* Header Styles */
-        header {
-            background: linear-gradient(rgba(26, 109, 56, 0.95), rgba(139, 69, 19, 0.9)), url('https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--safari-orange);
-        }
-       
-        .header-scrolled {
-            background: rgba(26, 109, 56, 0.98);
-            padding: 0.5rem 0;
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(15px);
-        }
-       
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-       
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-       
-        .logo h1 {
-            font-size: 2rem;
-            margin-left: 12px;
-            font-family: 'Cinzel', serif;
-            background: linear-gradient(135deg, #fff, var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-       
-        .logo-icon {
-            font-size: 2.2rem;
-            color: var(--secondary);
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-        }
-       
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-       
-        nav ul li {
-            margin-left: 1.8rem;
-            position: relative;
-        }
-       
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-            padding: 8px 0;
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-        }
-       
-        nav ul li a:hover {
-            color: var(--secondary);
-            transform: translateY(-2px);
-        }
-       
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, var(--secondary), var(--safari-orange));
-            transition: width 0.3s;
-        }
-       
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* Dropdown Styles */
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: linear-gradient(135deg, rgba(26, 109, 56, 0.95), rgba(139, 69, 19, 0.9));
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            min-width: 240px;
-            z-index: 1001;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        nav ul li:hover .dropdown {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .dropdown li {
-            margin: 0;
-        }
-
-        .dropdown li a {
-            display: block;
-            padding: 0.8rem 1.2rem;
-            color: white;
-            border-radius: 4px;
-            transition: all 0.3s;
-            border-left: 3px solid transparent;
-        }
-
-        .dropdown li a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--secondary);
-            transform: translateX(8px);
-            border-left: 3px solid var(--secondary);
-        }
-       
-        .language-selector {
-            display: flex;
-            align-items: center;
-            margin-left: 2rem;
-        }
-       
-        .language-selector select {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Cinzel', serif;
-        }
-
-        .language-selector select:hover {
-            border-color: var(--secondary);
-            background: rgba(255, 255, 255, 0.15);
-        }
-       
-        .language-selector option {
-            color: var(--dark);
-            background: white;
-        }
-       
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 4px;
-            transition: all 0.3s;
-            color: var(--secondary);
-        }
-
-        .mobile-menu:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(90deg);
-        }
-       
-        /* Hero Section - Artistic Design */
+        /* Enhanced Hero Section Styles */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(26, 109, 56, 0.7), rgba(139, 69, 19, 0.6)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            height: 100vh;
+            background: linear-gradient(rgba(26, 109, 56, 0.7), rgba(139, 69, 19, 0.6)), 
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -343,33 +165,61 @@
             height: 100%;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"><path d="M0,0 L100,100 M100,0 L0,100"/></svg>');
             background-size: 50px 50px;
+            animation: backgroundMove 20s linear infinite;
         }
-       
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 20px;
-            animation: fadeInUp 1s ease;
+            animation: fadeInUp 1.2s ease;
             position: relative;
             z-index: 2;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(50px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
         }
-       
+
         .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-            line-height: 1.2;
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7);
+            line-height: 1.1;
             font-family: 'Cinzel', serif;
-            background: linear-gradient(135deg, #fff, var(--secondary));
+            background: linear-gradient(135deg, #fff, var(--secondary), #fff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             position: relative;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from {
+                text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7),
+                           0 0 20px rgba(249, 168, 37, 0.3);
+            }
+            to {
+                text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7),
+                           0 0 30px rgba(249, 168, 37, 0.6);
+            }
         }
 
         .hero h1::after {
@@ -378,21 +228,28 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
+            width: 200px;
+            height: 4px;
             background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            border-radius: 2px;
         }
-       
+
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
             opacity: 0.95;
             font-family: 'Playfair Display', serif;
             font-style: italic;
             line-height: 1.6;
+            animation: fadeIn 2s ease 0.5s both;
         }
-       
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--secondary), var(--safari-orange));
@@ -433,193 +290,116 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
 
-        /* Premium Mobile Sidebar - Artistic */
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1999;
-            backdrop-filter: blur(5px);
-        }
-
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            left: -320px;
-            width: 320px;
-            height: 100%;
-            background: linear-gradient(135deg, #1a6d38 0%, #8B4513 100%);
-            z-index: 2000;
-            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
-            overflow-y: auto;
-            border-right: 3px solid var(--safari-orange);
-        }
-
-        .mobile-nav.open {
-            left: 0;
-        }
-
-        .mobile-nav-header {
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .mobile-nav-logo {
-            display: flex;
-            align-items: center;
-            color: white;
-        }
-
-        .mobile-nav-logo i {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-right: 10px;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-        }
-
-        .mobile-nav-logo h2 {
+        .hero .btn {
+            padding: 20px 50px;
             font-size: 1.3rem;
-            font-family: 'Cinzel', serif;
-            background: linear-gradient(135deg, #fff, var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--safari-orange), var(--secondary));
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+                       0 0 20px rgba(249, 168, 37, 0.3);
+            transition: all 0.4s ease;
         }
 
-        .close-mobile-nav {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 4px;
-            transition: all 0.3s;
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
-        .close-mobile-nav:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(90deg);
+        .hero .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5),
+                       0 0 30px rgba(249, 168, 37, 0.5);
+            animation: none;
+            background-position: 100% 50%;
         }
 
-        .mobile-nav-content {
-            padding: 20px 0;
+        /* Scroll Down Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
         }
 
-        .mobile-nav-links {
-            list-style: none;
+        .scroll-arrow {
+            width: 30px;
+            height: 30px;
+            border-right: 3px solid var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+            transform: rotate(45deg);
         }
 
-        .mobile-nav-links li {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
         }
 
-        .mobile-nav-links li a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 25px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 500;
-            font-family: 'Cinzel', serif;
-        }
-
-        .mobile-nav-links li a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            padding-left: 30px;
-            color: var(--secondary);
-        }
-
-        .mobile-nav-links li a i {
-            transition: transform 0.3s;
-        }
-
-        .mobile-nav-links li.active a i {
-            transform: rotate(180deg);
-        }
-
-        .mobile-dropdown {
-            display: none;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 0;
-        }
-
-        .mobile-dropdown li {
-            border-bottom: none;
-        }
-
-        .mobile-dropdown li a {
-            padding: 15px 25px 15px 40px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            border-left: 3px solid transparent;
-        }
-
-        .mobile-dropdown li a:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 3px solid var(--secondary);
-        }
-
-        .mobile-nav-footer {
-            padding: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 20px;
-        }
-
-        .mobile-language-selector {
+        /* Floating Elements in Hero */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            color: white;
-            margin-bottom: 15px;
-            font-family: 'Cinzel', serif;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .mobile-language-selector option {
-            color: var(--dark);
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
         }
 
-        .mobile-social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
         }
 
-        .mobile-social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
         }
 
-        .mobile-social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-3px) rotate(10deg);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
         }
 
+        .floating-element:nth-child(4) {
+            top: 40%;
+            right: 25%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        
         /* About Section - Artistic */
         .about {
             padding: 100px 0;
@@ -1212,500 +992,14 @@
             }
         }
 
-        /* Premium Footer with Sliding Background */
-        .premium-footer {
-            background: linear-gradient(135deg, var(--artistic-brown), var(--primary));
-            color: white;
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer-slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .slider-track {
-            display: flex;
-            width: calc(200% * 8);
-            animation: slide 60s linear infinite;
-        }
-
-        .slide {
-            width: 12.5%;
-            height: 100%;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.3) sepia(0.3) hue-rotate(180deg);
-            opacity: 0.15;
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(-12.5% * 4));
-            }
-        }
-
-        .footer-content-overlay {
-            position: relative;
-            z-index: 2;
-            background: linear-gradient(
-                135deg,
-                rgba(139, 69, 19, 0.85) 0%,
-                rgba(26, 109, 56, 0.9) 100%
-            );
-            backdrop-filter: blur(5px);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 0;
-            padding: 80px 0 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-column h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            color: var(--secondary);
-            font-family: 'Cinzel', serif;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary), var(--safari-orange));
-            border-radius: 2px;
-        }
-
-        .footer-about p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-family: 'Merriweather', serif;
-            opacity: 0.95;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            transition: all 0.3s;
-            font-family: 'Merriweather', serif;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            transform: translateX(8px);
-        }
-
-        .footer-links a i {
-            color: var(--safari-orange);
-            font-size: 0.8rem;
-        }
-
-        .footer-contact-info {
-            list-style: none;
-        }
-
-        .footer-contact-info li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            font-family: 'Merriweather', serif;
-            opacity: 0.95;
-        }
-
-        .footer-contact-info li i {
-            color: var(--secondary);
-            font-size: 1.1rem;
-            margin-top: 3px;
-            flex-shrink: 0;
-        }
-
-        .footer-newsletter p {
-            margin-bottom: 20px;
-            font-family: 'Merriweather', serif;
-            opacity: 0.95;
-            line-height: 1.7;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-family: 'Merriweather', serif;
-            transition: all 0.3s;
-        }
-
-        .newsletter-input:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 0 2px rgba(249, 168, 37, 0.2);
-        }
-
-        .newsletter-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .newsletter-btn {
-            background: linear-gradient(135deg, var(--secondary), var(--safari-orange));
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Cinzel', serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        .newsletter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .footer-social a:hover {
-            background: var(--secondary);
-            transform: translateY(-3px) rotate(10deg);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .footer-bottom {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 25px 0;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 50px;
-        }
-
-        .footer-bottom-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-copyright {
-            font-family: 'Merriweather', serif;
-            opacity: 0.9;
-        }
-
-        .footer-legal {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .footer-legal a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-family: 'Merriweather', serif;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .footer-legal a:hover {
-            color: var(--secondary);
-        }
-
-        /* Pause animation on hover */
-        .footer-slider:hover .slider-track {
-            animation-play-state: paused;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .destinations-grid {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            }
-        }
-
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-                gap: 40px;
-            }
-            
-            .card-features {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content nav {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .language-selector {
-                display: none;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 50px 0 0;
-            }
-            
-            .footer-bottom-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .footer-legal {
-                gap: 15px;
-                justify-content: center;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .slider-track {
-                animation-duration: 40s;
-            }
-
-            .hero {
-                height: 60vh;
-                padding-top: 70px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .mobile-nav {
-                width: 300px;
-            }
-
-            .destinations-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .destinations-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .card-features {
-                grid-template-columns: 1fr;
-            }
-            
-            .card-header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .card-footer {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            
-            .view-all-cta {
-                padding: 30px 20px;
-            }
-            
-            .cta-content h3 {
-                font-size: 1.8rem;
-            }
-        }
-       
-        @media (max-width: 576px) {
-            .hero {
-                height: 55vh;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-           
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-
-            .mobile-nav {
-                width: 280px;
-            }
-
-            .btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-            
-            .destinations-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .card-features {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .hero {
-                height: 50vh;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 10px 25px;
-                font-size: 0.9rem;
-            }
-            
-            .destinations-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
+    <link rel="stylesheet" href="assets/css/header.css">
+
+
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-mountain logo-icon" aria-hidden="true"></i>
-                    <h1>MMexy Tanzania</h1>
-                </div>
-               
-                <nav>
-                    <ul id="nav-menu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li>
-                            <a href="#destinations">Destinations</a>
-                            <ul class="dropdown">
-                                <li><a href="mountain-climbing.html">Mountain Climbing</a></li>
-                                <li><a href="tanzania-safaris.html">Tanzania Safaris</a></li>
-                                <li><a href="zanzibar-beaches.html">Zanzibar Beaches</a></li>
-                                <li><a href="cultural-tourism.html">Cultural Tourism</a></li>
-                                <li><a href="historical-sites.html">Historical Sites</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li class="language-selector">
-                            <select id="language-select">
-                                <option value="en">English</option>
-                                <option value="sw">Kiswahili</option>
-                                <option value="fr">Français</option>
-                                <option value="de">Deutsch</option>
-                                <option value="es">Español</option>
-                                <option value="it">Italiano</option>
-                                <option value="pt">Português</option>
-                                <option value="ru">Русский</option>
-                                <option value="zh">中文</option>
-                                <option value="ja">日本語</option>
-                            </select>
-                        </li>
-                    </ul>
-                </nav>
-               
-                <div class="mobile-menu" id="mobile-menu">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-    </header>
+<div id="header-placeholder"></div>
+
 
     <!-- Premium Mobile Navigation -->
     <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -1761,12 +1055,25 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Enhanced -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1 class="artistic-title">Welcome to MMexy Tanzania Adventures</h1>
             <p style="color: white;" class="elegant-text">Land of Kilimanjaro and Zanzibar - Where Adventure Meets Serenity</p>
             <a href="#destinations" class="btn">Discover Our Destinations</a>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="floating-element">⛰️</div>
+            <div class="floating-element">🦁</div>
+            <div class="floating-element">🏝️</div>
+            <div class="floating-element">🌴</div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 
@@ -1779,7 +1086,7 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p class="elegant-text">MMexy Tanzania Adventures is a premier tourism company specializing in authentic Tanzanian experiences. We guide discerning travelers to historical sites, majestic Mount Kilimanjaro, pristine Zanzibar beaches, wildlife parks, and breathtaking waterfalls.</p>
+                    <p class="elegant-text">MMexy Tanzania Adventures is a premier tourism company specializing in authentic Tanzanian experiences. With over a decade of excellence, we guide discerning travelers to discover the true beauty of Tanzania.</p>
                     
                     <div class="ornamental-border">
                         <p class="calligraphic-text">We provide exceptional services to our guests, offering them a unique and immersive experience of Tanzania's rich cultural heritage and natural wonders.</p>
@@ -1787,12 +1094,11 @@
                     
                     <p class="elegant-text">Our team comprises seasoned experts with extensive experience in the tourism sector, possessing intimate knowledge of all significant tourist destinations across the country.</p>
                     
-                    <div class="highlight">
-                        <p class="safari-heading" style="border: none; padding: 0; margin-bottom: 15px;">Our Legacy</p>
-                        <p>Over the years, we have curated unforgettable journeys for travelers from across the globe, helping them discover the authentic beauty of Tanzania in a safe, luxurious, and culturally enriching manner.</p>
-                    </div>
-                    
-                    <a href="#" class="btn">Explore Our Story</a>
+                    <!-- Read More Button -->
+                    <a href="about-us.html" class="btn read-more-btn">
+                        <span>Read More</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="About MMexy Tanzania Adventures">
@@ -1843,21 +1149,6 @@
                             </div>
                         </div>
                         <p class="elegant-text">Conquer Africa's rooftop with our expert-guided climbs. Scale the majestic Kilimanjaro or explore the scenic trails of Mount Meru. Each expedition is crafted for adventure seekers seeking the ultimate mountain challenge.</p>
-                        
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-hiking" aria-hidden="true"></i>
-                                <span>Expert Guides</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-campground" aria-hidden="true"></i>
-                                <span>Mountain Huts</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-medkit" aria-hidden="true"></i>
-                                <span>Safety First</span>
-                            </div>
-                        </div>
                         
                         <div class="difficulty-meter">
                             <span class="difficulty-label">Difficulty:</span>
@@ -1912,21 +1203,6 @@
                         </div>
                         <p class="elegant-text">Embark on the ultimate wildlife adventure through Tanzania's legendary national parks. Witness the Great Migration in Serengeti, explore Ngorongoro Crater, and discover abundant wildlife in their natural habitats.</p>
                         
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-lion" aria-hidden="true"></i>
-                                <span>Big Five</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-camera" aria-hidden="true"></i>
-                                <span>Photo Safari</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-car" aria-hidden="true"></i>
-                                <span>Game Drives</span>
-                            </div>
-                        </div>
-                        
                         <div class="experience-tags">
                             <span class="tag">Great Migration</span>
                             <span class="tag">Luxury Camps</span>
@@ -1977,21 +1253,6 @@
                             </div>
                         </div>
                         <p class="elegant-text">Indulge in tropical paradise on Zanzibar's pristine shores. White sand beaches meet turquoise waters, offering perfect relaxation. Experience world-class diving, spice tours, and the cultural richness of Stone Town.</p>
-                        
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-water" aria-hidden="true"></i>
-                                <span>Crystal Waters</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-fish" aria-hidden="true"></i>
-                                <span>Marine Life</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-spa" aria-hidden="true"></i>
-                                <span>Luxury Resorts</span>
-                            </div>
-                        </div>
                         
                         <div class="experience-tags">
                             <span class="tag">Snorkeling</span>
@@ -2044,21 +1305,6 @@
                         </div>
                         <p class="elegant-text">Experience the vibrant cultures of Tanzania's diverse ethnic groups. Participate in traditional ceremonies, learn local crafts, taste authentic cuisine, and connect with communities preserving ancient traditions.</p>
                         
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-users" aria-hidden="true"></i>
-                                <span>Community Visits</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-utensils" aria-hidden="true"></i>
-                                <span>Local Cuisine</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-hands-helping" aria-hidden="true"></i>
-                                <span>Cultural Exchange</span>
-                            </div>
-                        </div>
-                        
                         <div class="experience-tags">
                             <span class="tag">Maasai Culture</span>
                             <span class="tag">Traditional Dance</span>
@@ -2110,21 +1356,6 @@
                         </div>
                         <p class="elegant-text">Journey through time as you explore Tanzania's rich historical tapestry. Visit ancient sites like Bagamoyo, Kilwa, and Zanzibar's Stone Town, where centuries of history come alive through preserved architecture and cultural landmarks.</p>
                         
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-camera" aria-hidden="true"></i>
-                                <span>Photo Opportunities</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                                <span>Cultural Education</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
-                                <span>Guided Tours</span>
-                            </div>
-                        </div>
-                        
                         <div class="card-footer">
                             <div class="price-range">
                                 <span class="from">From</span>
@@ -2140,6 +1371,59 @@
                     <div class="floating-element element-1">🏛️</div>
                     <div class="floating-element element-2">📜</div>
                 </div>
+
+
+
+                        <!-- Waterfall Tourism -->
+                        <div class="destination-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="card-badge waterfall">Waterfall</div>
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Beautiful Waterfalls in Tanzania">
+                                <div class="image-overlay">
+                                    <div class="overlay-content">
+                                        <span class="overlay-text">Discover Nature's Power</span>
+                                        <div class="rating">
+                                            <i class="fas fa-star" aria-hidden="true"></i>
+                                            <i class="fas fa-star" aria-hidden="true"></i>
+                                            <i class="fas fa-star" aria-hidden="true"></i>
+                                            <i class="fas fa-star" aria-hidden="true"></i>
+                                            <i class="fas fa-star" aria-hidden="true"></i>
+                                            <span>4.9/5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-water" aria-hidden="true"></i> Waterfall Adventures</h3>
+                                    <div class="duration">
+                                        <i class="far fa-clock" aria-hidden="true"></i>
+                                        <span>1-3 Days</span>
+                                    </div>
+                                </div>
+                                <p class="elegant-text">Witness the breathtaking beauty of Tanzania's majestic waterfalls. Feel the mist on your face, hear the thunderous roar, and swim in natural pools surrounded by lush rainforests and stunning landscapes.</p>
+                                
+                                <div class="experience-tags">
+                                    <span class="tag">Natural Swimming</span>
+                                    <span class="tag">Rainforest Hikes</span>
+                                    <span class="tag">Photography</span>
+                                </div>
+                                
+                                <div class="card-footer">
+                                    <div class="price-range">
+                                        <span class="from">From</span>
+                                        <span class="price">$180</span>
+                                    </div>
+                                    <a href="waterfall-tourism.html" class="explore-btn">
+                                        <span>Explore Waterfalls</span>
+                                        <i class="fas fa-water" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="floating-element element-1">💧</div>
+                            <div class="floating-element element-2">🌊</div>
+                        </div>
             </div>
             
             <!-- View All CTA -->
@@ -2163,143 +1447,23 @@
         </div>
     </section>
 
-    <!-- Premium Footer with Sliding Background -->
-    <footer class="premium-footer">
-        <!-- Sliding Background Images -->
-        <div class="footer-slider">
-            <div class="slider-track">
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Zanzibar Beach">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Mount Kilimanjaro">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Safari Wildlife">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1589553101902-8bd23d302e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Historical Sites">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Waterfalls">
-                </div>
-                <!-- Duplicate slides for seamless loop -->
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Zanzibar Beach">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Mount Kilimanjaro">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Safari Wildlife">
-                </div>
-            </div>
-        </div>
-        
-        <!-- Content Overlay -->
-        <div class="footer-content-overlay">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-column footer-about">
-                        <h3>About MMexy Tanzania</h3>
-                        <p>MMexy Tanzania Adventures is your premier gateway to authentic Tanzanian experiences. We specialize in crafting unforgettable journeys through Tanzania's most iconic destinations.</p>
-                        <div class="footer-social">
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Quick Links</h3>
-                        <ul class="footer-links">
-                            <li><a href="#home"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
-                            <li><a href="#about"><i class="fas fa-chevron-right" aria-hidden="true"></i> About Us</a></li>
-                            <li><a href="#destinations"><i class="fas fa-chevron-right" aria-hidden="true"></i> Destinations</a></li>
-                            <li><a href="mountain-climbing.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Mountain Climbing</a></li>
-                            <li><a href="tanzania-safaris.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Safari Tours</a></li>
-                            <li><a href="zanzibar-beaches.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Zanzibar Beaches</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Contact Info</h3>
-                        <ul class="footer-contact-info">
-                            <li>
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Head Office</strong><br>
-                                    P.O. Box 1234, Zanzibar<br>
-                                    Tanzania, East Africa
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-phone" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Phone</strong><br>
-                                    +255 714 331 051<br>
-                                    +255 987 654 321
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-envelope" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Email</strong><br>
-                                    info@mmexy.com<br>
-                                    bookings@mmexy.com
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-clock" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Office Hours</strong><br>
-                                    Mon - Fri: 8:00 AM - 6:00 PM<br>
-                                    Sat: 9:00 AM - 2:00 PM
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column footer-newsletter">
-                        <h3>Newsletter</h3>
-                        <p>Subscribe to our newsletter for exclusive offers, travel tips, and updates on new destinations.</p>
-                        <form class="newsletter-form">
-                            <input type="email" class="newsletter-input" placeholder="Your email address" required>
-                            <button type="submit" class="newsletter-btn">Subscribe</button>
-                        </form>
-                        <div class="payment-methods">
-                            <p><strong>We Accept:</strong></p>
-                            <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
-                                <i class="fab fa-cc-visa" style="font-size: 2rem; color: rgba(255,255,255,0.7);" aria-hidden="true"></i>
-                                <i class="fab fa-cc-mastercard" style="font-size: 2rem; color: rgba(255,255,255,0.7);" aria-hidden="true"></i>
-                                <i class="fab fa-cc-paypal" style="font-size: 2rem; color: rgba(255,255,255,0.7);" aria-hidden="true"></i>
-                                <i class="fab fa-cc-amex" style="font-size: 2rem; color: rgba(255,255,255,0.7);" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="footer-bottom-content">
-                        <div class="footer-copyright">
-                            <p>&copy; 2025 MMexy Tanzania Adventures. All rights reserved. | Crafting Unforgettable Memories Since 2010</p>
-                        </div>
-                        <div class="footer-legal">
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms of Service</a>
-                            <a href="#">Cookie Policy</a>
-                            <a href="#">Disclaimer</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
     
+
+
+<div id="footer-placeholder"></div>
+
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+</script>
+
+
+
+
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS (Animate On Scroll)
@@ -2406,6 +1570,12 @@
             alert(`Thank you for subscribing with ${email}! You'll receive our latest updates soon.`);
             this.reset();
         });
+
     </script>
+
+
+<script src="assets/js/includes.js"></script>
+
+
 </body>
 </html>
