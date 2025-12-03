@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - MMexy Tanzania Adventures | Our Story & Mission</title>
+    <title>About Us | MMexy Tanzania Adventures</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/header.css">
-
     <style>
         :root {
             --primary: #1a6d38;
@@ -23,6 +21,7 @@
             --artistic-brown: #8B4513;
             --safari-orange: #FF8C00;
             --nature-green: #228B22;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
        
         * {
@@ -44,7 +43,509 @@
             font-weight: 700;
             letter-spacing: 0.5px;
         }
-       
+
+        /* ===== PREMIUM NAVIGATION BAR ===== */
+        .premium-navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .premium-navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--artistic-brown);
+            font-weight: 700;
+            font-size: 1.5rem;
+            font-family: 'Cinzel', serif;
+            transition: var(--transition);
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+            color: var(--safari-orange);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--safari-orange);
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(249, 168, 37, 0.3);
+        }
+
+        .dropdown-parent {
+            position: relative;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 15px;
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: var(--transition);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .dropdown-parent:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: 10px;
+            transition: var(--transition);
+            margin-bottom: 5px;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-line {
+            width: 25px;
+            height: 3px;
+            background: var(--artistic-brown);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn.active .menu-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active .menu-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .menu-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ===== PREMIUM SIDEBAR ===== */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .premium-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 350px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: var(--transition);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .premium-sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--artistic-brown);
+            font-weight: 700;
+            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .sidebar-logo-icon {
+            font-size: 1.8rem;
+            color: var(--safari-orange);
+        }
+
+        .close-sidebar {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--artistic-brown);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-sidebar:hover {
+            color: var(--safari-orange);
+            transform: rotate(90deg);
+        }
+
+        .sidebar-content {
+            flex: 1;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-item {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: 12px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .sidebar-dropdown-toggle {
+            justify-content: space-between;
+        }
+
+        .dropdown-arrow {
+            transition: var(--transition);
+        }
+
+        .sidebar-dropdown-toggle.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .sidebar-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            margin-left: 20px;
+        }
+
+        .sidebar-dropdown.active {
+            max-height: 500px;
+        }
+
+        .sidebar-footer {
+            padding: 25px;
+            border-top: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .sidebar-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(249, 168, 37, 0.3);
+        }
+
+        /* ===== PREMIUM TRANSLATION SYSTEM ===== */
+        .translation-system {
+            position: relative;
+        }
+
+        .language-selector {
+            position: relative;
+            margin-left: 15px;
+        }
+
+        .current-language {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .current-language:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--safari-orange);
+            box-shadow: 0 2px 12px rgba(212, 175, 55, 0.2);
+        }
+
+        .language-flag {
+            font-size: 1.2rem;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(26, 45, 26, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 15px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .language-selector:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .language-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 20px;
+            width: 16px;
+            height: 16px;
+            background: rgba(26, 45, 26, 0.98);
+            transform: rotate(45deg);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: var(--transition);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(249, 168, 37, 0.1));
+            color: var(--safari-orange);
+            transform: translateX(5px);
+        }
+
+        .language-option.active {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: #1a2f1a;
+            font-weight: 600;
+        }
+
+        /* Translation Loading Animation */
+        .translation-loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 45, 26, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        .translation-loading.active {
+            display: flex;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-top: 3px solid var(--safari-orange);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Sidebar Language Selector */
+        .sidebar-language {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 12px 15px;
+            color: #ffffff;
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .sidebar-language:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--safari-orange);
+        }
+
+        .sidebar-language option {
+            background: #1a2f1a;
+            color: #ffffff;
+        }
+
+        /* Mobile Language Selector */
+        .mobile-language-selector {
+            display: none;
+            padding: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .desktop-nav .language-selector {
+                display: none;
+            }
+            
+            .mobile-language-selector {
+                display: block;
+            }
+        }
+
         .container {
             width: 90%;
             max-width: 1200px;
@@ -140,21 +641,332 @@
             font-size: 1.2rem;
         }
 
-
-        /* Button Styles */
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--secondary), var(--safari-orange));
+        /* About Page Hero */
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(26, 109, 56, 0.7), rgba(139, 69, 19, 0.6)), 
+                        url('https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             color: white;
-            padding: 15px 40px;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+            animation: fadeInUp 1.2s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        .about-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7);
+            line-height: 1.1;
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(135deg, #fff, var(--secondary), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            padding-bottom: 25px;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        .about-hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            opacity: 0.95;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+       
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--artistic-brown);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+       
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--artistic-brown), var(--safari-orange), var(--nature-green));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title .section-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--artistic-brown);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Detailed About Sections */
+        .detailed-about {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+
+        .detailed-about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="rgba(139,69,19,0.05)" stroke-width="0.5"><path d="M0,0 L100,100 M100,0 L0,100"/></svg>');
+            background-size: 50px 50px;
+        }
+
+        .about-section {
+            margin-bottom: 80px;
+        }
+
+        .about-section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-section-title h2 {
+            font-size: 2.5rem;
+            color: var(--artistic-brown);
+            margin-bottom: 15px;
+        }
+
+        .divider {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--artistic-brown), var(--safari-orange));
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        .story-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .story-content:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-text h3 {
+            font-size: 1.8rem;
+            color: var(--artistic-brown);
+            margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .story-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 5px solid white;
+            position: relative;
+        }
+
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--safari-orange);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: var(--artistic-brown);
+            margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 30px;
+        }
+
+        .member-info h3 {
+            font-size: 1.5rem;
+            color: var(--artistic-brown);
+            margin-bottom: 5px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .position {
+            color: var(--safari-orange);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .member-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Back to Home */
+        .back-to-home {
+            text-align: center;
+            margin-top: 50px;
+            padding: 50px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            padding: 15px 35px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            font-size: 1.1rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             font-family: 'Cinzel', serif;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -179,361 +991,30 @@
        
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            gap: 15px;
         }
 
-        /* About Hero Section */
-        .about-hero {
-            height: 60vh;
-            background: linear-gradient(rgba(26, 109, 56, 0.8), rgba(139, 69, 19, 0.7)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--artistic-brown), #2c1810);
             color: white;
-            padding-top: 80px;
+            padding: 60px 0 20px;
             position: relative;
-        }
-
-        .about-hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-family: 'Cinzel', serif;
-            background: linear-gradient(135deg, #fff, var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1rem;
-            font-family: 'Cinzel', serif;
-        }
-
-        .breadcrumb a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .breadcrumb a:hover {
-            color: white;
-        }
-
-        .breadcrumb span {
-            color: white;
-        }
-
-        /* Detailed About Sections */
-        .detailed-about {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .about-section {
-            margin-bottom: 80px;
-        }
-
-        .about-section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .about-section-title h2 {
-            font-size: 2.5rem;
-            color: var(--artistic-brown);
-            margin-bottom: 1rem;
-            font-family: 'Cinzel', serif;
-        }
-
-        .about-section-title .divider {
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--artistic-brown), var(--safari-orange));
-            margin: 0 auto;
-        }
-
-        .story-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            margin-bottom: 50px;
-        }
-
-        .story-text h3 {
-            font-size: 1.8rem;
-            color: var(--artistic-brown);
-            margin-bottom: 1.5rem;
-            font-family: 'Cinzel', serif;
-        }
-
-        .story-image {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .story-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .story-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Values Grid */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .value-card {
-            background: var(--light);
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--artistic-brown), var(--safari-orange));
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--safari-orange);
-        }
-
-        .value-icon {
-            font-size: 3rem;
-            color: var(--safari-orange);
-            margin-bottom: 1.5rem;
-        }
-
-        .value-card h3 {
-            font-size: 1.5rem;
-            color: var(--artistic-brown);
-            margin-bottom: 1rem;
-            font-family: 'Cinzel', serif;
-        }
-
-        /* Team Section */
-        .team-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .team-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="rgba(139, 69, 19, 0.05)" stroke-width="0.5"><circle cx="50" cy="50" r="40"/></svg>');
-            background-size: 100px 100px;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .team-member {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .team-member img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .member-info {
-            padding: 30px 20px;
-        }
-
-        .member-info h3 {
-            font-size: 1.5rem;
-            color: var(--artistic-brown);
-            margin-bottom: 0.5rem;
-            font-family: 'Cinzel', serif;
-        }
-
-        .member-info .position {
-            color: var(--safari-orange);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-family: 'Cinzel', serif;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: linear-gradient(135deg, var(--artistic-brown), var(--primary));
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        .stat-item {
-            padding: 30px;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            font-family: 'Cinzel', serif;
-            color: var(--secondary);
-        }
-
-        .stat-label {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Back to Home */
-        .back-to-home {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        /* Premium Footer Styles */
-        .premium-footer {
-            background: linear-gradient(135deg, var(--artistic-brown), var(--primary));
-            color: white;
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer-slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .slider-track {
-            display: flex;
-            width: calc(200% * 8);
-            animation: slide 60s linear infinite;
-        }
-
-        .slide {
-            width: 12.5%;
-            height: 100%;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.3) sepia(0.3) hue-rotate(180deg);
-            opacity: 0.15;
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(-12.5% * 4));
-            }
-        }
-
-        .footer-content-overlay {
-            position: relative;
-            z-index: 2;
-            background: linear-gradient(
-                135deg,
-                rgba(139, 69, 19, 0.85) 0%,
-                rgba(26, 109, 56, 0.9) 100%
-            );
-            backdrop-filter: blur(5px);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 0;
-            padding: 80px 0 0;
-            position: relative;
-            z-index: 2;
+            margin-bottom: 40px;
         }
 
-        .footer-column h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             color: var(--secondary);
             font-family: 'Cinzel', serif;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary), var(--safari-orange));
-            border-radius: 2px;
-        }
-
-        .footer-about p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-family: 'Merriweather', serif;
-            opacity: 0.95;
         }
 
         .footer-links {
@@ -545,615 +1026,1553 @@
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: all 0.3s;
-            font-family: 'Merriweather', serif;
+            transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .footer-links a:hover {
             color: var(--secondary);
-            transform: translateX(8px);
-        }
-
-        .footer-links a i {
-            color: var(--safari-orange);
-            font-size: 0.8rem;
-        }
-
-        .footer-contact-info {
-            list-style: none;
-        }
-
-        .footer-contact-info li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            font-family: 'Merriweather', serif;
-            opacity: 0.95;
-        }
-
-        .footer-contact-info li i {
-            color: var(--secondary);
-            font-size: 1.1rem;
-            margin-top: 3px;
-            flex-shrink: 0;
-        }
-
-        .footer-newsletter p {
-            margin-bottom: 20px;
-            font-family: 'Merriweather', serif;
-            opacity: 0.95;
-            line-height: 1.7;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-family: 'Merriweather', serif;
-            transition: all 0.3s;
-        }
-
-        .newsletter-input:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 0 2px rgba(249, 168, 37, 0.2);
-        }
-
-        .newsletter-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .newsletter-btn {
-            background: linear-gradient(135deg, var(--secondary), var(--safari-orange));
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Cinzel', serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        .newsletter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .footer-social a:hover {
-            background: var(--secondary);
-            transform: translateY(-3px) rotate(10deg);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateX(5px);
         }
 
         .footer-bottom {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 25px 0;
             text-align: center;
-            position: relative;
-            z-index: 2;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 50px;
-        }
-
-        .footer-bottom-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-copyright {
-            font-family: 'Merriweather', serif;
-            opacity: 0.9;
-        }
-
-        .footer-legal {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .footer-legal a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-family: 'Merriweather', serif;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .footer-legal a:hover {
-            color: var(--secondary);
-        }
-
-        /* Mobile Navigation Styles */
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1999;
-            backdrop-filter: blur(5px);
-        }
-
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            left: -320px;
-            width: 320px;
-            height: 100%;
-            background: linear-gradient(135deg, #1a6d38 0%, #8B4513 100%);
-            z-index: 2000;
-            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
-            overflow-y: auto;
-            border-right: 3px solid var(--safari-orange);
-        }
-
-        .mobile-nav.open {
-            left: 0;
-        }
-
-        .mobile-nav-header {
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .mobile-nav-logo {
-            display: flex;
-            align-items: center;
-            color: white;
-        }
-
-        .mobile-nav-logo i {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-right: 10px;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-        }
-
-        .mobile-nav-logo h2 {
-            font-size: 1.3rem;
-            font-family: 'Cinzel', serif;
-            background: linear-gradient(135deg, #fff, var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .close-mobile-nav {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-
-        .close-mobile-nav:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(90deg);
-        }
-
-        .mobile-nav-content {
-            padding: 20px 0;
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-        }
-
-        .mobile-nav-links li {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
-
-        .mobile-nav-links li a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 25px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 500;
-            font-family: 'Cinzel', serif;
-        }
-
-        .mobile-nav-links li a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            padding-left: 30px;
-            color: var(--secondary);
-        }
-
-        .mobile-nav-links li a i {
-            transition: transform 0.3s;
-        }
-
-        .mobile-nav-links li.active a i {
-            transform: rotate(180deg);
-        }
-
-        .mobile-dropdown {
-            display: none;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 0;
-        }
-
-        .mobile-dropdown li {
-            border-bottom: none;
-        }
-
-        .mobile-dropdown li a {
-            padding: 15px 25px 15px 40px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            border-left: 3px solid transparent;
-        }
-
-        .mobile-dropdown li a:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 3px solid var(--secondary);
-        }
-
-        .mobile-nav-footer {
-            padding: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 20px;
-        }
-
-        .mobile-language-selector {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            color: white;
-            margin-bottom: 15px;
-            font-family: 'Cinzel', serif;
-        }
-
-        .mobile-language-selector option {
-            color: var(--dark);
-        }
-
-        .mobile-social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .mobile-social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .mobile-social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-3px) rotate(10deg);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content nav {
+        @media (max-width: 1024px) {
+            .desktop-nav {
                 display: none;
             }
-            
-            .mobile-menu {
-                display: block;
+
+            .mobile-menu-btn {
+                display: flex;
             }
-            
-            .language-selector {
-                display: none;
+
+            .about-hero h1 {
+                font-size: 3rem;
             }
-            
-            .about-hero-content h1 {
-                font-size: 2.5rem;
+
+            .about-hero p {
+                font-size: 1.2rem;
             }
-            
+
             .story-content {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 30px;
             }
-            
+
+            .story-content:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .story-image img {
+                height: 300px;
+            }
+
             .values-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .team-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .footer-bottom-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .footer-legal {
-                gap: 15px;
-                justify-content: center;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
+
+            .premium-sidebar {
+                width: 300px;
             }
         }
 
-        @media (max-width: 576px) {
-            .about-hero {
-                height: 50vh;
-            }
-            
-            .about-hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stat-number {
+        @media (max-width: 768px) {
+            .about-hero h1 {
                 font-size: 2.5rem;
             }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .story-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .value-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member img {
+                height: 250px;
+            }
+        }
+
+        /* Main Content Spacing */
+        .main-content {
+            padding-top: 80px;
         }
     </style>
 </head>
 <body>
-      <div id="header-placeholder"></div>
+    <!-- Premium Translation Loading -->
+    <div class="translation-loading" id="translationLoading">
+        <div class="loading-spinner"></div>
+        <p data-i18n="translation.loading">Translating content...</p>
+    </div>
 
-    <!-- Detailed About Content -->
-    <section class="detailed-about">
-        <div class="container">
-            <!-- Our Heritage Section -->
-            <div class="about-section">
-                <div class="about-section-title">
-                    <h2>Our Heritage</h2>
-                    <div class="divider"></div>
-                    <p class="elegant-text">A decade of excellence in Tanzanian tourism</p>
-                </div>
-
-                <div class="story-content">
-                    <div class="story-text">
-                        <h3>From Humble Beginnings</h3>
-                        <p class="elegant-text">Founded in 2010 by passionate Tanzanian guides, MMexy Tanzania Adventures began as a small family operation with a simple mission: to share the authentic beauty of Tanzania with the world.</p>
-                        <p>What started with just two guides and one vehicle has grown into one of Tanzania's most respected tourism companies, serving thousands of travelers from across the globe. Our founders, Juma Mwinyi and Asha Hassan, combined their extensive knowledge of Tanzanian culture and wildlife to create experiences that go beyond typical tourism.</p>
-                        <p>We believe that every traveler deserves to experience the real Tanzania - not just the popular tourist spots, but the hidden gems, the local communities, and the authentic cultural exchanges that make our country truly special.</p>
-                    </div>
-                    <div class="story-image">
-                        <img src="https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Our humble beginnings">
-                    </div>
-                </div>
-
-                <div class="story-content">
-                    <div class="story-image">
-                        <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Our growth journey">
-                    </div>
-                    <div class="story-text">
-                        <h3>Growth & Excellence</h3>
-                        <p>Over the past decade, we've expanded our operations while maintaining our commitment to quality and authenticity. Today, we operate across all major Tanzanian destinations with a team of over 50 experienced professionals including guides, drivers, hospitality staff, and conservation experts.</p>
-                        <p class="elegant-text">Our growth has been guided by one principle: exceptional experiences create lifelong memories. We've carefully selected each team member for their expertise, passion, and commitment to sustainable tourism.</p>
-                        <p>From the snow-capped peak of Kilimanjaro to the pristine beaches of Zanzibar, from the vast Serengeti plains to the historical sites of Bagamoyo, we've built relationships with local communities and conservation areas to ensure our operations benefit both travelers and Tanzanians alike.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mission & Vision Section -->
-            <div class="about-section">
-                <div class="about-section-title">
-                    <h2>Our Mission & Vision</h2>
-                    <div class="divider"></div>
-                    <p class="elegant-text">Guiding principles that drive our excellence</p>
-                </div>
-
-                <div class="story-content">
-                    <div class="story-text">
-                        <h3>Our Mission</h3>
-                        <p class="elegant-text">To provide authentic, sustainable, and unforgettable Tanzanian experiences that connect travelers with the rich cultural heritage and breathtaking natural wonders of our country while supporting local communities and conservation efforts.</p>
-                        <p>We achieve this through carefully crafted itineraries that balance adventure with cultural immersion, luxury with authenticity, and exploration with conservation. Every journey with us contributes to local economies and environmental protection initiatives.</p>
-                        <div class="ornamental-border">
-                            <p class="calligraphic-text">"We don't just show you Tanzania - we help you experience it, understand it, and fall in love with it, just as we have."</p>
-                        </div>
-                    </div>
-                    <div class="story-text">
-                        <h3>Our Vision</h3>
-                        <p class="elegant-text">To be Tanzania's leading tourism company, recognized globally for our commitment to excellence, sustainability, and creating transformative travel experiences that inspire and educate.</p>
-                        <p>We envision a future where tourism becomes a powerful force for positive change - protecting natural habitats, preserving cultural traditions, and creating sustainable livelihoods for local communities. Through our work, we aim to set new standards for responsible tourism in East Africa.</p>
-                        <p>Our vision extends beyond business success to creating lasting positive impacts on Tanzania's people, wildlife, and environment for generations to come.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Our Values Section -->
-            <div class="about-section">
-                <div class="about-section-title">
-                    <h2>Our Values</h2>
-                    <div class="divider"></div>
-                    <p class="elegant-text">The principles that guide every decision we make</p>
-                </div>
-
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Integrity</h3>
-                        <p>We operate with honesty and transparency in all our dealings, building trust with our clients and partners. Every promise made is a promise kept, ensuring you can book with confidence.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3>Sustainability</h3>
-                        <p>We're committed to eco-friendly practices and supporting conservation efforts across Tanzania. Our operations are designed to minimize environmental impact while maximizing positive community benefits.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Community</h3>
-                        <p>We invest in local communities and employ Tanzanian experts to share authentic cultural experiences. A portion of every booking goes toward community development projects.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3>Excellence</h3>
-                        <p>We strive for the highest standards in service, safety, and customer satisfaction in everything we do. From our vehicles to our guides, only the best is good enough for our guests.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h3>Passion</h3>
-                        <p>Our team is driven by genuine love for Tanzania and its people. This passion translates into unforgettable experiences that go beyond typical tourist activities.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Safety</h3>
-                        <p>Your wellbeing is our top priority. We maintain the highest safety standards across all our operations, with trained staff and emergency protocols for every activity.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-  
-
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="container">
-            <div class="about-section-title">
-                <h2>Meet Our Team</h2>
-                <div class="divider"></div>
-                <p class="elegant-text">The passionate experts behind your unforgettable experiences</p>
-            </div>
-
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEBUQDxISEBAREBYVEBUSEBAQEBAQFRIWFhcSExMYHSggGBolGxcXITEhJSkrLi4uFx8zODMsNyguLisBCgoKDQ0NFw8NFSsZFRktLS0rLS0tKy0tLTcrKzctNy0tKysrKys3ListNysrKysrKystLS0rKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYDBAcCAf/EAEMQAAIBAgEHBwgIBAcBAAAAAAABAgMRBAUGEiExQVEiYXGBkaHRExUyUlOTscEHFCNCYnKS4TRDgrIzRHODwtLwov/EABcBAQEBAQAAAAAAAAAAAAAAAAABAgP/xAAZEQEBAQEBAQAAAAAAAAAAAAAAARExIQL/2gAMAwEAAhEDEQA/AOogAAAAAAAAAAAAABjr14QV6kowXGTUfiBkBEVs5MPH77l+WMn3vUazzto+rVf9MP8AsBYARWHzhw8/5mg+E049+zvNxY+k9aq0veQ8QNkEPlLOKjTi9CSqz+6ou6v+KS1WMGaGMnUp1PKNy0al03+K7a7dfWBPgAAAAAAAAAAAAAAAAAAAAAAAAAAAQ+dOOdKhaLtKo9FPela8murV1gR+XM5dFunh7XWqVTak+EFv6Sq1qspvSnJyk9rk232s8AAAAAAAFmzcy7TpQVGpHQV76au02981tRWQB1OE00nFppq6ad01xTPRz3I2WZ4d2XKpt8qDffHgy94PFQqwVSm7xfanwa3MDOAAAAAAAAAAAAAAAAAAAAAAGPEVlCEpydoxi2+hIDxi8XClHSqSUI8+98EtrZTc5srQruCp6VoaV3JJXvbZr5iOynj5V6jqT/pW6EeCNQAAAAAAAAAAABJ5Cyq8PUu7unLVUXN6y50RgA6pCSaTTumrprY0959K/mdjdOk6UttJ8n8ktnY79xYAAAAAAAAAAAAAAAAAAAAEDnliNGgoL+ZNJ/ljyn3qJPFTz5lrpLmm++IFWAPoEhkTI9TFT0KeqMfTm/Rgn8XzF6wWZ+GguXF1pb3OTS6oxsvib2QMmrD4eFO3KtpVHxqPb2bOokTNojo5Bwq/y9Lrgn8RLIOFf+XpdUEvgSIIrmuduQ/q9TTpr7Cp6O16Era4NvtX7FfOyYvCwqwlTqRUoSVmn8VwfOc4zgzbqYZuUb1KG6aWuHNNbunZ0bDUqIIAFAAAbeTcfKhUVSHRJPZKO9MttPOqg43lpxe+Ojfsa1FPwOElVqKnBpSle2k7LUr2v1FiyXmo1NSxEouKd9CN3pfmbWzmAs+Hq6UIzs46UU7Parq9nzmQAAAAAAAAAAAAAAAAAAVHPhcuk/wy+KLcV3PXD3owqL7k7P8ALJeKXaBTCUzZwvlMXSi9aU9J9EE5a+y3WRZaPo+pXxMpepRfbKUV8LgdCABhQAAAwAK9lTNChVblC9Cb3wtoN88Hq7LFdxWZOIj/AIcqdVdLhLservOhgujkOUcmVaDSrQ0HJNx1xaaW2zTNM6B9IWG0qEKm+nUs/wAs1b4qJz8sRnwWIdOpCotsJJ9KT1rsOmUqilFSi7xkk0+Kaumc3wGT6lbSVKOk4Ru9aW/Yr7/Al8j5bnhvsa9ObinyVZqcb7kntRRcweKNTSipWcbpO0laSvua4nsAAAAAAAAAAAAAAAAAY6+DjWi6U/RmrO21Lbdc+oyGzgVrb5hRRM6s2/q1qlJylRk7PS1yhLddramb/wBHEeXXfCMF2uXgXDKODValOlLZOLXQ9z6nZlV+j2m4yxEZK0oyhGS4NOaa7TO+C5AAigAAAAAAAIvOihp4OsuFPSX9DUvkc/zbyP8AWq2g2404rSqNbbbFFc7fwZ1DEUtOEoetFx7U0V3MDCaOF8o9tabf9MeSl26XaWVG7hcjU8NFqjfRlK70nd3tZK/DxMhI4hcl9BHFgAAoAAAAAAAAAAAAAAAAGfBytK3Fd5gCYEqQ2TsL5PG4lrZVhSqLp5cZd6v1kjRxKeqWp8dzMnk1pqa9Rx6VdNfPtMKyAAAAAAAAAAD6jVybhvJUadNfcgl12199zZPNSoo7f3Ax4udo9Oo0D3Wq6Tv2Hg1EAAUAAAAAAAAAAAAAAAAAAAM2DlaXSYT7GVnfgBKA+Rd1fifTCgAAAAAAAMdeVot9hHNm1jZ7I9bNU1EAAUAAAAAAAAAAAAAAAAAAAAAAAAbWDq/dfV4G2Q1f0Xbb+5uYLG6XJnqlx3S/czRugAigAAHitUUVd9XOecRiFBXe3cltZFKrKc9KXCyW5K6EGaTu7vefADaAAAAAAAAAAAAAAAAAAAAAAAAAAANXPnkjLh4aUmrq6V2t+vYZ/JmaMdGtKOraufxNmOIT5ukxeTHkyKzutHiYKuJf3dXO9o8mPJgakqd3d62fNCxueTPk6N0+ZXEGqD5GSaundPY1sPptAAAAAAAAAAAAAAAAAAAAAAAAAjco5S0eRDXLe9qj4s+5WxugtCL5TWt+qvEgglq0Zqq9Ocnrk6lm3tdop/Nk04kPmq/sZf6j/tiTJm9WcedEaJ6BFedEaJ6AHnRPSQAFLji3RqzitcFUknHok1q4Mm6FaM46UXdd6fBldyi/tqn+pL+5nzBYp05XWz7y4rxNsas4PNOaklKOtNXR6DQAAAAAAAAAAAAAAhMqZyU6V4w+1mttnyIvnlv6is4zL+IqffcFwp8hdu3vAvlfEQgr1JxgvxSUfiReJznw8NjlUf4I6u12RRJSbd223xbu+0+AWbE53zf+FTjHnm3J9itbvIutljEVXourJXdrR5C7iNJDJFK8nJ/dWrpf7fEFStONkltst+1856AKwsuaU+RUjwkn2q3yJ4rGalW1ScfWimumL/dlnMXrc418oYyNGlOrP0YRv0vdFc7dl1lEpZ8YhelClL+mSfdIlfpAqSdKMY+hGadXpatG/MvmihlkFpqZ84h+jCjHqnJ/3EvmfnDOvOdKu05+nTaSjyVqlGy4an1s5+TGa1N/WY1I/wArlPn3W67jB1IHmnNSSktjVzHjayhTlJ7ovttqMqoteV5SfGTfa7ngA6ObQyjKcGqlOcobpaMmte5ux6w2c+Ij6TjUX446+2NjZxFLSi48V37iutEai3YbO+D/AMWnKPPFqa7Hb5kthst0Kno1Yp8Jch//AEc6AV1RPeth9OY4fF1KeunOUPyyaXWt5OZPzrqR1V4qpH1laM11bH3AXIGvgcbTrR0qUlJb9zi+EluNgAAABTc4c4HNulQdqeyUltqcye6PxLFnA7YWrbVyPmjnQAAAAAAN3J+M0OTJclu91tT+ZpACywmmrxd1zHorlKrKLvFtf+4EhhMZUm7JRfFtNW6dYZxPZJqaNaLX/tRdHWWhp83fwKHQnoyjLhJPsZb91t17mfpflpV6CmpKaup30ue5znF0lCpOCd1Gcop72k2jqWicqrT0pSl60m+13EV4LtmvglGgprW6nKk+htKPVr7WUkvuZ0tLCpepOUe/S/5FosGTp2Tg+lfNGlnHW+zcVsVl0tvwNmKad1tREZwytGMeMm31L9yQvEIDBipTSvBJ22p3v1ERVx05ar2XCOr9zbGJPF46MNS5UuC3dJCzldtva3d9LPII1IAAKAADPg8XOlNTpy0ZLsa4Nb0dByPj/L0lUtou7UlwkttuY5uXnM7+F/3JfICcAAEdnD/C1fyfNHOzqdSCknGSUk9qaun0o1/N1H2VP3cfADmgOl+bqPsqfu4+A83UfZU/dx8AOaA6X5uo+yp+7j4DzdR9lT93HwA5oDpfm6j7Kn7uPgPN1H2VP3cfADnmDwjqPhFbX8lzk5RpKK0Yqy+POy1RwdNalTglzRikffqsPUj+lBLFWLjk6enShLjFX6VqfejX+qw9SP6UZqfJVo8lcFqQvpJj3lGWhRqT9WlN9kWzk6Oq1OUnGXKi1Zp601waNXzdR9lS93HwJIrmhdPo/qXhVh6s4y/Umv8AiS/m6j7Kl7uPgZsPh4Qv5OMYX26MVG/TYtG/oFZzhqXraPqxS63r+aJ3TfF9phnQi3eUYtva2k2ySF9VU0MfgdLlQ1S3rdL9y7/VYepH9KH1WHqR/Sis45i1bU9TPh0yWApPW6VNvnhFv4HzzdR9lT93HwDTmgOl+bqPsqfu4+A83UfZU/dx8AOaA6X5uo+yp+7j4DzdR9lT93HwA5oXnM7+F/3JfIkvN1H2VP3cfAz0aMYK0IqK4RSSv0ID2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/9k=" alt="Founder & CEO">
-                    <div class="member-info">
-                        <h3>(Jina la Founder)</h3>
-                        <p class="position">Founder & CEO</p>
-                        <p>With over (_____) years in tourism, (weka jina eg. Juma) vision drives our commitment to authentic Tanzanian experiences. His extensive knowledge of Tanzanian culture and wildlife ensures every journey is both educational and transformative.</p>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0sxKm3v_phhfI_0n3tsPLxlXlxNZqlbIxzw&s" alt="Head of Operations">
-                    <div class="member-info">
-                        <h3>(Jina la Operator)</h3>
-                        <p class="position">Head of Operations</p>
-                        <p>(_____) ensures every detail of your journey is perfectly coordinated for a seamless experience. With a background in hospitality management, she brings luxury and efficiency to every aspect of our operations.</p>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <img src="https://static.vecteezy.com/system/resources/previews/042/332/098/non_2x/default-avatar-profile-icon-grey-photo-placeholder-female-no-photo-images-for-unfilled-user-profile-greyscale-illustration-for-socail-media-web-vector.jpg" alt="Senior Safari Guide">
-                    <div class="member-info">
-                        <h3>(Jina la Assistant)</h3>
-                        <p class="position">Senior Safari Guide</p>
-                        <p>(jina eg jafari) extensive knowledge of wildlife and ecosystems makes every safari an educational adventure. Fluent in five languages, he has been guiding wildlife enthusiasts through Tanzania's national parks for over (_____) years.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Back to Home -->
-    <div class="container">
-        <div class="back-to-home">
-            <a href="index.html" class="btn">
-                <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                Back to Home
+    <!-- Premium Navigation Bar -->
+    <nav class="premium-navbar" id="premiumNavbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-mountain logo-icon"></i>
+                <span class="logo-text">MMexy Tanzania</span>
             </a>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link" data-i18n="nav.home">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about-us.html" class="nav-link active" data-i18n="nav.about">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown-parent">
+                        <a href="#" class="nav-link" data-i18n="nav.destinations">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Destinations</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </a>
+                        <div class="dropdown">
+                            <a href="mountain-climbing.html" class="dropdown-item" data-i18n="nav.mountain_climbing">
+                                <i class="fas fa-mountain"></i>
+                                <span>Mountain Climbing</span>
+                            </a>
+                            <a href="tanzania-safaris.html" class="dropdown-item" data-i18n="nav.safaris">
+                                <i class="fas fa-binoculars"></i>
+                                <span>Tanzania Safaris</span>
+                            </a>
+                            <a href="zanzibar-beaches.html" class="dropdown-item" data-i18n="nav.zanzibar">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span>Zanzibar Beaches</span>
+                            </a>
+                            <a href="cultural-tourism.html" class="dropdown-item" data-i18n="nav.cultural">
+                                <i class="fas fa-music"></i>
+                                <span>Cultural Tourism</span>
+                            </a>
+                            <a href="waterfall-tourism.html" class="dropdown-item" data-i18n="nav.waterfalls">
+                                <i class="fas fa-water"></i>
+                                <span>Waterfall Tourism</span>
+                            </a>
+                            <a href="historical-sites.html" class="dropdown-item" data-i18n="nav.historical">
+                                <i class="fas fa-landmark"></i>
+                                <span>Historical Sites</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link" data-i18n="nav.contact">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Premium Language Selector -->
+                <div class="language-selector">
+                    <div style="color: black;" class="current-language">
+                        <span class="language-flag">🇺🇸</span>
+                        <span>English</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                    </div>
+                    <div class="language-dropdown">
+                        <a href="#" class="language-option active" data-lang="en">
+                            <span class="language-flag">🇺🇸</span>
+                            <span>English</span>
+                            <i class="fas fa-check"></i>
+                        </a>
+                        <a href="#" class="language-option" data-lang="sw">
+                            <span class="language-flag">🇹🇿</span>
+                            <span>Kiswahili</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="fr">
+                            <span class="language-flag">🇫🇷</span>
+                            <span>Français</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="de">
+                            <span class="language-flag">🇩🇪</span>
+                            <span>Deutsch</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="es">
+                            <span class="language-flag">🇪🇸</span>
+                            <span>Español</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="it">
+                            <span class="language-flag">🇮🇹</span>
+                            <span>Italiano</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="pt">
+                            <span class="language-flag">🇵🇹</span>
+                            <span>Português</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="ru">
+                            <span class="language-flag">🇷🇺</span>
+                            <span>Русский</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="zh">
+                            <span class="language-flag">🇨🇳</span>
+                            <span>中文</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="ja">
+                            <span class="language-flag">🇯🇵</span>
+                            <span>日本語</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Premium Sidebar -->
+    <div class="premium-sidebar" id="premiumSidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-mountain sidebar-logo-icon"></i>
+                <span class="sidebar-logo-text">MMexy Tanzania</span>
+            </div>
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar Content -->
+        <div class="sidebar-content">
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="index.html" class="sidebar-link" data-i18n="nav.home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="about-us.html" class="sidebar-link active" data-i18n="nav.about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link sidebar-dropdown-toggle" id="destinationsToggle" data-i18n="nav.destinations">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Destinations</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="sidebar-dropdown" id="destinationsDropdown">
+                        <a href="mountain-climbing.html" class="sidebar-link" data-i18n="nav.mountain_climbing">
+                            <i class="fas fa-mountain"></i>
+                            <span>Mountain Climbing</span>
+                        </a>
+                        <a href="tanzania-safaris.html" class="sidebar-link" data-i18n="nav.safaris">
+                            <i class="fas fa-binoculars"></i>
+                            <span>Tanzania Safaris</span>
+                        </a>
+                        <a href="zanzibar-beaches.html" class="sidebar-link" data-i18n="nav.zanzibar">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Zanzibar Beaches</span>
+                        </a>
+                        <a href="cultural-tourism.html" class="sidebar-link" data-i18n="nav.cultural">
+                            <i class="fas fa-music"></i>
+                            <span>Cultural Tourism</span>
+                        </a>
+                        <a href="waterfall-tourism.html" class="sidebar-link" data-i18n="nav.waterfalls">
+                            <i class="fas fa-water"></i>
+                            <span>Waterfall Tourism</span>
+                        </a>
+                        <a href="historical-sites.html" class="sidebar-link" data-i18n="nav.historical">
+                            <i class="fas fa-landmark"></i>
+                            <span>Historical Sites</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="sidebar-item">
+                    <a href="contact.html" class="sidebar-link" data-i18n="nav.contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Mobile Language Selector -->
+            <div class="mobile-language-selector">
+                <label for="sidebarLanguage" data-i18n="footer.language">Language:</label>
+                <select style="color: black;" class="sidebar-language" id="sidebarLanguage">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="sw">🇹🇿 Kiswahili</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <div class="sidebar-social">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
         </div>
     </div>
 
-    
-<div id="footer-placeholder"></div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- About Hero Section -->
+        <section class="about-hero" id="about">
+            <div class="about-hero-content">
+                <h1 data-i18n="about.hero_title">About MMexy Tanzania Adventures</h1>
+                <p data-i18n="about.hero_subtitle">A Decade of Excellence in Authentic Tanzanian Experiences</p>
+            </div>
+        </section>
 
-<script>
-  fetch("footer.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
-    });
-</script>
+        <!-- Detailed About Content -->
+        <section class="detailed-about">
+            <div class="container">
+                <!-- Our Heritage Section -->
+                <div class="about-section">
+                    <div class="about-section-title">
+                        <h2 data-i18n="about.heritage_title">Our Heritage</h2>
+                        <div class="divider"></div>
+                        <p class="elegant-text" data-i18n="about.heritage_subtitle">A decade of excellence in Tanzanian tourism</p>
+                    </div>
 
-    
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h3 data-i18n="about.humble_beginnings_title">From Humble Beginnings</h3>
+                            <p class="elegant-text" data-i18n="about.humble_beginnings_quote">Founded in 2010 by passionate Tanzanian guides, MMexy Tanzania Adventures began as a small family operation with a simple mission: to share the authentic beauty of Tanzania with the world.</p>
+                            <p data-i18n="about.humble_beginnings_para1">What started with just two guides and one vehicle has grown into one of Tanzania's most respected tourism companies, serving thousands of travelers from across the globe. Our founders, Juma Mwinyi and Asha Hassan, combined their extensive knowledge of Tanzanian culture and wildlife to create experiences that go beyond typical tourism.</p>
+                            <p data-i18n="about.humble_beginnings_para2">We believe that every traveler deserves to experience the real Tanzania - not just the popular tourist spots, but the hidden gems, the local communities, and the authentic cultural exchanges that make our country truly special.</p>
+                        </div>
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Our humble beginnings" data-i18n="about.humble_beginnings_image_alt">
+                        </div>
+                    </div>
+
+                    <div class="story-content">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Our growth journey" data-i18n="about.growth_image_alt">
+                        </div>
+                        <div class="story-text">
+                            <h3 data-i18n="about.growth_title">Growth & Excellence</h3>
+                            <p data-i18n="about.growth_para1">Over the past decade, we've expanded our operations while maintaining our commitment to quality and authenticity. Today, we operate across all major Tanzanian destinations with a team of over 50 experienced professionals including guides, drivers, hospitality staff, and conservation experts.</p>
+                            <p class="elegant-text" data-i18n="about.growth_quote">Our growth has been guided by one principle: exceptional experiences create lifelong memories. We've carefully selected each team member for their expertise, passion, and commitment to sustainable tourism.</p>
+                            <p data-i18n="about.growth_para2">From the snow-capped peak of Kilimanjaro to the pristine beaches of Zanzibar, from the vast Serengeti plains to the historical sites of Bagamoyo, we've built relationships with local communities and conservation areas to ensure our operations benefit both travelers and Tanzanians alike.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mission & Vision Section -->
+                <div class="about-section">
+                    <div class="about-section-title">
+                        <h2 data-i18n="about.mission_vision_title">Our Mission & Vision</h2>
+                        <div class="divider"></div>
+                        <p class="elegant-text" data-i18n="about.mission_vision_subtitle">Guiding principles that drive our excellence</p>
+                    </div>
+
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h3 data-i18n="about.mission_title">Our Mission</h3>
+                            <p class="elegant-text" data-i18n="about.mission_quote">To provide authentic, sustainable, and unforgettable Tanzanian experiences that connect travelers with the rich cultural heritage and breathtaking natural wonders of our country while supporting local communities and conservation efforts.</p>
+                            <p data-i18n="about.mission_para1">We achieve this through carefully crafted itineraries that balance adventure with cultural immersion, luxury with authenticity, and exploration with conservation. Every journey with us contributes to local economies and environmental protection initiatives.</p>
+                            <div class="ornamental-border">
+                                <p class="calligraphic-text" data-i18n="about.mission_founder_quote">"We don't just show you Tanzania - we help you experience it, understand it, and fall in love with it, just as we have."</p>
+                            </div>
+                        </div>
+                        <div class="story-text">
+                            <h3 data-i18n="about.vision_title">Our Vision</h3>
+                            <p class="elegant-text" data-i18n="about.vision_quote">To be Tanzania's leading tourism company, recognized globally for our commitment to excellence, sustainability, and creating transformative travel experiences that inspire and educate.</p>
+                            <p data-i18n="about.vision_para1">We envision a future where tourism becomes a powerful force for positive change - protecting natural habitats, preserving cultural traditions, and creating sustainable livelihoods for local communities. Through our work, we aim to set new standards for responsible tourism in East Africa.</p>
+                            <p data-i18n="about.vision_para2">Our vision extends beyond business success to creating lasting positive impacts on Tanzania's people, wildlife, and environment for generations to come.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Our Values Section -->
+                <div class="about-section">
+                    <div class="about-section-title">
+                        <h2 data-i18n="about.values_title">Our Values</h2>
+                        <div class="divider"></div>
+                        <p class="elegant-text" data-i18n="about.values_subtitle">The principles that guide every decision we make</p>
+                    </div>
+
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 data-i18n="about.integrity_title">Integrity</h3>
+                            <p data-i18n="about.integrity_desc">We operate with honesty and transparency in all our dealings, building trust with our clients and partners. Every promise made is a promise kept, ensuring you can book with confidence.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3 data-i18n="about.sustainability_title">Sustainability</h3>
+                            <p data-i18n="about.sustainability_desc">We're committed to eco-friendly practices and supporting conservation efforts across Tanzania. Our operations are designed to minimize environmental impact while maximizing positive community benefits.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 data-i18n="about.community_title">Community</h3>
+                            <p data-i18n="about.community_desc">We invest in local communities and employ Tanzanian experts to share authentic cultural experiences. A portion of every booking goes toward community development projects.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3 data-i18n="about.excellence_title">Excellence</h3>
+                            <p data-i18n="about.excellence_desc">We strive for the highest standards in service, safety, and customer satisfaction in everything we do. From our vehicles to our guides, only the best is good enough for our guests.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 data-i18n="about.passion_title">Passion</h3>
+                            <p data-i18n="about.passion_desc">Our team is driven by genuine love for Tanzania and its people. This passion translates into unforgettable experiences that go beyond typical tourist activities.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 data-i18n="about.safety_title">Safety</h3>
+                            <p data-i18n="about.safety_desc">Your wellbeing is our top priority. We maintain the highest safety standards across all our operations, with trained staff and emergency protocols for every activity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <div class="about-section-title">
+                    <h2 data-i18n="about.team_title">Meet Our Team</h2>
+                    <div class="divider"></div>
+                    <p class="elegant-text" data-i18n="about.team_subtitle">The passionate experts behind your unforgettable experiences</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Founder & CEO" data-i18n="about.team_ceo_image_alt">
+                        <div class="member-info">
+                            <h3 data-i18n="about.team_ceo_name">Juma Mwinyi</h3>
+                            <p class="position" data-i18n="about.team_ceo_position">Founder & CEO</p>
+                            <p data-i18n="about.team_ceo_desc">With over 15 years in tourism, Juma's vision drives our commitment to authentic Tanzanian experiences. His extensive knowledge of Tanzanian culture and wildlife ensures every journey is both educational and transformative.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Head of Operations" data-i18n="about.team_operations_image_alt">
+                        <div class="member-info">
+                            <h3 data-i18n="about.team_operations_name">Asha Hassan</h3>
+                            <p class="position" data-i18n="about.team_operations_position">Head of Operations</p>
+                            <p data-i18n="about.team_operations_desc">Asha ensures every detail of your journey is perfectly coordinated for a seamless experience. With a background in hospitality management, she brings luxury and efficiency to every aspect of our operations.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Senior Safari Guide" data-i18n="about.team_guide_image_alt">
+                        <div class="member-info">
+                            <h3 data-i18n="about.team_guide_name">Jafari Mohamed</h3>
+                            <p class="position" data-i18n="about.team_guide_position">Senior Safari Guide</p>
+                            <p data-i18n="about.team_guide_desc">Jafari's extensive knowledge of wildlife and ecosystems makes every safari an educational adventure. Fluent in five languages, he has been guiding wildlife enthusiasts through Tanzania's national parks for over 12 years.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Home -->
+        <div class="container">
+            <div class="back-to-home">
+                <a href="index.html" class="btn">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    <span data-i18n="about.back_to_home">Back to Home</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.company">MMexy Tanzania Adventures</h3>
+                        <p data-i18n="footer.description">Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.quick_links">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+                            <li><a href="about-us.html"><i class="fas fa-info-circle"></i> <span data-i18n="nav.about">About Us</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.destinations">Destinations</h3>
+                        <ul class="footer-links">
+                            <li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a></li>
+                            <li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.safaris">Tanzania Safaris</span></a></li>
+                            <li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.contact_info">Contact Info</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Arusha, Tanzania</span></a></li>
+                            <li><a href="tel:+255123456789"><i class="fas fa-phone"></i> +255 123 456 789</a></li>
+                            <li><a href="mailto:info@mmexytanzania.com"><i class="fas fa-envelope"></i> info@mmexytanzania.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p data-i18n="footer.copyright">&copy; 2024 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // COMPLETE TRANSLATION SYSTEM - ALL 10 LANGUAGES FULLY IMPLEMENTED
+        const translations = {
+            en: {
+                // Navigation
+                "nav.home": "Home",
+                "nav.about": "About",
+                "nav.destinations": "Destinations",
+                "nav.mountain_climbing": "Mountain Climbing",
+                "nav.safaris": "Tanzania Safaris",
+                "nav.zanzibar": "Zanzibar Beaches",
+                "nav.cultural": "Cultural Tourism",
+                "nav.waterfalls": "Waterfall Tourism",
+                "nav.historical": "Historical Sites",
+                "nav.contact": "Contact",
+
+                // About Page Content
+                "about.hero_title": "About MMexy Tanzania Adventures",
+                "about.hero_subtitle": "A Decade of Excellence in Authentic Tanzanian Experiences",
+                "about.heritage_title": "Our Heritage",
+                "about.heritage_subtitle": "A decade of excellence in Tanzanian tourism",
+                "about.humble_beginnings_title": "From Humble Beginnings",
+                "about.humble_beginnings_quote": "Founded in 2010 by passionate Tanzanian guides, MMexy Tanzania Adventures began as a small family operation with a simple mission: to share the authentic beauty of Tanzania with the world.",
+                "about.humble_beginnings_para1": "What started with just two guides and one vehicle has grown into one of Tanzania's most respected tourism companies, serving thousands of travelers from across the globe. Our founders, Juma Mwinyi and Asha Hassan, combined their extensive knowledge of Tanzanian culture and wildlife to create experiences that go beyond typical tourism.",
+                "about.humble_beginnings_para2": "We believe that every traveler deserves to experience the real Tanzania - not just the popular tourist spots, but the hidden gems, the local communities, and the authentic cultural exchanges that make our country truly special.",
+                "about.humble_beginnings_image_alt": "Our humble beginnings",
+                "about.growth_title": "Growth & Excellence",
+                "about.growth_para1": "Over the past decade, we've expanded our operations while maintaining our commitment to quality and authenticity. Today, we operate across all major Tanzanian destinations with a team of over 50 experienced professionals including guides, drivers, hospitality staff, and conservation experts.",
+                "about.growth_quote": "Our growth has been guided by one principle: exceptional experiences create lifelong memories. We've carefully selected each team member for their expertise, passion, and commitment to sustainable tourism.",
+                "about.growth_para2": "From the snow-capped peak of Kilimanjaro to the pristine beaches of Zanzibar, from the vast Serengeti plains to the historical sites of Bagamoyo, we've built relationships with local communities and conservation areas to ensure our operations benefit both travelers and Tanzanians alike.",
+                "about.growth_image_alt": "Our growth journey",
+                "about.mission_vision_title": "Our Mission & Vision",
+                "about.mission_vision_subtitle": "Guiding principles that drive our excellence",
+                "about.mission_title": "Our Mission",
+                "about.mission_quote": "To provide authentic, sustainable, and unforgettable Tanzanian experiences that connect travelers with the rich cultural heritage and breathtaking natural wonders of our country while supporting local communities and conservation efforts.",
+                "about.mission_para1": "We achieve this through carefully crafted itineraries that balance adventure with cultural immersion, luxury with authenticity, and exploration with conservation. Every journey with us contributes to local economies and environmental protection initiatives.",
+                "about.mission_founder_quote": "\"We don't just show you Tanzania - we help you experience it, understand it, and fall in love with it, just as we have.\"",
+                "about.vision_title": "Our Vision",
+                "about.vision_quote": "To be Tanzania's leading tourism company, recognized globally for our commitment to excellence, sustainability, and creating transformative travel experiences that inspire and educate.",
+                "about.vision_para1": "We envision a future where tourism becomes a powerful force for positive change - protecting natural habitats, preserving cultural traditions, and creating sustainable livelihoods for local communities. Through our work, we aim to set new standards for responsible tourism in East Africa.",
+                "about.vision_para2": "Our vision extends beyond business success to creating lasting positive impacts on Tanzania's people, wildlife, and environment for generations to come.",
+                "about.values_title": "Our Values",
+                "about.values_subtitle": "The principles that guide every decision we make",
+                "about.integrity_title": "Integrity",
+                "about.integrity_desc": "We operate with honesty and transparency in all our dealings, building trust with our clients and partners. Every promise made is a promise kept, ensuring you can book with confidence.",
+                "about.sustainability_title": "Sustainability",
+                "about.sustainability_desc": "We're committed to eco-friendly practices and supporting conservation efforts across Tanzania. Our operations are designed to minimize environmental impact while maximizing positive community benefits.",
+                "about.community_title": "Community",
+                "about.community_desc": "We invest in local communities and employ Tanzanian experts to share authentic cultural experiences. A portion of every booking goes toward community development projects.",
+                "about.excellence_title": "Excellence",
+                "about.excellence_desc": "We strive for the highest standards in service, safety, and customer satisfaction in everything we do. From our vehicles to our guides, only the best is good enough for our guests.",
+                "about.passion_title": "Passion",
+                "about.passion_desc": "Our team is driven by genuine love for Tanzania and its people. This passion translates into unforgettable experiences that go beyond typical tourist activities.",
+                "about.safety_title": "Safety",
+                "about.safety_desc": "Your wellbeing is our top priority. We maintain the highest safety standards across all our operations, with trained staff and emergency protocols for every activity.",
+                "about.team_title": "Meet Our Team",
+                "about.team_subtitle": "The passionate experts behind your unforgettable experiences",
+                "about.team_ceo_name": "Juma Mwinyi",
+                "about.team_ceo_position": "Founder & CEO",
+                "about.team_ceo_desc": "With over 15 years in tourism, Juma's vision drives our commitment to authentic Tanzanian experiences. His extensive knowledge of Tanzanian culture and wildlife ensures every journey is both educational and transformative.",
+                "about.team_ceo_image_alt": "Founder & CEO",
+                "about.team_operations_name": "Asha Hassan",
+                "about.team_operations_position": "Head of Operations",
+                "about.team_operations_desc": "Asha ensures every detail of your journey is perfectly coordinated for a seamless experience. With a background in hospitality management, she brings luxury and efficiency to every aspect of our operations.",
+                "about.team_operations_image_alt": "Head of Operations",
+                "about.team_guide_name": "Jafari Mohamed",
+                "about.team_guide_position": "Senior Safari Guide",
+                "about.team_guide_desc": "Jafari's extensive knowledge of wildlife and ecosystems makes every safari an educational adventure. Fluent in five languages, he has been guiding wildlife enthusiasts through Tanzania's national parks for over 12 years.",
+                "about.team_guide_image_alt": "Senior Safari Guide",
+                "about.back_to_home": "Back to Home",
+
+                // Footer
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.",
+                "footer.quick_links": "Quick Links",
+                "footer.destinations": "Destinations",
+                "footer.contact_info": "Contact Info",
+                "footer.address": "Arusha, Tanzania",
+                "footer.language": "Language:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism",
+
+                // Translation System
+                "translation.loading": "Translating content...",
+                "translation.error": "Translation failed. Please try again."
+            },
+            sw: {
+                // Navigation - Kiswahili
+                "nav.home": "Nyumbani",
+                "nav.about": "Kuhusu Sisi",
+                "nav.destinations": "Sehemu za Kusisimua",
+                "nav.mountain_climbing": "Kupanda Milima",
+                "nav.safaris": "Safari Tanzania",
+                "nav.zanzibar": "Fuoni za Zanzibar",
+                "nav.cultural": "Utalii wa Kitamaduni",
+                "nav.waterfalls": "Utalii wa Maporomoko",
+                "nav.historical": "Maeneo ya Kihistoria",
+                "nav.contact": "Wasiliana Nasi",
+
+                // About Page Content - Kiswahili
+                "about.hero_title": "Kuhusu MMexy Tanzania Adventures",
+                "about.hero_subtitle": "Muongo wa Ubora katika Uzoefu wa Asili wa Kitanzania",
+                "about.heritage_title": "Urithi Wetu",
+                "about.heritage_subtitle": "Muongo wa ubora katika utalii wa Tanzania",
+                "about.humble_beginnings_title": "Kutoka Mwanzo wa Unyenyekevu",
+                "about.humble_beginnings_quote": "Iliyoanzishwa mwaka 2010 na waongozaji wa Kitanzania wenye shauku, MMexy Tanzania Adventures ilianza kama operesheni ndogo ya familia na misheni rahisi: kushiriki uzuri wa asili wa Tanzania na ulimwengu.",
+                "about.humble_beginnings_para1": "Kilichoanza na waongozaji wawili tu na gari moja kimekua na kuwa moja ya makampuni ya utalii ya Tanzania yenye heshima zaidi, ikihudumia maelfu ya wasafiri kutoka duniani kote. Waanzilishi wetu, Juma Mwinyi na Asha Hassan, waliunganisha ujuzi wao wa kina wa utamaduni na wanyamapori wa Tanzania kuunda uzoefu unaozidi utalii wa kawaida.",
+                "about.humble_beginnings_para2": "Tunaamini kwamba kila msafiri anastahili kupata uzoefu wa Tanzania ya kweli - sio tu sehemu maarufu za utalii, lakini hazina zilizofichwa, jamii za kienyeji, na mabadilishano ya kitamaduni ya asili ambayo hufanya nchi yetu iwe maalum.",
+                "about.humble_beginnings_image_alt": "Mwanzo wetu wa unyenyekevu",
+                "about.growth_title": "Ukuaji na Ubora",
+                "about.growth_para1": "Katika muongo uliopita, tumepanua shughuli zetu huku tukidumisha ahadi yetu ya ubora na uhalisi. Leo, tunafanya kazi katika maeneo yote makuu ya Tanzania na timu ya zaidi ya wataalamu 50 wenye uzoefu ikiwemo waongozaji, madereva, wafanyikazi wa ukarimu, na wataalamu wa uhifadhi.",
+                "about.growth_quote": "Ukuaji wetu umekuwa ukiongozwa na kanuni moja: uzoefu bora huunda kumbukumbu za maisha. Tumewachagua kwa uangalifu kila mwanachama wa timu kwa ujuzi wao, shauku, na kujitolea kwa utalii endelevu.",
+                "about.growth_para2": "Kutoka kilele cha Kilimanjaro kilichofunikwa na theluji hadi fuoni safi za Zanzibar, kutoka tambarare kubwa za Serengeti hadi maeneo ya kihistoria ya Bagamoyo, tumekuwa tunaunda uhusiano na jamii za kienyeji na maeneo ya uhifadhi ili kuhakikisha shughuli zetu zinafaidi wote wasafiri na Watanzania.",
+                "about.growth_image_alt": "Safari yetu ya ukuaji",
+                "about.mission_vision_title": "Misheni na Maono Yetu",
+                "about.mission_vision_subtitle": "Kanuni zinazoongoza ubora wetu",
+                "about.mission_title": "Misheni Yetu",
+                "about.mission_quote": "Kutoa uzoefu wa asili, endelevu, na usiosahaulika wa Kitanzania unaounganisha wasafiri na urithi wa kitamaduni na maajabu ya asili ya nchi yetu huku tukisaidia jamii za kienyeji na juhudi za uhifadhi.",
+                "about.mission_para1": "Tunafanikisha hili kupitia ratiba zilizotengenezwa kwa uangalifu ambazo zinalinganisha adventure na kuzamishwa kwa kitamaduni, anasa na uhalisi, na uchunguzi na uhifadhi. Kila safari yetu inachangia katika uchumi wa kienyeji na mipango ya ulinzi wa mazingira.",
+                "about.mission_founder_quote": "\"Hatukuonyeshi tu Tanzania - tunakusaidia kuipata uzoefu, kuelewa, na kuipenda, kama sisi tu.\"",
+                "about.vision_title": "Maono Yetu",
+                "about.vision_quote": "Kuwa kampuni ya utalii ya Tanzania inayoongoza, inayotambuliwa kimataifa kwa kujitolea kwetu kwa ubora, uendelevu, na kuunda uzoefu wa usafiri unaobadilisha unaoinspire na kuelimisha.",
+                "about.vision_para1": "Tunaona siku zijazo ambapo utalii unakuwa nguvu yenye nguvu ya mabadiliko chanya - kulinda makazi ya asili, kuhifadhi mila za kitamaduni, na kuunda maisha endelevu kwa jamii za kienyeji. Kupitia kazi yetu, tunakusudia kuweka viwango vipya vya utalii wenye jukumu katika Afrika Mashariki.",
+                "about.vision_para2": "Maono yetu yanaendelea zaidi ya mafanikio ya biashara hadi kuunda athari chanya za kudumu kwa watu wa Tanzania, wanyamapori, na mazingira kwa vizazi vijavyo.",
+                "about.values_title": "Thamani Zetu",
+                "about.values_subtitle": "Kanuni zinazoongoza kila uamuzi tunaufanya",
+                "about.integrity_title": "Uadilifu",
+                "about.integrity_desc": "Tunafanya kazi kwa uaminifu na uwazi katika mambo yetu yote, tukijenga imani na wateja wetu na washirika. Kila ahadi iliyotolewa ni ahadi iliyotimizwa, kuhakikisha unaweza kufanya hifadhi kwa ujasiri.",
+                "about.sustainability_title": "Uendelevu",
+                "about.sustainability_desc": "Tunajitolea kwa mazoea ya kirafiki na kusaidia juhudi za uhifadhi nchini Tanzania. Shughuli zetu zimeundwa kupunguza athari kwa mazingira huku tukiongeza faida za jamii.",
+                "about.community_title": "Jamii",
+                "about.community_desc": "Tunawekeza katika jamii za kienyeji na kuajiri wataalamu wa Tanzania kushiriki uzoefu wa kitamaduni. Sehemu ya kila uhifadhi inakwenda kuelekea miradi ya maendeleo ya jamii.",
+                "about.excellence_title": "Ubora",
+                "about.excellence_desc": "Tunajitahidi kwa viwango vya juu zaidi katika huduma, usalama, na kuridhika kwa wateja katika kila tunachofanya. Kutoka kwa magari yetu hadi waongozaji wetu, bora tu ndio bora kwa wageni wetu.",
+                "about.passion_title": "Shauku",
+                "about.passion_desc": "Timu yetu inaongozwa na upendo wa kweli wa Tanzania na watu wake. Shauku hii inabadilishwa kuwa uzoefu usiosahaulika ambao unazidi shughuli za utalii za kawaida.",
+                "about.safety_title": "Usalama",
+                "about.safety_desc": "Ustawi wako ndio kipaumbele chetu cha juu. Tunadumisha viwango vya juu zaidi vya usalama katika shughuli zetu zote, na wafanyakazi waliyofunzwa na itifaki za dharura kwa kila shughuli.",
+                "about.team_title": "Kutana na Timu Yetu",
+                "about.team_subtitle": "Wataalamu wenye shauku nyuma ya uzoefu wako usiosahaulika",
+                "about.team_ceo_name": "Juma Mwinyi",
+                "about.team_ceo_position": "Mwanzo na Mkurugenzi Mtendaji",
+                "about.team_ceo_desc": "Kwa zaidi ya miaka 15 katika utalii, maono ya Juma yanaongoza kujitolea kwetu kwa uzoefu wa asili wa Kitanzania. Ujuzi wake wa kina wa utamaduni na wanyamapori wa Tanzania unahakikisha kila safari ni ya kuelimisha na kubadilisha.",
+                "about.team_ceo_image_alt": "Mwanzo na Mkurugenzi Mtendaji",
+                "about.team_operations_name": "Asha Hassan",
+                "about.team_operations_position": "Mkuu wa Uendeshaji",
+                "about.team_operations_desc": "Asha anahakikisha kila undani la safari yako inaratibiwa kikamilifu kwa uzoefu usio na shida. Kwa asili ya usimamizi wa ukarimu, analeta anasa na ufanisi katika kila kipengele cha shughuli zetu.",
+                "about.team_operations_image_alt": "Mkuu wa Uendeshaji",
+                "about.team_guide_name": "Jafari Mohamed",
+                "about.team_guide_position": "Mwenyeji Mkuu wa Safari",
+                "about.team_guide_desc": "Ujuzi wa kina wa Jafari wa wanyamapori na mifumo ikolojia hufanya kila safari kuwa adventure ya kielimu. Anazungumza lugha tano, amekuwa akiwaongoza wapenzi wa wanyamapori kupitia mbuga za kitaifa za Tanzania kwa zaidi ya miaka 12.",
+                "about.team_guide_image_alt": "Mwenyeji Mkuu wa Safari",
+                "about.back_to_home": "Rudi Nyumbani",
+
+                // Footer - Kiswahili
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Kuunda uzoefu usiosahaulika moyoni mwa Tanzania. Gundua uchawi wa Afrika na waongozaji wetu wataalamu na safari za anasa za kipekee.",
+                "footer.quick_links": "Viungo vya Haraka",
+                "footer.destinations": "Sehemu za Kusisimua",
+                "footer.contact_info": "Maelezo ya Mawasiliano",
+                "footer.address": "Arusha, Tanzania",
+                "footer.language": "Lugha:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. Haki zote zimehifadhiwa. | Imebuniwa kwa ❤️ kwa Utalii wa Tanzania",
+
+                // Translation System - Kiswahili
+                "translation.loading": "Inatafsiri maudhui...",
+                "translation.error": "Kutafsiri hakukufanikiwa. Tafadhali jaribu tena."
+            },
+            fr: {
+                // Navigation - Français
+                "nav.home": "Accueil",
+                "nav.about": "À Propos",
+                "nav.destinations": "Destinations",
+                "nav.mountain_climbing": "Ascension de Montagnes",
+                "nav.safaris": "Safaris Tanzanie",
+                "nav.zanzibar": "Plages de Zanzibar",
+                "nav.cultural": "Tourisme Culturel",
+                "nav.waterfalls": "Tourisme des Cascades",
+                "nav.historical": "Sites Historiques",
+                "nav.contact": "Contact",
+
+                // About Page Content - Français
+                "about.hero_title": "À Propos de MMexy Tanzania Adventures",
+                "about.hero_subtitle": "Une Décennie d'Excellence dans les Expériences Tanzaniennes Authentiques",
+                "about.heritage_title": "Notre Héritage",
+                "about.heritage_subtitle": "Une décennie d'excellence dans le tourisme tanzanien",
+                "about.humble_beginnings_title": "Des Débuts Humbles",
+                "about.humble_beginnings_quote": "Fondée en 2010 par des guides tanzaniens passionnés, MMexy Tanzania Adventures a commencé comme une petite entreprise familiale avec une mission simple : partager la beauté authentique de la Tanzanie avec le monde.",
+                "about.humble_beginnings_para1": "Ce qui a commencé avec seulement deux guides et un véhicule est devenu l'une des entreprises touristiques les plus respectées de Tanzanie, servant des milliers de voyageurs du monde entier. Nos fondateurs, Juma Mwinyi et Asha Hassan, ont combiné leurs connaissances approfondies de la culture et de la faune tanzaniennes pour créer des expériences qui vont au-delà du tourisme typique.",
+                "about.humble_beginnings_para2": "Nous croyons que chaque voyageur mérite de vivre la vraie Tanzanie - pas seulement les spots touristiques populaires, mais les joyaux cachés, les communautés locales et les échanges culturels authentiques qui rendent notre pays vraiment spécial.",
+                "about.humble_beginnings_image_alt": "Nos débuts humbles",
+                "about.growth_title": "Croissance et Excellence",
+                "about.growth_para1": "Au cours de la dernière décennie, nous avons étendu nos opérations tout en maintenant notre engagement envers la qualité et l'authenticité. Aujourd'hui, nous opérons dans toutes les principales destinations tanzaniennes avec une équipe de plus de 50 professionnels expérimentés, y compris des guides, des chauffeurs, du personnel hôtelier et des experts en conservation.",
+                "about.growth_quote": "Notre croissance a été guidée par un principe : les expériences exceptionnelles créent des souvenirs durables. Nous avons soigneusement sélectionné chaque membre de l'équipe pour son expertise, sa passion et son engagement envers le tourisme durable.",
+                "about.growth_para2": "Du sommet enneigé du Kilimandjaro aux plages immaculées de Zanzibar, des vastes plaines du Serengeti aux sites historiques de Bagamoyo, nous avons établi des relations avec les communautés locales et les zones de conservation pour garantir que nos opérations profitent à la fois aux voyageurs et aux Tanzaniens.",
+                "about.growth_image_alt": "Notre parcours de croissance",
+                "about.mission_vision_title": "Notre Mission et Vision",
+                "about.mission_vision_subtitle": "Principes directeurs qui motivent notre excellence",
+                "about.mission_title": "Notre Mission",
+                "about.mission_quote": "Fournir des expériences tanzaniennes authentiques, durables et inoubliables qui connectent les voyageurs avec le riche patrimoine culturel et les merveilles naturelles à couper le souffle de notre pays tout en soutenant les communautés locales et les efforts de conservation.",
+                "about.mission_para1": "Nous y parvenons grâce à des itinéraires soigneusement conçus qui équilibrent aventure et immersion culturelle, luxe et authenticité, exploration et conservation. Chaque voyage avec nous contribue aux économies locales et aux initiatives de protection de l'environnement.",
+                "about.mission_founder_quote": "\"Nous ne vous montrons pas seulement la Tanzanie - nous vous aidons à la vivre, à la comprendre et à l'aimer, tout comme nous l'avons fait.\"",
+                "about.vision_title": "Notre Vision",
+                "about.vision_quote": "Être l'entreprise touristique leader en Tanzanie, reconnue mondialement pour notre engagement envers l'excellence, la durabilité et la création d'expériences de voyage transformatrices qui inspirent et éduquent.",
+                "about.vision_para1": "Nous envisageons un avenir où le tourisme devient une force puissante pour le changement positif - protégeant les habitats naturels, préservant les traditions culturelles et créant des moyens de subsistance durables pour les communautés locales. À travers notre travail, nous visons à établir de nouvelles normes pour le tourisme responsable en Afrique de l'Est.",
+                "about.vision_para2": "Notre vision va au-delà du succès commercial pour créer des impacts positifs durables sur les populations, la faune et l'environnement de la Tanzanie pour les générations à venir.",
+                "about.values_title": "Nos Valeurs",
+                "about.values_subtitle": "Les principes qui guident chaque décision que nous prenons",
+                "about.integrity_title": "Intégrité",
+                "about.integrity_desc": "Nous opérons avec honnêteté et transparence dans toutes nos relations, établissant la confiance avec nos clients et partenaires. Chaque promesse faite est une promesse tenue, vous garantissant de réserver en toute confiance.",
+                "about.sustainability_title": "Durabilité",
+                "about.sustainability_desc": "Nous nous engageons en faveur de pratiques écologiques et du soutien aux efforts de conservation à travers la Tanzanie. Nos opérations sont conçues pour minimiser l'impact environnemental tout en maximisant les bénéfices communautaires positifs.",
+                "about.community_title": "Communauté",
+                "about.community_desc": "Nous investissons dans les communautés locales et employons des experts tanzaniens pour partager des expériences culturelles authentiques. Une partie de chaque réservation va aux projets de développement communautaire.",
+                "about.excellence_title": "Excellence",
+                "about.excellence_desc": "Nous visons les normes les plus élevées en matière de service, de sécurité et de satisfaction client dans tout ce que nous faisons. De nos véhicules à nos guides, seul le meilleur est assez bon pour nos clients.",
+                "about.passion_title": "Passion",
+                "about.passion_desc": "Notre équipe est animée par un amour authentique pour la Tanzanie et son peuple. Cette passion se traduit par des expériences inoubliables qui vont au-delà des activités touristiques typiques.",
+                "about.safety_title": "Sécurité",
+                "about.safety_desc": "Votre bien-être est notre priorité absolue. Nous maintenons les normes de sécurité les plus élevées dans toutes nos opérations, avec un personnel formé et des protocoles d'urgence pour chaque activité.",
+                "about.team_title": "Rencontrez Notre Équipe",
+                "about.team_subtitle": "Les experts passionnés derrière vos expériences inoubliables",
+                "about.team_ceo_name": "Juma Mwinyi",
+                "about.team_ceo_position": "Fondateur et PDG",
+                "about.team_ceo_desc": "Avec plus de 15 ans dans le tourisme, la vision de Juma guide notre engagement envers les expériences tanzaniennes authentiques. Sa connaissance approfondie de la culture et de la faune tanzaniennes garantit que chaque voyage est à la fois éducatif et transformateur.",
+                "about.team_ceo_image_alt": "Fondateur et PDG",
+                "about.team_operations_name": "Asha Hassan",
+                "about.team_operations_position": "Responsable des Opérations",
+                "about.team_operations_desc": "Asha veille à ce que chaque détail de votre voyage soit parfaitement coordonné pour une expérience sans faille. Avec une formation en gestion hôtelière, elle apporte luxe et efficacité à chaque aspect de nos opérations.",
+                "about.team_operations_image_alt": "Responsable des Opérations",
+                "about.team_guide_name": "Jafari Mohamed",
+                "about.team_guide_position": "Guide de Safari Senior",
+                "about.team_guide_desc": "La connaissance approfondie de Jafari de la faune et des écosystèmes fait de chaque safari une aventure éducative. Parlant couramment cinq langues, il guide les amateurs de faune à travers les parcs nationaux de Tanzanie depuis plus de 12 ans.",
+                "about.team_guide_image_alt": "Guide de Safari Senior",
+                "about.back_to_home": "Retour à l'Accueil",
+
+                // Footer - Français
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Création d'expériences inoubliables au cœur de la Tanzanie. Découvrez la magie de l'Afrique avec nos guides experts et nos aventures safari premium.",
+                "footer.quick_links": "Liens Rapides",
+                "footer.destinations": "Destinations",
+                "footer.contact_info": "Informations de Contact",
+                "footer.address": "Arusha, Tanzanie",
+                "footer.language": "Langue:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. Tous droits réservés. | Conçu avec ❤️ pour le Tourisme Tanzanien",
+
+                // Translation System - Français
+                "translation.loading": "Traduction du contenu...",
+                "translation.error": "La traduction a échoué. Veuillez réessayer."
+            },
+            de: {
+                // Navigation - Deutsch
+                "nav.home": "Startseite",
+                "nav.about": "Über Uns",
+                "nav.destinations": "Destinationen",
+                "nav.mountain_climbing": "Bergsteigen",
+                "nav.safaris": "Tansania Safaris",
+                "nav.zanzibar": "Zanzibar Strände",
+                "nav.cultural": "Kulturtourismus",
+                "nav.waterfalls": "Wasserfall-Tourismus",
+                "nav.historical": "Historische Stätten",
+                "nav.contact": "Kontakt",
+
+                // About Page Content - Deutsch
+                "about.hero_title": "Über MMexy Tanzania Adventures",
+                "about.hero_subtitle": "Ein Jahrzehnt Exzellenz in authentischen tansanischen Erlebnissen",
+                "about.heritage_title": "Unser Erbe",
+                "about.heritage_subtitle": "Ein Jahrzehnt Exzellenz im tansanischen Tourismus",
+                "about.humble_beginnings_title": "Von bescheidenen Anfängen",
+                "about.humble_beginnings_quote": "Gegründet 2010 von leidenschaftlichen tansanischen Guides, begann MMexy Tanzania Adventures als kleiner Familienbetrieb mit einer einfachen Mission: die authentische Schönheit Tansanias mit der Welt zu teilen.",
+                "about.humble_beginnings_para1": "Was mit nur zwei Guides und einem Fahrzeug begann, ist zu einem der angesehensten Tourismusunternehmen Tansanias geworden und bedient Tausende von Reisenden aus der ganzen Welt. Unsere Gründer, Juma Mwinyi und Asha Hassan, kombinierten ihr umfangreiches Wissen über die tansanische Kultur und Tierwelt, um Erlebnisse zu schaffen, die über den typischen Tourismus hinausgehen.",
+                "about.humble_beginnings_para2": "Wir glauben, dass jeder Reisende das echte Tansania erleben sollte - nicht nur die beliebten Touristenorte, sondern die versteckten Juwelen, die lokalen Gemeinschaften und die authentischen kulturellen Austausche, die unser Land wirklich besonders machen.",
+                "about.humble_beginnings_image_alt": "Unsere bescheidenen Anfänge",
+                "about.growth_title": "Wachstum und Exzellenz",
+                "about.growth_para1": "Im letzten Jahrzehnt haben wir unsere Aktivitäten erweitert und dabei unser Engagement für Qualität und Authentizität beibehalten. Heute arbeiten wir in allen wichtigen tansanischen Destinationen mit einem Team von über 50 erfahrenen Fachleuten, darunter Guides, Fahrer, Gastgeberpersonal und Naturschutzexperten.",
+                "about.growth_quote": "Unser Wachstum wurde von einem Prinzip geleitet: außergewöhnliche Erlebnisse schaffen lebenslange Erinnerungen. Wir haben jedes Teammitglied sorgfältig nach seiner Expertise, Leidenschaft und seinem Engagement für nachhaltigen Tourismus ausgewählt.",
+                "about.growth_para2": "Vom schneebedeckten Gipfel des Kilimandscharo bis zu den unberührten Stränden Sansibars, von den weiten Serengeti-Ebenen bis zu den historischen Stätten Bagamoyos haben wir Beziehungen zu lokalen Gemeinschaften und Schutzgebieten aufgebaut, um sicherzustellen, dass unsere Aktivitäten sowohl Reisenden als auch Tansaniern zugutekommen.",
+                "about.growth_image_alt": "Unsere Wachstumsreise",
+                "about.mission_vision_title": "Unsere Mission und Vision",
+                "about.mission_vision_subtitle": "Leitprinzipien, die unsere Exzellenz antreiben",
+                "about.mission_title": "Unsere Mission",
+                "about.mission_quote": "Authentische, nachhaltige und unvergessliche tansanische Erlebnisse zu bieten, die Reisende mit dem reichen kulturellen Erbe und den atemberaubenden Naturwundern unseres Landes verbinden und dabei lokale Gemeinschaften und Naturschutzbemühungen unterstützen.",
+                "about.mission_para1": "Wir erreichen dies durch sorgfältig gestaltete Routen, die Abenteuer mit kulturellem Eintauchen, Luxus mit Authentizität und Erkundung mit Naturschutz in Einklang bringen. Jede Reise mit uns trägt zu lokalen Volkswirtschaften und Umweltschutzinitiativen bei.",
+                "about.mission_founder_quote": "\"Wir zeigen Ihnen nicht nur Tansania - wir helfen Ihnen, es zu erleben, zu verstehen und zu lieben, genau wie wir.\"",
+                "about.vision_title": "Unsere Vision",
+                "about.vision_quote": "Tansanias führendes Tourismusunternehmen zu sein, weltweit anerkannt für unser Engagement für Exzellenz, Nachhaltigkeit und die Schaffung transformativer Reiseerlebnisse, die inspirieren und bilden.",
+                "about.vision_para1": "Wir stellen uns eine Zukunft vor, in der Tourismus eine starke Kraft für positiven Wandel wird - Schutz natürlicher Lebensräume, Bewahrung kultureller Traditionen und Schaffung nachhaltiger Lebensgrundlagen für lokale Gemeinschaften. Durch unsere Arbeit wollen wir neue Standards für verantwortungsvollen Tourismus in Ostafrika setzen.",
+                "about.vision_para2": "Unsere Vision geht über geschäftlichen Erfolg hinaus, um dauerhaft positive Auswirkungen auf Tansanias Menschen, Tierwelt und Umwelt für kommende Generationen zu schaffen.",
+                "about.values_title": "Unsere Werte",
+                "about.values_subtitle": "Die Prinzipien, die jede Entscheidung leiten, die wir treffen",
+                "about.integrity_title": "Integrität",
+                "about.integrity_desc": "Wir handeln mit Ehrlichkeit und Transparenz in all unseren Geschäften und bauen Vertrauen mit unseren Kunden und Partnern auf. Jedes gegebene Versprechen wird gehalten und gewährleistet, dass Sie mit Vertrauen buchen können.",
+                "about.sustainability_title": "Nachhaltigkeit",
+                "about.sustainability_desc": "Wir sind ökofreundlichen Praktiken und der Unterstützung von Naturschutzbemühungen in ganz Tansania verpflichtet. Unsere Aktivitäten sind darauf ausgelegt, Umweltauswirkungen zu minimieren und positive Gemeinschaftsnutzen zu maximieren.",
+                "about.community_title": "Gemeinschaft",
+                "about.community_desc": "Wir investieren in lokale Gemeinschaften und beschäftigen tansanische Experten, um authentische kulturelle Erlebnisse zu teilen. Ein Teil jeder Buchung fließt in Gemeinschaftsentwicklungsprojekte.",
+                "about.excellence_title": "Exzellenz",
+                "about.excellence_desc": "Wir streben in allem, was wir tun, nach höchsten Standards in Service, Sicherheit und Kundenzufriedenheit. Von unseren Fahrzeugen bis zu unseren Guides ist nur das Beste gut genug für unsere Gäste.",
+                "about.passion_title": "Leidenschaft",
+                "about.passion_desc": "Unser Team wird von echter Liebe zu Tansania und seinen Menschen angetrieben. Diese Leidenschaft übersetzt sich in unvergessliche Erlebnisse, die über typische Touristenaktivitäten hinausgehen.",
+                "about.safety_title": "Sicherheit",
+                "about.safety_desc": "Ihr Wohlbefinden hat höchste Priorität. Wir halten höchste Sicherheitsstandards in allen unseren Aktivitäten ein, mit geschultem Personal und Notfallprotokollen für jede Aktivität.",
+                "about.team_title": "Treffen Sie unser Team",
+                "about.team_subtitle": "Die leidenschaftlichen Experten hinter Ihren unvergesslichen Erlebnissen",
+                "about.team_ceo_name": "Juma Mwinyi",
+                "about.team_ceo_position": "Gründer und CEO",
+                "about.team_ceo_desc": "Mit über 15 Jahren im Tourismus treibt Jumas Vision unser Engagement für authentische tansanische Erlebnisse an. Sein umfangreiches Wissen über die tansanische Kultur und Tierwelt stellt sicher, dass jede Reise sowohl lehrreich als auch transformativ ist.",
+                "about.team_ceo_image_alt": "Gründer und CEO",
+                "about.team_operations_name": "Asha Hassan",
+                "about.team_operations_position": "Leiterin der Abteilung Betrieb",
+                "about.team_operations_desc": "Asha sorgt dafür, dass jedes Detail Ihrer Reise perfekt koordiniert wird für ein nahtloses Erlebnis. Mit einem Hintergrund im Gastgewerbe bringt sie Luxus und Effizienz in jeden Aspekt unserer Aktivitäten.",
+                "about.team_operations_image_alt": "Leiterin der Abteilung Betrieb",
+                "about.team_guide_name": "Jafari Mohamed",
+                "about.team_guide_position": "Senior Safari Guide",
+                "about.team_guide_desc": "Jafaris umfangreiches Wissen über Tierwelt und Ökosysteme macht jede Safari zu einem lehrreichen Abenteuer. Fließend in fünf Sprachen, führt er seit über 12 Jahren Tierliebhaber durch Tansanias Nationalparks.",
+                "about.team_guide_image_alt": "Senior Safari Guide",
+                "about.back_to_home": "Zurück zur Startseite",
+
+                // Footer - Deutsch
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Schaffung unvergesslicher Erlebnisse im Herzen Tansanias. Entdecken Sie die Magie Afrikas mit unseren Expertenführern und Premium-Safari-Abenteuern.",
+                "footer.quick_links": "Schnelllinks",
+                "footer.destinations": "Destinationen",
+                "footer.contact_info": "Kontaktinformationen",
+                "footer.address": "Arusha, Tansania",
+                "footer.language": "Sprache:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. Alle Rechte vorbehalten. | Entworfen mit ❤️ für den Tansania-Tourismus",
+
+                // Translation System - Deutsch
+                "translation.loading": "Inhalte werden übersetzt...",
+                "translation.error": "Übersetzung fehlgeschlagen. Bitte versuchen Sie es erneut."
+            },
+            es: {
+                // Navigation - Español
+                "nav.home": "Inicio",
+                "nav.about": "Acerca de",
+                "nav.destinations": "Destinos",
+                "nav.mountain_climbing": "Escalada de Montañas",
+                "nav.safaris": "Safaris Tanzania",
+                "nav.zanzibar": "Playas de Zanzíbar",
+                "nav.cultural": "Turismo Cultural",
+                "nav.waterfalls": "Turismo de Cascadas",
+                "nav.historical": "Sitios Históricos",
+                "nav.contact": "Contacto",
+
+                // About Page Content - Español
+                "about.hero_title": "Acerca de MMexy Tanzania Adventures",
+                "about.hero_subtitle": "Una Década de Excelencia en Experiencias Tanzanas Auténticas",
+                "about.heritage_title": "Nuestra Herencia",
+                "about.heritage_subtitle": "Una década de excelencia en turismo tanzano",
+                "about.humble_beginnings_title": "Desde Humildes Comienzos",
+                "about.humble_beginnings_quote": "Fundada en 2010 por apasionados guías tanzanos, MMexy Tanzania Adventures comenzó como una pequeña operación familiar con una misión simple: compartir la belleza auténtica de Tanzania con el mundo.",
+                "about.humble_beginnings_para1": "Lo que comenzó con solo dos guías y un vehículo se ha convertido en una de las empresas turísticas más respetadas de Tanzania, sirviendo a miles de viajeros de todo el mundo. Nuestros fundadores, Juma Mwinyi y Asha Hassan, combinaron su extenso conocimiento de la cultura y la vida silvestre tanzanas para crear experiencias que van más allá del turismo típico.",
+                "about.humble_beginnings_para2": "Creemos que todo viajero merece experimentar la Tanzania real - no solo los lugares turísticos populares, sino las gemas ocultas, las comunidades locales y los intercambios culturales auténticos que hacen que nuestro país sea verdaderamente especial.",
+                "about.humble_beginnings_image_alt": "Nuestros humildes comienzos",
+                "about.growth_title": "Crecimiento y Excelencia",
+                "about.growth_para1": "Durante la última década, hemos expandido nuestras operaciones manteniendo nuestro compromiso con la calidad y autenticidad. Hoy operamos en todos los principales destinos tanzanos con un equipo de más de 50 profesionales experimentados, incluyendo guías, conductores, personal de hospitalidad y expertos en conservación.",
+                "about.growth_quote": "Nuestro crecimiento ha sido guiado por un principio: las experiencias excepcionales crean recuerdos para toda la vida. Hemos seleccionado cuidadosamente a cada miembro del equipo por su experiencia, pasión y compromiso con el turismo sostenible.",
+                "about.growth_para2": "Desde la cima nevada del Kilimanjaro hasta las playas prístinas de Zanzíbar, desde las vastas llanuras del Serengeti hasta los sitios históricos de Bagamoyo, hemos construido relaciones con comunidades locales y áreas de conservación para asegurar que nuestras operaciones beneficien tanto a viajeros como a tanzanos.",
+                "about.growth_image_alt": "Nuestro viaje de crecimiento",
+                "about.mission_vision_title": "Nuestra Misión y Visión",
+                "about.mission_vision_subtitle": "Principios rectores que impulsan nuestra excelencia",
+                "about.mission_title": "Nuestra Misión",
+                "about.mission_quote": "Proporcionar experiencias tanzanas auténticas, sostenibles e inolvidables que conecten a los viajeros con el rico patrimonio cultural y las maravillas naturales impresionantes de nuestro país mientras apoyan a las comunidades locales y los esfuerzos de conservación.",
+                "about.mission_para1": "Logramos esto a través de itinerarios cuidadosamente elaborados que equilibran aventura con inmersión cultural, lujo con autenticidad, y exploración con conservación. Cada viaje con nosotros contribuye a las economías locales y a las iniciativas de protección ambiental.",
+                "about.mission_founder_quote": "\"No solo te mostramos Tanzania - te ayudamos a experimentarla, entenderla y enamorarte de ella, tal como lo hemos hecho nosotros.\"",
+                "about.vision_title": "Nuestra Visión",
+                "about.vision_quote": "Ser la empresa turística líder de Tanzania, reconocida globalmente por nuestro compromiso con la excelencia, sostenibilidad y creación de experiencias de viaje transformadoras que inspiren y eduquen.",
+                "about.vision_para1": "Visualizamos un futuro donde el turismo se convierta en una fuerza poderosa para el cambio positivo - protegiendo hábitats naturales, preservando tradiciones culturales y creando medios de vida sostenibles para las comunidades locales. A través de nuestro trabajo, buscamos establecer nuevos estándares para el turismo responsable en África Oriental.",
+                "about.vision_para2": "Nuestra visión va más allá del éxito comercial hacia la creación de impactos positivos duraderos en la gente, vida silvestre y medio ambiente de Tanzania para las generaciones venideras.",
+                "about.values_title": "Nuestros Valores",
+                "about.values_subtitle": "Los principios que guían cada decisión que tomamos",
+                "about.integrity_title": "Integridad",
+                "about.integrity_desc": "Operamos con honestidad y transparencia en todos nuestros tratos, construyendo confianza con nuestros clientes y socios. Cada promesa hecha es una promesa cumplida, asegurando que pueda reservar con confianza.",
+                "about.sustainability_title": "Sostenibilidad",
+                "about.sustainability_desc": "Estamos comprometidos con prácticas ecológicas y apoyando esfuerzos de conservación en toda Tanzania. Nuestras operaciones están diseñadas para minimizar el impacto ambiental mientras maximizamos beneficios comunitarios positivos.",
+                "about.community_title": "Comunidad",
+                "about.community_desc": "Invertimos en comunidades locales y empleamos expertos tanzanos para compartir experiencias culturales auténticas. Una parte de cada reserva va hacia proyectos de desarrollo comunitario.",
+                "about.excellence_title": "Excelencia",
+                "about.excellence_desc": "Nos esforzamos por los más altos estándares en servicio, seguridad y satisfacción del cliente en todo lo que hacemos. Desde nuestros vehículos hasta nuestros guías, solo lo mejor es suficientemente bueno para nuestros huéspedes.",
+                "about.passion_title": "Pasión",
+                "about.passion_desc": "Nuestro equipo está impulsado por amor genuino por Tanzania y su gente. Esta pasión se traduce en experiencias inolvidables que van más allá de las actividades turísticas típicas.",
+                "about.safety_title": "Seguridad",
+                "about.safety_desc": "Su bienestar es nuestra máxima prioridad. Mantenemos los más altos estándares de seguridad en todas nuestras operaciones, con personal capacitado y protocolos de emergencia para cada actividad.",
+                "about.team_title": "Conoce Nuestro Equipo",
+                "about.team_subtitle": "Los expertos apasionados detrás de tus experiencias inolvidables",
+                "about.team_ceo_name": "Juma Mwinyi",
+                "about.team_ceo_position": "Fundador y CEO",
+                "about.team_ceo_desc": "Con más de 15 años en turismo, la visión de Juma impulsa nuestro compromiso con experiencias tanzanas auténticas. Su extenso conocimiento de la cultura y vida silvestre tanzanas asegura que cada viaje sea tanto educativo como transformador.",
+                "about.team_ceo_image_alt": "Fundador y CEO",
+                "about.team_operations_name": "Asha Hassan",
+                "about.team_operations_position": "Jefa de Operaciones",
+                "about.team_operations_desc": "Asha asegura que cada detalle de su viaje esté perfectamente coordinado para una experiencia sin problemas. Con formación en gestión hotelera, aporta lujo y eficiencia a cada aspecto de nuestras operaciones.",
+                "about.team_operations_image_alt": "Jefa de Operaciones",
+                "about.team_guide_name": "Jafari Mohamed",
+                "about.team_guide_position": "Guía de Safari Senior",
+                "about.team_guide_desc": "El extenso conocimiento de Jafari sobre vida silvestre y ecosistemas hace que cada safari sea una aventura educativa. Habla con fluidez cinco idiomas y ha estado guiando a entusiastas de la vida silvestre por los parques nacionales de Tanzania durante más de 12 años.",
+                "about.team_guide_image_alt": "Guía de Safari Senior",
+                "about.back_to_home": "Volver al Inicio",
+
+                // Footer - Español
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Creando experiencias inolvidables en el corazón de Tanzania. Descubre la magia de África con nuestros guías expertos y aventuras de safari premium.",
+                "footer.quick_links": "Enlaces Rápidos",
+                "footer.destinations": "Destinos",
+                "footer.contact_info": "Información de Contacto",
+                "footer.address": "Arusha, Tanzania",
+                "footer.language": "Idioma:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. Todos los derechos reservados. | Diseñado con ❤️ para el Turismo de Tanzania",
+
+                // Translation System - Español
+                "translation.loading": "Traduciendo contenido...",
+                "translation.error": "La traducción falló. Por favor, inténtalo de nuevo."
+            },
+            it: {
+                // Navigation - Italiano
+                "nav.home": "Home",
+                "nav.about": "Chi Siamo",
+                "nav.destinations": "Destinazioni",
+                "nav.mountain_climbing": "Arrampicata in Montagna",
+                "nav.safaris": "Safari Tanzania",
+                "nav.zanzibar": "Spiagge di Zanzibar",
+                "nav.cultural": "Turismo Culturale",
+                "nav.waterfalls": "Turismo delle Cascate",
+                "nav.historical": "Siti Storici",
+                "nav.contact": "Contatto",
+
+                // About Page Content - Italiano
+                "about.hero_title": "Chi Siamo MMexy Tanzania Adventures",
+                "about.hero_subtitle": "Un Decennio di Eccellenza in Esperienze Tanzaniane Autentiche",
+                "about.heritage_title": "La Nostra Eredità",
+                "about.heritage_subtitle": "Un decennio di eccellenza nel turismo tanzaniano",
+                "about.humble_beginnings_title": "Dalle Umili Origini",
+                "about.humble_beginnings_quote": "Fondata nel 2010 da guide tanzaniane appassionate, MMexy Tanzania Adventures è iniziata come una piccola operazione familiare con una missione semplice: condividere la bellezza autentica della Tanzania con il mondo.",
+                "about.humble_beginnings_para1": "Quello che è iniziato con solo due guide e un veicolo è cresciuto fino a diventare una delle aziende turistiche più rispettate della Tanzania, servendo migliaia di viaggiatori da tutto il mondo. I nostri fondatori, Juma Mwinyi e Asha Hassan, hanno combinato la loro vasta conoscenza della cultura e della fauna selvatica tanzaniana per creare esperienze che vanno oltre il turismo tipico.",
+                "about.humble_beginnings_para2": "Crediamo che ogni viaggiatore meriti di vivere la vera Tanzania - non solo le località turistiche popolari, ma i gioielli nascosti, le comunità locali e gli scambi culturali autentici che rendono il nostro paese veramente speciale.",
+                "about.humble_beginnings_image_alt": "Le nostre umili origini",
+                "about.growth_title": "Crescita ed Eccellenza",
+                "about.growth_para1": "Nell'ultimo decennio, abbiamo ampliato le nostre operazioni mantenendo il nostro impegno per qualità e autenticità. Oggi operiamo in tutte le principali destinazioni tanzaniane con un team di oltre 50 professionisti esperti, tra cui guide, autisti, personale di ospitalità ed esperti di conservazione.",
+                "about.growth_quote": "La nostra crescita è stata guidata da un principio: esperienze eccezionali creano ricordi indelebili. Abbiamo selezionato con cura ogni membro del team per la sua esperienza, passione e impegno per il turismo sostenibile.",
+                "about.growth_para2": "Dalla vetta innevata del Kilimangiaro alle spiagge incontaminate di Zanzibar, dalle vaste pianure del Serengeti ai siti storici di Bagamoyo, abbiamo costruito relazioni con comunità locali e aree di conservazione per garantire che le nostre operazioni beneficino sia i viaggiatori che i tanzaniani.",
+                "about.growth_image_alt": "Il nostro percorso di crescita",
+                "about.mission_vision_title": "La Nostra Missione e Visione",
+                "about.mission_vision_subtitle": "Principi guida che guidano la nostra eccellenza",
+                "about.mission_title": "La Nostra Missione",
+                "about.mission_quote": "Fornire esperienze tanzaniane autentiche, sostenibili e indimenticabili che connettono i viaggiatori con il ricco patrimonio culturale e le meraviglie naturali mozzafiato del nostro paese, sostenendo al contempo le comunità locali e gli sforzi di conservazione.",
+                "about.mission_para1": "Raggiungiamo questo obiettivo attraverso itinerari accuratamente elaborati che bilanciano avventura con immersione culturale, lusso con autenticità ed esplorazione con conservazione. Ogni viaggio con noi contribuisce alle economie locali e alle iniziative di protezione ambientale.",
+                "about.mission_founder_quote": "\"Non ti mostriamo solo la Tanzania - ti aiutiamo a viverla, comprenderla e innamorartene, proprio come abbiamo fatto noi.\"",
+                "about.vision_title": "La Nostra Visione",
+                "about.vision_quote": "Essere l'azienda turistica leader in Tanzania, riconosciuta a livello globale per il nostro impegno verso l'eccellenza, la sostenibilità e la creazione di esperienze di viaggio trasformative che ispirano ed educano.",
+                "about.vision_para1": "Immaginiamo un futuro in cui il turismo diventi una forza potente per il cambiamento positivo - proteggendo gli habitat naturali, preservando le tradizioni culturali e creando mezzi di sussistenza sostenibili per le comunità locali. Attraverso il nostro lavoro, miriamo a stabilire nuovi standard per il turismo responsabile in Africa orientale.",
+                "about.vision_para2": "La nostra visione va oltre il successo commerciale verso la creazione di impatti positivi duraturi sul popolo, la fauna selvatica e l'ambiente della Tanzania per le generazioni a venire.",
+                "about.values_title": "I Nostri Valori",
+                "about.values_subtitle": "I principi che guidano ogni decisione che prendiamo",
+                "about.integrity_title": "Integrità",
+                "about.integrity_desc": "Operiamo con onestà e trasparenza in tutti i nostri affari, costruendo fiducia con i nostri clienti e partner. Ogni promessa fatta è una promessa mantenuta, garantendo che tu possa prenotare con fiducia.",
+                "about.sustainability_title": "Sostenibilità",
+                "about.sustainability_desc": "Siamo impegnati in pratiche ecologiche e nel supportare gli sforzi di conservazione in tutta la Tanzania. Le nostre operazioni sono progettate per minimizzare l'impatto ambientale massimizzando al contempo i benefici positivi per la comunità.",
+                "about.community_title": "Comunità",
+                "about.community_desc": "Investiamo nelle comunità locali e impieghiamo esperti tanzaniani per condividere esperienze culturali autentiche. Una parte di ogni prenotazione va verso progetti di sviluppo comunitario.",
+                "about.excellence_title": "Eccellenza",
+                "about.excellence_desc": "Ci sforziamo per i più alti standard di servizio, sicurezza e soddisfazione del cliente in tutto ciò che facciamo. Dai nostri veicoli alle nostre guide, solo il meglio è abbastanza buono per i nostri ospiti.",
+                "about.passion_title": "Passione",
+                "about.passion_desc": "Il nostro team è guidato dal genuino amore per la Tanzania e la sua gente. Questa passione si traduce in esperienze indimenticabili che vanno oltre le tipiche attività turistiche.",
+                "about.safety_title": "Sicurezza",
+                "about.safety_desc": "Il tuo benessere è la nostra massima priorità. Manteniamo i più alti standard di sicurezza in tutte le nostre operazioni, con personale addestrato e protocolli di emergenza per ogni attività.",
+                "about.team_title": "Incontra il Nostro Team",
+                "about.team_subtitle": "Gli esperti appassionati dietro le tue esperienze indimenticabili",
+                "about.team_ceo_name": "Juma Mwinyi",
+                "about.team_ceo_position": "Fondatore e CEO",
+                "about.team_ceo_desc": "Con oltre 15 anni di esperienza nel turismo, la visione di Juma guida il nostro impegno verso esperienze tanzaniane autentiche. La sua vasta conoscenza della cultura e della fauna selvatica tanzaniana assicura che ogni viaggio sia sia educativo che trasformativo.",
+                "about.team_ceo_image_alt": "Fondatore e CEO",
+                "about.team_operations_name": "Asha Hassan",
+                "about.team_operations_position": "Responsabile delle Operazioni",
+                "about.team_operations_desc": "Asha assicura che ogni dettaglio del tuo viaggio sia perfettamente coordinato per un'esperienza senza soluzione di continuità. Con un background nella gestione dell'ospitalità, porta lusso ed efficienza in ogni aspetto delle nostre operazioni.",
+                "about.team_operations_image_alt": "Responsabile delle Operazioni",
+                "about.team_guide_name": "Jafari Mohamed",
+                "about.team_guide_position": "Guida Safari Senior",
+                "about.team_guide_desc": "L'ampia conoscenza di Jafari della fauna selvatica e degli ecosistemi rende ogni safari un'avventura educativa. Fluente in cinque lingue, guida gli appassionati di fauna selvatica nei parchi nazionali della Tanzania da oltre 12 anni.",
+                "about.team_guide_image_alt": "Guida Safari Senior",
+                "about.back_to_home": "Torna alla Home",
+
+                // Footer - Italiano
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Creando esperienze indimenticabili nel cuore della Tanzania. Scopri la magia dell'Africa con le nostre guide esperte e avventure safari di lusso.",
+                "footer.quick_links": "Link Rapidi",
+                "footer.destinations": "Destinazioni",
+                "footer.contact_info": "Informazioni di Contatto",
+                "footer.address": "Arusha, Tanzania",
+                "footer.language": "Lingua:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. Tutti i diritti riservati. | Progettato con ❤️ per il Turismo della Tanzania",
+
+                // Translation System - Italiano
+                "translation.loading": "Traduzione del contenuto...",
+                "translation.error": "Traduzione fallita. Per favore riprova."
+            },
+            pt: {
+                // Navigation - Português
+                "nav.home": "Início",
+                "nav.about": "Sobre",
+                "nav.destinations": "Destinos",
+                "nav.mountain_climbing": "Escalada de Montanhas",
+                "nav.safaris": "Safaris Tanzânia",
+                "nav.zanzibar": "Praias de Zanzibar",
+                "nav.cultural": "Turismo Cultural",
+                "nav.waterfalls": "Turismo de Cachoeiras",
+                "nav.historical": "Sítios Históricos",
+                "nav.contact": "Contato",
+
+                // About Page Content - Português
+                "about.hero_title": "Sobre a MMexy Tanzania Adventures",
+                "about.hero_subtitle": "Uma Década de Excelência em Experiências Tanzanianas Autênticas",
+                "about.heritage_title": "Nossa Herança",
+                "about.heritage_subtitle": "Uma década de excelência no turismo tanzaniano",
+                "about.humble_beginnings_title": "De Origens Humildes",
+                "about.humble_beginnings_quote": "Fundada em 2010 por guias tanzanianos apaixonados, a MMexy Tanzania Adventures começou como uma pequena operação familiar com uma missão simples: compartilhar a beleza autêntica da Tanzânia com o mundo.",
+                "about.humble_beginnings_para1": "O que começou com apenas dois guias e um veículo cresceu para se tornar uma das empresas de turismo mais respeitadas da Tanzânia, atendendo milhares de viajantes de todo o mundo. Nossos fundadores, Juma Mwinyi e Asha Hassan, combinaram seu extenso conhecimento da cultura e vida selvagem tanzanianas para criar experiências que vão além do turismo típico.",
+                "about.humble_beginnings_para2": "Acreditamos que todo viajante merece experimentar a verdadeira Tanzânia - não apenas os pontos turísticos populares, mas as joias escondidas, as comunidades locais e as trocas culturais autênticas que tornam nosso país verdadeiramente especial.",
+                "about.humble_beginnings_image_alt": "Nossas origens humildes",
+                "about.growth_title": "Crescimento e Excelência",
+                "about.growth_para1": "Na última década, expandimos nossas operações mantendo nosso compromisso com qualidade e autenticidade. Hoje operamos em todos os principais destinos tanzanianos com uma equipe de mais de 50 profissionais experientes, incluindo guias, motoristas, pessoal de hospitalidade e especialistas em conservação.",
+                "about.growth_quote": "Nosso crescimento tem sido guiado por um princípio: experiências excepcionais criam memórias duradouras. Selecionamos cuidadosamente cada membro da equipe por sua experiência, paixão e compromisso com o turismo sustentável.",
+                "about.growth_para2": "Do pico coberto de neve do Kilimanjaro às praias intocadas de Zanzibar, das vastas planícies do Serengeti aos locais históricos de Bagamoyo, construímos relacionamentos com comunidades locais e áreas de conservação para garantir que nossas operações beneficiem tanto viajantes quanto tanzanianos.",
+                "about.growth_image_alt": "Nossa jornada de crescimento",
+                "about.mission_vision_title": "Nossa Missão e Visão",
+                "about.mission_vision_subtitle": "Princípios orientadores que impulsionam nossa excelência",
+                "about.mission_title": "Nossa Missão",
+                "about.mission_quote": "Fornecer experiências tanzanianas autênticas, sustentáveis e inesquecíveis que conectem viajantes com o rico patrimônio cultural e as maravilhas naturais deslumbrantes de nosso país, apoiando ao mesmo tempo comunidades locais e esforços de conservação.",
+                "about.mission_para1": "Alcançamos isso através de itinerários cuidadosamente elaborados que equilibram aventura com imersão cultural, luxo com autenticidade e exploração com conservação. Cada jornada conosco contribui para economias locais e iniciativas de proteção ambiental.",
+                "about.mission_founder_quote": "\"Não apenas mostramos a Tanzânia - ajudamos você a experimentá-la, entendê-la e apaixonar-se por ela, assim como nós.\"",
+                "about.vision_title": "Nossa Visão",
+                "about.vision_quote": "Ser a principal empresa de turismo da Tanzânia, reconhecida globalmente por nosso compromisso com excelência, sustentabilidade e criação de experiências de viagem transformadoras que inspiram e educam.",
+                "about.vision_para1": "Visualizamos um futuro onde o turismo se torna uma força poderosa para mudanças positivas - protegendo habitats naturais, preservando tradições culturais e criando meios de subsistência sustentáveis para comunidades locais. Através de nosso trabalho, visamos estabelecer novos padrões para o turismo responsável na África Oriental.",
+                "about.vision_para2": "Nossa visão vai além do sucesso comercial para criar impactos positivos duradouros no povo, vida selvagem e meio ambiente da Tanzânia para as gerações futuras.",
+                "about.values_title": "Nossos Valores",
+                "about.values_subtitle": "Os princípios que orientam cada decisão que tomamos",
+                "about.integrity_title": "Integridade",
+                "about.integrity_desc": "Operamos com honestidade e transparência em todos os nossos negócios, construindo confiança com nossos clientes e parceiros. Cada promessa feita é uma promessa cumprida, garantindo que você possa reservar com confiança.",
+                "about.sustainability_title": "Sustentabilidade",
+                "about.sustainability_desc": "Estamos comprometidos com práticas ecológicas e apoiando esforços de conservação em toda a Tanzânia. Nossas operações são projetadas para minimizar o impacto ambiental enquanto maximizamos os benefícios positivos para a comunidade.",
+                "about.community_title": "Comunidade",
+                "about.community_desc": "Investimos em comunidades locais e empregamos especialistas tanzanianos para compartilhar experiências culturais autênticas. Uma parte de cada reserva vai para projetos de desenvolvimento comunitário.",
+                "about.excellence_title": "Excelência",
+                "about.excellence_desc": "Buscamos os mais altos padrões de serviço, segurança e satisfação do cliente em tudo o que fazemos. De nossos veículos aos nossos guias, apenas o melhor é bom o suficiente para nossos hóspedes.",
+                "about.passion_title": "Paixão",
+                "about.passion_desc": "Nossa equipe é impulsionada por amor genuíno pela Tanzânia e seu povo. Essa paixão se traduz em experiências inesquecíveis que vão além das atividades turísticas típicas.",
+                "about.safety_title": "Segurança",
+                "about.safety_desc": "Seu bem-estar é nossa principal prioridade. Mantemos os mais altos padrões de segurança em todas as nossas operações, com pessoal treinado e protocolos de emergência para cada atividade.",
+                "about.team_title": "Conheça Nossa Equipe",
+                "about.team_subtitle": "Os especialistas apaixonados por trás de suas experiências inesquecíveis",
+                "about.team_ceo_name": "Juma Mwinyi",
+                "about.team_ceo_position": "Fundador e CEO",
+                "about.team_ceo_desc": "Com mais de 15 anos no turismo, a visão de Juma impulsiona nosso compromisso com experiências tanzanianas autênticas. Seu extenso conhecimento da cultura e vida selvagem tanzanianas garante que cada jornada seja educativa e transformadora.",
+                "about.team_ceo_image_alt": "Fundador e CEO",
+                "about.team_operations_name": "Asha Hassan",
+                "about.team_operations_position": "Chefe de Operações",
+                "about.team_operations_desc": "Asha garante que cada detalhe de sua jornada seja perfeitamente coordenado para uma experiência perfeita. Com formação em gestão de hospitalidade, ela traz luxo e eficiência a cada aspecto de nossas operações.",
+                "about.team_operations_image_alt": "Chefe de Operações",
+                "about.team_guide_name": "Jafari Mohamed",
+                "about.team_guide_position": "Guia de Safari Sênior",
+                "about.team_guide_desc": "O extenso conhecimento de Jafari sobre vida selvagem e ecossistemas faz de cada safari uma aventura educativa. Fluente em cinco idiomas, ele tem guiado entusiastas da vida selvagem pelos parques nacionais da Tanzânia há mais de 12 anos.",
+                "about.team_guide_image_alt": "Guia de Safari Sênior",
+                "about.back_to_home": "Voltar para o Início",
+
+                // Footer - Português
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Criando experiências inesquecíveis no coração da Tanzânia. Descubra a magia da África com nossos guias especialistas e aventuras de safari premium.",
+                "footer.quick_links": "Links Rápidos",
+                "footer.destinations": "Destinos",
+                "footer.contact_info": "Informações de Contato",
+                "footer.address": "Arusha, Tanzânia",
+                "footer.language": "Idioma:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. Todos os direitos reservados. | Projetado com ❤️ para o Turismo da Tanzânia",
+
+                // Translation System - Português
+                "translation.loading": "Traduzindo conteúdo...",
+                "translation.error": "Falha na tradução. Por favor, tente novamente."
+            },
+            ru: {
+                // Navigation - Русский
+                "nav.home": "Главная",
+                "nav.about": "О Нас",
+                "nav.destinations": "Направления",
+                "nav.mountain_climbing": "Восхождение на Горы",
+                "nav.safaris": "Сафари Танзания",
+                "nav.zanzibar": "Пляжи Занзибара",
+                "nav.cultural": "Культурный Туризм",
+                "nav.waterfalls": "Туризм к Водопадам",
+                "nav.historical": "Исторические Места",
+                "nav.contact": "Контакты",
+
+                // About Page Content - Русский
+                "about.hero_title": "О MMexy Tanzania Adventures",
+                "about.hero_subtitle": "Десятилетие Превосходства в Аутентичных Танзанийских Впечатлениях",
+                "about.heritage_title": "Наше Наследие",
+                "about.heritage_subtitle": "Десятилетие превосходства в танзанийском туризме",
+                "about.humble_beginnings_title": "Скромное Начало",
+                "about.humble_beginnings_quote": "Основанная в 2010 году страстными танзанийскими гидами, MMexy Tanzania Adventures начала свою деятельность как небольшая семейная операция с простой миссией: поделиться подлинной красотой Танзании с миром.",
+                "about.humble_beginnings_para1": "То, что началось всего с двух гидов и одного автомобиля, превратилось в одну из самых уважаемых туристических компаний Танзании, обслуживающую тысячи путешественников со всего мира. Наши основатели, Джума Мвиньи и Аша Хасан, объединили свои обширные знания о танзанийской культуре и дикой природе, чтобы создать впечатления, выходящие за рамки типичного туризма.",
+                "about.humble_beginnings_para2": "Мы верим, что каждый путешественник заслуживает испытать настоящую Танзанию - не только популярные туристические места, но и скрытые жемчужины, местные сообщества и подлинные культурные обмены, которые делают нашу страну по-настоящему особенной.",
+                "about.humble_beginnings_image_alt": "Наше скромное начало",
+                "about.growth_title": "Рост и Превосходство",
+                "about.growth_para1": "За последнее десятилетие мы расширили нашу деятельность, сохраняя приверженность качеству и аутентичности. Сегодня мы работаем во всех основных танзанийских направлениях с командой из более чем 50 опытных специалистов, включая гидов, водителей, персонал гостеприимства и экспертов по охране природы.",
+                "about.growth_quote": "Наш рост руководствовался одним принципом: исключительные впечатления создают пожизненные воспоминания. Мы тщательно отбирали каждого члена команды за их опыт, страсть и приверженность устойчивому туризму.",
+                "about.growth_para2": "От заснеженной вершины Килиманджаро до нетронутых пляжей Занзибара, от бескрайних равнин Серенгети до исторических мест Багамойо, мы построили отношения с местными сообществами и охраняемыми территориями, чтобы гарантировать, что наша деятельность приносит пользу как путешественникам, так и танзанийцам.",
+                "about.growth_image_alt": "Наш путь роста",
+                "about.mission_vision_title": "Наша Миссия и Видение",
+                "about.mission_vision_subtitle": "Руководящие принципы, определяющие наше превосходство",
+                "about.mission_title": "Наша Миссия",
+                "about.mission_quote": "Предоставлять аутентичные, устойчивые и незабываемые танзанийские впечатления, которые связывают путешественников с богатым культурным наследием и захватывающими природными чудесами нашей страны, одновременно поддерживая местные сообщества и усилия по сохранению природы.",
+                "about.mission_para1": "Мы достигаем этого с помощью тщательно продуманных маршрутов, которые уравновешивают приключения с культурным погружением, роскошь с аутентичностью и исследование с сохранением природы. Каждое путешествие с нами способствует местной экономике и инициативам по защите окружающей среды.",
+                "about.mission_founder_quote": "\"Мы не просто показываем вам Танзанию - мы помогаем вам испытать ее, понять и полюбить, как это сделали мы.\"",
+                "about.vision_title": "Наше Видение",
+                "about.vision_quote": "Быть ведущей туристической компанией Танзании, признанной во всем мире за нашу приверженность превосходству, устойчивости и созданию преобразующих впечатлений от путешествий, которые вдохновляют и обучают.",
+                "about.vision_para1": "Мы представляем будущее, где туризм становится мощной силой для позитивных изменений - защищая природные среды обитания, сохраняя культурные традиции и создавая устойчивые средства к существованию для местных сообществ. Через нашу работу мы стремимся установить новые стандарты ответственного туризма в Восточной Африке.",
+                "about.vision_para2": "Наше видение выходит за рамки коммерческого успеха, чтобы создать долгосрочные положительные воздействия на людей Танзании, дикую природу и окружающую среду для будущих поколений.",
+                "about.values_title": "Наши Ценности",
+                "about.values_subtitle": "Принципы, которые направляют каждое наше решение",
+                "about.integrity_title": "Целостность",
+                "about.integrity_desc": "Мы работаем с честностью и прозрачностью во всех наших делах, строя доверие с нашими клиентами и партнерами. Каждое данное обещание выполняется, обеспечивая возможность бронировать с уверенностью.",
+                "about.sustainability_title": "Устойчивость",
+                "about.sustainability_desc": "Мы стремимся к экологически чистым практикам и поддержке усилий по сохранению природы по всей Танзании. Наша деятельность разработана для минимизации воздействия на окружающую среду при максимизации положительных преимуществ для сообщества.",
+                "about.community_title": "Сообщество",
+                "about.community_desc": "Мы инвестируем в местные сообщества и нанимаем танзанийских экспертов для обмена аутентичным культурным опытом. Часть каждого бронирования идет на проекты развития сообщества.",
+                "about.excellence_title": "Превосходство",
+                "about.excellence_desc": "Мы стремимся к самым высоким стандартам обслуживания, безопасности и удовлетворенности клиентов во всем, что мы делаем. От наших транспортных средств до наших гидов - только лучшее достаточно хорошо для наших гостей.",
+                "about.passion_title": "Страсть",
+                "about.passion_desc": "Наша команда движется искренней любовью к Танзании и ее народу. Эта страсть переводится в незабываемые впечатления, выходящие за рамки типичных туристических мероприятий.",
+                "about.safety_title": "Безопасность",
+                "about.safety_desc": "Ваше благополучие - наш главный приоритет. Мы поддерживаем самые высокие стандарты безопасности во всех наших операциях, с обученным персоналом и протоколами чрезвычайных ситуаций для каждого мероприятия.",
+                "about.team_title": "Познакомьтесь с Нашей Командой",
+                "about.team_subtitle": "Страстные эксперты, стоящие за вашими незабываемыми впечатлениями",
+                "about.team_ceo_name": "Джума Мвиньи",
+                "about.team_ceo_position": "Основатель и Генеральный Директор",
+                "about.team_ceo_desc": "Имея более 15 лет опыта в туризме, видение Джумы движет нашим стремлением к аутентичным танзанийским впечатлениям. Его обширные знания о танзанийской культуре и дикой природе гарантируют, что каждое путешествие будет одновременно образовательным и преобразующим.",
+                "about.team_ceo_image_alt": "Основатель и Генеральный Директор",
+                "about.team_operations_name": "Аша Хасан",
+                "about.team_operations_position": "Руководитель Операций",
+                "about.team_operations_desc": "Аша гарантирует, что каждая деталь вашего путешествия идеально скоординирована для бесшовного опыта. Имея опыт в управлении гостеприимством, она привносит роскошь и эффективность в каждый аспект наших операций.",
+                "about.team_operations_image_alt": "Руководитель Операций",
+                "about.team_guide_name": "Джафари Мохамед",
+                "about.team_guide_position": "Старший Гид по Сафари",
+                "about.team_guide_desc": "Обширные знания Джафари о дикой природе и экосистемах делают каждое сафари образовательным приключением. Владея пятью языками, он проводит любителей дикой природы по национальным паркам Танзании уже более 12 лет.",
+                "about.team_guide_image_alt": "Старший Гид по Сафари",
+                "about.back_to_home": "Вернуться на Главную",
+
+                // Footer - Русский
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Создание незабываемых впечатлений в сердце Танзании. Откройте для себя магию Африки с нашими экспертами-гидами и премиальными сафари-приключениями.",
+                "footer.quick_links": "Быстрые Ссылки",
+                "footer.destinations": "Направления",
+                "footer.contact_info": "Контактная Информация",
+                "footer.address": "Аруша, Танзания",
+                "footer.language": "Язык:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. Все права защищены. | Разработано с ❤️ для Туризма Танзании",
+
+                // Translation System - Русский
+                "translation.loading": "Перевод содержимого...",
+                "translation.error": "Перевод не удался. Пожалуйста, попробуйте снова."
+            },
+            zh: {
+                // Navigation - 中文
+                "nav.home": "首页",
+                "nav.about": "关于我们",
+                "nav.destinations": "目的地",
+                "nav.mountain_climbing": "登山",
+                "nav.safaris": "坦桑尼亚游猎",
+                "nav.zanzibar": "桑给巴尔海滩",
+                "nav.cultural": "文化旅游",
+                "nav.waterfalls": "瀑布旅游",
+                "nav.historical": "历史遗址",
+                "nav.contact": "联系我们",
+
+                // About Page Content - 中文
+                "about.hero_title": "关于MMexy Tanzania Adventures",
+                "about.hero_subtitle": "坦桑尼亚真实体验的十年卓越之旅",
+                "about.heritage_title": "我们的传统",
+                "about.heritage_subtitle": "坦桑尼亚旅游业的十年卓越成就",
+                "about.humble_beginnings_title": "从谦逊开始",
+                "about.humble_beginnings_quote": "MMexy Tanzania Adventures成立于2010年，由充满激情的坦桑尼亚导游创立，最初是一个简单的家族式小企业，只有一个简单的使命：与世界分享坦桑尼亚的真实美丽。",
+                "about.humble_beginnings_para1": "从仅有的两名导游和一辆车开始，现已发展成为坦桑尼亚最受尊敬的旅游公司之一，服务着来自世界各地的数千名旅行者。我们的创始人Juma Mwinyi和Asha Hassan结合了他们对坦桑尼亚文化和野生动物的丰富知识，创造了超越典型旅游的体验。",
+                "about.humble_beginnings_para2": "我们相信每一位旅行者都应该体验真实的坦桑尼亚——不仅仅是受欢迎的旅游景点，还有隐藏的宝藏、当地社区和真正的文化交流，这些都使我们的国家真正特别。",
+                "about.humble_beginnings_image_alt": "我们谦逊的开始",
+                "about.growth_title": "成长与卓越",
+                "about.growth_para1": "在过去十年中，我们在保持对质量和真实性承诺的同时扩大了业务。如今，我们在所有主要坦桑尼亚目的地开展业务，团队拥有超过50名经验丰富的专业人员，包括导游、司机、酒店工作人员和保护专家。",
+                "about.growth_quote": "我们的成长遵循一个原则：非凡的体验创造终生的回忆。我们根据每位团队成员的专长、热情和对可持续旅游的承诺精心挑选了他们。",
+                "about.growth_para2": "从白雪皑皑的乞力马扎罗山山顶到原始洁净的桑给巴尔海滩，从广阔的塞伦盖蒂平原到巴加莫约的历史遗址，我们与当地社区和保护区建立了关系，确保我们的运营使旅行者和坦桑尼亚人都能受益。",
+                "about.growth_image_alt": "我们的成长之旅",
+                "about.mission_vision_title": "我们的使命和愿景",
+                "about.mission_vision_subtitle": "驱动我们卓越的指导原则",
+                "about.mission_title": "我们的使命",
+                "about.mission_quote": "提供真实、可持续和难忘的坦桑尼亚体验，将旅行者与我们国家丰富的文化遗产和令人叹为观止的自然奇观联系起来，同时支持当地社区和保护工作。",
+                "about.mission_para1": "我们通过精心设计的行程实现这一目标，这些行程平衡了冒险与文化沉浸、奢华与真实性、探索与保护。与我们一起的每一次旅程都有助于当地经济和环境保护倡议。",
+                "about.mission_founder_quote": "\"我们不仅仅是向您展示坦桑尼亚——我们帮助您体验它、理解它并爱上它，就像我们一样。\"",
+                "about.vision_title": "我们的愿景",
+                "about.vision_quote": "成为坦桑尼亚领先的旅游公司，因我们对卓越、可持续性和创造启发和教育性的变革性旅行体验的承诺而获得全球认可。",
+                "about.vision_para1": "我们设想一个未来，旅游成为积极变革的强大力量——保护自然栖息地，保存文化传统，为当地社区创造可持续的生计。通过我们的工作，我们旨在为东非的责任旅游设定新标准。",
+                "about.vision_para2": "我们的愿景超越了商业成功，旨在为坦桑尼亚的人民、野生动物和环境创造持久积极的影响，造福子孙后代。",
+                "about.values_title": "我们的价值观",
+                "about.values_subtitle": "指导我们每个决策的原则",
+                "about.integrity_title": "诚信",
+                "about.integrity_desc": "我们在所有业务中以诚实和透明的方式运营，与客户和合作伙伴建立信任。每个承诺都会被兑现，确保您可以放心预订。",
+                "about.sustainability_title": "可持续性",
+                "about.sustainability_desc": "我们致力于生态友好实践，支持整个坦桑尼亚的保护工作。我们的运营旨在最小化环境影响，同时最大化社区的积极利益。",
+                "about.community_title": "社区",
+                "about.community_desc": "我们投资于当地社区，并雇用坦桑尼亚专家分享真实的文化体验。每次预订的一部分将用于社区发展项目。",
+                "about.excellence_title": "卓越",
+                "about.excellence_desc": "在我们所做的一切事情中，我们致力于服务、安全和客户满意度的最高标准。从我们的车辆到我们的导游，只有最好的才配得上我们的客人。",
+                "about.passion_title": "激情",
+                "about.passion_desc": "我们的团队由对坦桑尼亚及其人民的真诚热爱驱动。这种激情转化为超越典型旅游活动的难忘体验。",
+                "about.safety_title": "安全",
+                "about.safety_desc": "您的福祉是我们的首要任务。我们在所有运营中保持最高的安全标准，每个活动都有训练有素的人员和应急协议。",
+                "about.team_title": "认识我们的团队",
+                "about.team_subtitle": "您难忘体验背后的热情专家",
+                "about.team_ceo_name": "Juma Mwinyi",
+                "about.team_ceo_position": "创始人兼首席执行官",
+                "about.team_ceo_desc": "在旅游行业拥有超过15年经验的Juma，他的愿景推动着我们追求真实的坦桑尼亚体验。他对坦桑尼亚文化和野生动物的丰富知识确保每一次旅程都既有教育意义又具有变革性。",
+                "about.team_ceo_image_alt": "创始人兼首席执行官",
+                "about.team_operations_name": "Asha Hassan",
+                "about.team_operations_position": "运营总监",
+                "about.team_operations_desc": "Asha确保您旅程的每一个细节都完美协调，带来无缝的体验。凭借酒店管理背景，她为我们的运营各方面带来了奢华和效率。",
+                "about.team_operations_image_alt": "运营总监",
+                "about.team_guide_name": "Jafari Mohamed",
+                "about.team_guide_position": "高级游猎向导",
+                "about.team_guide_desc": "Jafari对野生动物和生态系统的丰富知识使每一次游猎都成为一次教育冒险。精通五种语言，他引导野生动物爱好者穿越坦桑尼亚的国家公园已有12年多。",
+                "about.team_guide_image_alt": "高级游猎向导",
+                "about.back_to_home": "返回首页",
+
+                // Footer - 中文
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "在坦桑尼亚中心创造难忘的体验。通过我们的专家向导和优质游猎冒险发现非洲的魔力。",
+                "footer.quick_links": "快速链接",
+                "footer.destinations": "目的地",
+                "footer.contact_info": "联系信息",
+                "footer.address": "阿鲁沙, 坦桑尼亚",
+                "footer.language": "语言:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. 保留所有权利。 | 为坦桑尼亚旅游而设计 ❤️",
+
+                // Translation System - 中文
+                "translation.loading": "正在翻译内容...",
+                "translation.error": "翻译失败。请重试。"
+            },
+            ja: {
+                // Navigation - 日本語
+                "nav.home": "ホーム",
+                "nav.about": "会社概要",
+                "nav.destinations": "目的地",
+                "nav.mountain_climbing": "登山",
+                "nav.safaris": "タンザニアサファリ",
+                "nav.zanzibar": "ザンジバルビーチ",
+                "nav.cultural": "文化観光",
+                "nav.waterfalls": "滝観光",
+                "nav.historical": "歴史的遺跡",
+                "nav.contact": "お問い合わせ",
+
+                // About Page Content - 日本語
+                "about.hero_title": "MMexy Tanzania Adventuresについて",
+                "about.hero_subtitle": "本格的なタンザニア体験における10年間の卓越性",
+                "about.heritage_title": "私たちの伝統",
+                "about.heritage_subtitle": "タンザニア観光における10年間の卓越性",
+                "about.humble_beginnings_title": "謙虚な始まりから",
+                "about.humble_beginnings_quote": "情熱的なタンザニアガイドによって2010年に設立されたMMexy Tanzania Adventuresは、シンプルなミッションを持つ小さな家族経営として始まりました：タンザニアの本格的な美しさを世界と共有すること。",
+                "about.humble_beginnings_para1": "わずか2人のガイドと1台の車で始まったものが、世界中からの数千人の旅行者にサービスを提供する、タンザニアで最も尊敬される観光会社の一つに成長しました。私たちの創設者であるJuma MwinyiとAsha Hassanは、タンザニアの文化と野生生物に関する豊富な知識を組み合わせて、典型的な観光を超えた体験を創り出しました。",
+                "about.humble_beginnings_para2": "私たちは、すべての旅行者が本物のタンザニアを体験するに値すると信じています - 人気の観光スポットだけでなく、隠れた宝石、地元コミュニティ、そして私たちの国を本当に特別にする本格的な文化交流も。",
+                "about.humble_beginnings_image_alt": "謙虚な始まり",
+                "about.growth_title": "成長と卓越性",
+                "about.growth_para1": "過去10年間、私たちは品質と真正性へのコミットメントを維持しながら事業を拡大してきました。今日、私たちはガイド、ドライバー、ホスピタリティスタッフ、保全専門家を含む50人以上の経験豊富な専門家チームで、すべての主要なタンザニア目的地で活動しています。",
+                "about.growth_quote": "私たちの成長は一つの原則によって導かれてきました：卓越した体験が生涯の思い出を創り出す。私たちは、専門知識、情熱、持続可能な観光へのコミットメントに基づいて、各チームメンバーを慎重に選びました。",
+                "about.growth_para2": "雪に覆われたキリマンジャロの山頂からザンジバルの原始的なビーチまで、広大なセレンゲティ平原からバガモヨの歴史的遺跡まで、私たちは地元コミュニティや保護区域と関係を築き、私たちの事業が旅行者とタンザニア人の両方に利益をもたらすことを保証してきました。",
+                "about.growth_image_alt": "私たちの成長の旅",
+                "about.mission_vision_title": "私たちのミッションとビジョン",
+                "about.mission_vision_subtitle": "私たちの卓越性を推進する指導原則",
+                "about.mission_title": "私たちのミッション",
+                "about.mission_quote": "旅行者を私たちの国の豊かな文化遺産と息をのむような自然の驚異と結びつける、本格的で持続可能で忘れられないタンザニア体験を提供し、同時に地元コミュニティと保全活動を支援すること。",
+                "about.mission_para1": "私たちは、冒険と文化没入、贅沢と真正性、探検と保全のバランスを取る、慎重に作られた旅程を通じてこれを達成します。私たちとのすべての旅は、地元経済と環境保護イニシアチブに貢献します。",
+                "about.mission_founder_quote": "\"私たちはただタンザニアを見せるだけでなく、私たちがそうしてきたように、あなたがそれを体験し、理解し、愛するのを助けます。\"",
+                "about.vision_title": "私たちのビジョン",
+                "about.vision_quote": "卓越性、持続可能性、そしてインスピレーションと教育を提供する変革的な旅行体験の創造に対する私たちのコミットメントで世界的に認められる、タンザニアの主要な観光会社になること。",
+                "about.vision_para1": "私たちは、観光が前向きな変化の強力な力になる未来を思い描いています - 自然生息地の保護、文化伝統の保存、地元コミュニティの持続可能な生計の創造。私たちの仕事を通じて、東アフリカにおける責任ある観光の新しい基準を確立することを目指しています。",
+                "about.vision_para2": "私たちのビジョンは、ビジネスの成功を超えて、将来の世代のためにタンザニアの人々、野生生物、環境に持続的な前向きな影響を創り出すことです。",
+                "about.values_title": "私たちの価値観",
+                "about.values_subtitle": "私たちが下すすべての決定を導く原則",
+                "about.integrity_title": "誠実さ",
+                "about.integrity_desc": "私たちは、すべての取引において誠実さと透明性を持って行動し、お客様やパートナーとの信頼を築きます。作られたすべての約束は守られ、自信を持って予約できることを保証します。",
+                "about.sustainability_title": "持続可能性",
+                "about.sustainability_desc": "私たちは、タンザニア全土でのエコフレンドリーな実践と保全活動の支援に取り組んでいます。私たちの事業は、環境への影響を最小限に抑えながら、コミュニティの前向きな利益を最大化するように設計されています。",
+                "about.community_title": "コミュニティ",
+                "about.community_desc": "私たちは地元コミュニティに投資し、タンザニアの専門家を雇用して本格的な文化的体験を共有します。すべての予約の一部は、コミュニティ開発プロジェクトに向けられます。",
+                "about.excellence_title": "卓越性",
+                "about.excellence_desc": "私たちは、私たちが行うすべてのことにおいて、サービス、安全性、顧客満足度の最高基準を追求します。私たちの車両からガイドまで、最高のものだけが私たちのゲストにふさわしいのです。",
+                "about.passion_title": "情熱",
+                "about.passion_desc": "私たちのチームは、タンザニアとその人々への純粋な愛に動かされています。この情熱は、典型的な観光活動を超えた忘れられない体験に変換されます。",
+                "about.safety_title": "安全性",
+                "about.safety_desc": "あなたの健康は私たちの最優先事項です。私たちは、訓練を受けたスタッフと各活動のための緊急プロトコルを持ち、すべての事業で最高の安全基準を維持しています。",
+                "about.team_title": "私たちのチームに会う",
+                "about.team_subtitle": "あなたの忘れられない体験の背後にいる情熱的な専門家",
+                "about.team_ceo_name": "Juma Mwinyi",
+                "about.team_ceo_position": "創設者兼CEO",
+                "about.team_ceo_desc": "15年以上の観光業界での経験を持つJumaのビジョンは、本格的なタンザニア体験への私たちのコミットメントを推進しています。彼のタンザニアの文化と野生生物に関する豊富な知識は、すべての旅が教育的で変革的であることを保証します。",
+                "about.team_ceo_image_alt": "創設者兼CEO",
+                "about.team_operations_name": "Asha Hassan",
+                "about.team_operations_position": "オペレーション責任者",
+                "about.team_operations_desc": "Ashaは、シームレスな体験のためにあなたの旅のすべての詳細が完璧に調整されることを保証します。ホスピタリティ管理の背景を持ち、彼女は私たちの事業のすべての側面に贅沢と効率をもたらします。",
+                "about.team_operations_image_alt": "オペレーション責任者",
+                "about.team_guide_name": "Jafari Mohamed",
+                "about.team_guide_position": "シニアサファリガイド",
+                "about.team_guide_desc": "Jafariの野生生物と生態系に関する豊富な知識は、すべてのサファリを教育的な冒険にします。5つの言語に堪能で、彼は12年以上にわたり野生生物愛好家をタンザニアの国立公園を案内してきました。",
+                "about.team_guide_image_alt": "シニアサファリガイド",
+                "about.back_to_home": "ホームに戻る",
+
+                // Footer - 日本語
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "タンザニアの中心で忘れられない体験を創造。専門ガイドとプレミアムサファリアドベンチャーでアフリカの魔法を発見。",
+                "footer.quick_links": "クイックリンク",
+                "footer.destinations": "目的地",
+                "footer.contact_info": "連絡先情報",
+                "footer.address": "アルーシャ, タンザニア",
+                "footer.language": "言語:",
+                "footer.copyright": "© 2024 MMexy Tanzania Adventures. 全著作権所有。 | タンザニア観光のために❤️で設計",
+
+                // Translation System - 日本語
+                "translation.loading": "コンテンツを翻訳中...",
+                "translation.error": "翻訳に失敗しました。もう一度お試しください。"
+            }
+        };
+
+        // Current language
+        let currentLanguage = 'en';
+
+        // Function to show loading animation
+        function showTranslationLoading() {
+            const loading = document.getElementById('translationLoading');
+            loading.classList.add('active');
+        }
+
+        // Function to hide loading animation
+        function hideTranslationLoading() {
+            const loading = document.getElementById('translationLoading');
+            loading.classList.remove('active');
+        }
+
+        // Premium translation function with smooth animations
+        function changeLanguage(lang) {
+            if (lang === currentLanguage) return;
+            
+            showTranslationLoading();
+            
+            // Simulate translation delay for premium feel
+            setTimeout(() => {
+                currentLanguage = lang;
+                
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        // Add fade out effect
+                        element.style.opacity = '0';
+                        
+                        setTimeout(() => {
+                            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                                element.placeholder = translations[lang][key];
+                            } else if (element.tagName === 'SELECT') {
+                                // Handle select options differently
+                                const options = element.querySelectorAll('option');
+                                options.forEach(opt => {
+                                    const optKey = opt.getAttribute('data-i18n');
+                                    if (optKey && translations[lang][optKey]) {
+                                        opt.textContent = translations[lang][optKey];
+                                    }
+                                });
+                            } else {
+                                element.textContent = translations[lang][key];
+                            }
+                            
+                            // Add fade in effect
+                            element.style.opacity = '1';
+                        }, 50);
+                    }
+                });
+
+                // Handle placeholder translations
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                    const key = element.getAttribute('data-i18n-placeholder');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.placeholder = translations[lang][key];
+                    }
+                });
+
+                // Update language selector display with animation
+                const currentLangElement = document.querySelector('.current-language');
+                const flag = getFlagForLanguage(lang);
+                const languageName = getLanguageName(lang);
+                
+                currentLangElement.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    currentLangElement.innerHTML = `<span class="language-flag">${flag}</span><span>${languageName}</span><i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>`;
+                    currentLangElement.style.transform = 'scale(1)';
+                }, 150);
+
+                // Update active state in dropdown
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('data-lang') === lang) {
+                        option.classList.add('active');
+                    }
+                });
+
+                // Update sidebar language selector
+                document.getElementById('sidebarLanguage').value = lang;
+
+                // Update HTML lang attribute
+                document.documentElement.lang = lang;
+
+                // Save preference to localStorage
+                localStorage.setItem('preferredLanguage', lang);
+                
+                hideTranslationLoading();
+                
+                // Show subtle success notification
+                showTranslationSuccess();
+            }, 800);
+        }
+
+        // Show translation success notification
+        function showTranslationSuccess() {
+            const successMsg = document.createElement('div');
+            successMsg.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--primary);
+                color: white;
+                padding: 12px 20px;
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+                z-index: 10000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            `;
+            successMsg.textContent = `🌍 Language changed to ${getLanguageName(currentLanguage)}`;
+            document.body.appendChild(successMsg);
+            
+            setTimeout(() => successMsg.style.transform = 'translateX(0)', 100);
+            setTimeout(() => {
+                successMsg.style.transform = 'translateX(100%)';
+                setTimeout(() => document.body.removeChild(successMsg), 300);
+            }, 3000);
+        }
+
+        // Helper function to get flag for language
+        function getFlagForLanguage(lang) {
+            const flags = {
+                'en': '🇺🇸',
+                'sw': '🇹🇿',
+                'fr': '🇫🇷',
+                'de': '🇩🇪',
+                'es': '🇪🇸',
+                'it': '🇮🇹',
+                'pt': '🇵🇹',
+                'ru': '🇷🇺',
+                'zh': '🇨🇳',
+                'ja': '🇯🇵'
+            };
+            return flags[lang] || '🇺🇸';
+        }
+
+        // Helper function to get language name
+        function getLanguageName(lang) {
+            const names = {
+                'en': 'English',
+                'sw': 'Kiswahili',
+                'fr': 'Français',
+                'de': 'Deutsch',
+                'es': 'Español',
+                'it': 'Italiano',
+                'pt': 'Português',
+                'ru': 'Русский',
+                'zh': '中文',
+                'ja': '日本語'
+            };
+            return names[lang] || 'English';
+        }
+
         // Initialize AOS (Animate On Scroll)
         AOS.init({
             duration: 800,
@@ -1162,122 +2581,127 @@
             mirror: false
         });
 
-        // Mobile Navigation Functionality
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileNav = document.getElementById('mobile-nav');
-        const closeMobileNav = document.getElementById('close-mobile-nav');
-        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
-        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
-        const mobileLanguageSelect = document.getElementById('mobile-language-select');
+        // Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('premiumNavbar');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const premiumSidebar = document.getElementById('premiumSidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const destinationsToggle = document.getElementById('destinationsToggle');
+            const destinationsDropdown = document.getElementById('destinationsDropdown');
+            const sidebarLanguage = document.getElementById('sidebarLanguage');
+            const languageOptions = document.querySelectorAll('.language-option');
 
-        // Open mobile nav
-        mobileMenu.addEventListener('click', function() {
-            mobileNav.classList.add('open');
-            mobileNavOverlay.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
+            // Load saved language preference
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            changeLanguage(savedLanguage);
 
-        // Close mobile nav
-        function closeMobileNavigation() {
-            mobileNav.classList.remove('open');
-            mobileNavOverlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            
-            // Close all dropdowns
-            mobileDropdownToggles.forEach(toggle => {
-                toggle.parentElement.classList.remove('active');
+            // Scroll effect for navbar
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             });
-        }
 
-        closeMobileNav.addEventListener('click', closeMobileNavigation);
-        mobileNavOverlay.addEventListener('click', closeMobileNavigation);
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenuBtn.classList.toggle('active');
+                premiumSidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+                document.body.style.overflow = premiumSidebar.classList.contains('active') ? 'hidden' : '';
+            });
 
-        // Mobile dropdown functionality
-        mobileDropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
+            // Close sidebar
+            closeSidebar.addEventListener('click', closeSidebarFunction);
+            sidebarOverlay.addEventListener('click', closeSidebarFunction);
+
+            function closeSidebarFunction() {
+                mobileMenuBtn.classList.remove('active');
+                premiumSidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Sidebar dropdown toggle
+            destinationsToggle.addEventListener('click', function(e) {
                 e.preventDefault();
-                const parent = this.parentElement;
-                const isActive = parent.classList.contains('active');
-                
-                // Close all other dropdowns
-                mobileDropdownToggles.forEach(t => {
-                    t.parentElement.classList.remove('active');
+                destinationsToggle.classList.toggle('active');
+                destinationsDropdown.classList.toggle('active');
+            });
+
+            // Language selection
+            languageOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                    closeSidebarFunction();
+                });
+            });
+
+            // Sidebar language selection
+            sidebarLanguage.addEventListener('change', function() {
+                changeLanguage(this.value);
+                closeSidebarFunction();
+            });
+
+            // Active link highlighting
+            const navLinks = document.querySelectorAll('.nav-link, .sidebar-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (!this.classList.contains('sidebar-dropdown-toggle')) {
+                        // Remove active class from all links
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        
+                        // Add active class to clicked link
+                        this.classList.add('active');
+                        
+                        // Close sidebar if on mobile
+                        if (window.innerWidth <= 1024) {
+                            closeSidebarFunction();
+                        }
+                    }
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Keyboard accessibility
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeSidebarFunction();
+                }
+            });
+
+            // Add artistic hover effects to value cards
+            document.querySelectorAll('.value-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) rotate(1deg)';
                 });
                 
-                // Toggle current dropdown
-                if (!isActive) {
-                    parent.classList.add('active');
-                }
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) rotate(0)';
+                });
             });
-        });
 
-        // Mobile language selector
-        mobileLanguageSelect.addEventListener('change', function() {
-            alert(`Language changed to: ${this.options[this.selectedIndex].text}`);
-        });
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-        });
-
-        // Close mobile nav when clicking on a link
-        document.querySelectorAll('.mobile-nav-links a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (!this.classList.contains('mobile-dropdown-toggle')) {
-                    closeMobileNavigation();
-                }
-            });
-        });
-
-        // Language selector
-        document.getElementById('language-select').addEventListener('change', function() {
-            alert(`Language changed to: ${this.options[this.selectedIndex].text}`);
-        });
-
-        // Newsletter form submission
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('.newsletter-input').value;
-            alert(`Thank you for subscribing with ${email}! You'll receive our latest updates soon.`);
-            this.reset();
-        });
-
-        // Add hover effects to team members
-        document.querySelectorAll('.team-member').forEach(member => {
-            member.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            member.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Add animation to value cards on scroll
-        const valueCards = document.querySelectorAll('.value-card');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        valueCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+            // Auto-hide translation loading after 3 seconds (safety net)
+            setTimeout(hideTranslationLoading, 3000);
         });
     </script>
-        <script src="assets/js/includes.js"></script>
-
 </body>
 </html>

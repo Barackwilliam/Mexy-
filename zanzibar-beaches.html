@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zanzibar Beaches | MMexy Tanzania</title>
+    <title>Zanzibar Beach Paradise | MMexy Tanzania Adventures</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/header.css">
-
     <style>
         :root {
             --primary: #1a6d38;
@@ -23,6 +21,8 @@
             --artistic-brown: #8B4513;
             --safari-orange: #FF8C00;
             --nature-green: #228B22;
+            --ocean-blue: #006994;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
        
         * {
@@ -44,70 +44,672 @@
             font-weight: 700;
             letter-spacing: 0.5px;
         }
-       
+
+        /* ===== PREMIUM NAVIGATION BAR ===== */
+        .premium-navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .premium-navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--artistic-brown);
+            font-weight: 700;
+            font-size: 1.5rem;
+            font-family: 'Cinzel', serif;
+            transition: var(--transition);
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+            color: var(--safari-orange);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--safari-orange);
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(249, 168, 37, 0.3);
+        }
+
+        .dropdown-parent {
+            position: relative;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 15px;
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: var(--transition);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .dropdown-parent:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: 10px;
+            transition: var(--transition);
+            margin-bottom: 5px;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-line {
+            width: 25px;
+            height: 3px;
+            background: var(--artistic-brown);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn.active .menu-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active .menu-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .menu-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ===== PREMIUM SIDEBAR ===== */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .premium-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 350px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: var(--transition);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .premium-sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--artistic-brown);
+            font-weight: 700;
+            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .sidebar-logo-icon {
+            font-size: 1.8rem;
+            color: var(--safari-orange);
+        }
+
+        .close-sidebar {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--artistic-brown);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-sidebar:hover {
+            color: var(--safari-orange);
+            transform: rotate(90deg);
+        }
+
+        .sidebar-content {
+            flex: 1;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-item {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: 12px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .sidebar-dropdown-toggle {
+            justify-content: space-between;
+        }
+
+        .dropdown-arrow {
+            transition: var(--transition);
+        }
+
+        .sidebar-dropdown-toggle.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .sidebar-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            margin-left: 20px;
+        }
+
+        .sidebar-dropdown.active {
+            max-height: 500px;
+        }
+
+        .sidebar-footer {
+            padding: 25px;
+            border-top: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .sidebar-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(249, 168, 37, 0.3);
+        }
+
+        /* ===== PREMIUM TRANSLATION SYSTEM ===== */
+        .translation-system {
+            position: relative;
+        }
+
+        .language-selector {
+            position: relative;
+            margin-left: 15px;
+        }
+
+        .current-language {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .current-language:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--safari-orange);
+            box-shadow: 0 2px 12px rgba(212, 175, 55, 0.2);
+        }
+
+        .language-flag {
+            font-size: 1.2rem;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(26, 45, 26, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 15px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .language-selector:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .language-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 20px;
+            width: 16px;
+            height: 16px;
+            background: rgba(26, 45, 26, 0.98);
+            transform: rotate(45deg);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: var(--transition);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(249, 168, 37, 0.1));
+            color: var(--safari-orange);
+            transform: translateX(5px);
+        }
+
+        .language-option.active {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: #1a2f1a;
+            font-weight: 600;
+        }
+
+        /* Translation Loading Animation */
+        .translation-loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 45, 26, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        .translation-loading.active {
+            display: flex;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-top: 3px solid var(--safari-orange);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Sidebar Language Selector */
+        .sidebar-language {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 12px 15px;
+            color: #ffffff;
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .sidebar-language:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--safari-orange);
+        }
+
+        .sidebar-language option {
+            background: #1a2f1a;
+            color: #ffffff;
+        }
+
+        /* Mobile Language Selector */
+        .mobile-language-selector {
+            display: none;
+            padding: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .desktop-nav .language-selector {
+                display: none;
+            }
+            
+            .mobile-language-selector {
+                display: block;
+            }
+        }
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        /* Normal paragraph text style */
-        .normal-text {
-            font-family: 'Merriweather', serif;
-            font-style: normal;
-            color: var(--dark);
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
        
-        /* Artistic Text Styles */
+        /* PREMIUM TEXT STYLES */
         .artistic-title {
             font-family: 'Cinzel', serif;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--artistic-brown), var(--safari-orange));
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--artistic-brown), var(--safari-orange), var(--nature-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
             position: relative;
             display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .artistic-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--safari-orange), transparent);
+            border-radius: 2px;
+        }
+
+        .elegant-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--artistic-brown);
+            line-height: 1.8;
+            margin-bottom: 25px;
         }
 
         .safari-heading {
             font-family: 'Cinzel', serif;
             color: var(--artistic-brown);
+            font-size: 2.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
+            margin: 40px 0 30px;
+            text-align: center;
+        }
+
+        .safari-heading::before {
+            content: '✦';
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--safari-orange);
+            font-size: 1.5rem;
+        }
+
+        .safari-heading::after {
+            content: '✦';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--safari-orange);
+            font-size: 1.5rem;
         }
 
         .calligraphic-text {
             font-family: 'Playfair Display', serif;
             font-style: italic;
+            font-size: 1.4rem;
             background: linear-gradient(135deg, var(--artistic-brown), var(--nature-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 600;
+            margin: 20px 0;
         }
 
         .ornamental-border {
-            border: 2px solid transparent;
+            border: 3px solid transparent;
             border-image: linear-gradient(45deg, var(--artistic-brown), var(--safari-orange), var(--nature-green)) 1;
-            padding: 20px;
+            padding: 30px;
             position: relative;
             background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(34, 139, 34, 0.05));
+            margin: 30px 0;
+            border-radius: 15px;
         }
 
-        
+        .ornamental-border::before {
+            content: '✦';
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ffffff, #f9f9f9);
+            padding: 0 20px;
+            color: var(--safari-orange);
+            font-size: 1.5rem;
+        }
 
-        /* Destination Hero Section */
+        .luxury-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--premium-gold), var(--safari-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .luxury-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--premium-gold), transparent);
+            border-radius: 2px;
+        }
+
+        .premium-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--artistic-brown);
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .premium-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--safari-orange), transparent);
+        }
+
+        /* Zanzibar Hero Section */
         .destination-hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.tanzaniaodyssey.com/site/odyssey-image-proxy/area/zanzibar=400976-330.jpg');
+            height: 90vh;
+            background: linear-gradient(rgba(0, 105, 148, 0.7), rgba(139, 69, 19, 0.6)), 
+                        url('https://www.tanzaniaodyssey.com/site/odyssey-image-proxy/area/zanzibar=400976-330.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -118,23 +720,98 @@
             overflow: hidden;
         }
 
+        .destination-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"><path d="M0,0 L100,100 M100,0 L0,100"/></svg>');
+            background-size: 50px 50px;
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
         .destination-hero-content {
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 20px;
+            animation: fadeInUp 1.2s ease;
             position: relative;
             z-index: 2;
         }
 
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
         .destination-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7);
+            line-height: 1.1;
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(135deg, #fff, var(--secondary), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            padding-bottom: 25px;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from {
+                text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7),
+                           0 0 20px rgba(249, 168, 37, 0.3);
+            }
+            to {
+                text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7),
+                           0 0 30px rgba(249, 168, 37, 0.6);
+            }
+        }
+
+        .destination-hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            border-radius: 2px;
         }
 
         .destination-hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            opacity: 0.95;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            line-height: 1.6;
+            animation: fadeIn 2s ease 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .btn {
@@ -157,25 +834,70 @@
             overflow: hidden;
         }
 
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+       
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
 
-        /* Destination Content */
+        .destination-hero .btn {
+            padding: 20px 50px;
+            font-size: 1.4rem;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--safari-orange), var(--secondary));
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+                       0 0 20px rgba(249, 168, 37, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .destination-hero .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5),
+                       0 0 30px rgba(249, 168, 37, 0.5);
+            animation: none;
+            background-position: 100% 50%;
+        }
+
+        /* Destination Content Section */
         .destination-content {
-            padding: 80px 0;
-            background: white;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+            position: relative;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             position: relative;
         }
        
         .section-title h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--artistic-brown);
             position: relative;
             display: inline-block;
@@ -188,157 +910,542 @@
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 4px;
+            width: 150px;
+            height: 5px;
             background: linear-gradient(90deg, var(--artistic-brown), var(--safari-orange), var(--nature-green));
-            bottom: -15px;
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 2px;
         }
 
+        .section-title .section-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--artistic-brown);
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .normal-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.8rem;
+        }
+
+        /* Package Details */
         .package-details {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
         }
 
-        .includes-excludes {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
+        .package-description h3 {
+            font-size: 2.5rem;
+            color: var(--ocean-blue);
+            margin-bottom: 25px;
+            font-family: 'Cinzel', serif;
+            position: relative;
+            padding-bottom: 15px;
         }
 
-        .includes-box, .excludes-box {
-            padding: 30px;
+        .package-description h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ocean-blue), transparent);
+        }
+
+        .package-description h4 {
+            font-size: 1.8rem;
+            color: var(--artistic-brown);
+            margin: 30px 0 20px;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .package-description h4 i {
+            color: var(--safari-orange);
+        }
+
+        .package-description ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .package-description li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 105, 148, 0.1);
+            position: relative;
+            padding-left: 35px;
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+        }
+
+        .package-description li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--ocean-blue);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .package-highlights {
+            background: linear-gradient(135deg, rgba(0, 105, 148, 0.05), rgba(139, 69, 19, 0.05));
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, var(--ocean-blue), var(--safari-orange)) 1;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border-left: 5px solid var(--safari-orange);
         }
 
-        .includes-box {
-            background: linear-gradient(135deg, rgba(34, 139, 34, 0.05), rgba(76, 175, 80, 0.05));
-            border-left: 5px solid var(--nature-green);
+        .highlight-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .excludes-box {
-            background: linear-gradient(135deg, rgba(244, 67, 54, 0.05), rgba(229, 57, 53, 0.05));
-            border-left: 5px solid #f44336;
-        }
-
-        .includes-box h3, .excludes-box h3 {
-            margin-bottom: 20px;
+        .highlight-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--safari-orange));
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            flex-shrink: 0;
         }
 
-        .includes-box h3 {
-            color: var(--nature-green);
+        .highlight-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 1.3rem;
+            color: var(--artistic-brown);
+            font-family: 'Cinzel', serif;
         }
 
-        .excludes-box h3 {
-            color: #f44336;
+        .highlight-content p {
+            margin: 0;
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
-        .includes-box ul, .excludes-box ul {
-            list-style: none;
-        }
-
-        .includes-box li, .excludes-box li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .includes-box li i {
-            color: var(--nature-green);
-        }
-
-        .excludes-box li i {
-            color: #f44336;
-        }
-
+        /* Itinerary Styles */
         .itinerary {
-            margin-bottom: 60px;
+            margin: 80px 0;
         }
 
         .itinerary-day {
             background: white;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--safari-orange);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .itinerary-day:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+            border-color: var(--safari-orange);
         }
 
         .day-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            padding: 30px 35px;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--safari-orange));
+            color: white;
+            position: relative;
+        }
+
+        .day-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, white, transparent);
         }
 
         .day-title {
-            font-size: 1.3rem;
-            color: var(--artistic-brown);
+            font-size: 1.5rem;
             font-weight: 600;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .day-title i {
+            font-size: 1.3rem;
+        }
+
+        .day-duration {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
         }
 
         .day-activities {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .card-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 25px 0;
-        }
-
-        .feature {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 8px;
-            padding: 15px 10px;
-            background: rgba(139, 69, 19, 0.05);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            background: rgba(139, 69, 19, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .feature i {
-            color: var(--safari-orange);
-            font-size: 1.3rem;
-        }
-
-        .feature span {
-            font-size: 0.8rem;
-            font-weight: 500;
+            padding: 35px;
+            font-family: 'Merriweather', serif;
+            line-height: 1.9;
             color: #555;
+            border-left: 6px solid var(--ocean-blue);
+            font-size: 1.1rem;
+            background: linear-gradient(to right, rgba(0, 105, 148, 0.02), transparent);
         }
 
+        .day-activities strong {
+            color: var(--artistic-brown);
+            font-size: 1.1rem;
+        }
+
+        .day-activities em {
+            display: block;
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--safari-orange);
+            padding: 15px;
+            background: rgba(249, 168, 37, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid var(--safari-orange);
+        }
+
+        /* Includes & Excludes */
+        .includes-excludes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .includes-box, .excludes-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid transparent;
+            transition: var(--transition);
+        }
+
+        .includes-box:hover, .excludes-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .includes-box {
+            border-top-color: #4CAF50;
+        }
+
+        .excludes-box {
+            border-top-color: #F44336;
+        }
+
+        .includes-box h3, .excludes-box h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            font-family: 'Cinzel', serif;
+            color: var(--artistic-brown);
+            font-size: 1.8rem;
+        }
+
+        .includes-box h3 i {
+            color: #4CAF50;
+            font-size: 1.5rem;
+        }
+
+        .excludes-box h3 i {
+            color: #F44336;
+            font-size: 1.5rem;
+        }
+
+        .includes-box ul, .excludes-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .includes-box li, .excludes-box li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+        }
+
+        .includes-box li:last-child, .excludes-box li:last-child {
+            border-bottom: none;
+        }
+
+        .includes-box li i {
+            color: #4CAF50;
+            font-size: 1.1rem;
+        }
+
+        .excludes-box li i {
+            color: #F44336;
+            font-size: 1.1rem;
+        }
+
+        /* Booking Section */
         .booking-section-destination {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 60px 0;
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--ocean-blue), #004d73);
+            color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-section-destination::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"><path d="M0,0 L100,100 M100,0 L0,100"/></svg>');
+            background-size: 50px 50px;
+            animation: backgroundMove 20s linear infinite;
         }
 
         .booking-cta {
-            max-width: 600px;
-            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Premium Modal Styles */
+        .booking-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-cta p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-family: 'Playfair Display', serif;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .booking-cta .btn {
+            background: linear-gradient(135deg, var(--premium-gold), var(--secondary));
+            color: #000;
+            font-weight: bold;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Individual Tour Cards */
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tour-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: var(--safari-orange);
+        }
+
+        .tour-card.local {
+            border-left: 5px solid var(--ocean-blue);
+        }
+
+        .tour-card.vip {
+            border-left: 5px solid var(--safari-orange);
+            background: linear-gradient(135deg, #fff8e1, #fff);
+        }
+
+        .tour-card.vvip {
+            border-left: 5px solid var(--artistic-brown);
+            background: linear-gradient(135deg, #f5f5f5, #fff);
+        }
+
+        .tour-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .tour-number {
+            background: var(--safari-orange);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .tour-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--artistic-brown);
+            font-family: 'Cinzel', serif;
+        }
+
+        .tour-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .tour-details {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tour-duration {
+            display: inline-block;
+            background: rgba(139, 69, 19, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--artistic-brown);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--artistic-brown), #2c1810);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"><path d="M0,0 L100,100 M100,0 L0,100"/></svg>');
+            background-size: 50px 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            font-family: 'Cinzel', serif;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 2;
+            font-size: 1rem;
+        }
+
+        /* Premium Booking Modal */
         .premium-modal {
             display: none;
             position: fixed;
@@ -346,258 +1453,219 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 3000;
             overflow-y: auto;
-            padding: 20px 0;
         }
 
         .premium-modal-content {
-            background: linear-gradient(135deg, #1a2a3a, #0d1b2a);
-            width: 95%;
-            max-width: 1000px;
-            margin: 30px auto;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
-            animation: modalFade 0.5s;
-            color: white;
             position: relative;
-        }
-
-        .premium-modal-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        @keyframes modalFade {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
+            background: linear-gradient(135deg, #1a2f1a, #2c4b2c);
+            margin: 50px auto;
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            color: white;
+            overflow: hidden;
+            max-width: 800px;
+            width: 95%;
         }
 
         .premium-modal-header {
-            background: linear-gradient(90deg, rgba(26, 109, 56, 0.9), rgba(21, 101, 192, 0.9));
-            color: white;
-            padding: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 1;
+            padding: 25px 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .premium-modal-header h2 {
-            font-size: 2.2rem;
             margin: 0;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            color: var(--premium-gold);
             font-family: 'Cinzel', serif;
+            font-size: 2rem;
         }
 
         .close-premium-modal {
-            background: rgba(255, 255, 255, 0.2);
+            background: none;
             border: none;
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
             cursor: pointer;
-            transition: all 0.3s;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: var(--transition);
         }
 
         .close-premium-modal:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
+            color: var(--premium-gold);
+            transform: scale(1.1);
         }
 
         .premium-modal-body {
             padding: 30px;
-            position: relative;
-            z-index: 1;
         }
 
         /* Booking Steps */
         .booking-steps {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             margin-bottom: 40px;
-            gap: 20px;
+            position: relative;
+        }
+
+        .booking-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 1;
         }
 
         .booking-step {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            opacity: 0.5;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .booking-step.active {
-            opacity: 1;
+            position: relative;
+            z-index: 2;
+            flex: 1;
         }
 
         .step-number {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 10px;
             font-weight: bold;
-            border: 2px solid transparent;
+            transition: var(--transition);
         }
 
         .booking-step.active .step-number {
             background: var(--premium-gold);
-            color: #333;
-            border-color: var(--premium-gold);
+            color: #000;
         }
 
         .step-label {
             font-size: 0.9rem;
-            font-weight: 500;
+            text-align: center;
+            opacity: 0.7;
         }
 
-        /* Package Level Selection */
+        .booking-step.active .step-label {
+            opacity: 1;
+            color: var(--premium-gold);
+        }
+
+        .booking-section {
+            display: none;
+        }
+
+        .booking-section.active {
+            display: block;
+        }
+
+        /* Package Levels */
         .package-levels {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .package-level {
             background: rgba(255, 255, 255, 0.1);
-            border: 2px solid transparent;
-            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
             padding: 25px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            transition: var(--transition);
         }
 
         .package-level:hover {
             transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: var(--premium-gold);
         }
 
         .package-level.selected {
             border-color: var(--premium-gold);
-            background: rgba(255, 215, 0, 0.1);
-        }
-
-        .package-level.local.selected {
-            border-color: #4CAF50;
-            background: rgba(76, 175, 80, 0.1);
-        }
-
-        .package-level.vip.selected {
-            border-color: #FF9800;
-            background: rgba(255, 152, 0, 0.1);
-        }
-
-        .package-level.vvip.selected {
-            border-color: #f44336;
-            background: rgba(244, 67, 54, 0.1);
+            background: rgba(218, 165, 32, 0.1);
         }
 
         .level-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
-        }
-
-        .package-level.local .level-icon {
-            color: #4CAF50;
-        }
-
-        .package-level.vip .level-icon {
-            color: #FF9800;
-        }
-
-        .package-level.vvip .level-icon {
-            color: #f44336;
+            color: var(--premium-gold);
         }
 
         .level-name {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: bold;
             margin-bottom: 10px;
             font-family: 'Cinzel', serif;
         }
 
         .level-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
             color: var(--premium-gold);
         }
 
         .level-features {
             list-style: none;
+            padding: 0;
             text-align: left;
         }
 
         .level-features li {
-            padding: 5px 0;
-            font-size: 0.9rem;
+            padding: 8px 0;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            font-size: 0.9rem;
         }
 
-        .level-features li i {
-            color: var(--premium-gold);
-            font-size: 0.8rem;
+        .level-features i {
+            color: #4CAF50;
         }
 
-        /* Group Size Selection */
+        /* Group Selection */
         .group-selection {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
         }
 
         .group-options {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .group-option {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid transparent;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
             padding: 20px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .group-option:hover {
-            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            border-color: var(--premium-gold);
         }
 
         .group-option.selected {
             border-color: var(--premium-gold);
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(218, 165, 32, 0.1);
         }
 
         .group-icon {
@@ -608,12 +1676,12 @@
 
         .group-name {
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: bold;
             margin-bottom: 5px;
         }
 
         .group-description {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             opacity: 0.8;
         }
 
@@ -623,44 +1691,53 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            margin-top: 20px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .counter-label {
+            font-weight: bold;
         }
 
         .counter-btn {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: var(--premium-gold);
-            color: #333;
             border: none;
-            font-size: 1.5rem;
+            background: var(--premium-gold);
+            color: #000;
+            font-size: 1.2rem;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: var(--transition);
         }
 
         .counter-btn:hover {
             transform: scale(1.1);
-            background: #ffa500;
         }
 
         .people-count {
-            font-size: 2rem;
-            font-weight: 700;
-            min-width: 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            min-width: 50px;
             text-align: center;
-            color: var(--premium-gold);
         }
 
         /* Price Summary */
         .price-summary {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .summary-title {
+            margin-bottom: 20px;
+            color: var(--premium-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
         }
 
         .price-breakdown {
@@ -670,7 +1747,6 @@
         .price-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -679,644 +1755,120 @@
             border-bottom: none;
         }
 
-        .price-label {
-            font-size: 1rem;
-        }
-
-        .price-value {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
         .total-price {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding-top: 20px;
-            border-top: 2px solid var(--premium-gold);
-            margin-top: 10px;
-        }
-
-        .total-label {
+            padding-top: 15px;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
             font-size: 1.3rem;
-            font-weight: 700;
+            font-weight: bold;
         }
 
-        .total-value {
-            font-size: 2.5rem;
-            font-weight: 700;
+        .total-label, .total-value {
             color: var(--premium-gold);
-            font-family: 'Cinzel', serif;
         }
 
-        /* Action Buttons */
-        .modal-actions {
-            display: flex;
-            justify-content: space-between;
+        .discount-label, .discount-value {
+            color: #4CAF50;
+        }
+
+        .original-price {
+            text-align: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255,255,255,0.3);
+        }
+
+        .original-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-decoration: line-through;
+        }
+
+        .original-value {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            margin: 25px 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
 
-        .modal-btn {
-            flex: 1;
-            padding: 15px 25px;
-            border: none;
+        .form-input {
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
             border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            color: white;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Modal Actions */
+        .modal-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .modal-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             font-family: 'Cinzel', serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--premium-gold);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4);
         }
 
         .btn-secondary {
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--premium-gold), #ffa500);
-            color: #333;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #ffa500, #ff8c00);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-
-        /* Hidden Sections */
-        .booking-section {
-            display: none;
-        }
-
-        .booking-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-       
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .package-details {
-                grid-template-columns: 1fr;
-            }
-
-            .includes-excludes {
-                grid-template-columns: 1fr;
-            }
-
-            .package-levels {
-                grid-template-columns: 1fr;
-            }
-
-            .card-features {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content nav {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .language-selector {
-                display: none;
-            }
-
-            .destination-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .destination-hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .group-options {
-                grid-template-columns: 1fr;
-            }
-
-            .card-features {
-                grid-template-columns: 1fr;
-            }
-
-            .modal-actions {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .destination-hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-
-            .btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-
-            .premium-modal-header h2 {
-                font-size: 1.6rem;
-            }
-
-            .total-value {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-      <div id="header-placeholder"></div>
-
-    <!-- Destination Hero Section -->
-    <section class="destination-hero">
-        <div class="destination-hero-content">
-            <h1>Zanzibar Beach Paradise</h1>
-            <p>White Sands, Turquoise Waters, and Tropical Bliss</p>
-            <button class="btn" onclick="openBookingModal()">Book Your Beach Getaway</button>
-        </div>
-    </section>
-
-    <!-- Destination Content -->
-    <section class="destination-content">
-        <div class="container">
-            <div class="section-title">
-                <h2>Zanzibar Island Escape</h2>
-                <p class="normal-text">3-7 Days of Tropical Relaxation and Cultural Discovery</p>
-            </div>
-
-            <div class="package-details">
-                <div class="package-description">
-                    <h3>About This Beach Getaway</h3>
-                    <p class="normal-text">Discover the tropical paradise of Zanzibar, where pristine white sand beaches meet crystal-clear turquoise waters. Our Zanzibar beach packages offer the perfect blend of relaxation, adventure, and cultural immersion. From luxurious beach resorts to authentic spice tours, experience the best of this Indian Ocean gem.</p>
-                    
-                    <h4>Key Highlights</h4>
-                    <ul>
-                        <li>Pristine white sand beaches</li>
-                        <li>World-class snorkeling and diving</li>
-                        <li>Historic Stone Town exploration</li>
-                        <li>Spice plantation tours</li>
-                        <li>Luxury beachfront accommodation</li>
-                    </ul>
-                </div>
-
-
-            <!-- Itinerary -->
-            <div class="itinerary">
-                <h3 class="section-title">5-Day Zanzibar Beach Escape Itinerary</h3>
-                
-                <div class="itinerary-day">
-                    <div class="day-header">
-                        <div class="day-title">Day 1: Arrival in Zanzibar</div>
-                        <div class="day-duration">Beach Resort</div>
-                    </div>
-                    <div class="day-activities">
-                        Arrive at Zanzibar International Airport, transfer to your beachfront resort. Settle in and enjoy your first sunset over the Indian Ocean. Welcome dinner and orientation.
-                    </div>
-                </div>
-
-                <div class="itinerary-day">
-                    <div class="day-header">
-                        <div class="day-title">Day 2: Beach Relaxation & Water Sports</div>
-                        <div class="day-duration">Full Day Beach Activities</div>
-                    </div>
-                    <div class="day-activities">
-                        Morning at leisure to enjoy the beach. Afternoon snorkeling session to explore the coral reefs. Optional water sports activities including kayaking and paddle boarding.
-                    </div>
-                </div>
-
-                <div class="itinerary-day">
-                    <div class="day-header">
-                        <div class="day-title">Day 3: Spice Tour & Stone Town</div>
-                        <div class="day-duration">Cultural Exploration</div>
-                    </div>
-                    <div class="day-activities">
-                        Morning spice plantation tour to learn about Zanzibar's famous spices. Afternoon guided tour of historic Stone Town, visiting the Old Fort, House of Wonders, and local markets.
-                    </div>
-                </div>
-
-                <div class="itinerary-day">
-                    <div class="day-header">
-                        <div class="day-title">Day 4: Prison Island & Dolphin Tour</div>
-                        <div class="day-duration">Island Excursion</div>
-                    </div>
-                    <div class="day-activities">
-                        Boat trip to Prison Island to see giant tortoises and enjoy snorkeling. Afternoon dolphin watching tour in Kizimkazi. Sunset dhow cruise with traditional music.
-                    </div>
-                </div>
-
-                <div class="itinerary-day">
-                    <div class="day-header">
-                        <div class="day-title">Day 5: Departure</div>
-                        <div class="day-duration">Farewell</div>
-                    </div>
-                    <div class="day-activities">
-                        Morning at leisure for last-minute beach time and souvenir shopping. Transfer to Zanzibar International Airport for departure with unforgettable memories.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-      
-            <!-- Includes & Excludes -->
-            <div class="includes-excludes">
-                <div class="includes-box">
-                    <h3><i class="fas fa-check-circle"></i> What's Included</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Beachfront hotel accommodation</li>
-                        <li><i class="fas fa-check"></i> All meals (breakfast, lunch, dinner)</li>
-                        <li><i class="fas fa-check"></i> Airport transfers</li>
-                        <li><i class="fas fa-check"></i> Snorkeling equipment rental</li>
-                        <li><i class="fas fa-check"></i> Spice plantation tour</li>
-                        <li><i class="fas fa-check"></i> Stone Town guided tour</li>
-                        <li><i class="fas fa-check"></i> Beach activities</li>
-                        <li><i class="fas fa-check"></i> Hotel taxes and service charges</li>
-                    </ul>
-                </div>
-
-                <div class="excludes-box">
-                    <h3><i class="fas fa-times-circle"></i> What's Excluded</h3>
-                    <ul>
-                        <li><i class="fas fa-times"></i> International flights</li>
-                        <li><i class="fas fa-times"></i> Tanzania visa fees</li>
-                        <li><i class="fas fa-times"></i> Travel insurance</li>
-                        <li><i class="fas fa-times"></i> Alcoholic beverages</li>
-                        <li><i class="fas fa-times"></i> Optional activities</li>
-                        <li><i class="fas fa-times"></i> Personal expenses</li>
-                        <li><i class="fas fa-times"></i> Spa treatments</li>
-                        <li><i class="fas fa-times"></i> Tips for staff</li>
-                    </ul>
-                </div>
-            </div>
-
-       <!-- Booking Section -->
-    <section class="booking-section-destination">
-        <div class="container">
-            <div class="booking-cta">
-                <h2>Ready for Your Zanzibar Escape?</h2>
-                <p class="normal-text">Book your beach paradise today and experience the ultimate tropical getaway.</p>
-                <button class="btn" onclick="openZanzibarBookingModal()">Book Your Beach Getaway</button>
-            </div>
-        </div>
-    </section>
-
-    
-<div id="footer-placeholder"></div>
-
-<script>
-  fetch("footer.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
-    });
-</script>
-
-
-    <!-- Premium Booking Modal -->
-    <div class="premium-modal" id="zanzibar-premium-modal">
-        <div class="premium-modal-content">
-            <div class="premium-modal-header">
-                <h2>Book Your Zanzibar Beach Getaway</h2>
-                <button class="close-premium-modal" id="close-zanzibar-premium-modal">&times;</button>
-            </div>
-            <div class="premium-modal-body">
-                <!-- Booking Steps -->
-                <div class="booking-steps">
-                    <div class="booking-step active" data-step="1">
-                        <div class="step-number">1</div>
-                        <div class="step-label">Package Level</div>
-                    </div>
-                    <div class="booking-step" data-step="2">
-                        <div class="step-number">2</div>
-                        <div class="step-label">Travel Style</div>
-                    </div>
-                    <div class="booking-step" data-step="3">
-                        <div class="step-number">3</div>
-                        <div class="step-label">Booking Details</div>
-                    </div>
-                </div>
-
-                <!-- Step 1: Package Level Selection -->
-                <div class="booking-section active" id="zanzibar-step-1">
-                    <h3 class="step-title">Choose Your Beach Experience</h3>
-                    <div class="package-levels">
-                        <div class="package-level local" data-level="local">
-                            <div class="level-icon">
-                                <i class="fas fa-umbrella-beach"></i>
-                            </div>
-                            <div class="level-name">STANDARD</div>
-                            <div class="level-price">$300</div>
-                            <ul class="level-features">
-                                <li><i class="fas fa-check"></i> Beach Hotel Accommodation</li>
-                                <li><i class="fas fa-check"></i> Breakfast Included</li>
-                                <li><i class="fas fa-check"></i> Airport Transfers</li>
-                                <li><i class="fas fa-check"></i> Basic Beach Activities</li>
-                            </ul>
-                        </div>
-                        <div class="package-level vip" data-level="vip">
-                            <div class="level-icon">
-                                <i class="fas fa-crown"></i>
-                            </div>
-                            <div class="level-name">COMFORT</div>
-                            <div class="level-price">$500</div>
-                            <ul class="level-features">
-                                <li><i class="fas fa-check"></i> Beachfront Resort</li>
-                                <li><i class="fas fa-check"></i> All Meals Included</li>
-                                <li><i class="fas fa-check"></i> Private Transfers</li>
-                                <li><i class="fas fa-check"></i> Water Sports Activities</li>
-                                <li><i class="fas fa-check"></i> Spice Tour Included</li>
-                            </ul>
-                        </div>
-                        <div class="package-level vvip" data-level="vvip">
-                            <div class="level-icon">
-                                <i class="fas fa-gem"></i>
-                            </div>
-                            <div class="level-name">LUXURY</div>
-                            <div class="level-price">$800</div>
-                            <ul class="level-features">
-                                <li><i class="fas fa-check"></i> Luxury Beach Resort</li>
-                                <li><i class="fas fa-check"></i> Premium All-Inclusive</li>
-                                <li><i class="fas fa-check"></i> Private Villa</li>
-                                <li><i class="fas fa-check"></i> All Activities Included</li>
-                                <li><i class="fas fa-check"></i> Spa Treatments</li>
-                                <li><i class="fas fa-check"></i> Private Boat Excursions</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mobile-actions">
-                        <button class="mobile-next-btn" onclick="zanzibarNextStep(2)">
-                            <span>Next: Travel Style</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                    <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="closeZanzibarPremiumModal()">Cancel</button>
-                        <button class="modal-btn btn-primary desktop-only" onclick="zanzibarNextStep(2)">Next: Travel Style</button>
-                    </div>
-                </div>
-
-                <!-- Step 2: Travel Style Selection -->
-                <div class="booking-section" id="zanzibar-step-2">
-                    <h3 class="step-title">Select Your Travel Style</h3>
-                    <div class="group-selection">
-                        <div class="group-options">
-                            <div class="group-option" data-group="single">
-                                <div class="group-icon">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="group-name">Solo Traveler</div>
-                                <div class="group-description">Perfect for solo beach lovers</div>
-                            </div>
-                            <div class="group-option" data-group="double">
-                                <div class="group-icon">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <div class="group-name">Couple Package</div>
-                                <div class="group-description">Perfect for couples</div>
-                            </div>
-                            <div class="group-option" data-group="family">
-                                <div class="group-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="group-name">Family Package</div>
-                                <div class="group-description">2 adults + 2 children</div>
-                            </div>
-                            <div class="group-option" data-group="group">
-                                <div class="group-icon">
-                                    <i class="fas fa-user-friends"></i>
-                                </div>
-                                <div class="group-name">Group Adventure</div>
-                                <div class="group-description">2-30 people</div>
-                            </div>
-                        </div>
-
-                        <!-- People Counter (Visible for Group Adventure) -->
-                        <div class="people-counter" id="zanzibar-people-counter" style="display: none;">
-                            <div class="counter-label">Group Size:</div>
-                            <button class="counter-btn" onclick="zanzibarChangePeopleCount(-1)">-</button>
-                            <div class="people-count" id="zanzibar-people-count">4</div>
-                            <button class="counter-btn" onclick="zanzibarChangePeopleCount(1)">+</button>
-                        </div>
-                    </div>
-
-                    <!-- Price Preview -->
-                    <div class="price-summary">
-                        <div class="price-breakdown">
-                            <div class="price-item">
-                                <span class="price-label" id="zanzibar-package-type-label">Standard Package</span>
-                                <span class="price-value" id="zanzibar-base-price">$300</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label" id="zanzibar-group-type-label">Solo Traveler</span>
-                                <span class="price-value" id="zanzibar-group-multiplier">x1</span>
-                            </div>
-                            <div class="price-item" id="zanzibar-people-item" style="display: none;">
-                                <span class="price-label" id="zanzibar-people-count-label">4 people</span>
-                                <span class="price-value" id="zanzibar-people-multiplier">x4</span>
-                            </div>
-                            <!-- Discount Display -->
-                            <div class="price-item" id="zanzibar-discount-item" style="display: none;">
-                                <span class="price-label discount-label">Group Discount (20%)</span>
-                                <span class="price-value discount-value" id="zanzibar-discount-amount">-$240</span>
-                            </div>
-                        </div>
-                        <div class="total-price">
-                            <span class="total-label">Total Price:</span>
-                            <span class="total-value" id="zanzibar-total-price">$300</span>
-                        </div>
-                        <!-- Original Price Display -->
-                        <div class="original-price" id="zanzibar-original-price" style="display: none;">
-                            <span class="original-label">Original Price:</span>
-                            <span class="original-value" id="zanzibar-original-value">$1,200</span>
-                        </div>
-                    </div>
-
-                    <div class="mobile-actions">
-                        <button class="mobile-next-btn" onclick="zanzibarNextStep(3)">
-                            <span>Next: Book Now</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                    <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="zanzibarPrevStep(1)">Back</button>
-                        <button class="modal-btn btn-primary desktop-only" onclick="zanzibarNextStep(3)">Next: Book Now</button>
-                    </div>
-                </div>
-
-                <!-- Step 3: Final Booking -->
-                <div class="booking-section" id="zanzibar-step-3">
-                    <h3 class="step-title">Confirm Your Booking</h3>
-                    
-                    <div class="price-summary">
-                        <h4 class="summary-title">Booking Summary</h4>
-                        <div class="price-breakdown">
-                            <div class="price-item">
-                                <span class="price-label">Destination:</span>
-                                <span class="price-value" id="zanzibar-summary-destination">Zanzibar Beaches</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Package Level:</span>
-                                <span class="price-value" id="zanzibar-summary-package">Standard</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Travel Style:</span>
-                                <span class="price-value" id="zanzibar-summary-group">Solo Traveler</span>
-                            </div>
-                            <div class="price-item" id="zanzibar-summary-people-item" style="display: none;">
-                                <span class="price-label">Number of People:</span>
-                                <span class="price-value" id="zanzibar-summary-people">4</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Duration:</span>
-                                <span class="price-value" id="zanzibar-summary-duration">3-7 Days</span>
-                            </div>
-                            <div class="price-item" id="zanzibar-summary-discount-item" style="display: none;">
-                                <span class="price-label discount-label">Group Discount Applied:</span>
-                                <span class="price-value discount-value" id="zanzibar-summary-discount">20%</span>
-                            </div>
-                        </div>
-                        <div class="total-price">
-                            <span class="total-label">Total Amount:</span>
-                            <span class="total-value" id="zanzibar-summary-total">$300</span>
-                        </div>
-                        <!-- Original Price Display in Summary -->
-                        <div class="original-price" id="zanzibar-summary-original-price" style="display: none;">
-                            <span class="original-label">Original Price:</span>
-                            <span class="original-value" id="zanzibar-summary-original-value">$1,200</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-form">
-                        <h4 class="summary-title">Contact Information</h4>
-                        <div class="form-grid">
-                            <input type="text" id="zanzibar-firstName" placeholder="First Name" class="form-input">
-                            <input type="text" id="zanzibar-lastName" placeholder="Last Name" class="form-input">
-                            <input type="email" id="zanzibar-email" placeholder="Email Address" class="form-input full-width">
-                            <input type="tel" id="zanzibar-phone" placeholder="Phone Number" class="form-input full-width">
-                        </div>
-                    </div>
-
-                    <div class="mobile-actions">
-                        <button class="mobile-complete-btn" onclick="zanzibarCompleteBooking()">
-                            <i class="fas fa-credit-card"></i>
-                            <span>Complete Booking</span>
-                        </button>
-                    </div>
-                    <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="zanzibarPrevStep(2)">Back</button>
-                        <button class="modal-btn btn-primary desktop-only" onclick="zanzibarCompleteBooking()">
-                            <i class="fas fa-credit-card"></i> Complete Booking
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        /* Zanzibar Specific Mobile Styles */
-        .premium-modal-content {
-            width: 95%;
-            max-width: 500px;
-            margin: 20px auto;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .step-title {
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--premium-gold);
-            font-size: 1.3rem;
-        }
-        
-        .package-levels {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .package-level {
-            padding: 20px;
-            margin-bottom: 0;
-            background: rgba(0, 105, 148, 0.1);
-            border: 2px solid rgba(0, 105, 148, 0.3);
-        }
-        
-        .package-level.selected {
-            border-color: var(--premium-gold);
-            background: rgba(218, 165, 32, 0.1);
-        }
-        
-        .group-options {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .group-option {
-            padding: 15px;
-            min-height: 100px;
-            background: rgba(0, 105, 148, 0.05);
-            border: 2px solid rgba(0, 105, 148, 0.2);
-        }
-        
-        .group-option.selected {
-            border-color: var(--premium-gold);
-            background: rgba(218, 165, 32, 0.1);
-        }
-        
-        .group-icon {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-        
-        .group-name {
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-        
-        .group-description {
-            font-size: 0.8rem;
-        }
-        
+        /* Mobile Actions */
         .mobile-actions {
             position: sticky;
             bottom: 0;
             background: linear-gradient(transparent, rgba(0,0,0,0.9));
             padding: 20px 15px 15px;
-            margin: 20px -20px -20px;
+            margin: 20px -30px -30px;
             z-index: 100;
         }
-        
+
         .mobile-next-btn, .mobile-complete-btn {
             width: 100%;
             padding: 16px 20px;
@@ -1333,99 +1885,181 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .mobile-complete-btn {
             background: #28a745;
             color: white;
         }
-        
+
         .mobile-next-btn:hover, .mobile-complete-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        
-        .contact-form {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .destination-hero h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title h2 {
+                font-size: 3rem;
+            }
+            
+            .luxury-heading {
+                font-size: 2.5rem;
+            }
         }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
+
+        @media (max-width: 1024px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .destination-hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .destination-hero p {
+                font-size: 1.8rem;
+            }
+
+            .package-details {
+                grid-template-columns: 1fr;
+            }
+
+            .includes-excludes {
+                grid-template-columns: 1fr;
+            }
+            
+            .tour-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
         }
-        
-        .form-input {
-            padding: 14px;
-            border: 1px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-            color: white;
-            font-size: 16px;
-            width: 100%;
-            box-sizing: border-box;
+
+        @media (max-width: 768px) {
+            .destination-hero h1 {
+                font-size: 3rem;
+            }
+
+            .destination-hero p {
+                font-size: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .artistic-title {
+                font-size: 2.5rem;
+            }
+            
+            .safari-heading {
+                font-size: 2rem;
+            }
+            
+            .safari-heading::before,
+            .safari-heading::after {
+                display: none;
+            }
+            
+            .luxury-heading {
+                font-size: 2rem;
+            }
+
+            .premium-sidebar {
+                width: 300px;
+            }
+
+            .group-options {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-levels {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .modal-btn {
+                width: 100%;
+            }
+            
+            .booking-cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .booking-cta p {
+                font-size: 1.2rem;
+            }
         }
-        
-        .form-input::placeholder {
-            color: rgba(255,255,255,0.6);
+
+        @media (max-width: 480px) {
+            .destination-hero {
+                height: 80vh;
+            }
+            
+            .destination-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .destination-hero p {
+                font-size: 1.3rem;
+            }
+
+            .destination-hero .btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .artistic-title {
+                font-size: 2rem;
+            }
+            
+            .luxury-heading {
+                font-size: 1.8rem;
+            }
+
+            .day-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .premium-modal-content {
+                margin: 20px 10px;
+                width: calc(100% - 20px);
+            }
+
+            .premium-modal-body {
+                padding: 20px;
+            }
+            
+            .tour-grid {
+                grid-template-columns: 1fr;
+            }
         }
-        
-        .full-width {
-            grid-column: 1 / -1;
+
+        /* Main Content Spacing */
+        .main-content {
+            padding-top: 80px;
         }
-        
-        .summary-title {
-            margin-bottom: 15px;
-            color: var(--premium-gold);
-            font-size: 1.1rem;
-        }
-        
-        .price-summary {
-            padding: 15px;
-            margin: 15px 0;
-            background: rgba(0, 105, 148, 0.1);
-        }
-        
-        .people-counter {
-            padding: 12px;
-            margin: 15px 0;
-            background: rgba(0, 105, 148, 0.1);
-            border-radius: 10px;
-        }
-        
-        /* Discount Styles */
-        .discount-label {
-            color: #4CAF50;
-            font-weight: bold;
-        }
-        
-        .discount-value {
-            color: #4CAF50;
-            font-weight: bold;
-        }
-        
-        .original-price {
-            text-align: center;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px dashed rgba(255,255,255,0.3);
-        }
-        
-        .original-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            text-decoration: line-through;
-        }
-        
-        .original-value {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            text-decoration: line-through;
-            margin-left: 10px;
-        }
-        
+
         /* Hide desktop buttons on mobile */
         @media (max-width: 768px) {
             .desktop-only {
@@ -1446,73 +2080,1257 @@
             .mobile-actions {
                 display: none;
             }
-            
-            .package-levels {
-                flex-direction: row;
-                gap: 20px;
-            }
-            
-            .group-options {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
-            }
-            
-            .premium-modal-content {
-                max-width: 800px;
-            }
-        }
-        
-        /* Mobile Optimizations */
-        @media (max-width: 480px) {
-            .premium-modal-content {
-                width: 100%;
-                margin: 10px;
-                max-height: 95vh;
-            }
-            
-            .premium-modal-header h2 {
-                font-size: 1.3rem;
-            }
-            
-            .step-title {
-                font-size: 1.1rem;
-            }
-            
-            .booking-steps {
-                gap: 5px;
-            }
-            
-            .step-label {
-                font-size: 0.7rem;
-            }
-            
-            .package-level {
-                padding: 15px;
-            }
-            
-            .level-features li {
-                font-size: 0.9rem;
-            }
         }
     </style>
+</head>
+<body>
+    <!-- Premium Translation Loading -->
+    <div class="translation-loading" id="translationLoading">
+        <div class="loading-spinner"></div>
+        <p data-i18n="translation.loading">Translating content...</p>
+    </div>
 
+    <!-- Premium Navigation Bar -->
+    <nav class="premium-navbar" id="premiumNavbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-mountain logo-icon"></i>
+                <span class="logo-text">MMexy Tanzania</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link" data-i18n="nav.home">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about-us.html" class="nav-link" data-i18n="nav.about">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown-parent">
+                        <a href="#" class="nav-link active" data-i18n="nav.destinations">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Destinations</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </a>
+                        <div class="dropdown">
+                            <a href="mountain-climbing.html" class="dropdown-item" data-i18n="nav.mountain_climbing">
+                                <i class="fas fa-mountain"></i>
+                                <span>Mountain Climbing</span>
+                            </a>
+                            <a href="tanzania-safaris.html" class="dropdown-item" data-i18n="nav.safaris">
+                                <i class="fas fa-binoculars"></i>
+                                <span>Tanzania Safaris</span>
+                            </a>
+                            <a href="zanzibar-beaches.html" class="dropdown-item active" data-i18n="nav.zanzibar">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span>Zanzibar Beaches</span>
+                            </a>
+                            <a href="cultural-tourism.html" class="dropdown-item" data-i18n="nav.cultural">
+                                <i class="fas fa-music"></i>
+                                <span>Cultural Tourism</span>
+                            </a>
+                            <a href="waterfall-tourism.html" class="dropdown-item" data-i18n="nav.waterfalls">
+                                <i class="fas fa-water"></i>
+                                <span>Waterfall Tourism</span>
+                            </a>
+                            <a href="historical-sites.html" class="dropdown-item" data-i18n="nav.historical">
+                                <i class="fas fa-landmark"></i>
+                                <span>Historical Sites</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link" data-i18n="nav.contact">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Premium Language Selector -->
+                <div class="language-selector">
+                    <div class="current-language">
+                        <span class="language-flag">🇺🇸</span>
+                        <span>English</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                    </div>
+                    <div class="language-dropdown">
+                        <a href="#" class="language-option active" data-lang="en">
+                            <span class="language-flag">🇺🇸</span>
+                            <span>English</span>
+                            <i class="fas fa-check"></i>
+                        </a>
+                        <a href="#" class="language-option" data-lang="sw">
+                            <span class="language-flag">🇹🇿</span>
+                            <span>Kiswahili</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="fr">
+                            <span class="language-flag">🇫🇷</span>
+                            <span>Français</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="de">
+                            <span class="language-flag">🇩🇪</span>
+                            <span>Deutsch</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="es">
+                            <span class="language-flag">🇪🇸</span>
+                            <span>Español</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="it">
+                            <span class="language-flag">🇮🇹</span>
+                            <span>Italiano</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="pt">
+                            <span class="language-flag">🇵🇹</span>
+                            <span>Português</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="ru">
+                            <span class="language-flag">🇷🇺</span>
+                            <span>Русский</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="zh">
+                            <span class="language-flag">🇨🇳</span>
+                            <span>中文</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="ja">
+                            <span class="language-flag">🇯🇵</span>
+                            <span>日本語</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Premium Sidebar -->
+    <div class="premium-sidebar" id="premiumSidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-mountain sidebar-logo-icon"></i>
+                <span class="sidebar-logo-text">MMexy Tanzania</span>
+            </div>
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar Content -->
+        <div class="sidebar-content">
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="index.html" class="sidebar-link" data-i18n="nav.home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="about-us.html" class="sidebar-link" data-i18n="nav.about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link sidebar-dropdown-toggle active" id="destinationsToggle" data-i18n="nav.destinations">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Destinations</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="sidebar-dropdown" id="destinationsDropdown">
+                        <a href="mountain-climbing.html" class="sidebar-link" data-i18n="nav.mountain_climbing">
+                            <i class="fas fa-mountain"></i>
+                            <span>Mountain Climbing</span>
+                        </a>
+                        <a href="tanzania-safaris.html" class="sidebar-link" data-i18n="nav.safaris">
+                            <i class="fas fa-binoculars"></i>
+                            <span>Tanzania Safaris</span>
+                        </a>
+                        <a href="zanzibar-beaches.html" class="sidebar-link active" data-i18n="nav.zanzibar">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Zanzibar Beaches</span>
+                        </a>
+                        <a href="cultural-tourism.html" class="sidebar-link" data-i18n="nav.cultural">
+                            <i class="fas fa-music"></i>
+                            <span>Cultural Tourism</span>
+                        </a>
+                        <a href="waterfall-tourism.html" class="sidebar-link" data-i18n="nav.waterfalls">
+                            <i class="fas fa-water"></i>
+                            <span>Waterfall Tourism</span>
+                        </a>
+                        <a href="historical-sites.html" class="sidebar-link" data-i18n="nav.historical">
+                            <i class="fas fa-landmark"></i>
+                            <span>Historical Sites</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="sidebar-item">
+                    <a href="contact.html" class="sidebar-link" data-i18n="nav.contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Mobile Language Selector -->
+            <div class="mobile-language-selector">
+                <label for="sidebarLanguage" data-i18n="footer.language">Language:</label>
+                <select class="sidebar-language" id="sidebarLanguage">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="sw">🇹🇿 Kiswahili</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <div class="sidebar-social">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Destination Hero Section -->
+        <section class="destination-hero">
+            <div class="destination-hero-content">
+                <h1 class="luxury-heading" data-i18n="zanzibar.hero.title">Zanzibar Luxury Experiences</h1>
+                <p class="calligraphic-text" data-i18n="zanzibar.hero.subtitle">From Budget-Friendly Local Tours to Ultimate VVIP Luxury</p>
+                <button class="btn" onclick="openZanzibarBookingModal()" data-i18n="zanzibar.hero.cta">
+                    <i class="fas fa-gem"></i> Choose Your Experience
+                </button>
+            </div>
+        </section>
+
+        <!-- Destination Content -->
+        <section class="destination-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="artistic-title" data-i18n="zanzibar.content.title">Zanzibar Luxury Packages</h2>
+                    <p class="premium-subtitle" data-i18n="zanzibar.content.subtitle">Tailored Experiences for Every Traveler - Local, VIP & VVIP</p>
+                </div>
+
+                <div class="package-details">
+                    <div class="package-description">
+                        <h3 data-i18n="zanzibar.content.about.title">
+                            <i class="fas fa-crown"></i> Exclusive Zanzibar Experiences
+                        </h3>
+                        <p class="normal-text" data-i18n="zanzibar.content.about.description">Discover Zanzibar like never before with our carefully curated packages. From affordable local tours to ultimate luxury experiences, we offer something for every traveler. Our unique selling point? Each package is carefully designed to maximize your experience while providing exceptional value.</p>
+                        
+                        <h4 data-i18n="zanzibar.content.highlights.title">
+                            <i class="fas fa-star"></i> Package Highlights
+                        </h4>
+                        <ul>
+                            <li data-i18n="zanzibar.content.highlights.item1">
+                                <i class="fas fa-check-circle"></i> Local Packages from $49 USD
+                            </li>
+                            <li data-i18n="zanzibar.content.highlights.item2">
+                                <i class="fas fa-check-circle"></i> VIP Exclusive Private Tours
+                            </li>
+                            <li data-i18n="zanzibar.content.highlights.item3">
+                                <i class="fas fa-check-circle"></i> VVIP Luxury All-Inclusive
+                            </li>
+                            <li data-i18n="zanzibar.content.highlights.item4">
+                                <i class="fas fa-check-circle"></i> Customized Itineraries
+                            </li>
+                            <li data-i18n="zanzibar.content.highlights.item5">
+                                <i class="fas fa-check-circle"></i> Private Transport & Guides
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="package-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4 data-i18n="zanzibar.content.features.local.title">Local Packages</h4>
+                                <p data-i18n="zanzibar.content.features.local.description">Affordable adventures starting from just $49 USD - perfect for budget travelers</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4 data-i18n="zanzibar.content.features.vip.title">VIP Experience</h4>
+                                <p data-i18n="zanzibar.content.features.vip.description">Private tours with exclusive access and premium services</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4 data-i18n="zanzibar.content.features.vvip.title">VVIP Luxury</h4>
+                                <p data-i18n="zanzibar.content.features.vvip.description">Ultimate all-inclusive luxury with private flights and premium everything</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4 data-i18n="zanzibar.content.features.custom.title">Flexible Duration</h4>
+                                <p data-i18n="zanzibar.content.features.custom.description">Customizable tours from 1 hour to full-day experiences</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Packages Section -->
+                <div class="itinerary">
+                    <h3 class="safari-heading" data-i18n="zanzibar.packages.title">Featured Multi-Day Packages</h3>
+                    
+                    <!-- Safari & Nungwi Package -->
+                    <div class="itinerary-day">
+                        <div class="day-header">
+                            <div class="day-title">
+                                <i class="fas fa-safari"></i>
+                                <span data-i18n="zanzibar.packages.safari_nungwi.title">Safari & Nungwi Package</span>
+                            </div>
+                            <div class="day-duration" data-i18n="zanzibar.packages.safari_nungwi.price">$549 USD</div>
+                        </div>
+                        <div class="day-activities" data-i18n="zanzibar.packages.safari_nungwi.description">
+                            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+                            <strong>Day 2:</strong> Mikumi National Park Day Trip (Everything included)<br>
+                            <strong>Day 3:</strong> Nungwi Beach & Sunset Cruise<br>
+                            <em>Perfect combination of wildlife safari and beach relaxation</em>
+                        </div>
+                    </div>
+
+                    <!-- Paje Package -->
+                    <div class="itinerary-day">
+                        <div class="day-header">
+                            <div class="day-title">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span data-i18n="zanzibar.packages.paje.title">Paje Beach Package</span>
+                            </div>
+                            <div class="day-duration" data-i18n="zanzibar.packages.paje.price">$199 USD</div>
+                        </div>
+                        <div class="day-activities" data-i18n="zanzibar.packages.paje.description">
+                            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+                            <strong>Day 2:</strong> Jozani Forest & Star Fish Tour<br>
+                            <strong>Day 3:</strong> The Rock Restaurant & Beach Relaxation<br>
+                            <em>Ideal for nature lovers and food enthusiasts</em>
+                        </div>
+                    </div>
+
+                    <!-- City Tour Package -->
+                    <div class="itinerary-day">
+                        <div class="day-header">
+                            <div class="day-title">
+                                <i class="fas fa-city"></i>
+                                <span data-i18n="zanzibar.packages.city.title">City & Spice Tour Package</span>
+                            </div>
+                            <div class="day-duration" data-i18n="zanzibar.packages.city.price">$199 USD</div>
+                        </div>
+                        <div class="day-activities" data-i18n="zanzibar.packages.city.description">
+                            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+                            <strong>Day 2:</strong> Nakupenda Sand Bank, Prison Island & Stone Town Tour<br>
+                            <strong>Day 3:</strong> Spice Farm Experience<br>
+                            <em>Perfect cultural and historical immersion</em>
+                        </div>
+                    </div>
+
+                    <!-- Kiwengwa Package -->
+                    <div class="itinerary-day">
+                        <div class="day-header">
+                            <div class="day-title">
+                                <i class="fas fa-water"></i>
+                                <span data-i18n="zanzibar.packages.kiwengwa.title">Kiwengwa Luxury Package</span>
+                            </div>
+                            <div class="day-duration" data-i18n="zanzibar.packages.kiwengwa.price">$219 USD</div>
+                        </div>
+                        <div class="day-activities" data-i18n="zanzibar.packages.kiwengwa.description">
+                            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+                            <strong>Day 2:</strong> Mnemba Island & Sunrise Tour<br>
+                            <strong>Day 3:</strong> Blue Safari Experience & Village Tour<br>
+                            <em>Premium beach experience with cultural insights</em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Luxury Tier Packages -->
+                <div class="itinerary">
+                    <h3 class="safari-heading" data-i18n="zanzibar.luxury.title">Ultimate Luxury Packages</h3>
+                    
+                    <!-- VVIP Packages -->
+                    <div class="ornamental-border">
+                        <div class="itinerary-day">
+                            <div class="day-header">
+                                <div class="day-title">
+                                    <i class="fas fa-gem"></i>
+                                    <span data-i18n="zanzibar.luxury.vvip.title">VVIP Luxury Experience</span>
+                                </div>
+                                <div class="day-duration" data-i18n="zanzibar.luxury.vvip.price">From $31,000 USD</div>
+                            </div>
+                            <div class="day-activities" data-i18n="zanzibar.luxury.vvip.description">
+                                <strong>Features:</strong> Private flights, luxury transport, premium accommodation, all meals included, private boat tours, exclusive access<br><br>
+                                <strong>Packages:</strong><br>
+                                • Safari & Nungwi: $37,000 USD<br>
+                                • Paje Tour: $35,000 USD<br>
+                                • City Tour: $33,000 USD<br>
+                                • Kiwengwa: $35,000 USD<br>
+                                <em>Everything included - the ultimate luxury experience</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIP Packages -->
+                    <div class="itinerary-day">
+                        <div class="day-header">
+                            <div class="day-title">
+                                <i class="fas fa-crown"></i>
+                                <span data-i18n="zanzibar.luxury.vip.title">VIP Exclusive Experience</span>
+                            </div>
+                            <div class="day-duration" data-i18n="zanzibar.luxury.vip.price">From $1,000 USD</div>
+                        </div>
+                        <div class="day-activities" data-i18n="zanzibar.luxury.vip.description">
+                            <strong>Features:</strong> Private transport, private boat tours, exclusive access<br><br>
+                            <strong>Packages:</strong><br>
+                            • City Tour: $1,000 USD<br>
+                            • Paje Tour: $1,500 USD<br>
+                            • Kiwengwa: $1,800 USD<br>
+                            • Safari & Nungwi: $2,500 USD<br>
+                            <em>All exclusive access except meals and accommodation</em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Individual Local Tours -->
+                <div class="itinerary">
+                    <h3 class="safari-heading" data-i18n="zanzibar.local_tours.title">Individual Local Tours</h3>
+                    
+                    <div class="tour-grid">
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">1</div>
+                                <div class="tour-price">$105 USD</div>
+                            </div>
+                            <div class="tour-name">Dolphin Tour</div>
+                            <div class="tour-details">Transport, boat, breakfast & fees included</div>
+                            <div class="tour-duration">3-7 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">2</div>
+                                <div class="tour-price">$105 USD</div>
+                            </div>
+                            <div class="tour-name">Sunset Tour</div>
+                            <div class="tour-details">Transport, boat, lunch included</div>
+                            <div class="tour-duration">1-3 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">3</div>
+                                <div class="tour-price">$39 USD</div>
+                            </div>
+                            <div class="tour-name">Aquarium Tour</div>
+                            <div class="tour-details">Transport, lunch & fees included</div>
+                            <div class="tour-duration">1-4 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">4</div>
+                                <div class="tour-price">$50 USD</div>
+                            </div>
+                            <div class="tour-name">Sunrise Tour</div>
+                            <div class="tour-details">Transport & breakfast included</div>
+                            <div class="tour-duration">1-3 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">5</div>
+                                <div class="tour-price">$114 USD</div>
+                            </div>
+                            <div class="tour-name">Nakupenda Sandbank</div>
+                            <div class="tour-details">Transport, seafood lunch, boat included</div>
+                            <div class="tour-duration">1-5 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">6</div>
+                                <div class="tour-price">$49 USD</div>
+                            </div>
+                            <div class="tour-name">City Tour</div>
+                            <div class="tour-details">Transport, lunch or breakfast included</div>
+                            <div class="tour-duration">1-3 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">7</div>
+                                <div class="tour-price">$49 USD</div>
+                            </div>
+                            <div class="tour-name">Spice Farm</div>
+                            <div class="tour-details">Transport, lunch & fees included</div>
+                            <div class="tour-duration">1-5 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">8</div>
+                                <div class="tour-price">$139 USD</div>
+                            </div>
+                            <div class="tour-name">Blue Safari</div>
+                            <div class="tour-details">Transport, boat, lunch included</div>
+                            <div class="tour-duration">Full day</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">9</div>
+                                <div class="tour-price">$49 USD</div>
+                            </div>
+                            <div class="tour-name">Village Tour</div>
+                            <div class="tour-details">Transport & lunch included</div>
+                            <div class="tour-duration">1-5 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">10</div>
+                                <div class="tour-price">$60 USD</div>
+                            </div>
+                            <div class="tour-name">The Rock Restaurant</div>
+                            <div class="tour-details">Transport, lunch & fees included</div>
+                            <div class="tour-duration">1-4 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">11</div>
+                                <div class="tour-price">$60 USD</div>
+                            </div>
+                            <div class="tour-name">Star Fish Tour</div>
+                            <div class="tour-details">Transport, lunch, dhow included</div>
+                            <div class="tour-duration">1-5 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">12</div>
+                                <div class="tour-price">$50 USD</div>
+                            </div>
+                            <div class="tour-name">Jozani Forest</div>
+                            <div class="tour-details">Transport, lunch, fees included</div>
+                            <div class="tour-duration">1-4 hours</div>
+                        </div>
+                        <div class="tour-card local">
+                            <div class="tour-header">
+                                <div class="tour-number">13</div>
+                                <div class="tour-price">$99 USD</div>
+                            </div>
+                            <div class="tour-name">Prison Island</div>
+                            <div class="tour-details">Transport, lunch, boat & fees included</div>
+                            <div class="tour-duration">1-5 hours</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIP Individual Tours -->
+                <div class="itinerary">
+                    <h3 class="safari-heading" data-i18n="zanzibar.vip_tours.title">VIP Individual Tours</h3>
+                    
+                    <div class="tour-grid">
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">1</div>
+                                <div class="tour-price">$300 USD</div>
+                            </div>
+                            <div class="tour-name">Nakupenda Sand Bank</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">2</div>
+                                <div class="tour-price">$300 USD</div>
+                            </div>
+                            <div class="tour-name">City Tour</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">3</div>
+                                <div class="tour-price">$200 USD</div>
+                            </div>
+                            <div class="tour-name">Prison Island</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">4</div>
+                                <div class="tour-price">$200 USD</div>
+                            </div>
+                            <div class="tour-name">Spice Farm</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">5</div>
+                                <div class="tour-price">$300 USD</div>
+                            </div>
+                            <div class="tour-name">Sunrise Tour</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">6</div>
+                                <div class="tour-price">$300 USD</div>
+                            </div>
+                            <div class="tour-name">Mnemba Island</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">7</div>
+                                <div class="tour-price">$200 USD</div>
+                            </div>
+                            <div class="tour-name">Village Tour</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">8</div>
+                                <div class="tour-price">$200 USD</div>
+                            </div>
+                            <div class="tour-name">Aquarium Tour</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">9</div>
+                                <div class="tour-price">$250 USD</div>
+                            </div>
+                            <div class="tour-name">Star Fish Tour</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">10</div>
+                                <div class="tour-price">$250 USD</div>
+                            </div>
+                            <div class="tour-name">Jozani Forest</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">11</div>
+                                <div class="tour-price">$250 USD</div>
+                            </div>
+                            <div class="tour-name">The Rock Restaurant</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">12</div>
+                                <div class="tour-price">$300 USD</div>
+                            </div>
+                            <div class="tour-name">Sunset Cruise</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">13</div>
+                                <div class="tour-price">$350 USD</div>
+                            </div>
+                            <div class="tour-name">Blue Safari</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                        <div class="tour-card vip">
+                            <div class="tour-header">
+                                <div class="tour-number">14</div>
+                                <div class="tour-price">$300 USD</div>
+                            </div>
+                            <div class="tour-name">Tumbatu Snorkeling</div>
+                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-duration">Private</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VVIP Individual Tours -->
+                <div class="itinerary">
+                    <h3 class="luxury-heading" data-i18n="zanzibar.vvip_tours.title">VVIP Ultra Luxury Tours</h3>
+                    
+                    <div class="tour-grid">
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">1</div>
+                                <div class="tour-price">$9,000 USD</div>
+                            </div>
+                            <div class="tour-name">Prison Island</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">2</div>
+                                <div class="tour-price">$9,000 USD</div>
+                            </div>
+                            <div class="tour-name">Nakupenda Sand Bank</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">3</div>
+                                <div class="tour-price">$5,000 USD</div>
+                            </div>
+                            <div class="tour-name">City Tour</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">4</div>
+                                <div class="tour-price">$7,000 USD</div>
+                            </div>
+                            <div class="tour-name">Spice Farm</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">5</div>
+                                <div class="tour-price">$9,000 USD</div>
+                            </div>
+                            <div class="tour-name">Sunrise Tour</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">6</div>
+                                <div class="tour-price">$9,000 USD</div>
+                            </div>
+                            <div class="tour-name">Sunset Tour</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">7</div>
+                                <div class="tour-price">$9,000 USD</div>
+                            </div>
+                            <div class="tour-name">Mnemba Island</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">8</div>
+                                <div class="tour-price">$9,000 USD</div>
+                            </div>
+                            <div class="tour-name">Star Fish Tour</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">9</div>
+                                <div class="tour-price">$9,000 USD</div>
+                            </div>
+                            <div class="tour-name">Blue Safari</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">10</div>
+                                <div class="tour-price">$9,000 USD</div>
+                            </div>
+                            <div class="tour-name">Tumbatu Snorkeling</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">11</div>
+                                <div class="tour-price">$5,000 USD</div>
+                            </div>
+                            <div class="tour-name">Jozani Forest</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">12</div>
+                                <div class="tour-price">$5,000 USD</div>
+                            </div>
+                            <div class="tour-name">Aquarium Tour</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                        <div class="tour-card vvip">
+                            <div class="tour-header">
+                                <div class="tour-number">13</div>
+                                <div class="tour-price">$5,000 USD</div>
+                            </div>
+                            <div class="tour-name">Village Tour</div>
+                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-duration">VVIP</div>
+                        </div>
+                    </div>
+                    <div class="ornamental-border">
+                        <p class="calligraphic-text" style="text-align: center; margin: 0;">
+                            All VVIP tours include: Private luxury transport, exclusive boat access, premium meals, personal guide, and VIP treatment throughout.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section class="booking-section-destination">
+            <div class="container">
+                <div class="booking-cta">
+                    <h2 data-i18n="zanzibar.booking.title">Ready for Your Zanzibar Adventure?</h2>
+                    <p class="elegant-text" data-i18n="zanzibar.booking.subtitle">Choose from our wide range of packages - from budget-friendly local tours to ultimate VVIP luxury experiences.</p>
+                    <button class="btn" onclick="openZanzibarBookingModal()" data-i18n="zanzibar.booking.cta">
+                        <i class="fas fa-calendar-check"></i> Book Your Perfect Package
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.company">MMexy Tanzania Adventures</h3>
+                        <p data-i18n="footer.description">Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.quick_links">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+                            <li><a href="about-us.html"><i class="fas fa-info-circle"></i> <span data-i18n="nav.about">About Us</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.destinations">Destinations</h3>
+                        <ul class="footer-links">
+                            <li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a></li>
+                            <li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.safaris">Tanzania Safaris</span></a></li>
+                            <li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.contact_info">Contact Info</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Arusha, Tanzania</span></a></li>
+                            <li><a href="tel:+255750910158"><i class="fas fa-phone"></i> +255 750 910 158</a></li>
+                            <li><a href="mailto:barackwilliam12@gmail.com"><i class="fas fa-envelope"></i> barackwilliam12@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p data-i18n="footer.copyright">&copy; 2024 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Premium Booking Modal -->
+    <div class="premium-modal" id="zanzibar-premium-modal">
+        <div class="premium-modal-content">
+            <div class="premium-modal-header">
+                <h2 data-i18n="zanzibar.booking_modal.title">
+                    <i class="fas fa-gem"></i> Book Your Zanzibar Experience
+                </h2>
+                <button class="close-premium-modal" id="close-zanzibar-premium-modal">&times;</button>
+            </div>
+            <div class="premium-modal-body">
+                <!-- Booking Steps -->
+                <div class="booking-steps">
+                    <div class="booking-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label" data-i18n="zanzibar.booking_modal.step1">Package Type</div>
+                    </div>
+                    <div class="booking-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label" data-i18n="zanzibar.booking_modal.step2">Select Package</div>
+                    </div>
+                    <div class="booking-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label" data-i18n="zanzibar.booking_modal.step3">Booking Details</div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Package Type Selection -->
+                <div class="booking-section active" id="zanzibar-step-1">
+                    <h3 class="step-title" data-i18n="zanzibar.booking_modal.package_type.title">Choose Your Experience Level</h3>
+                    <div class="package-levels">
+                        <div class="package-level local" data-level="local">
+                            <div class="level-icon">
+                                <i class="fas fa-umbrella-beach"></i>
+                            </div>
+                            <div class="level-name" data-i18n="zanzibar.booking_modal.package_type.local">LOCAL</div>
+                            <div class="level-price">From $49</div>
+                            <ul class="level-features">
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.local_feature1">Affordable tours</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.local_feature2">Group tours</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.local_feature3">Basic transport</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.local_feature4">Shared experiences</span></li>
+                            </ul>
+                        </div>
+                        <div class="package-level vip" data-level="vip">
+                            <div class="level-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="level-name" data-i18n="zanzibar.booking_modal.package_type.vip">VIP</div>
+                            <div class="level-price">From $1,000</div>
+                            <ul class="level-features">
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.vip_feature1">Private tours</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.vip_feature2">Exclusive access</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.vip_feature3">Premium transport</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.vip_feature4">Personalized service</span></li>
+                            </ul>
+                        </div>
+                        <div class="package-level vvip" data-level="vvip">
+                            <div class="level-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="level-name" data-i18n="zanzibar.booking_modal.package_type.vvip">VVIP</div>
+                            <div class="level-price">From $31,000</div>
+                            <ul class="level-features">
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.vvip_feature1">Ultimate luxury</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.vvip_feature2">Private flights</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.vvip_feature3">All-inclusive</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="zanzibar.booking_modal.package_type.vvip_feature4">VIP treatment</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-next-btn" onclick="zanzibarNextStep(2)">
+                            <span data-i18n="zanzibar.booking_modal.next_step1">Next: Select Package</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="modal-btn btn-secondary" onclick="closeZanzibarPremiumModal()" data-i18n="zanzibar.booking_modal.cancel">Cancel</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="zanzibarNextStep(2)" data-i18n="zanzibar.booking_modal.next_step1">Next: Select Package</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Package Selection -->
+                <div class="booking-section" id="zanzibar-step-2">
+                    <h3 class="step-title" id="zanzibar-package-selection-title">Select Your Package</h3>
+                    <div class="group-selection">
+                        <div class="group-options" id="zanzibar-package-options">
+                            <!-- Packages will be loaded dynamically based on selected level -->
+                        </div>
+                    </div>
+
+                    <!-- Price Preview -->
+                    <div class="price-summary">
+                        <div class="price-breakdown">
+                            <div class="price-item">
+                                <span class="price-label" id="zanzibar-package-type-label">Package Type:</span>
+                                <span class="price-value" id="zanzibar-package-type-value">Local</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label" id="zanzibar-package-name-label">Selected Package:</span>
+                                <span class="price-value" id="zanzibar-package-name-value">Not Selected</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label" id="zanzibar-base-price-label">Base Price:</span>
+                                <span class="price-value" id="zanzibar-base-price">$0</span>
+                            </div>
+                            <div class="price-item" id="zanzibar-people-item" style="display: none;">
+                                <span class="price-label" id="zanzibar-people-count-label">Number of People:</span>
+                                <span class="price-value" id="zanzibar-people-multiplier">x1</span>
+                            </div>
+                        </div>
+                        <div class="total-price">
+                            <span class="total-label" data-i18n="zanzibar.booking_modal.price.total">Total Price:</span>
+                            <span class="total-value" id="zanzibar-total-price">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-actions">
+                        <button class="mobile-next-btn" onclick="zanzibarNextStep(3)">
+                            <span data-i18n="zanzibar.booking_modal.next_step2">Next: Book Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="modal-btn btn-secondary" onclick="zanzibarPrevStep(1)" data-i18n="zanzibar.booking_modal.back">Back</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="zanzibarNextStep(3)" data-i18n="zanzibar.booking_modal.next_step2">Next: Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Final Booking -->
+                <div class="booking-section" id="zanzibar-step-3">
+                    <h3 class="step-title" data-i18n="zanzibar.booking_modal.confirm.title">Confirm Your Booking</h3>
+                    
+                    <div class="price-summary">
+                        <h4 class="summary-title" data-i18n="zanzibar.booking_modal.confirm.summary">Booking Summary</h4>
+                        <div class="price-breakdown">
+                            <div class="price-item">
+                                <span class="price-label" data-i18n="zanzibar.booking_modal.confirm.destination">Destination:</span>
+                                <span class="price-value">Zanzibar</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label" data-i18n="zanzibar.booking_modal.confirm.package_type">Package Type:</span>
+                                <span class="price-value" id="zanzibar-summary-type">Local</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label" data-i18n="zanzibar.booking_modal.confirm.package">Package:</span>
+                                <span class="price-value" id="zanzibar-summary-package">Not Selected</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label" data-i18n="zanzibar.booking_modal.confirm.price">Price:</span>
+                                <span class="price-value" id="zanzibar-summary-price">$0</span>
+                            </div>
+                        </div>
+                        <div class="total-price">
+                            <span class="total-label" data-i18n="zanzibar.booking_modal.confirm.total">Total Amount:</span>
+                            <span class="total-value" id="zanzibar-summary-total">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h4 class="summary-title" data-i18n="zanzibar.booking_modal.contact.title">
+                            <i class="fas fa-user-circle"></i> Contact Information
+                        </h4>
+                        <div class="form-grid">
+                            <input type="text" id="zanzibar-firstName" placeholder="First Name" class="form-input" data-i18n-placeholder="zanzibar.booking_modal.contact.first_name">
+                            <input type="text" id="zanzibar-lastName" placeholder="Last Name" class="form-input" data-i18n-placeholder="zanzibar.booking_modal.contact.last_name">
+                            <input type="email" id="zanzibar-email" placeholder="Email Address" class="form-input full-width" data-i18n-placeholder="zanzibar.booking_modal.contact.email">
+                            <input type="tel" id="zanzibar-phone" placeholder="Phone Number" class="form-input full-width" data-i18n-placeholder="zanzibar.booking_modal.contact.phone">
+                        </div>
+                    </div>
+
+                    <div class="mobile-actions">
+                        <button class="mobile-complete-btn" onclick="zanzibarCompleteBooking()">
+                            <i class="fas fa-credit-card"></i>
+                            <span data-i18n="zanzibar.booking_modal.complete">Complete Booking</span>
+                        </button>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="modal-btn btn-secondary" onclick="zanzibarPrevStep(2)" data-i18n="zanzibar.booking_modal.back">Back</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="zanzibarCompleteBooking()">
+                            <i class="fas fa-credit-card"></i> <span data-i18n="zanzibar.booking_modal.complete">Complete Booking</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('premiumNavbar');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const premiumSidebar = document.getElementById('premiumSidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const destinationsToggle = document.getElementById('destinationsToggle');
+            const destinationsDropdown = document.getElementById('destinationsDropdown');
+
+            // Scroll effect for navbar
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenuBtn.classList.toggle('active');
+                premiumSidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+                document.body.style.overflow = premiumSidebar.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close sidebar
+            closeSidebar.addEventListener('click', closeSidebarFunction);
+            sidebarOverlay.addEventListener('click', closeSidebarFunction);
+
+            function closeSidebarFunction() {
+                mobileMenuBtn.classList.remove('active');
+                premiumSidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Sidebar dropdown toggle
+            destinationsToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                destinationsToggle.classList.toggle('active');
+                destinationsDropdown.classList.toggle('active');
+            });
+
+            // Active link highlighting
+            const navLinks = document.querySelectorAll('.nav-link, .sidebar-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (!this.classList.contains('sidebar-dropdown-toggle')) {
+                        // Remove active class from all links
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        
+                        // Add active class to clicked link
+                        this.classList.add('active');
+                        
+                        // Close sidebar if on mobile
+                        if (window.innerWidth <= 1024) {
+                            closeSidebarFunction();
+                        }
+                    }
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Keyboard accessibility
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeSidebarFunction();
+                }
+            });
+        });
+
+        // Zanzibar Packages Data
+        const zanzibarPackages = {
+            local: [
+                { name: "Safari & Nungwi Package", price: 549, days: 3, description: "Mikumi safari + Nungwi beach" },
+                { name: "Paje Beach Package", price: 199, days: 3, description: "Jozani Forest + The Rock Restaurant" },
+                { name: "City & Spice Tour Package", price: 199, days: 3, description: "Stone Town + Spice Farm" },
+                { name: "Kiwengwa Luxury Package", price: 219, days: 3, description: "Mnemba Island + Blue Safari" },
+                { name: "Dolphin Tour", price: 105, hours: "3-7", description: "Transport, boat, breakfast & fees" },
+                { name: "Sunset Tour", price: 105, hours: "1-3", description: "Transport, boat, lunch" },
+                { name: "Aquarium Tour", price: 39, hours: "1-4", description: "Transport, lunch & fees" },
+                { name: "Sunrise Tour", price: 50, hours: "1-3", description: "Transport & breakfast" },
+                { name: "Nakupenda Sandbank", price: 114, hours: "1-5", description: "Transport, seafood lunch, boat" },
+                { name: "City Tour", price: 49, hours: "1-3", description: "Transport, lunch or breakfast" },
+                { name: "Spice Farm", price: 49, hours: "1-5", description: "Transport, lunch & fees" },
+                { name: "Blue Safari", price: 139, hours: "Full day", description: "Transport, boat, lunch" },
+                { name: "Village Tour", price: 49, hours: "1-5", description: "Transport & lunch" },
+                { name: "The Rock Restaurant", price: 60, hours: "1-4", description: "Transport, lunch & fees" },
+                { name: "Star Fish Tour", price: 60, hours: "1-5", description: "Transport, lunch, dhow" },
+                { name: "Jozani Forest", price: 50, hours: "1-4", description: "Transport, lunch, fees" },
+                { name: "Prison Island", price: 99, hours: "1-5", description: "Transport, lunch, boat & fees" }
+            ],
+            vip: [
+                { name: "City Tour Package", price: 1000, days: 3, description: "VIP Private Tour" },
+                { name: "Paje Tour Package", price: 1500, days: 3, description: "VIP Private Tour" },
+                { name: "Kiwengwa Package", price: 1800, days: 3, description: "VIP Private Tour" },
+                { name: "Safari & Nungwi Package", price: 2500, days: 3, description: "VIP Private Tour" },
+                { name: "Nakupenda Sand Bank", price: 300, hours: "Private", description: "VIP Private Tour" },
+                { name: "City Tour", price: 300, hours: "Private", description: "VIP Private Tour" },
+                { name: "Prison Island", price: 200, hours: "Private", description: "VIP Private Tour" },
+                { name: "Spice Farm", price: 200, hours: "Private", description: "VIP Private Tour" },
+                { name: "Sunrise Tour", price: 300, hours: "Private", description: "VIP Private Tour" },
+                { name: "Mnemba Island", price: 300, hours: "Private", description: "VIP Private Tour" },
+                { name: "Village Tour", price: 200, hours: "Private", description: "VIP Private Tour" },
+                { name: "Aquarium Tour", price: 200, hours: "Private", description: "VIP Private Tour" },
+                { name: "Star Fish Tour", price: 250, hours: "Private", description: "VIP Private Tour" },
+                { name: "Jozani Forest", price: 250, hours: "Private", description: "VIP Private Tour" },
+                { name: "The Rock Restaurant", price: 250, hours: "Private", description: "VIP Private Tour" },
+                { name: "Sunset Cruise", price: 300, hours: "Private", description: "VIP Private Tour" },
+                { name: "Blue Safari", price: 350, hours: "Private", description: "VIP Private Tour" },
+                { name: "Tumbatu Snorkeling", price: 300, hours: "Private", description: "VIP Private Tour" }
+            ],
+            vvip: [
+                { name: "Safari & Nungwi Package", price: 37000, days: 3, description: "Ultimate Luxury All-Inclusive" },
+                { name: "Paje Tour Package", price: 35000, days: 3, description: "Ultimate Luxury All-Inclusive" },
+                { name: "City Tour Package", price: 33000, days: 3, description: "Ultimate Luxury All-Inclusive" },
+                { name: "Kiwengwa Package", price: 35000, days: 3, description: "Ultimate Luxury All-Inclusive" },
+                { name: "Prison Island", price: 9000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Nakupenda Sand Bank", price: 9000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "City Tour", price: 5000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Spice Farm", price: 7000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Sunrise Tour", price: 9000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Sunset Tour", price: 9000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Mnemba Island", price: 9000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Star Fish Tour", price: 9000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Blue Safari", price: 9000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Tumbatu Snorkeling", price: 9000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Jozani Forest", price: 5000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Aquarium Tour", price: 5000, hours: "VVIP", description: "Ultimate Luxury Experience" },
+                { name: "Village Tour", price: 5000, hours: "VVIP", description: "Ultimate Luxury Experience" }
+            ]
+        };
+
         // Zanzibar Booking System Variables
         let zanzibarCurrentBooking = {
-            destination: 'zanzibar',
-            packageLevel: 'local',
-            groupType: 'single',
-            peopleCount: 4,
-            basePrice: 300,
-            totalPrice: 300,
-            originalPrice: 300,
-            discountApplied: false,
-            discountAmount: 0,
+            packageType: 'local',
+            selectedPackage: null,
+            totalPrice: 0,
             contactInfo: {
                 firstName: '',
                 lastName: '',
@@ -1521,46 +3339,42 @@
             }
         };
 
-        // Price configuration for zanzibar beaches
-        const zanzibarPackagePrices = {
-            local: 300,
-            vip: 500,
-            vvip: 800
-        };
-
-        const zanzibarGroupMultipliers = {
-            single: 1,
-            double: 2,
-            family: 2.5,
-            group: 1
-        };
-
         // Zanzibar Modal Navigation
         function zanzibarShowStep(stepNumber) {
-            document.querySelectorAll('.booking-section').forEach(section => {
+            document.querySelectorAll('#zanzibar-premium-modal .booking-section').forEach(section => {
                 section.classList.remove('active');
             });
             
             document.getElementById(`zanzibar-step-${stepNumber}`).classList.add('active');
             
-            document.querySelectorAll('.booking-step').forEach(step => {
+            document.querySelectorAll('#zanzibar-premium-modal .booking-step').forEach(step => {
                 step.classList.remove('active');
                 if (parseInt(step.dataset.step) <= stepNumber) {
                     step.classList.add('active');
                 }
             });
 
-            if (stepNumber === 3) {
+            if (stepNumber === 2) {
+                zanzibarLoadPackages();
+            } else if (stepNumber === 3) {
                 zanzibarUpdateBookingSummary();
             }
             
             // Scroll to top when changing steps on mobile
             if (window.innerWidth <= 768) {
-                document.querySelector('.premium-modal-body').scrollTop = 0;
+                document.querySelector('#zanzibar-premium-modal .premium-modal-body').scrollTop = 0;
             }
         }
 
         function zanzibarNextStep(step) {
+            if (step === 2 && !zanzibarCurrentBooking.packageType) {
+                alert('Please select a package type first');
+                return;
+            }
+            if (step === 3 && !zanzibarCurrentBooking.selectedPackage) {
+                alert('Please select a package first');
+                return;
+            }
             zanzibarShowStep(step);
         }
 
@@ -1568,7 +3382,7 @@
             zanzibarShowStep(step);
         }
 
-        // Zanzibar Package Level Selection
+        // Zanzibar Package Type Selection
         document.querySelectorAll('#zanzibar-premium-modal .package-level').forEach(level => {
             level.addEventListener('click', function() {
                 document.querySelectorAll('#zanzibar-premium-modal .package-level').forEach(l => {
@@ -1577,175 +3391,86 @@
                 
                 this.classList.add('selected');
                 
-                zanzibarCurrentBooking.packageLevel = this.dataset.level;
+                zanzibarCurrentBooking.packageType = this.dataset.level;
+                zanzibarCurrentBooking.selectedPackage = null;
+                
+                // Update package type display
+                document.getElementById('zanzibar-package-type-value').textContent = 
+                    this.dataset.level.toUpperCase();
+                document.getElementById('zanzibar-summary-type').textContent = 
+                    this.dataset.level.toUpperCase();
+                
                 zanzibarUpdatePrice();
             });
         });
 
-        // Zanzibar Travel Style Selection
-        document.querySelectorAll('#zanzibar-premium-modal .group-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('#zanzibar-premium-modal .group-option').forEach(opt => {
-                    opt.classList.remove('selected');
+        // Load packages based on selected type
+        function zanzibarLoadPackages() {
+            const packages = zanzibarPackages[zanzibarCurrentBooking.packageType] || [];
+            const container = document.getElementById('zanzibar-package-options');
+            container.innerHTML = '';
+            
+            // Update title
+            const title = document.getElementById('zanzibar-package-selection-title');
+            title.textContent = `Select Your ${zanzibarCurrentBooking.packageType.toUpperCase()} Package`;
+            
+            packages.forEach((pkg, index) => {
+                const option = document.createElement('div');
+                option.className = 'group-option';
+                option.dataset.index = index;
+                option.innerHTML = `
+                    <div class="group-icon">
+                        <i class="fas fa-${zanzibarCurrentBooking.packageType === 'local' ? 'sun' : 
+                                          zanzibarCurrentBooking.packageType === 'vip' ? 'crown' : 'gem'}"></i>
+                    </div>
+                    <div class="group-name">${pkg.name}</div>
+                    <div class="group-description">${pkg.description}</div>
+                    <div style="margin-top: 10px; font-weight: bold; color: var(--premium-gold);">
+                        $${pkg.price} USD ${pkg.days ? `| ${pkg.days} days` : pkg.hours ? `| ${pkg.hours} hours` : ''}
+                    </div>
+                `;
+                
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('#zanzibar-premium-modal .group-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    this.classList.add('selected');
+                    zanzibarCurrentBooking.selectedPackage = pkg;
+                    zanzibarUpdatePrice();
                 });
                 
-                this.classList.add('selected');
-                
-                zanzibarCurrentBooking.groupType = this.dataset.group;
-                
-                const peopleCounter = document.getElementById('zanzibar-people-counter');
-                if (zanzibarCurrentBooking.groupType === 'group') {
-                    peopleCounter.style.display = 'flex';
-                    document.getElementById('zanzibar-people-item').style.display = 'flex';
-                    // Set minimum for group adventure
-                    zanzibarCurrentBooking.peopleCount = 2;
-                    document.getElementById('zanzibar-people-count').textContent = zanzibarCurrentBooking.peopleCount;
-                } else {
-                    peopleCounter.style.display = 'none';
-                    document.getElementById('zanzibar-people-item').style.display = 'none';
-                    
-                    // Set default people counts for other options
-                    if (zanzibarCurrentBooking.groupType === 'single') {
-                        zanzibarCurrentBooking.peopleCount = 1;
-                    } else if (zanzibarCurrentBooking.groupType === 'double') {
-                        zanzibarCurrentBooking.peopleCount = 2;
-                    } else if (zanzibarCurrentBooking.groupType === 'family') {
-                        zanzibarCurrentBooking.peopleCount = 4;
-                    }
-                }
-                
-                zanzibarUpdatePrice();
+                container.appendChild(option);
             });
-        });
-
-        // Zanzibar People Counter
-        function zanzibarChangePeopleCount(change) {
-            let newCount = zanzibarCurrentBooking.peopleCount + change;
-            
-            if (newCount < 2) newCount = 2;
-            if (newCount > 30) newCount = 30;
-            
-            zanzibarCurrentBooking.peopleCount = newCount;
-            document.getElementById('zanzibar-people-count').textContent = newCount;
-            zanzibarUpdatePrice();
         }
 
-        // Zanzibar Price Calculation with Discount
+        // Zanzibar Price Calculation
         function zanzibarUpdatePrice() {
-            const basePrice = zanzibarPackagePrices[zanzibarCurrentBooking.packageLevel] || 300;
-            zanzibarCurrentBooking.basePrice = basePrice;
-            
-            let multiplier = zanzibarGroupMultipliers[zanzibarCurrentBooking.groupType];
-            
-            if (zanzibarCurrentBooking.groupType === 'group') {
-                multiplier = zanzibarCurrentBooking.peopleCount;
-            } else if (zanzibarCurrentBooking.groupType === 'double') {
-                multiplier = 2;
-            }
-            
-            // Calculate original price
-            zanzibarCurrentBooking.originalPrice = basePrice * multiplier;
-            
-            // Apply 20% discount for groups of 3 or more people
-            if (zanzibarCurrentBooking.peopleCount >= 3 && zanzibarCurrentBooking.groupType === 'group') {
-                zanzibarCurrentBooking.discountApplied = true;
-                zanzibarCurrentBooking.discountAmount = zanzibarCurrentBooking.originalPrice * 0.2;
-                zanzibarCurrentBooking.totalPrice = zanzibarCurrentBooking.originalPrice - zanzibarCurrentBooking.discountAmount;
-            } else {
-                zanzibarCurrentBooking.discountApplied = false;
-                zanzibarCurrentBooking.discountAmount = 0;
-                zanzibarCurrentBooking.totalPrice = zanzibarCurrentBooking.originalPrice;
-            }
-            
-            zanzibarUpdatePriceDisplay();
-        }
-
-        function zanzibarUpdatePriceDisplay() {
-            document.getElementById('zanzibar-base-price').textContent = `$${zanzibarCurrentBooking.basePrice}`;
-            document.getElementById('zanzibar-package-type-label').textContent = 
-                `${zanzibarCurrentBooking.packageLevel.toUpperCase()} Package`;
-            
-            const groupLabel = document.getElementById('zanzibar-group-type-label');
-            const groupMultiplier = document.getElementById('zanzibar-group-multiplier');
-            
-            if (zanzibarCurrentBooking.groupType === 'single') {
-                groupLabel.textContent = 'Solo Traveler';
-                groupMultiplier.textContent = 'x1';
-            } else if (zanzibarCurrentBooking.groupType === 'double') {
-                groupLabel.textContent = 'Couple Package';
-                groupMultiplier.textContent = 'x2';
-            } else if (zanzibarCurrentBooking.groupType === 'family') {
-                groupLabel.textContent = 'Family Package';
-                groupMultiplier.textContent = 'x2.5';
-            } else {
-                groupLabel.textContent = 'Group Adventure';
-                groupMultiplier.textContent = `x${zanzibarCurrentBooking.peopleCount}`;
+            if (zanzibarCurrentBooking.selectedPackage) {
+                zanzibarCurrentBooking.totalPrice = zanzibarCurrentBooking.selectedPackage.price;
                 
-                document.getElementById('zanzibar-people-count-label').textContent = 
-                    `${zanzibarCurrentBooking.peopleCount} people`;
-                document.getElementById('zanzibar-people-multiplier').textContent = 
-                    `x${zanzibarCurrentBooking.peopleCount}`;
-            }
-            
-            // Show/hide discount
-            const discountItem = document.getElementById('zanzibar-discount-item');
-            const originalPriceDisplay = document.getElementById('zanzibar-original-price');
-            
-            if (zanzibarCurrentBooking.discountApplied) {
-                discountItem.style.display = 'flex';
-                originalPriceDisplay.style.display = 'block';
-                document.getElementById('zanzibar-discount-amount').textContent = `-$${Math.round(zanzibarCurrentBooking.discountAmount)}`;
-                document.getElementById('zanzibar-original-value').textContent = `$${Math.round(zanzibarCurrentBooking.originalPrice)}`;
+                // Update price display
+                document.getElementById('zanzibar-base-price').textContent = 
+                    `$${zanzibarCurrentBooking.selectedPackage.price}`;
+                document.getElementById('zanzibar-package-name-value').textContent = 
+                    zanzibarCurrentBooking.selectedPackage.name;
+                document.getElementById('zanzibar-total-price').textContent = 
+                    `$${zanzibarCurrentBooking.totalPrice}`;
             } else {
-                discountItem.style.display = 'none';
-                originalPriceDisplay.style.display = 'none';
+                document.getElementById('zanzibar-base-price').textContent = '$0';
+                document.getElementById('zanzibar-package-name-value').textContent = 'Not Selected';
+                document.getElementById('zanzibar-total-price').textContent = '$0';
             }
-            
-            document.getElementById('zanzibar-total-price').textContent = 
-                `$${Math.round(zanzibarCurrentBooking.totalPrice)}`;
         }
 
         function zanzibarUpdateBookingSummary() {
-            document.getElementById('zanzibar-summary-destination').textContent = 'Zanzibar Beaches';
-            document.getElementById('zanzibar-summary-package').textContent = 
-                zanzibarCurrentBooking.packageLevel.toUpperCase();
-            
-            let groupText = '';
-            if (zanzibarCurrentBooking.groupType === 'single') {
-                groupText = 'Solo Traveler';
-            } else if (zanzibarCurrentBooking.groupType === 'double') {
-                groupText = 'Couple Package';
-            } else if (zanzibarCurrentBooking.groupType === 'family') {
-                groupText = 'Family Package';
-            } else {
-                groupText = 'Group Adventure';
-            }
-            
-            document.getElementById('zanzibar-summary-group').textContent = groupText;
-            document.getElementById('zanzibar-summary-total').textContent = 
-                `$${Math.round(zanzibarCurrentBooking.totalPrice)}`;
-            document.getElementById('zanzibar-summary-duration').textContent = '3-7 Days';
-            
-            const peopleItem = document.getElementById('zanzibar-summary-people-item');
-            const peopleValue = document.getElementById('zanzibar-summary-people');
-            const discountItem = document.getElementById('zanzibar-summary-discount-item');
-            const originalPriceDisplay = document.getElementById('zanzibar-summary-original-price');
-            
-            if (zanzibarCurrentBooking.groupType === 'group') {
-                peopleItem.style.display = 'flex';
-                peopleValue.textContent = zanzibarCurrentBooking.peopleCount;
-            } else {
-                peopleItem.style.display = 'none';
-            }
-            
-            if (zanzibarCurrentBooking.discountApplied) {
-                discountItem.style.display = 'flex';
-                originalPriceDisplay.style.display = 'block';
-                document.getElementById('zanzibar-summary-discount').textContent = '20%';
-                document.getElementById('zanzibar-summary-original-value').textContent = `$${Math.round(zanzibarCurrentBooking.originalPrice)}`;
-            } else {
-                discountItem.style.display = 'none';
-                originalPriceDisplay.style.display = 'none';
+            if (zanzibarCurrentBooking.selectedPackage) {
+                document.getElementById('zanzibar-summary-package').textContent = 
+                    zanzibarCurrentBooking.selectedPackage.name;
+                document.getElementById('zanzibar-summary-price').textContent = 
+                    `$${zanzibarCurrentBooking.selectedPackage.price}`;
+                document.getElementById('zanzibar-summary-total').textContent = 
+                    `$${zanzibarCurrentBooking.totalPrice}`;
             }
         }
 
@@ -1761,25 +3486,21 @@
 
         // Send Zanzibar booking to WhatsApp and Email
         function zanzibarSendBooking() {
-            zanzibarCollectContactInfo();
-            
-            const discountText = zanzibarCurrentBooking.discountApplied ? 
-                `*Discount Applied:* 20% (Saved: $${Math.round(zanzibarCurrentBooking.discountAmount)})` : 
-                '';
+            const packageType = zanzibarCurrentBooking.packageType.toUpperCase();
+            const packageName = zanzibarCurrentBooking.selectedPackage.name;
+            const packagePrice = zanzibarCurrentBooking.selectedPackage.price;
+            const duration = zanzibarCurrentBooking.selectedPackage.days ? 
+                `${zanzibarCurrentBooking.selectedPackage.days} days` : 
+                zanzibarCurrentBooking.selectedPackage.hours ? 
+                `${zanzibarCurrentBooking.selectedPackage.hours} hours` : 'Custom';
             
             const summary = `
-🏝️ *NEW ZANZIBAR BEACH GETAWAY BOOKING* 🌊
+🏝️ *NEW ZANZIBAR BOOKING* 🌊
 
-*Destination:* Zanzibar Beaches
-*Package Level:* ${zanzibarCurrentBooking.packageLevel.toUpperCase()}
-*Travel Style:* ${zanzibarCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
-                zanzibarCurrentBooking.groupType === 'double' ? 'Couple Package' : 
-                zanzibarCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
-${zanzibarCurrentBooking.groupType === 'group' ? `*Number of People:* ${zanzibarCurrentBooking.peopleCount}` : ''}
-${zanzibarCurrentBooking.discountApplied ? `*Original Price:* $${Math.round(zanzibarCurrentBooking.originalPrice)}` : ''}
-${discountText}
-*Duration:* 3-7 Days
-*Total Amount:* $${Math.round(zanzibarCurrentBooking.totalPrice)}
+*Package Type:* ${packageType}
+*Selected Package:* ${packageName}
+*Duration:* ${duration}
+*Total Amount:* $${packagePrice} USD
 
 *Contact Information:*
 *Name:* ${zanzibarCurrentBooking.contactInfo.firstName} ${zanzibarCurrentBooking.contactInfo.lastName}
@@ -1794,7 +3515,7 @@ ${discountText}
             const whatsappUrl = `https://wa.me/255750910158?text=${whatsappMessage}`;
             
             // Send to Email
-            const emailSubject = encodeURIComponent('New Zanzibar Beach Getaway Booking');
+            const emailSubject = encodeURIComponent(`New Zanzibar ${packageType} Booking`);
             const emailBody = encodeURIComponent(summary);
             const emailUrl = `mailto:barackwilliam12@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
@@ -1822,22 +3543,19 @@ ${discountText}
                 return;
             }
 
-            const discountText = zanzibarCurrentBooking.discountApplied ? 
-                `\nDiscount: 20% (Saved: $${Math.round(zanzibarCurrentBooking.discountAmount)})` : 
-                '';
-                
-            const originalPriceText = zanzibarCurrentBooking.discountApplied ? 
-                `\nOriginal Price: $${Math.round(zanzibarCurrentBooking.originalPrice)}` : 
-                '';
+            if (!zanzibarCurrentBooking.selectedPackage) {
+                alert('Please select a package');
+                return;
+            }
 
             const summary = `
-Destination: Zanzibar Beaches
-Package: ${zanzibarCurrentBooking.packageLevel.toUpperCase()}
-Travel Style: ${zanzibarCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
-                zanzibarCurrentBooking.groupType === 'double' ? 'Couple Package' : 
-                zanzibarCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
-${zanzibarCurrentBooking.groupType === 'group' ? `People: ${zanzibarCurrentBooking.peopleCount}` : ''}${originalPriceText}${discountText}
-Total: $${Math.round(zanzibarCurrentBooking.totalPrice)}
+Package Type: ${zanzibarCurrentBooking.packageType.toUpperCase()}
+Package: ${zanzibarCurrentBooking.selectedPackage.name}
+Price: $${zanzibarCurrentBooking.selectedPackage.price} USD
+Duration: ${zanzibarCurrentBooking.selectedPackage.days ? 
+            `${zanzibarCurrentBooking.selectedPackage.days} days` : 
+            zanzibarCurrentBooking.selectedPackage.hours ? 
+            `${zanzibarCurrentBooking.selectedPackage.hours} hours` : 'Custom'}
 
 Contact: ${zanzibarCurrentBooking.contactInfo.firstName} ${zanzibarCurrentBooking.contactInfo.lastName}
 Email: ${zanzibarCurrentBooking.contactInfo.email}
@@ -1847,7 +3565,7 @@ Phone: ${zanzibarCurrentBooking.contactInfo.phone}
             // Send booking information
             zanzibarSendBooking();
             
-            alert(`Zanzibar Booking Information Sent!\n\n${summary}\n\nWe have sent your booking details to our team via WhatsApp and email. We will contact you shortly to confirm your beach getaway!`);
+            alert(`Zanzibar Booking Information Sent!\n\n${summary}\n\nWe have sent your booking details to our team via WhatsApp and email. We will contact you shortly to confirm your booking!`);
             closeZanzibarPremiumModal();
         }
 
@@ -1856,9 +3574,13 @@ Phone: ${zanzibarCurrentBooking.contactInfo.phone}
             // Reset to first step
             zanzibarShowStep(1);
             
+            // Reset selections
+            zanzibarCurrentBooking.packageType = 'local';
+            zanzibarCurrentBooking.selectedPackage = null;
+            zanzibarCurrentBooking.totalPrice = 0;
+            
             // Set default selections
             document.querySelector('#zanzibar-premium-modal .package-level.local').click();
-            document.querySelector('#zanzibar-premium-modal .group-option[data-group="single"]').click();
             
             // Clear form fields
             document.getElementById('zanzibar-firstName').value = '';
@@ -1885,11 +3607,6 @@ Phone: ${zanzibarCurrentBooking.contactInfo.phone}
             }
         });
 
-        // Initialize Zanzibar default selections when modal opens
-        document.addEventListener('DOMContentLoaded', function() {
-            // Zanzibar modal will initialize when opened
-        });
-
         // Prevent form submission on enter
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' && e.target.classList.contains('form-input')) {
@@ -1897,7 +3614,5 @@ Phone: ${zanzibarCurrentBooking.contactInfo.phone}
             }
         });
     </script>
-    <script src="assets/js/includes.js"></script>
-
 </body>
 </html>
