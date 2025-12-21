@@ -2005,7 +2005,7 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Mobile Actions */
+        /* Mobile Actions - IMEBADILISHWA KUKUBALI BACK BUTTON */
         .mobile-actions {
             position: sticky;
             bottom: 0;
@@ -2013,16 +2013,19 @@
             padding: 20px 15px 15px;
             margin: 20px -30px -30px;
             z-index: 100;
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
         }
 
-        .mobile-next-btn, .mobile-complete-btn {
-            width: 100%;
+        .mobile-action-btn {
+            flex: 1;
             padding: 16px 20px;
-            background: var(--premium-gold);
-            color: #000;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -2032,14 +2035,41 @@
             transition: all 0.3s ease;
         }
 
+        .mobile-back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .mobile-next-btn {
+            background: var(--premium-gold);
+            color: #000;
+        }
+
         .mobile-complete-btn {
             background: #28a745;
             color: white;
+            width: 100%;
         }
 
-        .mobile-next-btn:hover, .mobile-complete-btn:hover {
+        .mobile-back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-next-btn:hover,
+        .mobile-complete-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Step Title */
+        .step-title {
+            color: var(--premium-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
         }
 
         /* Responsive Design */
@@ -2152,6 +2182,18 @@
             
             .booking-cta p {
                 font-size: 1.2rem;
+            }
+
+            /* Mobile actions for very small screens */
+            @media (max-width: 380px) {
+                .mobile-actions {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                
+                .mobile-action-btn {
+                    width: 100%;
+                }
             }
         }
 
@@ -3393,7 +3435,7 @@
                         </div>
                     </div>
                     <div class="mobile-actions">
-                        <button class="mobile-next-btn" onclick="zanzibarNextStep(2)">
+                        <button class="mobile-action-btn mobile-next-btn" onclick="zanzibarNextStep(2)">
                             <span data-i18n="zanzibar.booking_modal.next_step1">Next: Traveler Type</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
@@ -3449,7 +3491,11 @@
                     </div>
                     
                     <div class="mobile-actions">
-                        <button class="mobile-next-btn" onclick="zanzibarNextStep(3)">
+                        <button class="mobile-action-btn mobile-back-btn" onclick="zanzibarPrevStep(1)">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back</span>
+                        </button>
+                        <button class="mobile-action-btn mobile-next-btn" onclick="zanzibarNextStep(3)">
                             <span data-i18n="zanzibar.booking_modal.next_step2">Next: Select Package</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
@@ -3504,7 +3550,11 @@
                     </div>
 
                     <div class="mobile-actions">
-                        <button class="mobile-next-btn" onclick="zanzibarNextStep(4)">
+                        <button class="mobile-action-btn mobile-back-btn" onclick="zanzibarPrevStep(2)">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back</span>
+                        </button>
+                        <button class="mobile-action-btn mobile-next-btn" onclick="zanzibarNextStep(4)">
                             <span data-i18n="zanzibar.booking_modal.next_step3">Next: Book Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
@@ -3573,6 +3623,10 @@
                     </div>
 
                     <div class="mobile-actions">
+                        <button class="mobile-action-btn mobile-back-btn" onclick="zanzibarPrevStep(3)">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back</span>
+                        </button>
                         <button class="mobile-complete-btn" onclick="zanzibarCompleteBooking()">
                             <i class="fas fa-credit-card"></i>
                             <span data-i18n="zanzibar.booking_modal.complete">Complete Booking</span>
@@ -4040,7 +4094,7 @@
 
             // Send to WhatsApp
             const whatsappMessage = encodeURIComponent(summary);
-            const whatsappUrl = `https://wa.me/255750910158?text=${whatsappMessage}`;
+            const whatsappUrl = `https://wa.me/255714331051?text=${whatsappMessage}`;
             
             // Send to Email
             const emailSubject = encodeURIComponent(`New Zanzibar ${packageType} Booking - ${travelerType}`);
