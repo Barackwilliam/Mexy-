@@ -22,6 +22,9 @@
             --safari-orange: #FF8C00;
             --nature-green: #228B22;
             --ocean-blue: #006994;
+            --local-blue: #1e88e5;
+            --vip-orange: #ff9800;
+            --vvip-gold: #d4af37;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
        
@@ -1290,6 +1293,17 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
             border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tour-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
         }
 
         .tour-card:hover {
@@ -1299,17 +1313,60 @@
         }
 
         .tour-card.local {
-            border-left: 5px solid var(--ocean-blue);
+            border-left: 5px solid var(--local-blue);
+        }
+
+        .tour-card.local::before {
+            background: linear-gradient(90deg, var(--local-blue), #64b5f6);
         }
 
         .tour-card.vip {
-            border-left: 5px solid var(--safari-orange);
+            border-left: 5px solid var(--vip-orange);
             background: linear-gradient(135deg, #fff8e1, #fff);
         }
 
+        .tour-card.vip::before {
+            background: linear-gradient(90deg, var(--vip-orange), #ffb74d);
+        }
+
         .tour-card.vvip {
-            border-left: 5px solid var(--artistic-brown);
-            background: linear-gradient(135deg, #f5f5f5, #fff);
+            border-left: 5px solid var(--vvip-gold);
+            background: linear-gradient(135deg, #fffaf0, #fff);
+        }
+
+        .tour-card.vvip::before {
+            background: linear-gradient(90deg, var(--vvip-gold), #f4d03f);
+        }
+
+        /* BADGE STYLES */
+        .package-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 1;
+            font-family: 'Cinzel', serif;
+        }
+
+        .badge-local {
+            background: linear-gradient(135deg, var(--local-blue), #42a5f5);
+            color: white;
+        }
+
+        .badge-vip {
+            background: linear-gradient(135deg, var(--vip-orange), #ff9800);
+            color: white;
+        }
+
+        .badge-vvip {
+            background: linear-gradient(135deg, var(--vvip-gold), #d4af37);
+            color: #333;
         }
 
         .tour-header {
@@ -1317,6 +1374,7 @@
             justify-content: space-between;
             align-items: start;
             margin-bottom: 15px;
+            padding-right: 80px; /* Space for badge */
         }
 
         .tour-number {
@@ -1354,6 +1412,34 @@
             margin-bottom: 15px;
         }
 
+        .tour-features {
+            background: rgba(0,0,0,0.02);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 3px solid #ddd;
+        }
+
+        .tour-features ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .tour-features li {
+            padding: 4px 0;
+            font-size: 0.85rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tour-features i {
+            font-size: 0.8rem;
+            color: var(--safari-orange);
+        }
+
         .tour-duration {
             display: inline-block;
             background: rgba(139, 69, 19, 0.1);
@@ -1362,6 +1448,7 @@
             font-size: 0.9rem;
             color: var(--artistic-brown);
             font-weight: 500;
+            margin-top: 10px;
         }
 
         /* Footer */
@@ -1586,6 +1673,8 @@
             text-align: center;
             cursor: pointer;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
         .package-level:hover {
@@ -1596,6 +1685,39 @@
         .package-level.selected {
             border-color: var(--premium-gold);
             background: rgba(218, 165, 32, 0.1);
+        }
+
+        .package-level::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+
+        .package-level.local {
+            border-left: 5px solid var(--local-blue);
+        }
+
+        .package-level.local::before {
+            background: linear-gradient(90deg, var(--local-blue), #64b5f6);
+        }
+
+        .package-level.vip {
+            border-left: 5px solid var(--vip-orange);
+        }
+
+        .package-level.vip::before {
+            background: linear-gradient(90deg, var(--vip-orange), #ffb74d);
+        }
+
+        .package-level.vvip {
+            border-left: 5px solid var(--vvip-gold);
+        }
+
+        .package-level.vvip::before {
+            background: linear-gradient(90deg, var(--vvip-gold), #f4d03f);
         }
 
         .level-icon {
@@ -2053,6 +2175,17 @@
             .tour-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .package-badge {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .tour-header {
+                padding-right: 70px;
+            }
         }
 
         /* Main Content Spacing */
@@ -2094,10 +2227,28 @@
     <nav class="premium-navbar" id="premiumNavbar">
         <div class="nav-container">
             <!-- Logo -->
-            <a href="index.html" class="nav-logo">
+            <!-- <a href="index.html" class="nav-logo">
                 <i class="fas fa-mountain logo-icon"></i>
                 <span class="logo-text">MMexy Tanzania</span>
-            </a>
+            </a> -->
+
+            
+            <a href="index.html" class="nav-logo d-flex align-items-center text-decoration-none">
+    <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img me-2">
+            <span class="logo-text">MMexy</span>
+        </a>
+        <style>
+            .logo-img{
+    height: 90px;      /* unaweza kuongeza hadi 50px */
+    width: auto;
+}
+.logo-text{
+    font-weight: 800;
+    font-size: 1.9rem;
+    color: #8B4513;
+}
+
+        </style>
 
             <!-- Desktop Navigation -->
             <div class="desktop-nav">
@@ -2147,17 +2298,17 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="contact.html" class="nav-link" data-i18n="nav.contact">
                             <i class="fas fa-envelope"></i>
                             <span>Contact</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <!-- Premium Language Selector -->
                 <div class="language-selector">
-                    <div class="current-language">
+                    <div style="color: black;" class="current-language">
                         <span class="language-flag">🇺🇸</span>
                         <span>English</span>
                         <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
@@ -2292,7 +2443,7 @@
             <!-- Mobile Language Selector -->
             <div class="mobile-language-selector">
                 <label for="sidebarLanguage" data-i18n="footer.language">Language:</label>
-                <select class="sidebar-language" id="sidebarLanguage">
+                <select style="color: black;" class="sidebar-language" id="sidebarLanguage">
                     <option value="en">🇺🇸 English</option>
                     <option value="sw">🇹🇿 Kiswahili</option>
                     <option value="fr">🇫🇷 Français</option>
@@ -2416,246 +2567,671 @@
                     </div>
                 </div>
 
-                <!-- Main Packages Section -->
-                <div class="itinerary">
-                    <h3 class="safari-heading" data-i18n="zanzibar.packages.title">Featured Multi-Day Packages</h3>
-                    
-                    <!-- Safari & Nungwi Package -->
-                    <div class="itinerary-day">
-                        <div class="day-header">
-                            <div class="day-title">
-                                <i class="fas fa-safari"></i>
-                                <span data-i18n="zanzibar.packages.safari_nungwi.title">Safari & Nungwi Package</span>
-                            </div>
-                            <div class="day-duration" data-i18n="zanzibar.packages.safari_nungwi.price">$549 USD</div>
-                        </div>
-                        <div class="day-activities" data-i18n="zanzibar.packages.safari_nungwi.description">
-                            <strong>Day 1:</strong> Arrival in Zanzibar<br>
-                            <strong>Day 2:</strong> Mikumi National Park Day Trip (Everything included)<br>
-                            <strong>Day 3:</strong> Nungwi Beach & Sunset Cruise<br>
-                            <em>Perfect combination of wildlife safari and beach relaxation</em>
-                        </div>
-                    </div>
+               <!-- Main Packages Section -->
+<div class="itinerary">
+    <h3 class="safari-heading" data-i18n="zanzibar.packages.title">Featured Multi-Day Packages (Local)</h3>
+    
+    <!-- Safari & Nungwi Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-safari"></i>
+                <span data-i18n="zanzibar.packages.safari_nungwi.title">Safari & Nungwi Package</span>
+            </div>
+            <div class="day-duration" data-i18n="zanzibar.packages.safari_nungwi.price">$549 USD</div>
+        </div>
+        <div class="day-activities" data-i18n="zanzibar.packages.safari_nungwi.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Mikumi National Park Day Trip (Everything included)<br>
+            <strong>Day 3:</strong> Nungwi Beach & Sunset Cruise<br>
+            <em>Perfect combination of wildlife safari and beach relaxation</em>
+        </div>
+        <!-- FEATURES ADDED -->
+        <div class="day-includes">
+            <div class="includes-title">Package Includes:</div>
+            <div class="includes-item">Transport</div>
+            <div class="includes-item">Accommodation</div>
+            <div class="includes-item">Meals</div>
+            <div class="includes-item">fees</div>
+        </div>
+    </div>
 
-                    <!-- Paje Package -->
-                    <div class="itinerary-day">
-                        <div class="day-header">
-                            <div class="day-title">
-                                <i class="fas fa-umbrella-beach"></i>
-                                <span data-i18n="zanzibar.packages.paje.title">Paje Beach Package</span>
-                            </div>
-                            <div class="day-duration" data-i18n="zanzibar.packages.paje.price">$199 USD</div>
-                        </div>
-                        <div class="day-activities" data-i18n="zanzibar.packages.paje.description">
-                            <strong>Day 1:</strong> Arrival in Zanzibar<br>
-                            <strong>Day 2:</strong> Jozani Forest & Star Fish Tour<br>
-                            <strong>Day 3:</strong> The Rock Restaurant & Beach Relaxation<br>
-                            <em>Ideal for nature lovers and food enthusiasts</em>
-                        </div>
-                    </div>
+    <!-- Paje Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-umbrella-beach"></i>
+                <span data-i18n="zanzibar.packages.paje.title">Paje Beach Package</span>
+            </div>
+            <div class="day-duration" data-i18n="zanzibar.packages.paje.price">$199 USD</div>
+        </div>
+        <div class="day-activities" data-i18n="zanzibar.packages.paje.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Jozani Forest & Star Fish Tour<br>
+            <strong>Day 3:</strong> The Rock Restaurant & Beach Relaxation<br>
+            <em>Ideal for nature lovers and food enthusiasts</em>
+        </div>
+        <!-- FEATURES ADDED -->
+         <div class="day-includes">
+            <div class="includes-title">Package Includes:</div>
+            <div class="includes-item">Transport</div>
+            <div class="includes-item">Accommodation</div>
+            <div class="includes-item">Meals</div>
+            <div class="includes-item">fees</div>
+        </div>
+    </div>
 
-                    <!-- City Tour Package -->
-                    <div class="itinerary-day">
-                        <div class="day-header">
-                            <div class="day-title">
-                                <i class="fas fa-city"></i>
-                                <span data-i18n="zanzibar.packages.city.title">City & Spice Tour Package</span>
-                            </div>
-                            <div class="day-duration" data-i18n="zanzibar.packages.city.price">$199 USD</div>
-                        </div>
-                        <div class="day-activities" data-i18n="zanzibar.packages.city.description">
-                            <strong>Day 1:</strong> Arrival in Zanzibar<br>
-                            <strong>Day 2:</strong> Nakupenda Sand Bank, Prison Island & Stone Town Tour<br>
-                            <strong>Day 3:</strong> Spice Farm Experience<br>
-                            <em>Perfect cultural and historical immersion</em>
-                        </div>
-                    </div>
+    <!-- City Tour Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-city"></i>
+                <span data-i18n="zanzibar.packages.city.title">City & Spice Tour Package</span>
+            </div>
+            <div class="day-duration" data-i18n="zanzibar.packages.city.price">$199 USD</div>
+        </div>
+        <div class="day-activities" data-i18n="zanzibar.packages.city.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Nakupenda Sand Bank, Prison Island & Stone Town Tour<br>
+            <strong>Day 3:</strong> Spice Farm Experience<br>
+            <em>Perfect cultural and historical immersion</em>
+        </div>
+        <!-- FEATURES ADDED -->
+         <div class="day-includes">
+            <div class="includes-title">Package Includes:</div>
+            <div class="includes-item">Transport</div>
+            <div class="includes-item">Accommodation</div>
+            <div class="includes-item">Meals</div>
+            <div class="includes-item">fees</div>
+        </div>
+    </div>
 
-                    <!-- Kiwengwa Package -->
-                    <div class="itinerary-day">
-                        <div class="day-header">
-                            <div class="day-title">
-                                <i class="fas fa-water"></i>
-                                <span data-i18n="zanzibar.packages.kiwengwa.title">Kiwengwa Luxury Package</span>
-                            </div>
-                            <div class="day-duration" data-i18n="zanzibar.packages.kiwengwa.price">$219 USD</div>
-                        </div>
-                        <div class="day-activities" data-i18n="zanzibar.packages.kiwengwa.description">
-                            <strong>Day 1:</strong> Arrival in Zanzibar<br>
-                            <strong>Day 2:</strong> Mnemba Island & Sunrise Tour<br>
-                            <strong>Day 3:</strong> Blue Safari Experience & Village Tour<br>
-                            <em>Premium beach experience with cultural insights</em>
-                        </div>
-                    </div>
-                </div>
+    <!-- Kiwengwa Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-water"></i>
+                <span data-i18n="zanzibar.packages.kiwengwa.title">Kiwengwa Luxury Package</span>
+            </div>
+            <div class="day-duration" data-i18n="zanzibar.packages.kiwengwa.price">$219 USD</div>
+        </div>
+        <div class="day-activities" data-i18n="zanzibar.packages.kiwengwa.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Mnemba Island & Sunrise Tour<br>
+            <strong>Day 3:</strong> Blue Safari Experience & Village Tour<br>
+            <em>Premium beach experience with cultural insights</em>
+        </div>
+        <!-- FEATURES ADDED -->
+         <div class="day-includes">
+            <div class="includes-title">Package Includes:</div>
+            <div class="includes-item">Transport</div>
+            <div class="includes-item">Accommodation</div>
+            <div class="includes-item">Meals</div>
+            <div class="includes-item">fees</div>
+        </div>
+    </div>
+</div>
+<Style>
+    .day-includes {
+    margin-top: 15px;
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid #4CAF50;
+    font-size: 0.9rem;
+}
+
+.includes-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.includes-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.includes-item:before {
+    content: "✓";
+    color: #4CAF50;
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+/* Hii inafaa design yako ya awali bila kubadilisha muundo */
+.itinerary-day {
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #eee;
+    margin-bottom: 25px;
+}
+</Style>
 
                 <!-- Luxury Tier Packages -->
-                <div class="itinerary">
-                    <h3 class="safari-heading" data-i18n="zanzibar.luxury.title">Ultimate Luxury Packages</h3>
-                    
-                    <!-- VVIP Packages -->
-                    <div class="ornamental-border">
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-title">
-                                    <i class="fas fa-gem"></i>
-                                    <span data-i18n="zanzibar.luxury.vvip.title">VVIP Luxury Experience</span>
-                                </div>
-                                <div class="day-duration" data-i18n="zanzibar.luxury.vvip.price">From $31,000 USD</div>
-                            </div>
-                            <div class="day-activities" data-i18n="zanzibar.luxury.vvip.description">
-                                <strong>Features:</strong> Private flights, luxury transport, premium accommodation, all meals included, private boat tours, exclusive access<br><br>
-                                <strong>Packages:</strong><br>
-                                • Safari & Nungwi: $37,000 USD<br>
-                                • Paje Tour: $35,000 USD<br>
-                                • City Tour: $33,000 USD<br>
-                                • Kiwengwa: $35,000 USD<br>
-                                <em>Everything included - the ultimate luxury experience</em>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- VIP Packages -->
-                    <div class="itinerary-day">
-                        <div class="day-header">
-                            <div class="day-title">
-                                <i class="fas fa-crown"></i>
-                                <span data-i18n="zanzibar.luxury.vip.title">VIP Exclusive Experience</span>
-                            </div>
-                            <div class="day-duration" data-i18n="zanzibar.luxury.vip.price">From $1,000 USD</div>
-                        </div>
-                        <div class="day-activities" data-i18n="zanzibar.luxury.vip.description">
-                            <strong>Features:</strong> Private transport, private boat tours, exclusive access<br><br>
-                            <strong>Packages:</strong><br>
-                            • City Tour: $1,000 USD<br>
-                            • Paje Tour: $1,500 USD<br>
-                            • Kiwengwa: $1,800 USD<br>
-                            • Safari & Nungwi: $2,500 USD<br>
-                            <em>All exclusive access except meals and accommodation</em>
-                        </div>
-                    </div>
+
+               <!-- Luxury Tier Packages - Individual Packages -->
+<div class="itinerary">
+    <h3 class="safari-heading" data-i18n="zanzibar.luxury.title">Ultimate Luxury Packages (VIP)</h3>
+    
+    <!-- City Tour Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-building"></i>
+                <span>City Tour Luxury Package</span>
+            </div>
+            <div class="day-duration">From $1000 USD</div>
+        </div>
+
+
+         <div class="day-activities" data-i18n="zanzibar.packages.city.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Nakupenda Sand Bank, Prison Island & Stone Town Tour<br>
+            <strong>Day 3:</strong> Spice Farm Experience<br>
+            <em>Perfect cultural and historical immersion</em>
+        </div>
+        <div class="day-activities">
+            <strong>Package Features:</strong><br>
+            • Private transport with luxury vehicle<br>
+            • Exclusive access to historical sites<br>
+            • Personal tour guide<br>
+            • Private boat tours available<br>
+            • All entrance fees included<br><br>
+            
+            <strong>Description:</strong><br>
+            Explore the historical Stone Town with exclusive access to UNESCO World Heritage sites. Visit the former slave market, Sultan's Palace, and local markets with a personal guide. Experience Zanzibar's rich culture and history in complete privacy and comfort.
+        </div>
+    </div>
+
+    <!-- Paje Tour Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-umbrella-beach"></i>
+                <span>Paje Beach Luxury Package</span>
+            </div>
+            <div class="day-duration">From $8000 USD</div>
+        </div>
+
+
+         <div class="day-activities" data-i18n="zanzibar.packages.paje.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Jozani Forest & Star Fish Tour<br>
+            <strong>Day 3:</strong> The Rock Restaurant & Beach Relaxation<br>
+            <em>Ideal for nature lovers and food enthusiasts</em>
+        </div>
+        <div class="day-activities">
+            <strong>Package Features:</strong><br>
+            • Private transport to Paje Beach<br>
+            • Exclusive beach access areas<br>
+            • Private boat tours and water activities<br>
+            • Personal beach attendant<br>
+            • Water sports equipment included<br><br>
+            
+            <strong>Description:</strong><br>
+            Experience the pristine white sands of Paje Beach with exclusive access to private beach areas. Enjoy kite surfing, snorkeling, and other water activities with premium equipment. Relax in luxury beach lounges with personalized service throughout your stay.
+        </div>
+    </div>
+
+    <!-- Kiwengwa Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-water"></i>
+                <span>Kiwengwa Luxury Package</span>
+            </div>
+            <div class="day-duration">From $1800 USD</div>
+        </div>
+
+        <div class="day-activities" data-i18n="zanzibar.packages.kiwengwa.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Mnemba Island & Sunrise Tour<br>
+            <strong>Day 3:</strong> Blue Safari Experience & Village Tour<br>
+            <em>Premium beach experience with cultural insights</em>
+        </div>
+        <div class="day-activities">
+            <strong>Package Features:</strong><br>
+            • Private transport to Kiwengwa<br>
+            • Exclusive beachfront access<br>
+            • Private boat tours and dolphin watching<br>
+            • Luxury beach facilities<br>
+            • All activity fees included<br><br>
+            
+            <strong>Description:</strong><br>
+            Discover the tranquil beauty of Kiwengwa's turquoise waters and coral reefs. Enjoy private dolphin watching tours, snorkeling in pristine locations, and relaxation at exclusive beachfront facilities. Perfect for those seeking privacy and natural beauty.
+        </div>
+    </div>
+
+    <!-- Safari & Nungwi Package -->
+    <div class="ornamental-border">
+        <div class="itinerary-day">
+            <div class="day-header">
+                <div class="day-title">
+                    <i class="fas fa-paw"></i>
+                    <span>Safari & Nungwi Luxury Package</span>
                 </div>
+                <div class="day-duration">From $10000 USD</div>
+            </div>
+
+            <div class="day-activities" data-i18n="zanzibar.packages.safari_nungwi.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Mikumi National Park Day Trip (Everything included)<br>
+            <strong>Day 3:</strong> Nungwi Beach & Sunset Cruise<br>
+            <em>Perfect combination of wildlife safari and beach relaxation</em>
+        </div>
+            <div class="day-activities">
+                <strong>Package Features:</strong><br>
+                • Private transport throughout<br>
+                • Exclusive safari game drives<br>
+                • Private boat tours in Nungwi<br>
+                • Professional safari guide<br>
+                • All park fees and permits included<br><br>
+                
+                <strong>Description:</strong><br>
+                Combine an exclusive safari experience with the beauty of Nungwi Beach. Enjoy private game drives with expert guides, followed by relaxation at Nungwi's famous beaches. Experience the best of Tanzania's wildlife and coastal beauty in one seamless luxury package.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+
+
+
+
+                <!-- Luxury Tier Packages - Individual Packages -->
+<div class="itinerary">
+    <h3 class="safari-heading" data-i18n="zanzibar.luxury.title">Ultimate Luxury Packages (VVIP)</h3>
+    
+    <!-- City Tour Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-building"></i>
+                <span>City Tour Luxury Package</span>
+            </div>
+            <div class="day-duration">From $7500 USD</div>
+        </div>
+
+
+         <div class="day-activities" data-i18n="zanzibar.packages.city.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Nakupenda Sand Bank, Prison Island & Stone Town Tour<br>
+            <strong>Day 3:</strong> Spice Farm Experience<br>
+            <em>Perfect cultural and historical immersion</em>
+        </div>
+        <div class="day-activities">
+            <strong>Package Features:</strong><br>
+            • Private transport with luxury vehicle<br>
+            • Exclusive access to historical sites<br>
+            • Personal tour guide<br>
+            • Private boat tours available<br>
+            • All entrance fees included<br><br>
+            
+            <strong>Description:</strong><br>
+            Explore the historical Stone Town with exclusive access to UNESCO World Heritage sites. Visit the former slave market, Sultan's Palace, and local markets with a personal guide. Experience Zanzibar's rich culture and history in complete privacy and comfort.
+        </div>
+    </div>
+
+    <!-- Paje Tour Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-umbrella-beach"></i>
+                <span>Paje Beach Luxury Package</span>
+            </div>
+            <div class="day-duration">From $8000 USD</div>
+        </div>
+
+
+         <div class="day-activities" data-i18n="zanzibar.packages.paje.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Jozani Forest & Star Fish Tour<br>
+            <strong>Day 3:</strong> The Rock Restaurant & Beach Relaxation<br>
+            <em>Ideal for nature lovers and food enthusiasts</em>
+        </div>
+        <div class="day-activities">
+            <strong>Package Features:</strong><br>
+            • Private transport to Paje Beach<br>
+            • Exclusive beach access areas<br>
+            • Private boat tours and water activities<br>
+            • Personal beach attendant<br>
+            • Water sports equipment included<br><br>
+            
+            <strong>Description:</strong><br>
+            Experience the pristine white sands of Paje Beach with exclusive access to private beach areas. Enjoy kite surfing, snorkeling, and other water activities with premium equipment. Relax in luxury beach lounges with personalized service throughout your stay.
+        </div>
+    </div>
+
+    <!-- Kiwengwa Package -->
+    <div class="itinerary-day">
+        <div class="day-header">
+            <div class="day-title">
+                <i class="fas fa-water"></i>
+                <span>Kiwengwa Luxury Package</span>
+            </div>
+            <div class="day-duration">From $8000 USD</div>
+        </div>
+
+        <div class="day-activities" data-i18n="zanzibar.packages.kiwengwa.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Mnemba Island & Sunrise Tour<br>
+            <strong>Day 3:</strong> Blue Safari Experience & Village Tour<br>
+            <em>Premium beach experience with cultural insights</em>
+        </div>
+        <div class="day-activities">
+            <strong>Package Features:</strong><br>
+            • Private transport to Kiwengwa<br>
+            • Exclusive beachfront access<br>
+            • Private boat tours and dolphin watching<br>
+            • Luxury beach facilities<br>
+            • All activity fees included<br><br>
+            
+            <strong>Description:</strong><br>
+            Discover the tranquil beauty of Kiwengwa's turquoise waters and coral reefs. Enjoy private dolphin watching tours, snorkeling in pristine locations, and relaxation at exclusive beachfront facilities. Perfect for those seeking privacy and natural beauty.
+        </div>
+    </div>
+
+
+        <div class="itinerary-day">
+            <div class="day-header">
+                <div class="day-title">
+                    <i class="fas fa-paw"></i>
+                    <span>Safari & Nungwi Luxury Package</span>
+                </div>
+                <div class="day-duration">From $2,500 USD</div>
+            </div>
+
+            <div class="day-activities" data-i18n="zanzibar.packages.safari_nungwi.description">
+            <strong>Day 1:</strong> Arrival in Zanzibar<br>
+            <strong>Day 2:</strong> Mikumi National Park Day Trip (Everything included)<br>
+            <strong>Day 3:</strong> Nungwi Beach & Sunset Cruise<br>
+            <em>Perfect combination of wildlife safari and beach relaxation</em>
+        </div>
+            <div class="day-activities">
+                <strong>Package Features:</strong><br>
+                • Private transport throughout<br>
+                • Exclusive safari game drives<br>
+                • Private boat tours in Nungwi<br>
+                • Professional safari guide<br>
+                • All park fees and permits included<br><br>
+                
+                <strong>Description:</strong><br>
+                Combine an exclusive safari experience with the beauty of Nungwi Beach. Enjoy private game drives with expert guides, followed by relaxation at Nungwi's famous beaches. Experience the best of Tanzania's wildlife and coastal beauty in one seamless luxury package.
+            </div>
+        </div>
+    </div>
+</div>
+   
 
                 <!-- Individual Local Tours -->
                 <div class="itinerary">
                     <h3 class="safari-heading" data-i18n="zanzibar.local_tours.title">Individual Local Tours</h3>
                     
                     <div class="tour-grid">
+                        <!-- Dolphin Tour -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">1</div>
                                 <div class="tour-price">$105 USD</div>
                             </div>
                             <div class="tour-name">Dolphin Tour</div>
                             <div class="tour-details">Transport, boat, breakfast & fees included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Group transport included</li>
+                                    <li><i class="fas fa-check-circle"></i> Traditional boat ride</li>
+                                    <li><i class="fas fa-check-circle"></i> Breakfast provided</li>
+                                    <li><i class="fas fa-check-circle"></i> All entrance fees covered</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">3-7 hours</div>
                         </div>
+
+                        <!-- Sunset Tour -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">2</div>
                                 <div class="tour-price">$105 USD</div>
                             </div>
                             <div class="tour-name">Sunset Tour</div>
                             <div class="tour-details">Transport, boat, lunch included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Shared transport included</li>
+                                    <li><i class="fas fa-check-circle"></i> Sunset boat cruise</li>
+                                    <li><i class="fas fa-check-circle"></i> Lunch provided</li>
+                                    <li><i class="fas fa-check-circle"></i> Basic photography</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-3 hours</div>
                         </div>
+
+                        <!-- Aquarium Tour -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">3</div>
                                 <div class="tour-price">$39 USD</div>
                             </div>
                             <div class="tour-name">Aquarium Tour</div>
                             <div class="tour-details">Transport, lunch & fees included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Group transport included</li>
+                                    <li><i class="fas fa-check-circle"></i> Aquarium entrance fees</li>
+                                    <li><i class="fas fa-check-circle"></i> Basic lunch included</li>
+                                    <li><i class="fas fa-check-circle"></i> Guided tour</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-4 hours</div>
                         </div>
+
+                        <!-- Sunrise Tour -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">4</div>
                                 <div class="tour-price">$50 USD</div>
                             </div>
                             <div class="tour-name">Sunrise Tour</div>
                             <div class="tour-details">Transport & breakfast included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Early morning pickup</li>
+                                    <li><i class="fas fa-check-circle"></i> Sunrise viewing spots</li>
+                                    <li><i class="fas fa-check-circle"></i> Breakfast included</li>
+                                    <li><i class="fas fa-check-circle"></i> Basic transportation</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-3 hours</div>
                         </div>
+
+                        <!-- Nakupenda Sandbank -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">5</div>
                                 <div class="tour-price">$114 USD</div>
                             </div>
                             <div class="tour-name">Nakupenda Sandbank</div>
                             <div class="tour-details">Transport, seafood lunch, boat included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Transport to/from beach</li>
+                                    <li><i class="fas fa-check-circle"></i> Traditional boat ride</li>
+                                    <li><i class="fas fa-check-circle"></i> Seafood lunch included</li>
+                                    <li><i class="fas fa-check-circle"></i> Snorkeling equipment</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-5 hours</div>
                         </div>
+
+                        <!-- City Tour -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">6</div>
                                 <div class="tour-price">$49 USD</div>
                             </div>
                             <div class="tour-name">City Tour</div>
                             <div class="tour-details">Transport, lunch or breakfast included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Guided Stone Town tour</li>
+                                    <li><i class="fas fa-check-circle"></i> Historical sites entrance</li>
+                                    <li><i class="fas fa-check-circle"></i> Local lunch included</li>
+                                    <li><i class="fas fa-check-circle"></i> Group transportation</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-3 hours</div>
                         </div>
+
+                        <!-- Spice Farm -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">7</div>
                                 <div class="tour-price">$49 USD</div>
                             </div>
                             <div class="tour-name">Spice Farm</div>
                             <div class="tour-details">Transport, lunch & fees included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Guided spice tour</li>
+                                    <li><i class="fas fa-check-circle"></i> Spice tasting included</li>
+                                    <li><i class="fas fa-check-circle"></i> Traditional lunch</li>
+                                    <li><i class="fas fa-check-circle"></i> All entrance fees</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-5 hours</div>
                         </div>
+
+                        <!-- Blue Safari -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">8</div>
                                 <div class="tour-price">$139 USD</div>
                             </div>
                             <div class="tour-name">Blue Safari</div>
                             <div class="tour-details">Transport, boat, lunch included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Full day boat trip</li>
+                                    <li><i class="fas fa-check-circle"></i> Snorkeling equipment</li>
+                                    <li><i class="fas fa-check-circle"></i> Seafood lunch included</li>
+                                    <li><i class="fas fa-check-circle"></i> Island hopping</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Full day</div>
                         </div>
+
+                        <!-- Village Tour -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">9</div>
                                 <div class="tour-price">$49 USD</div>
                             </div>
                             <div class="tour-name">Village Tour</div>
                             <div class="tour-details">Transport & lunch included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Authentic village visit</li>
+                                    <li><i class="fas fa-check-circle"></i> Cultural interaction</li>
+                                    <li><i class="fas fa-check-circle"></i> Traditional lunch</li>
+                                    <li><i class="fas fa-check-circle"></i> Local guide included</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-5 hours</div>
                         </div>
+
+                        <!-- The Rock Restaurant -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">10</div>
                                 <div class="tour-price">$60 USD</div>
                             </div>
                             <div class="tour-name">The Rock Restaurant</div>
                             <div class="tour-details">Transport, lunch & fees included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Transportation to restaurant</li>
+                                    <li><i class="fas fa-check-circle"></i> Meal at The Rock included</li>
+                                    <li><i class="fas fa-check-circle"></i> Boat transfer included</li>
+                                    <li><i class="fas fa-check-circle"></i> Photo opportunities</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-4 hours</div>
                         </div>
+
+                        <!-- Star Fish Tour -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">11</div>
                                 <div class="tour-price">$60 USD</div>
                             </div>
                             <div class="tour-name">Star Fish Tour</div>
                             <div class="tour-details">Transport, lunch, dhow included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Traditional dhow boat</li>
+                                    <li><i class="fas fa-check-circle"></i> Star fish viewing</li>
+                                    <li><i class="fas fa-check-circle"></i> Seafood lunch included</li>
+                                    <li><i class="fas fa-check-circle"></i> Snorkeling opportunity</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-5 hours</div>
                         </div>
+
+                        <!-- Jozani Forest -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">12</div>
                                 <div class="tour-price">$50 USD</div>
                             </div>
                             <div class="tour-name">Jozani Forest</div>
                             <div class="tour-details">Transport, lunch, fees included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Forest entrance fees</li>
+                                    <li><i class="fas fa-check-circle"></i> Red colobus monkey viewing</li>
+                                    <li><i class="fas fa-check-circle"></i> Guided nature walk</li>
+                                    <li><i class="fas fa-check-circle"></i> Lunch included</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-4 hours</div>
                         </div>
+
+                        <!-- Prison Island -->
                         <div class="tour-card local">
+                            <div class="package-badge badge-local">LOCAL</div>
                             <div class="tour-header">
                                 <div class="tour-number">13</div>
                                 <div class="tour-price">$99 USD</div>
                             </div>
                             <div class="tour-name">Prison Island</div>
                             <div class="tour-details">Transport, lunch, boat & fees included</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Boat transfer to island</li>
+                                    <li><i class="fas fa-check-circle"></i> Giant tortoise viewing</li>
+                                    <li><i class="fas fa-check-circle"></i> Historical tour included</li>
+                                    <li><i class="fas fa-check-circle"></i> Lunch provided</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">1-5 hours</div>
                         </div>
                     </div>
@@ -2666,130 +3242,311 @@
                     <h3 class="safari-heading" data-i18n="zanzibar.vip_tours.title">VIP Individual Tours</h3>
                     
                     <div class="tour-grid">
+                        <!-- Nakupenda Sand Bank VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">1</div>
                                 <div class="tour-price">$300 USD</div>
                             </div>
                             <div class="tour-name">Nakupenda Sand Bank</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private luxury transport</li>
+                                    <li><i class="fas fa-crown"></i> Exclusive boat access</li>
+                                    <li><i class="fas fa-crown"></i> Premium seafood lunch</li>
+                                    <li><i class="fas fa-crown"></i> Personal photographer</li>
+                                    <li><i class="fas fa-crown"></i> Champagne service</li>
+                                    <li><i class="fas fa-crown"></i> Priority access to best spots</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- City Tour VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">2</div>
                                 <div class="tour-price">$300 USD</div>
                             </div>
                             <div class="tour-name">City Tour</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private luxury vehicle</li>
+                                    <li><i class="fas fa-crown"></i> Expert historian guide</li>
+                                    <li><i class="fas fa-crown"></i> Skip-the-line access</li>
+                                    <li><i class="fas fa-crown"></i> Premium restaurant lunch</li>
+                                    <li><i class="fas fa-crown"></i> Exclusive shopping access</li>
+                                    <li><i class="fas fa-crown"></i> After-hours site access</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Prison Island VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">3</div>
                                 <div class="tour-price">$200 USD</div>
                             </div>
                             <div class="tour-name">Prison Island</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private speedboat</li>
+                                    <li><i class="fas fa-crown"></i> Exclusive island access</li>
+                                    <li><i class="fas fa-crown"></i> Private tortoise feeding</li>
+                                    <li><i class="fas fa-crown"></i> Gourmet picnic lunch</li>
+                                    <li><i class="fas fa-crown"></i> Snorkeling equipment</li>
+                                    <li><i class="fas fa-crown"></i> Personal guide</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Spice Farm VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">4</div>
                                 <div class="tour-price">$200 USD</div>
                             </div>
                             <div class="tour-name">Spice Farm</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private farm tour</li>
+                                    <li><i class="fas fa-crown"></i> Hands-on spice making</li>
+                                    <li><i class="fas fa-crown"></i> Premium spice tasting</li>
+                                    <li><i class="fas fa-crown"></i> Traditional cooking class</li>
+                                    <li><i class="fas fa-crown"></i> Custom spice basket gift</li>
+                                    <li><i class="fas fa-crown"></i> Luxury transport</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Sunrise Tour VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">5</div>
                                 <div class="tour-price">$300 USD</div>
                             </div>
                             <div class="tour-name">Sunrise Tour</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Exclusive sunrise location</li>
+                                    <li><i class="fas fa-crown"></i> Professional photographer</li>
+                                    <li><i class="fas fa-crown"></i> Champagne breakfast</li>
+                                    <li><i class="fas fa-crown"></i> Private beach access</li>
+                                    <li><i class="fas fa-crown"></i> Luxury picnic setup</li>
+                                    <li><i class="fas fa-crown"></i> Morning yoga session</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Mnemba Island VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">6</div>
                                 <div class="tour-price">$300 USD</div>
                             </div>
                             <div class="tour-name">Mnemba Island</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private boat charter</li>
+                                    <li><i class="fas fa-crown"></i> Exclusive snorkeling spots</li>
+                                    <li><i class="fas fa-crown"></i> Professional dive master</li>
+                                    <li><i class="fas fa-crown"></i> Gourmet seafood lunch</li>
+                                    <li><i class="fas fa-crown"></i> Underwater photography</li>
+                                    <li><i class="fas fa-crown"></i> Luxury beach setup</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Village Tour VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">7</div>
                                 <div class="tour-price">$200 USD</div>
                             </div>
                             <div class="tour-name">Village Tour</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private village access</li>
+                                    <li><i class="fas fa-crown"></i> Cultural immersion experience</li>
+                                    <li><i class="fas fa-crown"></i> Traditional ceremony access</li>
+                                    <li><i class="fas fa-crown"></i> Hands-on craft making</li>
+                                    <li><i class="fas fa-crown"></i> Premium local lunch</li>
+                                    <li><i class="fas fa-crown"></i> Luxury transport to village</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Aquarium Tour VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">8</div>
                                 <div class="tour-price">$200 USD</div>
                             </div>
                             <div class="tour-name">Aquarium Tour</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private aquarium access</li>
+                                    <li><i class="fas fa-crown"></i> Behind-the-scenes tour</li>
+                                    <li><i class="fas fa-crown"></i> Marine expert guide</li>
+                                    <li><i class="fas fa-crown"></i> Interactive experiences</li>
+                                    <li><i class="fas fa-crown"></i> Premium dining option</li>
+                                    <li><i class="fas fa-crown"></i> Luxury transportation</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Star Fish Tour VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">9</div>
                                 <div class="tour-price">$250 USD</div>
                             </div>
                             <div class="tour-name">Star Fish Tour</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private dhow boat</li>
+                                    <li><i class="fas fa-crown"></i> Exclusive starfish beach</li>
+                                    <li><i class="fas fa-crown"></i> Marine biologist guide</li>
+                                    <li><i class="fas fa-crown"></i> Gourmet seafood lunch</li>
+                                    <li><i class="fas fa-crown"></i> Photography session</li>
+                                    <li><i class="fas fa-crown"></i> Champagne service</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Jozani Forest VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">10</div>
                                 <div class="tour-price">$250 USD</div>
                             </div>
                             <div class="tour-name">Jozani Forest</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private forest access</li>
+                                    <li><i class="fas fa-crown"></i> Primate expert guide</li>
+                                    <li><i class="fas fa-crown"></i> Exclusive photography</li>
+                                    <li><i class="fas fa-crown"></i> Gourmet forest picnic</li>
+                                    <li><i class="fas fa-crown"></i> Conservation experience</li>
+                                    <li><i class="fas fa-crown"></i> Luxury transportation</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- The Rock Restaurant VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">11</div>
                                 <div class="tour-price">$250 USD</div>
                             </div>
                             <div class="tour-name">The Rock Restaurant</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private table reservation</li>
+                                    <li><i class="fas fa-crown"></i> Exclusive menu selection</li>
+                                    <li><i class="fas fa-crown"></i> Private boat transfer</li>
+                                    <li><i class="fas fa-crown"></i> Sommelier wine pairing</li>
+                                    <li><i class="fas fa-crown"></i> Professional photography</li>
+                                    <li><i class="fas fa-crown"></i> Luxury transport to/from</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Sunset Cruise VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">12</div>
                                 <div class="tour-price">$300 USD</div>
                             </div>
                             <div class="tour-name">Sunset Cruise</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private yacht charter</li>
+                                    <li><i class="fas fa-crown"></i> Premium drinks selection</li>
+                                    <li><i class="fas fa-crown"></i> Gourmet canapés</li>
+                                    <li><i class="fas fa-crown"></i> Live music onboard</li>
+                                    <li><i class="fas fa-crown"></i> Sunset photography</li>
+                                    <li><i class="fas fa-crown"></i> Luxury amenities</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Blue Safari VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">13</div>
                                 <div class="tour-price">$350 USD</div>
                             </div>
                             <div class="tour-name">Blue Safari</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private speedboat charter</li>
+                                    <li><i class="fas fa-crown"></i> Multiple island hopping</li>
+                                    <li><i class="fas fa-crown"></i> Professional snorkeling guide</li>
+                                    <li><i class="fas fa-crown"></i> Premium seafood banquet</li>
+                                    <li><i class="fas fa-crown"></i> Underwater camera included</li>
+                                    <li><i class="fas fa-crown"></i> Exclusive beach access</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
+
+                        <!-- Tumbatu Snorkeling VIP -->
                         <div class="tour-card vip">
+                            <div class="package-badge badge-vip">VIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">14</div>
                                 <div class="tour-price">$300 USD</div>
                             </div>
                             <div class="tour-name">Tumbatu Snorkeling</div>
-                            <div class="tour-details">Private VIP Tour</div>
+                            <div class="tour-details">Exclusive Private VIP Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-crown"></i> Private boat to Tumbatu</li>
+                                    <li><i class="fas fa-crown"></i> Exclusive snorkeling spots</li>
+                                    <li><i class="fas fa-crown"></i> Marine life expert guide</li>
+                                    <li><i class="fas fa-crown"></i> Gourmet island lunch</li>
+                                    <li><i class="fas fa-crown"></i> Professional photography</li>
+                                    <li><i class="fas fa-crown"></i> Premium snorkeling gear</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">Private</div>
                         </div>
                     </div>
@@ -2800,127 +3557,321 @@
                     <h3 class="luxury-heading" data-i18n="zanzibar.vvip_tours.title">VVIP Ultra Luxury Tours</h3>
                     
                     <div class="tour-grid">
+                        <!-- Prison Island VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">1</div>
                                 <div class="tour-price">$9,000 USD</div>
                             </div>
                             <div class="tour-name">Prison Island</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private helicopter transfer</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive island takeover</li>
+                                    <li><i class="fas fa-gem"></i> Personal butler service</li>
+                                    <li><i class="fas fa-gem"></i> Michelin-star chef lunch</li>
+                                    <li><i class="fas fa-gem"></i> Private tortoise sanctuary access</li>
+                                    <li><i class="fas fa-gem"></i> Luxury yacht standby</li>
+                                    <li><i class="fas fa-gem"></i> Personal photographer/videographer</li>
+                                    <li><i class="fas fa-gem"></i> Dom Pérignon champagne service</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Nakupenda Sand Bank VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">2</div>
                                 <div class="tour-price">$9,000 USD</div>
                             </div>
                             <div class="tour-name">Nakupenda Sand Bank</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private beach takeover</li>
+                                    <li><i class="fas fa-gem"></i> Luxury catamaran charter</li>
+                                    <li><i class="fas fa-gem"></i> Personal chef & bartender</li>
+                                    <li><i class="fas fa-gem"></i> 5-star gourmet seafood feast</li>
+                                    <li><i class="fas fa-gem"></i> Professional massage therapist</li>
+                                    <li><i class="fas fa-gem"></i> Private snorkeling instructor</li>
+                                    <li><i class="fas fa-gem"></i> Premium underwater camera setup</li>
+                                    <li><i class="fas fa-gem"></i> Dom Pérignon & caviar service</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- City Tour VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">3</div>
                                 <div class="tour-price">$5,000 USD</div>
                             </div>
                             <div class="tour-name">City Tour</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Rolls Royce/Bentley transport</li>
+                                    <li><i class="fas fa-gem"></i> Private historian & cultural expert</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive access to closed sites</li>
+                                    <li><i class="fas fa-gem"></i> Private shopping concierge</li>
+                                    <li><i class="fas fa-gem"></i> Michelin-star dining experience</li>
+                                    <li><i class="fas fa-gem"></i> Personal security detail</li>
+                                    <li><i class="fas fa-gem"></i> Luxury accommodations access</li>
+                                    <li><i class="fas fa-gem"></i> Premium souvenir curation</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Spice Farm VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">4</div>
                                 <div class="tour-price">$7,000 USD</div>
                             </div>
                             <div class="tour-name">Spice Farm</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private farm acquisition for day</li>
+                                    <li><i class="fas fa-gem"></i> Master spice blender experience</li>
+                                    <li><i class="fas fa-gem"></i> Personal perfumer consultation</li>
+                                    <li><i class="fas fa-gem"></i> 5-star farm-to-table dining</li>
+                                    <li><i class="fas fa-gem"></i> Luxury spa treatments with spices</li>
+                                    <li><i class="fas fa-gem"></i> Custom spice collection creation</li>
+                                    <li><i class="fas fa-gem"></i> Private helicopter farm tour</li>
+                                    <li><i class="fas fa-gem"></i> Premium wine and spice pairing</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Sunrise Tour VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">5</div>
                                 <div class="tour-price">$9,000 USD</div>
                             </div>
                             <div class="tour-name">Sunrise Tour</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private island sunrise location</li>
+                                    <li><i class="fas fa-gem"></i> Luxury yacht with observation deck</li>
+                                    <li><i class="fas fa-gem"></i> Professional photography team</li>
+                                    <li><i class="fas fa-gem"></i> Champagne breakfast with caviar</li>
+                                    <li><i class="fas fa-gem"></i> Sunrise yoga with master instructor</li>
+                                    <li><i class="fas fa-gem"></i> Private musician performance</li>
+                                    <li><i class="fas fa-gem"></i> Luxury picnic setup with butler</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive sunrise ceremony</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Sunset Tour VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">6</div>
                                 <div class="tour-price">$9,000 USD</div>
                             </div>
                             <div class="tour-name">Sunset Tour</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private luxury yacht sunset cruise</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive champagne brand selection</li>
+                                    <li><i class="fas fa-gem"></i> Michelin-star chef onboard</li>
+                                    <li><i class="fas fa-gem"></i> Live jazz band performance</li>
+                                    <li><i class="fas fa-gem"></i> Professional sunset photography</li>
+                                    <li><i class="fas fa-gem"></i> Private fireworks display</li>
+                                    <li><i class="fas fa-gem"></i> Luxury cocktail mixology class</li>
+                                    <li><i class="fas fa-gem"></i> Personal concierge throughout</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Mnemba Island VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">7</div>
                                 <div class="tour-price">$9,000 USD</div>
                             </div>
                             <div class="tour-name">Mnemba Island</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private island day takeover</li>
+                                    <li><i class="fas fa-gem"></i> Luxury catamaran with crew</li>
+                                    <li><i class="fas fa-gem"></i> Professional dive master team</li>
+                                    <li><i class="fas fa-gem"></i> Gourmet seafood banquet</li>
+                                    <li><i class="fas fa-gem"></i> Underwater photography studio</li>
+                                    <li><i class="fas fa-gem"></i> Private beach butler service</li>
+                                    <li><i class="fas fa-gem"></i> Luxury spa treatments on island</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive marine biologist guide</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Star Fish Tour VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">8</div>
                                 <div class="tour-price">$9,000 USD</div>
                             </div>
                             <div class="tour-name">Star Fish Tour</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private luxury dhow with crew</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive starfish beach reservation</li>
+                                    <li><i class="fas fa-gem"></i> Marine conservation expert</li>
+                                    <li><i class="fas fa-gem"></i> 5-star gourmet seafood experience</li>
+                                    <li><i class="fas fa-gem"></i> Professional marine photography</li>
+                                    <li><i class="fas fa-gem"></i> Private conservation contribution</li>
+                                    <li><i class="fas fa-gem"></i> Luxury beach setup with amenities</li>
+                                    <li><i class="fas fa-gem"></i> Premium champagne service</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Blue Safari VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">9</div>
                                 <div class="tour-price">$9,000 USD</div>
                             </div>
                             <div class="tour-name">Blue Safari</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private luxury speedboat fleet</li>
+                                    <li><i class="fas fa-gem"></i> Multiple exclusive island access</li>
+                                    <li><i class="fas fa-gem"></i> Professional marine biologist team</li>
+                                    <li><i class="fas fa-gem"></i> Gourmet seafood tasting menu</li>
+                                    <li><i class="fas fa-gem"></i> Underwater photography studio</li>
+                                    <li><i class="fas fa-gem"></i> Private beach club access</li>
+                                    <li><i class="fas fa-gem"></i> Luxury water sports equipment</li>
+                                    <li><i class="fas fa-gem"></i> Personal dive instructor</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Tumbatu Snorkeling VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">10</div>
                                 <div class="tour-price">$9,000 USD</div>
                             </div>
                             <div class="tour-name">Tumbatu Snorkeling</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private luxury yacht to Tumbatu</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive marine reserve access</li>
+                                    <li><i class="fas fa-gem"></i> Professional underwater videography</li>
+                                    <li><i class="fas fa-gem"></i> Gourmet island dining experience</li>
+                                    <li><i class="fas fa-gem"></i> Premium snorkeling and diving gear</li>
+                                    <li><i class="fas fa-gem"></i> Private marine conservation briefing</li>
+                                    <li><i class="fas fa-gem"></i> Luxury amenities onboard</li>
+                                    <li><i class="fas fa-gem"></i> Personal marine expert guide</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Jozani Forest VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">11</div>
                                 <div class="tour-price">$5,000 USD</div>
                             </div>
                             <div class="tour-name">Jozani Forest</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private forest reserve access</li>
+                                    <li><i class="fas fa-gem"></i> Primate conservation expert</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive photography permits</li>
+                                    <li><i class="fas fa-gem"></i> Gourmet forest picnic setup</li>
+                                    <li><i class="fas fa-gem"></i> Luxury treehouse dining</li>
+                                    <li><i class="fas fa-gem"></i> Private conservation contribution</li>
+                                    <li><i class="fas fa-gem"></i> Professional wildlife photographer</li>
+                                    <li><i class="fas fa-gem"></i> Luxury transport through forest</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Aquarium Tour VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">12</div>
                                 <div class="tour-price">$5,000 USD</div>
                             </div>
                             <div class="tour-name">Aquarium Tour</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private after-hours aquarium access</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive behind-the-scenes tour</li>
+                                    <li><i class="fas fa-gem"></i> Marine scientist presentation</li>
+                                    <li><i class="fas fa-gem"></i> Gourmet dining in aquarium</li>
+                                    <li><i class="fas fa-gem"></i> Private animal encounters</li>
+                                    <li><i class="fas fa-gem"></i> Luxury transportation to/from</li>
+                                    <li><i class="fas fa-gem"></i> Professional marine photography</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive aquarium merchandise</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
+
+                        <!-- Village Tour VVIP -->
                         <div class="tour-card vvip">
+                            <div class="package-badge badge-vvip">VVIP</div>
                             <div class="tour-header">
                                 <div class="tour-number">13</div>
                                 <div class="tour-price">$5,000 USD</div>
                             </div>
                             <div class="tour-name">Village Tour</div>
-                            <div class="tour-details">VVIP Luxury Experience</div>
+                            <div class="tour-details">Ultimate Luxury All-Inclusive Experience</div>
+                            <div class="tour-features">
+                                <ul>
+                                    <li><i class="fas fa-gem"></i> Private village cultural immersion</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive traditional ceremonies</li>
+                                    <li><i class="fas fa-gem"></i> Hands-on cultural experiences</li>
+                                    <li><i class="fas fa-gem"></i> Gourmet traditional feast</li>
+                                    <li><i class="fas fa-gem"></i> Luxury community contribution</li>
+                                    <li><i class="fas fa-gem"></i> Professional cultural documentation</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive craft workshops</li>
+                                    <li><i class="fas fa-gem"></i> Luxury transport to remote village</li>
+                                </ul>
+                            </div>
                             <div class="tour-duration">VVIP</div>
                         </div>
                     </div>
                     <div class="ornamental-border">
                         <p class="calligraphic-text" style="text-align: center; margin: 0;">
-                            All VVIP tours include: Private luxury transport, exclusive boat access, premium meals, personal guide, and VIP treatment throughout.
+                            All VVIP tours include: Private luxury transport, exclusive access, premium meals, personal guide, VIP treatment throughout, and customized luxury experiences.
                         </p>
                     </div>
                 </div>
@@ -3512,7 +4463,7 @@
 
             // Send to WhatsApp
             const whatsappMessage = encodeURIComponent(summary);
-            const whatsappUrl = `https://wa.me/255750910158?text=${whatsappMessage}`;
+            const whatsappUrl = `https://wa.me/255714331051?text=${whatsappMessage}`;
             
             // Send to Email
             const emailSubject = encodeURIComponent(`New Zanzibar ${packageType} Booking`);
@@ -3614,5 +4565,6 @@ Phone: ${zanzibarCurrentBooking.contactInfo.phone}
             }
         });
     </script>
+    <script defer src="https://static.getbutton.io/widget/bundle.js?id=m7p9k"></script>
 </body>
 </html>
