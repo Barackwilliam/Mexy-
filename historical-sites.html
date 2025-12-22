@@ -372,814 +372,6 @@
             box-shadow: 0 8px 20px rgba(249, 168, 37, 0.3);
         }
 
-        /* ===== MOBILE RESPONSIVE FIXES FOR BOOKING MODAL ===== */
-        /* Premium Modal Base Styles */
-        .premium-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 9999;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .premium-modal-content {
-            position: relative;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            margin: 20px auto;
-            width: 95%;
-            max-width: 900px;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            animation: modalSlideIn 0.3s ease-out;
-            overflow: hidden;
-        }
-
-        /* Animation for modal */
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Modal Header - Mobile Fix */
-        .premium-modal-header {
-            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
-            padding: 20px;
-            border-bottom: 2px solid #00b4d8;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .premium-modal-header h2 {
-            color: #ffffff;
-            font-size: 1.5rem;
-            margin: 0;
-            font-weight: 700;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .close-premium-modal {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            flex-shrink: 0;
-        }
-
-        .close-premium-modal:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
-        }
-
-        /* Modal Body - Scrollable on Mobile */
-        .premium-modal-body {
-            padding: 25px;
-            max-height: calc(100vh - 200px);
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Booking Steps - Mobile Responsive */
-        .booking-steps {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .booking-steps::-webkit-scrollbar {
-            display: none;
-        }
-
-        .booking-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 80px;
-            flex: 1;
-            padding: 10px 5px;
-            opacity: 0.5;
-            transition: all 0.3s ease;
-        }
-
-        .booking-step.active {
-            opacity: 1;
-        }
-
-        .step-number {
-            width: 35px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: 14px;
-            border: 2px solid transparent;
-        }
-
-        .booking-step.active .step-number {
-            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
-            border-color: #90e0ef;
-            box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
-        }
-
-        .step-label {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100%;
-        }
-
-        /* Package Levels - Mobile Grid */
-        .package-levels {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
-
-        .package-level {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .package-level:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 180, 216, 0.3);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .package-level.selected {
-            border-color: #00b4d8;
-            background: rgba(0, 180, 216, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
-        }
-
-        .level-icon {
-            font-size: 2.5rem;
-            color: #00b4d8;
-            margin-bottom: 15px;
-        }
-
-        .level-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .level-price {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #90e0ef;
-            margin-bottom: 20px;
-        }
-
-        .level-features {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-            flex-grow: 1;
-        }
-
-        .level-features li {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 10px;
-            font-size: 14px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .level-features li i {
-            color: #4cc9f0;
-            margin-right: 10px;
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-
-        /* Group Selection - Mobile Responsive */
-        .group-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
-        }
-
-        .group-option {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .group-option:hover {
-            transform: translateY(-3px);
-            border-color: rgba(0, 180, 216, 0.3);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .group-option.selected {
-            border-color: #00b4d8;
-            background: rgba(0, 180, 216, 0.1);
-        }
-
-        .group-icon {
-            font-size: 2rem;
-            color: #00b4d8;
-            margin-bottom: 10px;
-        }
-
-        .group-name {
-            font-size: 1rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 5px;
-        }
-
-        .group-description {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* People Counter - Mobile Responsive */
-        .people-counter {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin: 25px 0;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            flex-wrap: wrap;
-        }
-
-        .counter-label {
-            color: white;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .counter-btn {
-            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
-            border: none;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .counter-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
-        }
-
-        .people-count {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            min-width: 50px;
-            text-align: center;
-        }
-
-        /* Price Summary - Mobile Responsive */
-        .price-summary {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 25px 0;
-            border: 2px solid rgba(0, 180, 216, 0.2);
-        }
-
-        .summary-title {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .price-breakdown {
-            margin-bottom: 20px;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .price-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            flex: 1;
-        }
-
-        .price-value {
-            color: white;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .discount-label {
-            color: #4cc9f0 !important;
-        }
-
-        .discount-value {
-            color: #4cc9f0 !important;
-        }
-
-        .total-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
-            border-top: 2px solid rgba(0, 180, 216, 0.3);
-        }
-
-        .total-label {
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .total-value {
-            color: #90e0ef;
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .original-price {
-            text-align: center;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.2);
-        }
-
-        .original-label {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-            text-decoration: line-through;
-            margin-right: 10px;
-        }
-
-        .original-value {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-            text-decoration: line-through;
-        }
-
-        /* Contact Form - Mobile Responsive */
-        .contact-form {
-            margin: 25px 0;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-
-        @media (min-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.07);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: white;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #00b4d8;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
-        }
-
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        .date-inputs {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-
-        @media (min-width: 768px) {
-            .date-inputs {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .date-input {
-            position: relative;
-        }
-
-        .date-input label {
-            display: block;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .date-input i {
-            position: absolute;
-            right: 15px;
-            top: 42px;
-            color: rgba(255, 255, 255, 0.5);
-            pointer-events: none;
-        }
-
-        /* Mobile Actions (Bottom Fixed) */
-        .mobile-actions {
-            display: none;
-            position: sticky;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to bottom, transparent, #1a1a2e 70%);
-            padding: 20px 25px;
-            margin: 0 -25px -25px -25px;
-            z-index: 100;
-        }
-
-        .mobile-back-btn, .mobile-next-btn, .mobile-complete-btn {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-back-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .mobile-back-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .mobile-next-btn {
-            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
-            color: white;
-            box-shadow: 0 5px 20px rgba(0, 180, 216, 0.3);
-        }
-
-        .mobile-next-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
-        }
-
-        .mobile-complete-btn {
-            background: linear-gradient(135deg, #4cc9f0 0%, #00b4d8 100%);
-            color: white;
-            box-shadow: 0 5px 20px rgba(76, 201, 240, 0.3);
-        }
-
-        .mobile-complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(76, 201, 240, 0.4);
-        }
-
-        /* Desktop Actions */
-        .modal-actions {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .modal-btn {
-            padding: 14px 28px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            flex: 1;
-        }
-
-        .btn-back {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            max-width: 120px;
-        }
-
-        .btn-back:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            flex: 1;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
-            color: white;
-            box-shadow: 0 5px 20px rgba(0, 180, 216, 0.3);
-            flex: 2;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 1024px) {
-            .premium-modal-content {
-                width: 95%;
-                margin: 10px auto;
-                max-height: 95vh;
-            }
-            
-            .package-levels {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .group-options {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .premium-modal-header h2 {
-                font-size: 1.2rem;
-            }
-            
-            .premium-modal-body {
-                padding: 20px;
-                max-height: calc(100vh - 150px);
-            }
-            
-            .booking-step {
-                min-width: 70px;
-            }
-            
-            .step-label {
-                font-size: 11px;
-            }
-            
-            .group-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-actions {
-                display: none !important;
-            }
-            
-            .mobile-actions {
-                display: block;
-            }
-            
-            .desktop-only {
-                display: none !important;
-            }
-            
-            .step-title {
-                font-size: 1.3rem;
-                text-align: center;
-            }
-            
-            .level-price {
-                font-size: 1.8rem;
-            }
-            
-            .level-features li {
-                font-size: 13px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .premium-modal-content {
-                width: 100%;
-                margin: 0;
-                border-radius: 0;
-                min-height: 100vh;
-                max-height: 100vh;
-            }
-            
-            .premium-modal-body {
-                max-height: calc(100vh - 120px);
-                padding: 15px;
-            }
-            
-            .booking-steps {
-                margin-bottom: 20px;
-                padding: 8px;
-            }
-            
-            .booking-step {
-                min-width: 60px;
-                padding: 5px;
-            }
-            
-            .step-number {
-                width: 30px;
-                height: 30px;
-                font-size: 12px;
-            }
-            
-            .step-label {
-                font-size: 10px;
-            }
-            
-            .mobile-actions {
-                padding: 15px;
-                margin: 0 -15px -15px -15px;
-            }
-            
-            .mobile-back-btn, .mobile-next-btn, .mobile-complete-btn {
-                padding: 14px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Fix for iOS Safari */
-        @supports (-webkit-touch-callout: none) {
-            .premium-modal-body {
-                max-height: calc(100vh - 200px);
-            }
-            
-            .mobile-actions {
-                padding-bottom: max(20px, env(safe-area-inset-bottom));
-                background: linear-gradient(to bottom, transparent, #1a1a2e 80%);
-            }
-        }
-
-        /* Fix for Android Chrome */
-        @media (hover: none) and (pointer: coarse) {
-            .package-level:hover,
-            .group-option:hover,
-            .modal-btn:hover,
-            .mobile-next-btn:hover,
-            .mobile-complete-btn:hover {
-                transform: none !important;
-            }
-            
-            .form-input {
-                font-size: 16px; /* Prevents zoom on iOS */
-            }
-        }
-
-        /* Ensure touch targets are large enough */
-        .package-level,
-        .group-option,
-        .counter-btn,
-        .modal-btn,
-        .mobile-back-btn,
-        .mobile-next-btn,
-        .mobile-complete-btn {
-            min-height: 44px;
-        }
-
-        /* Hide scrollbar but keep functionality */
-        .premium-modal-body::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .premium-modal-body::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .premium-modal-body::-webkit-scrollbar-thumb {
-            background: rgba(0, 180, 216, 0.5);
-            border-radius: 10px;
-        }
-
-        /* Prevent text selection on interactive elements */
-        .package-level,
-        .group-option,
-        .modal-btn,
-        .mobile-back-btn,
-        .mobile-next-btn,
-        .mobile-complete-btn {
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        /* Loading state for buttons */
-        .modal-btn.loading,
-        .mobile-next-btn.loading,
-        .mobile-complete-btn.loading {
-            position: relative;
-            color: transparent;
-        }
-
-        .modal-btn.loading::after,
-        .mobile-next-btn.loading::after,
-        .mobile-complete-btn.loading::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
         /* ===== PREMIUM TRANSLATION SYSTEM ===== */
         .translation-system {
             position: relative;
@@ -1447,6 +639,780 @@
             padding: 0 10px;
             color: var(--safari-orange);
             font-size: 1.2rem;
+        }
+
+        /* ===== ENHANCED BOOKING MODAL DESIGN ===== */
+        .premium-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .premium-modal-content {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 20px auto;
+            width: 95%;
+            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: modalSlideIn 0.3s ease-out;
+            overflow: hidden;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .premium-modal-header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 20px;
+            border-bottom: 2px solid #00b4d8;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .premium-modal-header h2 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 700;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .close-premium-modal {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            flex-shrink: 0;
+        }
+
+        .close-premium-modal:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .premium-modal-body {
+            padding: 25px;
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+        }
+
+        /* Booking Steps */
+        .booking-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .booking-steps::-webkit-scrollbar {
+            display: none;
+        }
+
+        .booking-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+            flex: 1;
+            padding: 10px 5px;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .booking-step.active {
+            opacity: 1;
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+            border: 2px solid transparent;
+        }
+
+        .booking-step.active .step-number {
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            border-color: #90e0ef;
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
+        }
+
+        .step-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+
+        .booking-step.active .step-label {
+            color: #90e0ef;
+            font-weight: 600;
+        }
+
+        /* Package Levels */
+        .package-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .package-level {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .package-level:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 180, 216, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .package-level.selected {
+            border-color: #00b4d8;
+            background: rgba(0, 180, 216, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
+        }
+
+        .level-icon {
+            font-size: 2.5rem;
+            color: #00b4d8;
+            margin-bottom: 15px;
+        }
+
+        .level-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .level-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #90e0ef;
+            margin-bottom: 20px;
+        }
+
+        .level-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .level-features li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .level-features li i {
+            color: #4cc9f0;
+            margin-right: 10px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* Travel Style Selection */
+        .traveler-type-selection {
+            margin-bottom: 30px;
+        }
+
+        .traveler-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .traveler-option {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .traveler-option:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 180, 216, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .traveler-option.selected {
+            border-color: #00b4d8;
+            background: rgba(0, 180, 216, 0.1);
+        }
+
+        .traveler-icon {
+            font-size: 2rem;
+            color: #00b4d8;
+            margin-bottom: 10px;
+        }
+
+        .traveler-name {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .traveler-description {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* People Counter */
+        .people-counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            flex-wrap: wrap;
+        }
+
+        .counter-label {
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .counter-btn {
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .counter-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+        }
+
+        .people-count {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        /* Price Summary */
+        .price-summary {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 2px solid rgba(0, 180, 216, 0.2);
+        }
+
+        .summary-title {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .price-breakdown {
+            margin-bottom: 20px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .price-value {
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .discount-label {
+            color: #4cc9f0 !important;
+        }
+
+        .discount-value {
+            color: #4cc9f0 !important;
+        }
+
+        .total-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 2px solid rgba(0, 180, 216, 0.3);
+        }
+
+        .total-label {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .total-value {
+            color: #90e0ef;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .original-price {
+            text-align: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .original-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .original-value {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            text-decoration: line-through;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            margin: 25px 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00b4d8;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .date-inputs {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        @media (min-width: 768px) {
+            .date-inputs {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .date-input {
+            position: relative;
+        }
+
+        .date-input label {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .date-input i {
+            position: absolute;
+            right: 15px;
+            top: 42px;
+            color: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+        }
+
+        /* Package Selection Grid */
+        .package-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .package-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 180, 216, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .package-card.selected {
+            border-color: #00b4d8;
+            background: rgba(0, 180, 216, 0.1);
+        }
+
+        /* Step Titles */
+        .step-title {
+            color: #90e0ef;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* Modal Actions - Fixed Bottom */
+        .modal-actions-fixed-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to bottom, transparent, #1a1a2e 30%);
+            padding: 20px 25px;
+            z-index: 10000;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 0;
+        }
+
+        .modal-btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            max-width: 120px;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            color: white;
+            box-shadow: 0 5px 20px rgba(0, 180, 216, 0.3);
+            flex: 2;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
+        }
+
+        /* Hide old modal actions */
+        .modal-actions {
+            display: none !important;
+        }
+
+        .mobile-actions {
+            display: none !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .premium-modal-content {
+                width: 95%;
+                margin: 10px auto;
+                max-height: 95vh;
+            }
+            
+            .package-levels {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .traveler-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-actions-fixed-bottom {
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .premium-modal-header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .premium-modal-body {
+                padding: 20px;
+                max-height: calc(100vh - 150px);
+            }
+            
+            .booking-step {
+                min-width: 70px;
+            }
+            
+            .step-label {
+                font-size: 11px;
+            }
+            
+            .traveler-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-title {
+                font-size: 1.3rem;
+                text-align: center;
+            }
+            
+            .level-price {
+                font-size: 1.8rem;
+            }
+            
+            .level-features li {
+                font-size: 13px;
+            }
+            
+            .modal-actions-fixed-bottom {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .modal-actions-fixed-bottom .btn-back,
+            .modal-actions-fixed-bottom .btn-secondary,
+            .modal-actions-fixed-bottom .btn-primary {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .premium-modal-content {
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+                max-height: 100vh;
+            }
+            
+            .premium-modal-body {
+                max-height: calc(100vh - 140px);
+                padding: 15px;
+                padding-bottom: 80px;
+            }
+            
+            .booking-steps {
+                margin-bottom: 20px;
+                padding: 8px;
+            }
+            
+            .booking-step {
+                min-width: 60px;
+                padding: 5px;
+            }
+            
+            .step-number {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+            
+            .step-label {
+                font-size: 10px;
+            }
+            
+            .modal-actions-fixed-bottom {
+                padding: 12px 15px;
+            }
+            
+            .modal-actions-fixed-bottom .modal-btn {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Fix for iOS Safari */
+        @supports (-webkit-touch-callout: none) {
+            .premium-modal-body {
+                max-height: calc(100vh - 200px);
+            }
+            
+            .modal-actions-fixed-bottom {
+                padding-bottom: max(20px, env(safe-area-inset-bottom));
+                background: linear-gradient(to bottom, transparent, #1a1a2e 80%);
+            }
+        }
+
+        /* Ensure touch targets are large enough */
+        .package-level,
+        .traveler-option,
+        .counter-btn,
+        .modal-btn {
+            min-height: 44px;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        .premium-modal-body::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .premium-modal-body::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .premium-modal-body::-webkit-scrollbar-thumb {
+            background: rgba(0, 180, 216, 0.5);
+            border-radius: 10px;
+        }
+
+        /* Loading state for buttons */
+        .modal-btn.loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .modal-btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
 
         /* Enhanced Hero Section Styles */
@@ -2051,608 +2017,235 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Premium Modal Styles */
-        .premium-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 3000;
-            overflow-y: auto;
+        /* Package Tiers Styles */
+        .package-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
         }
 
-        .premium-modal-content {
-            position: relative;
-            background: linear-gradient(135deg, #1a2f1a, #2c1810);
-            margin: 5% auto;
+        .package-tier {
+            background: white;
             border-radius: 20px;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            color: white;
-            max-width: 800px;
-            width: 90%;
-        }
-
-        .premium-modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .premium-modal-header h2 {
-            font-family: 'Cinzel', serif;
-            color: var(--premium-gold);
-            margin: 0;
-            font-size: 1.8rem;
-        }
-
-        .close-premium-modal {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-premium-modal:hover {
-            color: var(--premium-gold);
-            transform: rotate(90deg);
-        }
-
-        .premium-modal-body {
             padding: 30px;
-        }
-
-        /* Booking Steps */
-        .booking-steps {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
             position: relative;
+            overflow: hidden;
         }
 
-        .booking-steps::before {
-            content: '';
-            position: absolute;
-            top: 25px;
-            left: 10%;
-            right: 10%;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.2);
-            z-index: 1;
+        .package-tier:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .booking-step {
+        .local-tier {
+            border-top: 5px solid #cd7f32;
+        }
+
+        .vip-tier {
+            border-top: 5px solid #c0c0c0;
+        }
+
+        .vvip-tier {
+            border-top: 5px solid #ffd700;
+        }
+
+        .tier-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .local-tier .tier-badge {
+            background: #cd7f32;
+            color: white;
+        }
+
+        .vip-tier .tier-badge {
+            background: #c0c0c0;
+            color: #333;
+        }
+
+        .vvip-tier .tier-badge {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .tier-header h4 {
+            font-size: 1.4rem;
+            color: var(--artistic-brown);
+            margin: 10px 0;
+        }
+
+        .tier-price {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--safari-orange);
+            margin: 10px 0;
+        }
+
+        .local-tier .tier-price {
+            color: #cd7f32;
+        }
+
+        .vip-tier .tier-price {
+            color: #c0c0c0;
+        }
+
+        .vvip-tier .tier-price {
+            color: #ffd700;
+        }
+
+        .tier-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .tier-features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .tier-feature {
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            z-index: 2;
-            flex: 1;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-bottom: 10px;
-            transition: var(--transition);
-        }
-
-        .booking-step.active .step-number {
-            background: var(--premium-gold);
-            border-color: var(--premium-gold);
-            color: #000;
-        }
-
-        .step-label {
-            font-size: 0.9rem;
             text-align: center;
-            opacity: 0.7;
-            transition: var(--transition);
-        }
-
-        .booking-step.active .step-label {
-            opacity: 1;
-            color: var(--premium-gold);
-        }
-
-        .booking-section {
-            display: none;
-        }
-
-        .booking-section.active {
-            display: block;
-        }
-
-        /* Package Levels */
-        .package-levels {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .package-level {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .package-level:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .package-level.selected {
-            border-color: var(--premium-gold);
-            background: rgba(218, 165, 32, 0.1);
-        }
-
-        .level-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--premium-gold);
-        }
-
-        .level-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-family: 'Cinzel', serif;
-        }
-
-        .level-price {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: var(--premium-gold);
-        }
-
-        .level-features {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-        }
-
-        .level-features li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .level-features i {
-            color: var(--premium-gold);
-        }
-
-        /* Group Selection */
-        .group-selection {
-            margin-bottom: 30px;
-        }
-
-        .group-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .group-option {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .group-option:hover {
-            transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .group-option.selected {
-            border-color: var(--premium-gold);
-            background: rgba(218, 165, 32, 0.1);
-        }
-
-        .group-icon {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: var(--premium-gold);
-        }
-
-        .group-name {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .group-description {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* People Counter */
-        .people-counter {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 10px;
+            background: rgba(139, 69, 19, 0.05);
             border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        .counter-label {
-            font-weight: bold;
-        }
-
-        .counter-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
             transition: var(--transition);
         }
 
-        .counter-btn:hover {
-            background: var(--premium-gold);
-            color: #000;
+        .tier-feature:hover {
+            background: rgba(139, 69, 19, 0.1);
+            transform: translateY(-3px);
         }
 
-        .people-count {
-            font-size: 1.3rem;
-            font-weight: bold;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        /* Price Summary */
-        .price-summary {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .price-breakdown {
-            margin-bottom: 15px;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-        }
-
-        .price-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .total-price {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.3rem;
-            font-weight: bold;
-            padding-top: 15px;
-            border-top: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .total-label {
-            color: var(--premium-gold);
-        }
-
-        .total-value {
-            color: var(--premium-gold);
-        }
-
-        .original-price {
-            text-align: center;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.3);
-        }
-
-        .original-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            text-decoration: line-through;
-        }
-
-        .original-value {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            text-decoration: line-through;
-            margin-left: 10px;
-        }
-
-        .discount-label {
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        .discount-value {
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            margin: 20px 0;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .form-input {
-            padding: 14px;
-            border: 1px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-            color: white;
-            font-size: 16px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .form-input::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        /* Modal Actions */
-        .modal-actions {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-
-        .modal-btn {
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--premium-gold);
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            background: #ffed4e;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-back {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-back:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Mobile Actions */
-        .mobile-actions {
-            position: sticky;
-            bottom: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            padding: 20px 15px 15px;
-            margin: 20px -30px -30px;
-            z-index: 100;
-            display: flex;
-            gap: 10px;
-        }
-
-        .mobile-back-btn {
-            width: 20%;
-            padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-next-btn, .mobile-complete-btn {
-            width: 80%;
-            padding: 16px 20px;
-            background: var(--premium-gold);
-            color: #000;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-complete-btn {
-            background: #28a745;
-            color: white;
-        }
-
-        .mobile-back-btn:hover, .mobile-next-btn:hover, .mobile-complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Hide desktop buttons on mobile */
-        @media (max-width: 768px) {
-            .desktop-only {
-                display: none;
-            }
-            
-            .modal-actions {
-                display: none;
-            }
-            
-            .premium-modal-body {
-                padding-bottom: 80px;
-            }
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 769px) {
-            .mobile-actions {
-                display: none;
-            }
-        }
-
-        /* Mobile Optimizations */
-        @media (max-width: 480px) {
-            .premium-modal-content {
-                width: 100%;
-                margin: 10px;
-                max-height: 95vh;
-            }
-            
-            .premium-modal-header h2 {
-                font-size: 1.3rem;
-            }
-            
-            .step-title {
-                font-size: 1.1rem;
-            }
-            
-            .booking-steps {
-                gap: 5px;
-            }
-            
-            .step-label {
-                font-size: 0.7rem;
-            }
-            
-            .package-levels {
-                grid-template-columns: 1fr;
-            }
-            
-            .group-options {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Main Content Spacing */
-        .main-content {
-            padding-top: 80px;
-        }
-
-        /* Additional Information Section */
-        .additional-info {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .additional-info h4 {
-            color: var(--artistic-brown);
+        .tier-feature i {
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
+        }
+
+        .local-tier .tier-feature i {
+            color: #cd7f32;
+        }
+
+        .vip-tier .tier-feature i {
+            color: #c0c0c0;
+        }
+
+        .vvip-tier .tier-feature i {
+            color: #ffd700;
+        }
+
+        .tier-feature span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .tier-highlights {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .tier-highlights h5 {
+            color: var(--artistic-brown);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
             font-family: 'Cinzel', serif;
         }
 
-        .additional-info p {
-            font-family: 'Merriweather', serif;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 15px;
+        .tier-highlights ul {
+            list-style-type: none;
+            padding-left: 0;
         }
 
-        /* Date Inputs */
-        .date-inputs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 15px 0;
+        .tier-highlights li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .local-tier .tier-highlights li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #cd7f32;
+            font-weight: bold;
+        }
+
+        .vip-tier .tier-highlights li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #c0c0c0;
+        }
+
+        .vvip-tier .tier-highlights li::before {
+            content: '👑';
+            position: absolute;
+            left: 0;
+        }
+
+        .booking-cta-tier {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(34, 139, 34, 0.05));
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px 0 30px;
+        }
+
+        .booking-cta-tier h4 {
+            font-size: 1.8rem;
+            color: var(--artistic-brown);
+            margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .booking-cta-tier p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @media (max-width: 768px) {
-            .date-inputs {
+            .package-tiers {
                 grid-template-columns: 1fr;
             }
-        }
-
-        .date-input {
-            position: relative;
-        }
-
-        .date-input i {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: rgba(255, 255, 255, 0.6);
+            
+            .tier-features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tier-price {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -2667,22 +2260,21 @@
     <nav class="premium-navbar" id="premiumNavbar">
         <div class="nav-container">
             <!-- Logo -->
-             <a href="index.html" class="nav-logo d-flex align-items-center text-decoration-none">
-    <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img me-2">
-            <span class="logo-text">MMexy</span>
-        </a>
-        <style>
-            .logo-img{
-    height: 90px;      /* unaweza kuongeza hadi 50px */
-    width: auto;
-}
-.logo-text{
-    font-weight: 800;
-    font-size: 1.9rem;
-    color: #8B4513;
-}
-
-        </style>
+            <a href="index.html" class="nav-logo d-flex align-items-center text-decoration-none">
+                <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img me-2">
+                <span class="logo-text">MMexy</span>
+            </a>
+            <style>
+                .logo-img{
+                    height: 90px;
+                    width: auto;
+                }
+                .logo-text{
+                    font-weight: 800;
+                    font-size: 1.9rem;
+                    color: #8B4513;
+                }
+            </style>
 
             <!-- Desktop Navigation -->
             <div class="desktop-nav">
@@ -3070,7 +2662,6 @@
                     </div>
                 </div>
 
-
                 <!-- Historical Sites Section -->
                 <div class="site-features">
                     <h3 class="section-title" data-i18n="historical.sites.title">Classification based on level and price</h3>
@@ -3196,273 +2787,12 @@
                     </div>
 
                 </div>
-
-                <style>
-                    /* Package Tiers Styles */
-.package-tiers {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.package-tier {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.package-tier:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.local-tier {
-    border-top: 5px solid #cd7f32;
-}
-
-.vip-tier {
-    border-top: 5px solid #c0c0c0;
-}
-
-.vvip-tier {
-    border-top: 5px solid #ffd700;
-}
-
-.tier-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.tier-badge {
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.local-tier .tier-badge {
-    background: #cd7f32;
-    color: white;
-}
-
-.vip-tier .tier-badge {
-    background: #c0c0c0;
-    color: #333;
-}
-
-.vvip-tier .tier-badge {
-    background: #ffd700;
-    color: #333;
-}
-
-.tier-header h4 {
-    font-size: 1.4rem;
-    color: var(--artistic-brown);
-    margin: 10px 0;
-}
-
-.tier-price {
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: var(--safari-orange);
-    margin: 10px 0;
-}
-
-.local-tier .tier-price {
-    color: #cd7f32;
-}
-
-.vip-tier .tier-price {
-    color: #c0c0c0;
-}
-
-.vvip-tier .tier-price {
-    color: #ffd700;
-}
-
-.tier-description {
-    text-align: center;
-    color: #666;
-    margin-bottom: 25px;
-    font-style: italic;
-    line-height: 1.6;
-}
-
-.tier-features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin: 25px 0;
-}
-
-.tier-feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 15px 10px;
-    background: rgba(139, 69, 19, 0.05);
-    border-radius: 10px;
-    transition: var(--transition);
-}
-
-.tier-feature:hover {
-    background: rgba(139, 69, 19, 0.1);
-    transform: translateY(-3px);
-}
-
-.tier-feature i {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-}
-
-.local-tier .tier-feature i {
-    color: #cd7f32;
-}
-
-.vip-tier .tier-feature i {
-    color: #c0c0c0;
-}
-
-.vvip-tier .tier-feature i {
-    color: #ffd700;
-}
-
-.tier-feature span {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #555;
-}
-
-.tier-highlights {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(139, 69, 19, 0.1);
-}
-
-.tier-highlights h5 {
-    color: var(--artistic-brown);
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    font-family: 'Cinzel', serif;
-}
-
-.tier-highlights ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.tier-highlights li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.5;
-}
-
-.local-tier .tier-highlights li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: #cd7f32;
-    font-weight: bold;
-}
-
-.vip-tier .tier-highlights li::before {
-    content: '★';
-    position: absolute;
-    left: 0;
-    color: #c0c0c0;
-}
-
-.vvip-tier .tier-highlights li::before {
-    content: '👑';
-    position: absolute;
-    left: 0;
-}
-
-.booking-cta-tier {
-    text-align: center;
-    background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(34, 139, 34, 0.05));
-    padding: 40px;
-    border-radius: 15px;
-    margin: 50px 0 30px;
-}
-
-.booking-cta-tier h4 {
-    font-size: 1.8rem;
-    color: var(--artistic-brown);
-    margin-bottom: 15px;
-    font-family: 'Cinzel', serif;
-}
-
-.booking-cta-tier p {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 25px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media (max-width: 768px) {
-    .package-tiers {
-        grid-template-columns: 1fr;
-    }
-    
-    .tier-features-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .tier-price {
-        font-size: 1.8rem;
-    }
-}
-                </style>
-
-
-
                 
-<!--               
-                <div class="includes-excludes">
-                    <div class="includes-box">
-                        <h3><i class="fas fa-check-circle"></i> <span data-i18n="historical.includes.title">What's Included</span></h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> <span data-i18n="historical.includes.item1">Expert historical guide services</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="historical.includes.item2">All entrance fees and permits</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="historical.includes.item3">Comfortable transportation</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="historical.includes.item4">Accommodation in historical areas</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="historical.includes.item5">All meals during tours</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="historical.includes.item6">Museum and site entry fees</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="historical.includes.item7">Historical documentation</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="historical.includes.item8">Photography permits</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="excludes-box">
-                        <h3><i class="fas fa-times-circle"></i> <span data-i18n="historical.excludes.title">What's Excluded</span></h3>
-                        <ul>
-                            <li><i class="fas fa-times"></i> <span data-i18n="historical.excludes.item1">International flights</span></li>
-                            <li><i class="fas fa-times"></i> <span data-i18n="historical.excludes.item2">Tanzania visa fees</span></li>
-                            <li><i class="fas fa-times"></i> <span data-i18n="historical.excludes.item3">Travel insurance</span></li>
-                            <li><i class="fas fa-times"></i> <span data-i18n="historical.excludes.item4">Alcoholic beverages</span></li>
-                            <li><i class="fas fa-times"></i> <span data-i18n="historical.excludes.item5">Personal shopping</span></li>
-                            <li><i class="fas fa-times"></i> <span data-i18n="historical.excludes.item6">Optional activities</span></li>
-                            <li><i class="fas fa-times"></i> <span data-i18n="historical.excludes.item7">Tips for guides</span></li>
-                            <li><i class="fas fa-times"></i> <span data-i18n="historical.excludes.item8">Personal expenses</span></li>
-                        </ul>
-                    </div>
-                </div> -->
+                <div class="booking-cta-tier">
+                    <h4>Ready to Embark on a Historical Journey?</h4>
+                    <p>Choose from our carefully curated packages designed to suit every type of traveler. Whether you're a budget-conscious explorer or seeking the ultimate luxury experience, we have the perfect historical tour for you.</p>
+                    <button class="btn" onclick="openHistoricalBookingModal()">Book Your Historical Tour Now</button>
+                </div>
             </div>
         </section>
 
@@ -3590,16 +2920,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="mobile-actions">
-                        <button class="mobile-back-btn" onclick="historicalPrevStep(1)">
-                            <i class="fas fa-arrow-left"></i>
-                        </button>
-                        <button class="mobile-next-btn" onclick="historicalNextStep(2)">
-                            <span>Next: Travel Style</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                    <div class="modal-actions">
+                    <!-- Fixed Bottom Actions for Step 1 -->
+                    <div class="modal-actions-fixed-bottom">
                         <button class="modal-btn btn-back desktop-only" onclick="historicalPrevStep(1)">
                             <i class="fas fa-arrow-left"></i>
                             <span>Back</span>
@@ -3612,35 +2934,35 @@
                 <!-- Step 2: Travel Style Selection -->
                 <div class="booking-section" id="historical-step-2">
                     <h3 class="step-title" data-i18n="historical.modal.travel.title">Select Your Travel Style</h3>
-                    <div class="group-selection">
-                        <div class="group-options">
-                            <div class="group-option" data-group="single">
-                                <div class="group-icon">
+                    <div class="traveler-type-selection">
+                        <div class="traveler-options">
+                            <div class="traveler-option" data-type="single">
+                                <div class="traveler-icon">
                                     <i class="fas fa-user"></i>
                                 </div>
-                                <div class="group-name">Solo Traveler</div>
-                                <div class="group-description">Perfect for solo history enthusiasts</div>
+                                <div class="traveler-name">Solo Traveler</div>
+                                <div class="traveler-description">Perfect for solo history enthusiasts</div>
                             </div>
-                            <div class="group-option" data-group="double">
-                                <div class="group-icon">
+                            <div class="traveler-option" data-type="couple">
+                                <div class="traveler-icon">
                                     <i class="fas fa-heart"></i>
                                 </div>
-                                <div class="group-name">Couple Package</div>
-                                <div class="group-description">Perfect for couples</div>
+                                <div class="traveler-name">Couple Package</div>
+                                <div class="traveler-description">Perfect for couples</div>
                             </div>
-                            <div class="group-option" data-group="family">
-                                <div class="group-icon">
+                            <div class="traveler-option" data-type="family">
+                                <div class="traveler-icon">
                                     <i class="fas fa-users"></i>
                                 </div>
-                                <div class="group-name">Family Package</div>
-                                <div class="group-description">2 adults + 2 children</div>
+                                <div class="traveler-name">Family Package</div>
+                                <div class="traveler-description">2 adults + 2 children</div>
                             </div>
-                            <div class="group-option" data-group="group">
-                                <div class="group-icon">
+                            <div class="traveler-option" data-type="group">
+                                <div class="traveler-icon">
                                     <i class="fas fa-user-friends"></i>
                                 </div>
-                                <div class="group-name">Group Adventure</div>
-                                <div class="group-description">2-30 people</div>
+                                <div class="traveler-name">Group Adventure</div>
+                                <div class="traveler-description">2-30 people</div>
                             </div>
                         </div>
 
@@ -3661,8 +2983,8 @@
                                 <span class="price-value" id="historical-base-price">$250</span>
                             </div>
                             <div class="price-item">
-                                <span class="price-label" id="historical-group-type-label">Solo Traveler</span>
-                                <span class="price-value" id="historical-group-multiplier">x1</span>
+                                <span class="price-label" id="historical-traveler-type-label">Solo Traveler</span>
+                                <span class="price-value" id="historical-traveler-multiplier">x1</span>
                             </div>
                             <div class="price-item" id="historical-people-item" style="display: none;">
                                 <span class="price-label" id="historical-people-count-label">4 people</span>
@@ -3684,17 +3006,8 @@
                             <span class="original-value" id="historical-original-value">$1,000</span>
                         </div>
                     </div>
-
-                    <div class="mobile-actions">
-                        <button class="mobile-back-btn" onclick="historicalPrevStep(1)">
-                            <i class="fas fa-arrow-left"></i>
-                        </button>
-                        <button class="mobile-next-btn" onclick="historicalNextStep(3)">
-                            <span>Next: Book Now</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                    <div class="modal-actions">
+                    <!-- Fixed Bottom Actions for Step 2 -->
+                    <div class="modal-actions-fixed-bottom">
                         <button class="modal-btn btn-back desktop-only" onclick="historicalPrevStep(1)">
                             <i class="fas fa-arrow-left"></i>
                             <span>Back</span>
@@ -3721,7 +3034,7 @@
                             </div>
                             <div class="price-item">
                                 <span class="price-label">Travel Style:</span>
-                                <span class="price-value" id="historical-summary-group">Solo Traveler</span>
+                                <span class="price-value" id="historical-summary-traveler">Solo Traveler</span>
                             </div>
                             <div class="price-item" id="historical-summary-people-item" style="display: none;">
                                 <span class="price-label">Number of People:</span>
@@ -3757,12 +3070,12 @@
                             <input type="text" id="historical-country" placeholder="Country" class="form-input" required>
                             <div class="date-inputs">
                                 <div class="date-input">
-                                     <label>Arrival Date</label>
+                                    <label>Arrival Date</label>
                                     <input type="date" id="historical-arrival" class="form-input" required>
                                     <i class="fas fa-calendar-alt"></i>
                                 </div>
                                 <div class="date-input">
-                                     <label>Departure Date</label>
+                                    <label>Departure Date</label>
                                     <input type="date" id="historical-departure" class="form-input" required>
                                     <i class="fas fa-calendar-alt"></i>
                                 </div>
@@ -3770,17 +3083,8 @@
                             <textarea id="historical-special-requests" placeholder="Special Requests or Additional Information" class="form-input full-width" rows="4"></textarea>
                         </div>
                     </div>
-
-                    <div class="mobile-actions">
-                        <button class="mobile-back-btn" onclick="historicalPrevStep(2)">
-                            <i class="fas fa-arrow-left"></i>
-                        </button>
-                        <button class="mobile-complete-btn" onclick="historicalCompleteBooking()">
-                            <i class="fas fa-credit-card"></i>
-                            <span>Complete Booking</span>
-                        </button>
-                    </div>
-                    <div class="modal-actions">
+                    <!-- Fixed Bottom Actions for Step 3 -->
+                    <div class="modal-actions-fixed-bottom">
                         <button class="modal-btn btn-back desktop-only" onclick="historicalPrevStep(2)">
                             <i class="fas fa-arrow-left"></i>
                             <span>Back</span>
@@ -3907,7 +3211,7 @@
         let historicalCurrentBooking = {
             destination: 'historical',
             packageLevel: 'local',
-            groupType: 'single',
+            travelerType: 'single',
             peopleCount: 4,
             basePrice: 250,
             totalPrice: 250,
@@ -3933,9 +3237,9 @@
             vvip: 5000
         };
 
-        const historicalGroupMultipliers = {
+        const historicalTravelerMultipliers = {
             single: 1,
-            double: 2,
+            couple: 2,
             family: 3.5,
             group: 1
         };
@@ -3988,18 +3292,18 @@
         });
 
         // Historical Tour Travel Style Selection
-        document.querySelectorAll('#historical-premium-modal .group-option').forEach(option => {
+        document.querySelectorAll('#historical-premium-modal .traveler-option').forEach(option => {
             option.addEventListener('click', function() {
-                document.querySelectorAll('#historical-premium-modal .group-option').forEach(opt => {
+                document.querySelectorAll('#historical-premium-modal .traveler-option').forEach(opt => {
                     opt.classList.remove('selected');
                 });
                 
                 this.classList.add('selected');
                 
-                historicalCurrentBooking.groupType = this.dataset.group;
+                historicalCurrentBooking.travelerType = this.dataset.type;
                 
                 const peopleCounter = document.getElementById('historical-people-counter');
-                if (historicalCurrentBooking.groupType === 'group') {
+                if (historicalCurrentBooking.travelerType === 'group') {
                     peopleCounter.style.display = 'flex';
                     document.getElementById('historical-people-item').style.display = 'flex';
                     // Set minimum for group adventure
@@ -4010,11 +3314,11 @@
                     document.getElementById('historical-people-item').style.display = 'none';
                     
                     // Set default people counts for other options
-                    if (historicalCurrentBooking.groupType === 'single') {
+                    if (historicalCurrentBooking.travelerType === 'single') {
                         historicalCurrentBooking.peopleCount = 1;
-                    } else if (historicalCurrentBooking.groupType === 'double') {
+                    } else if (historicalCurrentBooking.travelerType === 'couple') {
                         historicalCurrentBooking.peopleCount = 2;
-                    } else if (historicalCurrentBooking.groupType === 'family') {
+                    } else if (historicalCurrentBooking.travelerType === 'family') {
                         historicalCurrentBooking.peopleCount = 4;
                     }
                 }
@@ -4040,13 +3344,13 @@
             const basePrice = historicalPackagePrices[historicalCurrentBooking.packageLevel] || 250;
             historicalCurrentBooking.basePrice = basePrice;
             
-            let multiplier = historicalGroupMultipliers[historicalCurrentBooking.groupType];
+            let multiplier = historicalTravelerMultipliers[historicalCurrentBooking.travelerType];
             
-            if (historicalCurrentBooking.groupType === 'group') {
+            if (historicalCurrentBooking.travelerType === 'group') {
                 multiplier = historicalCurrentBooking.peopleCount;
-            } else if (historicalCurrentBooking.groupType === 'double') {
+            } else if (historicalCurrentBooking.travelerType === 'couple') {
                 multiplier = 2;
-            } else if (historicalCurrentBooking.groupType === 'family') {
+            } else if (historicalCurrentBooking.travelerType === 'family') {
                 multiplier = 3.5; // 2 adults + 2 children at reduced rate
             }
             
@@ -4054,7 +3358,7 @@
             historicalCurrentBooking.originalPrice = basePrice * multiplier;
             
             // Apply 20% discount for groups of 4 or more people
-            if (historicalCurrentBooking.peopleCount >= 4 && historicalCurrentBooking.groupType === 'group') {
+            if (historicalCurrentBooking.peopleCount >= 4 && historicalCurrentBooking.travelerType === 'group') {
                 historicalCurrentBooking.discountApplied = true;
                 historicalCurrentBooking.discountAmount = historicalCurrentBooking.originalPrice * 0.2;
                 historicalCurrentBooking.totalPrice = historicalCurrentBooking.originalPrice - historicalCurrentBooking.discountAmount;
@@ -4072,21 +3376,21 @@
             document.getElementById('historical-package-type-label').textContent = 
                 `${historicalCurrentBooking.packageLevel.toUpperCase()} Package`;
             
-            const groupLabel = document.getElementById('historical-group-type-label');
-            const groupMultiplier = document.getElementById('historical-group-multiplier');
+            const travelerLabel = document.getElementById('historical-traveler-type-label');
+            const travelerMultiplier = document.getElementById('historical-traveler-multiplier');
             
-            if (historicalCurrentBooking.groupType === 'single') {
-                groupLabel.textContent = 'Solo Traveler';
-                groupMultiplier.textContent = 'x1';
-            } else if (historicalCurrentBooking.groupType === 'double') {
-                groupLabel.textContent = 'Couple Package';
-                groupMultiplier.textContent = 'x2';
-            } else if (historicalCurrentBooking.groupType === 'family') {
-                groupLabel.textContent = 'Family Package';
-                groupMultiplier.textContent = 'x3.5';
+            if (historicalCurrentBooking.travelerType === 'single') {
+                travelerLabel.textContent = 'Solo Traveler';
+                travelerMultiplier.textContent = 'x1';
+            } else if (historicalCurrentBooking.travelerType === 'couple') {
+                travelerLabel.textContent = 'Couple Package';
+                travelerMultiplier.textContent = 'x2';
+            } else if (historicalCurrentBooking.travelerType === 'family') {
+                travelerLabel.textContent = 'Family Package';
+                travelerMultiplier.textContent = 'x3.5';
             } else {
-                groupLabel.textContent = 'Group Adventure';
-                groupMultiplier.textContent = `x${historicalCurrentBooking.peopleCount}`;
+                travelerLabel.textContent = 'Group Adventure';
+                travelerMultiplier.textContent = `x${historicalCurrentBooking.peopleCount}`;
                 
                 document.getElementById('historical-people-count-label').textContent = 
                     `${historicalCurrentBooking.peopleCount} people`;
@@ -4116,18 +3420,18 @@
             document.getElementById('historical-summary-package').textContent = 
                 historicalCurrentBooking.packageLevel.toUpperCase();
             
-            let groupText = '';
-            if (historicalCurrentBooking.groupType === 'single') {
-                groupText = 'Solo Traveler';
-            } else if (historicalCurrentBooking.groupType === 'double') {
-                groupText = 'Couple Package';
-            } else if (historicalCurrentBooking.groupType === 'family') {
-                groupText = 'Family Package';
+            let travelerText = '';
+            if (historicalCurrentBooking.travelerType === 'single') {
+                travelerText = 'Solo Traveler';
+            } else if (historicalCurrentBooking.travelerType === 'couple') {
+                travelerText = 'Couple Package';
+            } else if (historicalCurrentBooking.travelerType === 'family') {
+                travelerText = 'Family Package';
             } else {
-                groupText = 'Group Adventure';
+                travelerText = 'Group Adventure';
             }
             
-            document.getElementById('historical-summary-group').textContent = groupText;
+            document.getElementById('historical-summary-traveler').textContent = travelerText;
             document.getElementById('historical-summary-total').textContent = 
                 `$${Math.round(historicalCurrentBooking.totalPrice)}`;
             
@@ -4136,7 +3440,7 @@
             const discountItem = document.getElementById('historical-summary-discount-item');
             const originalPriceDisplay = document.getElementById('historical-summary-original-price');
             
-            if (historicalCurrentBooking.groupType === 'group') {
+            if (historicalCurrentBooking.travelerType === 'group') {
                 peopleItem.style.display = 'flex';
                 peopleValue.textContent = historicalCurrentBooking.peopleCount;
             } else {
@@ -4181,10 +3485,10 @@
 
 *Destination:* Historical Sites Tanzania
 *Package Level:* ${historicalCurrentBooking.packageLevel.toUpperCase()}
-*Travel Style:* ${historicalCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
-                historicalCurrentBooking.groupType === 'double' ? 'Couple Package' : 
-                historicalCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
-${historicalCurrentBooking.groupType === 'group' ? `*Number of People:* ${historicalCurrentBooking.peopleCount}` : ''}
+*Travel Style:* ${historicalCurrentBooking.travelerType === 'single' ? 'Solo Traveler' : 
+                historicalCurrentBooking.travelerType === 'couple' ? 'Couple Package' : 
+                historicalCurrentBooking.travelerType === 'family' ? 'Family Package' : 'Group Adventure'}
+${historicalCurrentBooking.travelerType === 'group' ? `*Number of People:* ${historicalCurrentBooking.peopleCount}` : ''}
 *Duration:* 3 Days
 ${historicalCurrentBooking.discountApplied ? `*Original Price:* $${Math.round(historicalCurrentBooking.originalPrice)}` : ''}
 ${discountText}
@@ -4209,7 +3513,7 @@ ${historicalCurrentBooking.packageLevel === 'local' ? '✓ Transport, Fees, Acco
 
             // Send to WhatsApp
             const whatsappMessage = encodeURIComponent(summary);
-            const whatsappUrl = `https://wa.me/255123456789?text=${whatsappMessage}`;
+            const whatsappUrl = `https://wa.me/255714331051?text=${whatsappMessage}`;
             
             // Send to Email
             const emailSubject = encodeURIComponent('New Historical Tour Booking - MMexy Tanzania');
@@ -4261,10 +3565,10 @@ ${historicalCurrentBooking.packageLevel === 'local' ? '✓ Transport, Fees, Acco
             const summary = `
 Destination: Historical Sites Tanzania
 Package: ${historicalCurrentBooking.packageLevel.toUpperCase()}
-Travel Style: ${historicalCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
-                historicalCurrentBooking.groupType === 'double' ? 'Couple Package' : 
-                historicalCurrentBooking.groupType === 'family' ? 'Family Package' : 'Group Adventure'}
-${historicalCurrentBooking.groupType === 'group' ? `People: ${historicalCurrentBooking.peopleCount}` : ''}${originalPriceText}${discountText}
+Travel Style: ${historicalCurrentBooking.travelerType === 'single' ? 'Solo Traveler' : 
+                historicalCurrentBooking.travelerType === 'couple' ? 'Couple Package' : 
+                historicalCurrentBooking.travelerType === 'family' ? 'Family Package' : 'Group Adventure'}
+${historicalCurrentBooking.travelerType === 'group' ? `People: ${historicalCurrentBooking.peopleCount}` : ''}${originalPriceText}${discountText}
 Total: $${Math.round(historicalCurrentBooking.totalPrice)}
 
 Contact: ${historicalCurrentBooking.contactInfo.firstName} ${historicalCurrentBooking.contactInfo.lastName}
@@ -4290,7 +3594,7 @@ ${historicalCurrentBooking.contactInfo.specialRequests ? `Special Requests: ${hi
             
             // Set default selections
             document.querySelector('#historical-premium-modal .package-level[data-level="local"]').click();
-            document.querySelector('#historical-premium-modal .group-option[data-group="single"]').click();
+            document.querySelector('#historical-premium-modal .traveler-option[data-type="single"]').click();
             
             // Set default dates (tomorrow and 3 days later)
             const tomorrow = new Date();
