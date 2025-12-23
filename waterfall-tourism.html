@@ -1611,6 +1611,30 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
+        /* Mobile Back Button */
+        .mobile-back-btn {
+            width: 100%;
+            padding: 12px 20px;
+            background: var(--waterfall-blue);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .mobile-back-btn:hover {
+            background: #1c7ed6;
+            transform: translateY(-2px);
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .desktop-nav {
@@ -2052,7 +2076,7 @@
                         </ul>
                     </div>
 
-                    <div class="excludes-box">
+                    <!-- <div class="excludes-box">
                         <h3><i class="fas fa-times-circle"></i> <span data-i18n="waterfall.excludes.title">What's Excluded</span></h3>
                         <ul>
                             <li><i class="fas fa-times"></i> <span data-i18n="waterfall.excludes.item1">International flights</span></li>
@@ -2064,7 +2088,7 @@
                             <li><i class="fas fa-times"></i> <span data-i18n="waterfall.excludes.item7">Optional activities</span></li>
                             <li><i class="fas fa-times"></i> <span data-i18n="waterfall.excludes.item8">Additional accommodation</span></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -2279,12 +2303,19 @@
                         </div>
                     </div>
 
+                    <!-- MOBILE BACK BUTTON (Step 2) -->
                     <div class="mobile-actions">
+                        <button class="mobile-back-btn" onclick="waterfallPrevStep(1)">
+                            <i class="fas fa-arrow-left"></i>
+                            <span data-i18n="waterfall.modal.back">Back</span>
+                        </button>
                         <button class="mobile-next-btn" onclick="waterfallNextStep(3)">
                             <span data-i18n="waterfall.modal.next_final">Next: Book Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
+                    
+                    <!-- DESKTOP BACK BUTTON (Step 2) -->
                     <div class="modal-actions">
                         <button class="modal-btn btn-back" onclick="waterfallPrevStep(1)" data-i18n="waterfall.modal.back">
                             <i class="fas fa-arrow-left"></i> Back
@@ -2344,17 +2375,26 @@
                             <input type="email" id="waterfall-email" placeholder="Email Address" class="form-input full-width" required>
                             <input type="tel" id="waterfall-phone" placeholder="Phone Number" class="form-input full-width" required>
                             <input type="text" id="waterfall-country" placeholder="Country" class="form-input full-width" required>
-                            <input type="date" id="waterfall-arrivalDate" class="form-input" required>
-                            <input type="date" id="waterfall-departureDate" class="form-input" required>
+                            <label>Arrival Date</label>
+                            <input type="text" id="waterfall-arrivalDate" class="form-input" required>
+                            <label>Departure Date</label>
+                            <input type="text" id="waterfall-departureDate" class="form-input" required>
                         </div>
                     </div>
 
+                    <!-- MOBILE BACK BUTTON (Step 3) -->
                     <div class="mobile-actions">
+                        <button class="mobile-back-btn" onclick="waterfallPrevStep(2)">
+                            <i class="fas fa-arrow-left"></i>
+                            <span data-i18n="waterfall.modal.back">Back</span>
+                        </button>
                         <button class="mobile-complete-btn" onclick="waterfallCompleteBooking()">
                             <i class="fas fa-credit-card"></i>
                             <span data-i18n="waterfall.modal.complete">Complete Booking</span>
                         </button>
                     </div>
+                    
+                    <!-- DESKTOP BACK BUTTON (Step 3) -->
                     <div class="modal-actions">
                         <button class="modal-btn btn-back" onclick="waterfallPrevStep(2)" data-i18n="waterfall.modal.back">
                             <i class="fas fa-arrow-left"></i> Back
@@ -2667,63 +2707,160 @@
                 "nav.home": "Accueil",
                 "nav.about": "À Propos",
                 "nav.destinations": "Destinations",
-                // ... other French translations
+                "nav.mountain_climbing": "Escalade de Montagne",
+                "nav.safaris": "Safaris Tanzanie",
+                "nav.zanzibar": "Plages de Zanzibar",
+                "nav.cultural": "Tourisme Culturel",
+                "nav.waterfalls": "Tourisme des Chutes d'Eau",
+                "nav.historical": "Sites Historiques",
+                "nav.contact": "Contact",
+                
+                "waterfall.hero.title": "Aventures de Chutes d'Eau",
+                "waterfall.hero.subtitle": "Découvrez les Merveilles Cachées des Chutes d'Eau de Tanzanie",
+                "waterfall.hero.cta": "Réservez Votre Aventure de Chutes d'Eau",
+                
+                "waterfall.modal.back": "Retour",
+                "waterfall.modal.cancel": "Annuler"
             },
             de: {
                 // German translations (truncated for brevity)
                 "nav.home": "Startseite",
                 "nav.about": "Über Uns",
                 "nav.destinations": "Destinationen",
-                // ... other German translations
+                "nav.mountain_climbing": "Bergsteigen",
+                "nav.safaris": "Tansania Safaris",
+                "nav.zanzibar": "Zanzibar Strände",
+                "nav.cultural": "Kulturtourismus",
+                "nav.waterfalls": "Wasserfalltourismus",
+                "nav.historical": "Historische Stätten",
+                "nav.contact": "Kontakt",
+                
+                "waterfall.hero.title": "Wasserfall Abenteuer",
+                "waterfall.hero.subtitle": "Entdecken Sie Tansanias Versteckte Wasserfallwunder",
+                "waterfall.hero.cta": "Buchen Sie Ihr Wasserfallabenteuer",
+                
+                "waterfall.modal.back": "Zurück",
+                "waterfall.modal.cancel": "Abbrechen"
             },
             es: {
                 // Spanish translations (truncated for brevity)
                 "nav.home": "Inicio",
                 "nav.about": "Acerca de",
                 "nav.destinations": "Destinos",
-                // ... other Spanish translations
+                "nav.mountain_climbing": "Escalada de Montaña",
+                "nav.safaris": "Safaris de Tanzania",
+                "nav.zanzibar": "Playas de Zanzíbar",
+                "nav.cultural": "Turismo Cultural",
+                "nav.waterfalls": "Turismo de Cascadas",
+                "nav.historical": "Sitios Históricos",
+                "nav.contact": "Contacto",
+                
+                "waterfall.hero.title": "Aventuras de Cascadas",
+                "waterfall.hero.subtitle": "Descubre las Maravillas Ocultas de las Cascadas de Tanzania",
+                "waterfall.hero.cta": "Reserva tu Aventura en Cascadas",
+                
+                "waterfall.modal.back": "Atrás",
+                "waterfall.modal.cancel": "Cancelar"
             },
             it: {
                 // Italian translations (truncated for brevity)
                 "nav.home": "Home",
                 "nav.about": "Chi Siamo",
                 "nav.destinations": "Destinazioni",
-                // ... other Italian translations
+                "nav.mountain_climbing": "Arrampicata in Montagna",
+                "nav.safaris": "Safari in Tanzania",
+                "nav.zanzibar": "Spiagge di Zanzibar",
+                "nav.cultural": "Turismo Culturale",
+                "nav.waterfalls": "Turismo delle Cascate",
+                "nav.historical": "Siti Storici",
+                "nav.contact": "Contatto",
+                
+                "waterfall.hero.title": "Avventure nelle Cascate",
+                "waterfall.hero.subtitle": "Scopri le Meraviglie Nascoste delle Cascate della Tanzania",
+                "waterfall.hero.cta": "Prenota la tua Avventura nelle Cascate",
+                
+                "waterfall.modal.back": "Indietro",
+                "waterfall.modal.cancel": "Annulla"
             },
             pt: {
                 // Portuguese translations (truncated for brevity)
                 "nav.home": "Início",
                 "nav.about": "Sobre",
                 "nav.destinations": "Destinos",
-                // ... other Portuguese translations
+                "nav.mountain_climbing": "Escalada de Montanha",
+                "nav.safaris": "Safáris da Tanzânia",
+                "nav.zanzibar": "Praias de Zanzibar",
+                "nav.cultural": "Turismo Cultural",
+                "nav.waterfalls": "Turismo de Cachoeiras",
+                "nav.historical": "Sítios Históricos",
+                "nav.contact": "Contato",
+                
+                "waterfall.hero.title": "Aventuras em Cachoeiras",
+                "waterfall.hero.subtitle": "Descubra as Maravilhas Ocultas das Cachoeiras da Tanzânia",
+                "waterfall.hero.cta": "Reserve sua Aventura em Cachoeiras",
+                
+                "waterfall.modal.back": "Voltar",
+                "waterfall.modal.cancel": "Cancelar"
             },
             ru: {
                 // Russian translations (truncated for brevity)
                 "nav.home": "Главная",
                 "nav.about": "О нас",
                 "nav.destinations": "Направления",
-                // ... other Russian translations
+                "nav.mountain_climbing": "Восхождение на Горы",
+                "nav.safaris": "Сафари в Танзании",
+                "nav.zanzibar": "Пляжи Занзибара",
+                "nav.cultural": "Культурный Туризм",
+                "nav.waterfalls": "Водопадный Туризм",
+                "nav.historical": "Исторические Места",
+                "nav.contact": "Контакт",
+                
+                "waterfall.hero.title": "Приключения на Водопадах",
+                "waterfall.hero.subtitle": "Откройте Скрытые Чудеса Водопадов Танзании",
+                "waterfall.hero.cta": "Забронируйте Приключение на Водопадах",
+                
+                "waterfall.modal.back": "Назад",
+                "waterfall.modal.cancel": "Отмена"
             },
             zh: {
                 // Chinese translations (truncated for brevity)
                 "nav.home": "首页",
                 "nav.about": "关于",
                 "nav.destinations": "目的地",
-                // ... other Chinese translations
+                "nav.mountain_climbing": "登山",
+                "nav.safaris": "坦桑尼亚野生动物园",
+                "nav.zanzibar": "桑给巴尔海滩",
+                "nav.cultural": "文化旅游",
+                "nav.waterfalls": "瀑布旅游",
+                "nav.historical": "历史遗址",
+                "nav.contact": "联系",
+                
+                "waterfall.hero.title": "瀑布冒险",
+                "waterfall.hero.subtitle": "探索坦桑尼亚隐藏的瀑布奇观",
+                "waterfall.hero.cta": "预订您的瀑布冒险",
+                
+                "waterfall.modal.back": "返回",
+                "waterfall.modal.cancel": "取消"
             },
             ja: {
                 // Japanese translations (truncated for brevity)
                 "nav.home": "ホーム",
                 "nav.about": "について",
                 "nav.destinations": "目的地",
-                // ... other Japanese translations
-            },
-            ar: {
-                // Arabic translations (truncated for brevity)
-                "nav.home": "الصفحة الرئيسية",
-                "nav.about": "حول",
-                "nav.destinations": "الوجهات",
-                // ... other Arabic translations
+                "nav.mountain_climbing": "登山",
+                "nav.safaris": "タンザニアサファリ",
+                "nav.zanzibar": "ザンジバルビーチ",
+                "nav.cultural": "文化観光",
+                "nav.waterfalls": "滝観光",
+                "nav.historical": "歴史的遺跡",
+                "nav.contact": "お問い合わせ",
+                
+                "waterfall.hero.title": "滝の冒険",
+                "waterfall.hero.subtitle": "タンザニアの隠れた滝の不思議を発見",
+                "waterfall.hero.cta": "滝の冒険を予約",
+                
+                "waterfall.modal.back": "戻る",
+                "waterfall.modal.cancel": "キャンセル"
             }
         };
 

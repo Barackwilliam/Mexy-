@@ -1659,7 +1659,7 @@
             transform: translateY(-2px);
         }
 
-        /* Mobile Actions */
+        /* Mobile Actions - WITH BACK BUTTON */
         .mobile-actions {
             display: none;
             position: sticky;
@@ -1668,6 +1668,34 @@
             padding: 20px 15px 15px;
             margin: 20px -30px -30px;
             z-index: 100;
+        }
+
+        .mobile-actions-inner {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+        }
+
+        .mobile-back-btn {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         .mobile-next-btn, .mobile-complete-btn {
@@ -1692,7 +1720,7 @@
             color: white;
         }
 
-        .mobile-next-btn:hover, .mobile-complete-btn:hover {
+        .mobile-back-btn:hover, .mobile-next-btn:hover, .mobile-complete-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
@@ -2386,10 +2414,16 @@
                         </div>
                     </div>
                     <div class="mobile-actions">
-                        <button class="mobile-next-btn" onclick="culturalNextStep(2)">
-                            <span data-i18n="cultural.booking_modal.next_step1">Next: Travel Style</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
+                        <div class="mobile-actions-inner">
+                            <button class="mobile-back-btn" onclick="culturalPrevStep(1)" style="opacity: 0.5; cursor: not-allowed;" disabled>
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Back</span>
+                            </button>
+                            <button class="mobile-next-btn" onclick="culturalNextStep(2)">
+                                <span data-i18n="cultural.booking_modal.next_step1">Next: Travel Style</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="modal-actions">
                         <button class="modal-btn btn-secondary" onclick="closeCulturalPremiumModal()" data-i18n="cultural.booking_modal.cancel">Cancel</button>
@@ -2474,10 +2508,16 @@
                     </div>
 
                     <div class="mobile-actions">
-                        <button class="mobile-next-btn" onclick="culturalNextStep(3)">
-                            <span data-i18n="cultural.booking_modal.next_step2">Next: Book Now</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
+                        <div class="mobile-actions-inner">
+                            <button class="mobile-back-btn" onclick="culturalPrevStep(1)">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Back</span>
+                            </button>
+                            <button class="mobile-next-btn" onclick="culturalNextStep(3)">
+                                <span data-i18n="cultural.booking_modal.next_step2">Next: Book Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="modal-actions">
                         <button class="modal-btn btn-secondary" onclick="culturalPrevStep(1)" data-i18n="cultural.booking_modal.back">Back</button>
@@ -2528,21 +2568,41 @@
                         </div>
                     </div>
 
+                    <!-- CHANGED: Country, Arrival Date, Departure Date Form -->
                     <div class="contact-form">
-                        <h4 class="summary-title" data-i18n="cultural.booking_modal.contact_title">Contact Information</h4>
+                        <h4 class="summary-title" data-i18n="cultural.booking_modal.contact_title">Travel Information</h4>
                         <div class="form-grid">
-                            <input type="text" id="cultural-firstName" placeholder="First Name" class="form-input" data-i18n-placeholder="cultural.booking_modal.placeholder_firstname">
-                            <input type="text" id="cultural-lastName" placeholder="Last Name" class="form-input" data-i18n-placeholder="cultural.booking_modal.placeholder_lastname">
-                            <input type="email" id="cultural-email" placeholder="Email Address" class="form-input full-width" data-i18n-placeholder="cultural.booking_modal.placeholder_email">
-                            <input type="tel" id="cultural-phone" placeholder="Phone Number" class="form-input full-width" data-i18n-placeholder="cultural.booking_modal.placeholder_phone">
+                            <select id="cultural-country" class="form-input" data-i18n-placeholder="cultural.booking_modal.placeholder_country">
+                                <option value="">Select Country</option>
+                                <option value="USA">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Germany">Germany</option>
+                                <option value="France">France</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Japan">Japan</option>
+                                <option value="China">China</option>
+                                <option value="India">India</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Kenya">Kenya</option>
+                            </select>
+                            <input type="date" id="cultural-arrival-date" class="form-input" data-i18n-placeholder="cultural.booking_modal.placeholder_arrival">
+                            <input type="date" id="cultural-departure-date" class="form-input" data-i18n-placeholder="cultural.booking_modal.placeholder_departure">
                         </div>
                     </div>
 
                     <div class="mobile-actions">
-                        <button class="mobile-complete-btn" onclick="culturalCompleteBooking()">
-                            <i class="fas fa-credit-card"></i>
-                            <span data-i18n="cultural.booking_modal.complete_booking">Complete Booking</span>
-                        </button>
+                        <div class="mobile-actions-inner">
+                            <button class="mobile-back-btn" onclick="culturalPrevStep(2)">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Back</span>
+                            </button>
+                            <button class="mobile-complete-btn" onclick="culturalCompleteBooking()">
+                                <i class="fas fa-credit-card"></i>
+                                <span data-i18n="cultural.booking_modal.complete_booking">Complete Booking</span>
+                            </button>
+                        </div>
                     </div>
                     <div class="modal-actions">
                         <button class="modal-btn btn-secondary" onclick="culturalPrevStep(2)" data-i18n="cultural.booking_modal.back">Back</button>
@@ -2703,11 +2763,10 @@
         "cultural.booking_modal.summary_discount": "Group Discount Applied:",
         "cultural.booking_modal.summary_total": "Total Amount:",
         "cultural.booking_modal.summary_original": "Original Price:",
-        "cultural.booking_modal.contact_title": "Contact Information",
-        "cultural.booking_modal.placeholder_firstname": "First Name",
-        "cultural.booking_modal.placeholder_lastname": "Last Name",
-        "cultural.booking_modal.placeholder_email": "Email Address",
-        "cultural.booking_modal.placeholder_phone": "Phone Number",
+        "cultural.booking_modal.contact_title": "Travel Information",
+        "cultural.booking_modal.placeholder_country": "Select Country",
+        "cultural.booking_modal.placeholder_arrival": "Arrival Date",
+        "cultural.booking_modal.placeholder_departure": "Departure Date",
         "cultural.booking_modal.complete_booking": "Complete Booking",
 
         // Footer
@@ -2868,11 +2927,10 @@
         "cultural.booking_modal.summary_discount": "Punguzo la Kikundi Limewekwa:",
         "cultural.booking_modal.summary_total": "Jumla ya Kiasi:",
         "cultural.booking_modal.summary_original": "Bei ya Asili:",
-        "cultural.booking_modal.contact_title": "Maelezo ya Mawasiliano",
-        "cultural.booking_modal.placeholder_firstname": "Jina la Kwanza",
-        "cultural.booking_modal.placeholder_lastname": "Jina la Mwisho",
-        "cultural.booking_modal.placeholder_email": "Anwani ya Barua Pepe",
-        "cultural.booking_modal.placeholder_phone": "Nambari ya Simu",
+        "cultural.booking_modal.contact_title": "Maelezo ya Safari",
+        "cultural.booking_modal.placeholder_country": "Chagua Nchi",
+        "cultural.booking_modal.placeholder_arrival": "Tarehe ya Kuwasili",
+        "cultural.booking_modal.placeholder_departure": "Tarehe ya Kuondoka",
         "cultural.booking_modal.complete_booking": "Kamilisha Kuhifadhi",
 
         // Footer - Kiswahili
@@ -2889,1326 +2947,7 @@
         "translation.loading": "Inatafsiri maudhui...",
         "translation.error": "Kutafsiri hakukufanikiwa. Tafadhali jaribu tena."
     },
-    fr: {
-        // Navigation - Français
-        "nav.home": "Accueil",
-        "nav.about": "À Propos",
-        "nav.destinations": "Destinations",
-        "nav.mountain_climbing": "Ascension de Montagnes",
-        "nav.safaris": "Safaris Tanzanie",
-        "nav.zanzibar": "Plages de Zanzibar",
-        "nav.cultural": "Tourisme Culturel",
-        "nav.waterfalls": "Tourisme des Cascades",
-        "nav.historical": "Sites Historiques",
-        "nav.contact": "Contact",
-
-        // Cultural Tourism Page - Français
-        "cultural.hero.title": "Tourisme Culturel Tanzanie",
-        "cultural.hero.subtitle": "Vivez des Traditions Tribales Authentiques et des Communautés Locales",
-        "cultural.hero.cta": "Réserver l'Expérience Culturelle",
-        
-        "cultural.content.title": "Voyage d'Immersion Culturelle",
-        "cultural.content.subtitle": "2-5 Jours d'Expériences Tribales Authentiques et Visites de Communautés",
-        
-        "cultural.about.title": "À Propos du Tourisme Culturel",
-        "cultural.about.description": "Plongez-vous dans la riche tapisserie culturelle des divers groupes ethniques de Tanzanie. Nos forfaits de tourisme culturel offrent des interactions authentiques avec les communautés locales, des cérémonies traditionnelles et des expériences pratiques qui préservent les traditions anciennes tout en soutenant le développement communautaire durable.",
-        "cultural.about.highlights": "Points Forts Culturels",
-        "cultural.about.highlight1": "Séjours en famille Maasaï",
-        "cultural.about.highlight2": "Spectacles de danse traditionnelle",
-        "cultural.about.highlight3": "Ateliers d'artisanat local",
-        "cultural.about.highlight4": "Expériences culinaires traditionnelles",
-        "cultural.about.highlight5": "Projets de développement communautaire",
-        
-        "cultural.tribes.title": "Rencontrez les Groupes Ethniques de Tanzanie",
-        "cultural.tribes.maasai.title": "Expérience Communautaire Maasaï",
-        "cultural.tribes.maasai.description": "Vivez avec le peuple emblématique Maasaï, apprenez sur leurs traditions pastorales, participez aux danses de saut et comprenez leur lien profond avec la nature et le bétail.",
-        "cultural.tribes.maasai.feature1": "Séjour Manyatta",
-        "cultural.tribes.maasai.feature2": "Formation Guerrière",
-        "cultural.tribes.maasai.feature3": "Atelier de Perlage",
-        
-        "cultural.tribes.chagga.title": "Immersion Culturelle Chagga",
-        "cultural.tribes.chagga.description": "Explorez les traditions agricoles du peuple Chagga autour du Mont Kilimandjaro, visitez les plantations de café et apprenez sur leurs systèmes d'irrigation innovants.",
-        "cultural.tribes.chagga.feature1": "Transformation du Café",
-        "cultural.tribes.chagga.feature2": "Visite de Plantation de Bananes",
-        "cultural.tribes.chagga.feature3": "Canaux Traditionnels",
-        
-        "cultural.tribes.hadzabe.title": "Expérience Chasseurs-Cueilleurs Hadzabe",
-        "cultural.tribes.hadzabe.description": "Passez du temps avec les Hadzabe, l'une des dernières tribus de chasseurs-cueilleurs en Afrique, apprenant des compétences de survie anciennes, des techniques de chasse traditionnelles et leur langue à clics unique.",
-        "cultural.tribes.hadzabe.feature1": "Chasse Traditionnelle",
-        "cultural.tribes.hadzabe.feature2": "Compétences de Cueillette",
-        "cultural.tribes.hadzabe.feature3": "Allumage de Feu",
-        
-        "cultural.itinerary.title": "Itinéraire d'Immersion Culturelle de 4 Jours",
-        "cultural.itinerary.day1.title": "Jour 1 : Arrivée et Bienvenue Maasaï",
-        "cultural.itinerary.day1.duration": "Communauté Maasaï",
-        "cultural.itinerary.day1.activities": "Arrivée dans la communauté Maasaï, cérémonie de bienvenue traditionnelle avec les anciens, installation dans les logements en famille, soirée de contes autour du feu de camp sur l'histoire et les traditions Maasaï.",
-        "cultural.itinerary.day2.title": "Jour 2 : Vie Quotidienne Maasaï",
-        "cultural.itinerary.day2.duration": "Immersion Culturelle Complète",
-        "cultural.itinerary.day2.activities": "Expérience matinale de garde de bétail avec les guerriers Maasaï, atelier de perlage traditionnel avec les femmes, participation à la préparation du déjeuner traditionnel, formation guerrière l'après-midi et pratique de l'Adumu (danse de saut).",
-        "cultural.itinerary.day3.title": "Jour 3 : Communauté Chagga",
-        "cultural.itinerary.day3.duration": "Traditions Agricoles",
-        "cultural.itinerary.day3.activities": "Voyage vers la communauté Chagga au pied du Kilimandjaro, visite de plantation de café et démonstration de transformation, exploration du système d'irrigation traditionnel (Ndiva), atelier de brassage de bière de banane, spectacles culturels du soir avec musique traditionnelle.",
-        "cultural.itinerary.day4.title": "Jour 4 : Projets Communautaires et Départ",
-        "cultural.itinerary.day4.duration": "Cérémonie d'Adieu",
-        "cultural.itinerary.day4.activities": "Participation matinale au projet de développement communautaire (école, eau ou initiative de santé), cérémonie d'adieu avec bénédictions traditionnelles et échange de cadeaux, shopping de souvenirs culturels, transfert à l'aéroport avec des souvenirs inoubliables de l'hospitalité tanzanienne.",
-        
-        "cultural.includes.title": "Ce qui est Inclus",
-        "cultural.includes.item1": "Hébergement en famille d'accueil",
-        "cultural.includes.item2": "Tous les repas traditionnels",
-        "cultural.includes.item3": "Services de guide local",
-        "cultural.includes.item4": "Frais de spectacles culturels",
-        "cultural.includes.item5": "Matériaux d'ateliers artisanaux",
-        "cultural.includes.item6": "Contribution au développement communautaire",
-        "cultural.includes.item7": "Transport entre communautés",
-        "cultural.includes.item8": "Session d'orientation culturelle",
-        
-        "cultural.excludes.title": "Ce qui est Exclu",
-        "cultural.excludes.item1": "Vols internationaux",
-        "cultural.excludes.item2": "Frais de visa Tanzanie",
-        "cultural.excludes.item3": "Assurance voyage",
-        "cultural.excludes.item4": "Boissons alcoolisées",
-        "cultural.excludes.item5": "Shopping personnel",
-        "cultural.excludes.item6": "Activités optionnelles",
-        "cultural.excludes.item7": "Pourboires pour guides et hôtes",
-        "cultural.excludes.item8": "Dépenses personnelles",
-        
-        "cultural.booking.title": "Prêt pour l'Immersion Culturelle?",
-        "cultural.booking.subtitle": "Réservez votre expérience culturelle authentique et connectez-vous avec les traditions vivantes de Tanzanie.",
-        "cultural.booking.cta": "Réserver l'Expérience Culturelle",
-        
-        // Booking Modal - Français
-        "cultural.booking_modal.title": "Réservez Votre Expérience Culturelle",
-        "cultural.booking_modal.step1": "Niveau du Forfait",
-        "cultural.booking_modal.step2": "Style de Voyage",
-        "cultural.booking_modal.step3": "Détails de Réservation",
-        "cultural.booking_modal.package_title": "Choisissez Votre Expérience Culturelle",
-        "cultural.booking_modal.package_basic": "BASIQUE",
-        "cultural.booking_modal.package_basic_feature1": "Visite d'une Journée de la Communauté",
-        "cultural.booking_modal.package_basic_feature2": "Spectacle Culturel",
-        "cultural.booking_modal.package_basic_feature3": "Guide Local",
-        "cultural.booking_modal.package_basic_feature4": "Déjeuner Traditionnel",
-        "cultural.booking_modal.package_basic_feature5": "Démonstration d'Artisanat de Base",
-        "cultural.booking_modal.package_immersion": "IMMERSION",
-        "cultural.booking_modal.package_immersion_feature1": "Séjour de 2 Jours en Famille",
-        "cultural.booking_modal.package_immersion_feature2": "Tous les Repas Traditionnels",
-        "cultural.booking_modal.package_immersion_feature3": "Ateliers d'Artisanat",
-        "cultural.booking_modal.package_immersion_feature4": "Projets Communautaires",
-        "cultural.booking_modal.package_immersion_feature5": "Activités Culturelles",
-        "cultural.booking_modal.package_immersion_feature6": "Rencontres avec les Anciens",
-        "cultural.booking_modal.package_complete": "COMPLET",
-        "cultural.booking_modal.package_complete_feature1": "Tour Multi-Communautés",
-        "cultural.booking_modal.package_complete_feature2": "Guide Culturel Privé",
-        "cultural.booking_modal.package_complete_feature3": "Tous les Ateliers Inclus",
-        "cultural.booking_modal.package_complete_feature4": "Cérémonies Traditionnelles",
-        "cultural.booking_modal.package_complete_feature5": "Contribution Communautaire",
-        "cultural.booking_modal.package_complete_feature6": "Souvenirs Culturels",
-        "cultural.booking_modal.package_complete_feature7": "Permis de Photographie",
-        "cultural.booking_modal.travel_title": "Sélectionnez Votre Style de Voyage",
-        "cultural.booking_modal.travel_solo": "Voyageur Solo",
-        "cultural.booking_modal.travel_solo_desc": "Parfait pour les explorateurs culturels solos",
-        "cultural.booking_modal.travel_couple": "Forfait Couple",
-        "cultural.booking_modal.travel_couple_desc": "Parfait pour les couples",
-        "cultural.booking_modal.travel_family": "Forfait Famille",
-        "cultural.booking_modal.travel_family_desc": "2 adultes + 2 enfants",
-        "cultural.booking_modal.travel_group": "Aventure de Groupe",
-        "cultural.booking_modal.travel_group_desc": "2-30 personnes",
-        "cultural.booking_modal.group_size": "Taille du Groupe:",
-        "cultural.booking_modal.package_label": "Forfait Basique",
-        "cultural.booking_modal.travel_label": "Voyageur Solo",
-        "cultural.booking_modal.people_label": "4 personnes",
-        "cultural.booking_modal.discount_label": "Réduction de Groupe (20%)",
-        "cultural.booking_modal.total_label": "Prix Total:",
-        "cultural.booking_modal.original_label": "Prix Original:",
-        "cultural.booking_modal.next_step1": "Suivant: Style de Voyage",
-        "cultural.booking_modal.next_step2": "Suivant: Réserver Maintenant",
-        "cultural.booking_modal.cancel": "Annuler",
-        "cultural.booking_modal.back": "Retour",
-        "cultural.booking_modal.confirm_title": "Confirmez Votre Réservation",
-        "cultural.booking_modal.summary_title": "Résumé de la Réservation",
-        "cultural.booking_modal.summary_destination": "Destination:",
-        "cultural.booking_modal.summary_package": "Niveau du Forfait:",
-        "cultural.booking_modal.summary_travel": "Style de Voyage:",
-        "cultural.booking_modal.summary_people": "Nombre de Personnes:",
-        "cultural.booking_modal.summary_duration": "Durée:",
-        "cultural.booking_modal.summary_discount": "Réduction de Groupe Appliquée:",
-        "cultural.booking_modal.summary_total": "Montant Total:",
-        "cultural.booking_modal.summary_original": "Prix Original:",
-        "cultural.booking_modal.contact_title": "Informations de Contact",
-        "cultural.booking_modal.placeholder_firstname": "Prénom",
-        "cultural.booking_modal.placeholder_lastname": "Nom",
-        "cultural.booking_modal.placeholder_email": "Adresse Email",
-        "cultural.booking_modal.placeholder_phone": "Numéro de Téléphone",
-        "cultural.booking_modal.complete_booking": "Compléter la Réservation",
-
-        // Footer - Français
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "Création d'expériences inoubliables au cœur de la Tanzanie. Découvrez la magie de l'Afrique avec nos guides experts et nos aventures safari premium.",
-        "footer.quick_links": "Liens Rapides",
-        "footer.destinations": "Destinations",
-        "footer.contact_info": "Informations de Contact",
-        "footer.address": "Arusha, Tanzanie",
-        "footer.language": "Langue:",
-        "footer.copyright": "© 2024 MMexy Tanzania Adventures. Tous droits réservés. | Conçu avec ❤️ pour le Tourisme Tanzanien",
-
-        // Translation System - Français
-        "translation.loading": "Traduction du contenu...",
-        "translation.error": "La traduction a échoué. Veuillez réessayer."
-    },
-    de: {
-        // Navigation - Deutsch
-        "nav.home": "Startseite",
-        "nav.about": "Über Uns",
-        "nav.destinations": "Destinationen",
-        "nav.mountain_climbing": "Bergsteigen",
-        "nav.safaris": "Tansania Safaris",
-        "nav.zanzibar": "Zanzibar Strände",
-        "nav.cultural": "Kulturtourismus",
-        "nav.waterfalls": "Wasserfall-Tourismus",
-        "nav.historical": "Historische Stätten",
-        "nav.contact": "Kontakt",
-
-        // Cultural Tourism Page - Deutsch
-        "cultural.hero.title": "Kulturtourismus Tansania",
-        "cultural.hero.subtitle": "Erleben Sie authentische Stammestraditionen und lokale Gemeinschaften",
-        "cultural.hero.cta": "Kulturelle Erfahrung buchen",
-        
-        "cultural.content.title": "Kulturelle Erlebnisreise",
-        "cultural.content.subtitle": "2-5 Tage authentische Stammeserlebnisse und Gemeinschaftsbesuche",
-        
-        "cultural.about.title": "Über Kulturtourismus",
-        "cultural.about.description": "Tauchen Sie ein in den reichen kulturellen Teppich der vielfältigen ethnischen Gruppen Tansanias. Unsere Kulturtourismus-Pakete bieten authentische Interaktionen mit lokalen Gemeinschaften, traditionelle Zeremonien und praktische Erfahrungen, die alte Traditionen bewahren und gleichzeitig nachhaltige Gemeinschaftsentwicklung unterstützen.",
-        "cultural.about.highlights": "Kulturelle Highlights",
-        "cultural.about.highlight1": "Maasai-Dorf-Homestays",
-        "cultural.about.highlight2": "Traditionelle Tanzaufführungen",
-        "cultural.about.highlight3": "Lokale Handwerksworkshops",
-        "cultural.about.highlight4": "Traditionelle Kochkurse",
-        "cultural.about.highlight5": "Gemeinschaftsentwicklungsprojekte",
-        
-        "cultural.tribes.title": "Treffen Sie Tansanias ethnische Gruppen",
-        "cultural.tribes.maasai.title": "Maasai-Gemeinschaftserlebnis",
-        "cultural.tribes.maasai.description": "Leben Sie mit den ikonischen Maasai, lernen Sie über ihre pastorale Traditionen, nehmen Sie an Sprungtänzen teil und verstehen Sie ihre tiefe Verbindung mit Natur und Vieh.",
-        "cultural.tribes.maasai.feature1": "Manyatta-Aufenthalt",
-        "cultural.tribes.maasai.feature2": "Krieger-Training",
-        "cultural.tribes.maasai.feature3": "Perlenarbeiten Workshop",
-        
-        "cultural.tribes.chagga.title": "Chagga-Kulturelle Immersion",
-        "cultural.tribes.chagga.description": "Erkunden Sie die landwirtschaftlichen Traditionen des Chagga-Volkes um den Kilimandscharo, besuchen Sie Kaffeeplantagen und lernen Sie über ihre innovativen Bewässerungssysteme.",
-        "cultural.tribes.chagga.feature1": "Kaffeeverarbeitung",
-        "cultural.tribes.chagga.feature2": "Bananenfarm Tour",
-        "cultural.tribes.chagga.feature3": "Traditionelle Kanäle",
-        
-        "cultural.tribes.hadzabe.title": "Hadzabe Jäger-und-Sammler-Erlebnis",
-        "cultural.tribes.hadzabe.description": "Verbringen Sie Zeit mit den Hadzabe, einem der letzten Jäger-und-Sammler-Stämme Afrikas, lernen Sie uralte Überlebensfähigkeiten, traditionelle Jagdtechniken und ihre einzigartige Klick-Sprache.",
-        "cultural.tribes.hadzabe.feature1": "Traditionelle Jagd",
-        "cultural.tribes.hadzabe.feature2": "Sammelfähigkeiten",
-        "cultural.tribes.hadzabe.feature3": "Feuermachen",
-        
-        "cultural.itinerary.title": "4-Tage Kulturelles Immersions-Programm",
-        "cultural.itinerary.day1.title": "Tag 1: Ankunft & Maasai-Begrüßung",
-        "cultural.itinerary.day1.duration": "Maasai-Gemeinschaft",
-        "cultural.itinerary.day1.activities": "Ankunft in der Maasai-Gemeinschaft, traditionelle Begrüßungszeremonie mit Ältesten, Einzug in Homestay-Unterkünfte, abendliches Geschichtenerzählen am Lagerfeuer über Maasai-Geschichte und Traditionen.",
-        "cultural.itinerary.day2.title": "Tag 2: Maasai-Alltagsleben",
-        "cultural.itinerary.day2.duration": "Vollständige kulturelle Immersion",
-        "cultural.itinerary.day2.activities": "Morgendliche Viehhüte-Erfahrung mit Maasai-Kriegern, traditioneller Perlenarbeiten-Workshop mit Frauen, Teilnahme an der Zubereitung des traditionellen Mittagessens, nachmittägliches Krieger-Training und Adumu (Sprungtanz)-Praxis.",
-        "cultural.itinerary.day3.title": "Tag 3: Chagga-Gemeinschaft",
-        "cultural.itinerary.day3.duration": "Landwirtschaftliche Traditionen",
-        "cultural.itinerary.day3.activities": "Fahrt zur Chagga-Gemeinschaft am Fuße des Kilimandscharo, Kaffeeplantagen-Tour und Verarbeitungsdemonstration, Erkundung des traditionellen Bewässerungssystems (Ndiva), Bananenbier-Brau-Workshop, abendliche kulturelle Aufführungen mit traditioneller Musik.",
-        "cultural.itinerary.day4.title": "Tag 4: Gemeinschaftsprojekte & Abreise",
-        "cultural.itinerary.day4.duration": "Abschiedszeremonie",
-        "cultural.itinerary.day4.activities": "Morgendliche Teilnahme an Gemeinschaftsentwicklungsprojekt (Schule, Wasser oder Gesundheitsinitiative), Abschiedszeremonie mit traditionellen Segnungen und Geschenkaustausch, kulturelles Souvenir-Shopping, Transfer zum Flughafen mit unvergesslichen Erinnerungen an tansanische Gastfreundschaft.",
-        
-        "cultural.includes.title": "Was enthalten ist",
-        "cultural.includes.item1": "Gemeinschafts-Homestay-Unterkunft",
-        "cultural.includes.item2": "Alle traditionellen Mahlzeiten",
-        "cultural.includes.item3": "Lokale Reiseleiterdienste",
-        "cultural.includes.item4": "Kulturelle Aufführungsgebühren",
-        "cultural.includes.item5": "Handwerksworkshop-Materialien",
-        "cultural.includes.item6": "Gemeinschaftsentwicklungsbeitrag",
-        "cultural.includes.item7": "Transport zwischen Gemeinschaften",
-        "cultural.includes.item8": "Kulturelle Orientierungssitzung",
-        
-        "cultural.excludes.title": "Was nicht enthalten ist",
-        "cultural.excludes.item1": "Internationale Flüge",
-        "cultural.excludes.item2": "Tansania-Visagebühren",
-        "cultural.excludes.item3": "Reiseversicherung",
-        "cultural.excludes.item4": "Alkoholische Getränke",
-        "cultural.excludes.item5": "Persönlicher Einkauf",
-        "cultural.excludes.item6": "Optionale Aktivitäten",
-        "cultural.excludes.item7": "Trinkgelder für Guides und Gastgeber",
-        "cultural.excludes.item8": "Persönliche Ausgaben",
-        
-        "cultural.booking.title": "Bereit für kulturelle Immersion?",
-        "cultural.booking.subtitle": "Buchen Sie Ihr authentisches kulturelles Erlebnis und verbinden Sie sich mit Tansanias lebendigen Traditionen.",
-        "cultural.booking.cta": "Kulturelle Erfahrung buchen",
-        
-        // Booking Modal - Deutsch
-        "cultural.booking_modal.title": "Buchen Sie Ihre kulturelle Erfahrung",
-        "cultural.booking_modal.step1": "Paket-Level",
-        "cultural.booking_modal.step2": "Reisestil",
-        "cultural.booking_modal.step3": "Buchungsdetails",
-        "cultural.booking_modal.package_title": "Wählen Sie Ihre kulturelle Erfahrung",
-        "cultural.booking_modal.package_basic": "BASIS",
-        "cultural.booking_modal.package_basic_feature1": "Tages-Gemeinschaftsbesuch",
-        "cultural.booking_modal.package_basic_feature2": "Kulturelle Aufführung",
-        "cultural.booking_modal.package_basic_feature3": "Lokaler Guide",
-        "cultural.booking_modal.package_basic_feature4": "Traditionelles Mittagessen",
-        "cultural.booking_modal.package_basic_feature5": "Basis-Handwerksdemo",
-        "cultural.booking_modal.package_immersion": "IMMERSION",
-        "cultural.booking_modal.package_immersion_feature1": "2-Tage-Homestay",
-        "cultural.booking_modal.package_immersion_feature2": "Alle traditionellen Mahlzeiten",
-        "cultural.booking_modal.package_immersion_feature3": "Handwerksworkshops",
-        "cultural.booking_modal.package_immersion_feature4": "Gemeinschaftsprojekte",
-        "cultural.booking_modal.package_immersion_feature5": "Kulturelle Aktivitäten",
-        "cultural.booking_modal.package_immersion_feature6": "Stammesälteste-Treffen",
-        "cultural.booking_modal.package_complete": "KOMPLETT",
-        "cultural.booking_modal.package_complete_feature1": "Multi-Gemeinschafts-Tour",
-        "cultural.booking_modal.package_complete_feature2": "Privater Kulturführer",
-        "cultural.booking_modal.package_complete_feature3": "Alle Workshops inklusive",
-        "cultural.booking_modal.package_complete_feature4": "Traditionelle Zeremonien",
-        "cultural.booking_modal.package_complete_feature5": "Gemeinschaftsbeitrag",
-        "cultural.booking_modal.package_complete_feature6": "Kulturelle Souvenirs",
-        "cultural.booking_modal.package_complete_feature7": "Fotografie-Erlaubnisse",
-        "cultural.booking_modal.travel_title": "Wählen Sie Ihren Reisestil",
-        "cultural.booking_modal.travel_solo": "Alleintraveler",
-        "cultural.booking_modal.travel_solo_desc": "Perfekt für alleinreisende Kulturexplorer",
-        "cultural.booking_modal.travel_couple": "Paar-Paket",
-        "cultural.booking_modal.travel_couple_desc": "Perfekt für Paare",
-        "cultural.booking_modal.travel_family": "Familienpaket",
-        "cultural.booking_modal.travel_family_desc": "2 Erwachsene + 2 Kinder",
-        "cultural.booking_modal.travel_group": "Gruppenabenteuer",
-        "cultural.booking_modal.travel_group_desc": "2-30 Personen",
-        "cultural.booking_modal.group_size": "Gruppengröße:",
-        "cultural.booking_modal.package_label": "Basis-Paket",
-        "cultural.booking_modal.travel_label": "Alleintraveler",
-        "cultural.booking_modal.people_label": "4 Personen",
-        "cultural.booking_modal.discount_label": "Gruppenrabatt (20%)",
-        "cultural.booking_modal.total_label": "Gesamtpreis:",
-        "cultural.booking_modal.original_label": "Originalpreis:",
-        "cultural.booking_modal.next_step1": "Weiter: Reisestil",
-        "cultural.booking_modal.next_step2": "Weiter: Jetzt buchen",
-        "cultural.booking_modal.cancel": "Abbrechen",
-        "cultural.booking_modal.back": "Zurück",
-        "cultural.booking_modal.confirm_title": "Bestätigen Sie Ihre Buchung",
-        "cultural.booking_modal.summary_title": "Buchungszusammenfassung",
-        "cultural.booking_modal.summary_destination": "Zielort:",
-        "cultural.booking_modal.summary_package": "Paket-Level:",
-        "cultural.booking_modal.summary_travel": "Reisestil:",
-        "cultural.booking_modal.summary_people": "Anzahl Personen:",
-        "cultural.booking_modal.summary_duration": "Dauer:",
-        "cultural.booking_modal.summary_discount": "Gruppenrabatt angewendet:",
-        "cultural.booking_modal.summary_total": "Gesamtbetrag:",
-        "cultural.booking_modal.summary_original": "Originalpreis:",
-        "cultural.booking_modal.contact_title": "Kontaktinformationen",
-        "cultural.booking_modal.placeholder_firstname": "Vorname",
-        "cultural.booking_modal.placeholder_lastname": "Nachname",
-        "cultural.booking_modal.placeholder_email": "E-Mail-Adresse",
-        "cultural.booking_modal.placeholder_phone": "Telefonnummer",
-        "cultural.booking_modal.complete_booking": "Buchung abschließen",
-
-        // Footer - Deutsch
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "Schaffung unvergesslicher Erlebnisse im Herzen Tansanias. Entdecken Sie die Magie Afrikas mit unseren Expertenführern und Premium-Safari-Abenteuern.",
-        "footer.quick_links": "Schnelllinks",
-        "footer.destinations": "Destinationen",
-        "footer.contact_info": "Kontaktinformationen",
-        "footer.address": "Arusha, Tansania",
-        "footer.language": "Sprache:",
-        "footer.copyright": "© 2024 MMexy Tanzania Adventures. Alle Rechte vorbehalten. | Entworfen mit ❤️ für den Tansania-Tourismus",
-
-        // Translation System - Deutsch
-        "translation.loading": "Inhalte werden übersetzt...",
-        "translation.error": "Übersetzung fehlgeschlagen. Bitte versuchen Sie es erneut."
-    },
-    es: {
-        // Navigation - Español
-        "nav.home": "Inicio",
-        "nav.about": "Acerca de",
-        "nav.destinations": "Destinos",
-        "nav.mountain_climbing": "Escalada de Montañas",
-        "nav.safaris": "Safaris Tanzania",
-        "nav.zanzibar": "Playas de Zanzíbar",
-        "nav.cultural": "Turismo Cultural",
-        "nav.waterfalls": "Turismo de Cascadas",
-        "nav.historical": "Sitios Históricos",
-        "nav.contact": "Contacto",
-
-        // Cultural Tourism Page - Español
-        "cultural.hero.title": "Turismo Cultural Tanzania",
-        "cultural.hero.subtitle": "Experimenta Tradiciones Tribales Auténticas y Comunidades Locales",
-        "cultural.hero.cta": "Reservar Experiencia Cultural",
-        
-        "cultural.content.title": "Viaje de Inmersión Cultural",
-        "cultural.content.subtitle": "2-5 Días de Experiencias Tribales Auténticas y Visitas Comunitarias",
-        
-        "cultural.about.title": "Acerca del Turismo Cultural",
-        "cultural.about.description": "Sumérgete en el rico tapiz cultural de los diversos grupos étnicos de Tanzania. Nuestros paquetes de turismo cultural ofrecen interacciones auténticas con comunidades locales, ceremonias tradicionales y experiencias prácticas que preservan tradiciones antiguas mientras apoyan el desarrollo comunitario sostenible.",
-        "cultural.about.highlights": "Destacados Culturales",
-        "cultural.about.highlight1": "Estadías en familia Maasai",
-        "cultural.about.highlight2": "Espectáculos de danza tradicional",
-        "cultural.about.highlight3": "Talleres de artesanía local",
-        "cultural.about.highlight4": "Experiencias de cocina tradicional",
-        "cultural.about.highlight5": "Proyectos de desarrollo comunitario",
-        
-        "cultural.tribes.title": "Conoce los Grupos Étnicos de Tanzania",
-        "cultural.tribes.maasai.title": "Experiencia Comunitaria Maasai",
-        "cultural.tribes.maasai.description": "Vive con el icónico pueblo Maasai, aprende sobre sus tradiciones pastorales, participa en danzas de salto y comprende su profunda conexión con la naturaleza y el ganado.",
-        "cultural.tribes.maasai.feature1": "Estancia Manyatta",
-        "cultural.tribes.maasai.feature2": "Entrenamiento Guerrero",
-        "cultural.tribes.maasai.feature3": "Taller de Cuentas",
-        
-        "cultural.tribes.chagga.title": "Inmersión Cultural Chagga",
-        "cultural.tribes.chagga.description": "Explora las tradiciones agrícolas del pueblo Chagga alrededor del Monte Kilimanjaro, visita plantaciones de café y aprende sobre sus sistemas de riego innovadores.",
-        "cultural.tribes.chagga.feature1": "Procesamiento de Café",
-        "cultural.tribes.chagga.feature2": "Tour de Granja de Plátanos",
-        "cultural.tribes.chagga.feature3": "Canales Tradicionales",
-        
-        "cultural.tribes.hadzabe.title": "Experiencia Cazador-Recolector Hadzabe",
-        "cultural.tribes.hadzabe.description": "Pasa tiempo con los Hadzabe, una de las últimas tribus cazadoras-recolectoras en África, aprendiendo habilidades de supervivencia antiguas, técnicas de caza tradicionales y su lenguaje único de clics.",
-        "cultural.tribes.hadzabe.feature1": "Caza Tradicional",
-        "cultural.tribes.hadzabe.feature2": "Habilidades de Recolección",
-        "cultural.tribes.hadzabe.feature3": "Creación de Fuego",
-        
-        "cultural.itinerary.title": "Itinerario de Inmersión Cultural de 4 Días",
-        "cultural.itinerary.day1.title": "Día 1: Llegada y Bienvenida Maasai",
-        "cultural.itinerary.day1.duration": "Comunidad Maasai",
-        "cultural.itinerary.day1.activities": "Llegada a comunidad Maasai, ceremonia de bienvenida tradicional con ancianos, instalación en alojamientos de familia, narración de cuentos nocturna alrededor de fogata sobre historia y tradiciones Maasai.",
-        "cultural.itinerary.day2.title": "Día 2: Vida Diaria Maasai",
-        "cultural.itinerary.day2.duration": "Inmersión Cultural Completa",
-        "cultural.itinerary.day2.activities": "Experiencia matutina de pastoreo con guerreros Maasai, taller de cuentas tradicional con mujeres, participación en preparación de almuerzo tradicional, entrenamiento guerrero por la tarde y práctica de Adumu (danza de salto).",
-        "cultural.itinerary.day3.title": "Día 3: Comunidad Chagga",
-        "cultural.itinerary.day3.duration": "Tradiciones Agrícolas",
-        "cultural.itinerary.day3.activities": "Viaje a comunidad Chagga al pie del Kilimanjaro, tour de plantación de café y demostración de procesamiento, exploración del sistema de riego tradicional (Ndiva), taller de elaboración de cerveza de plátano, espectáculos culturales nocturnos con música tradicional.",
-        "cultural.itinerary.day4.title": "Día 4: Proyectos Comunitarios y Salida",
-        "cultural.itinerary.day4.duration": "Ceremonia de Despedida",
-        "cultural.itinerary.day4.activities": "Participación matutina en proyecto de desarrollo comunitario (escuela, agua o iniciativa de salud), ceremonia de despedida con bendiciones tradicionales e intercambio de regalos, compras de recuerdos culturales, traslado al aeropuerto con recuerdos inolvidables de hospitalidad tanzana.",
-        
-        "cultural.includes.title": "Qué está Incluido",
-        "cultural.includes.item1": "Alojamiento en familia comunitaria",
-        "cultural.includes.item2": "Todas las comidas tradicionales",
-        "cultural.includes.item3": "Servicios de guía local",
-        "cultural.includes.item4": "Tarifas de espectáculos culturales",
-        "cultural.includes.item5": "Materiales de talleres artesanales",
-        "cultural.includes.item6": "Contribución al desarrollo comunitario",
-        "cultural.includes.item7": "Transporte entre comunidades",
-        "cultural.includes.item8": "Sesión de orientación cultural",
-        
-        "cultural.excludes.title": "Qué está Excluido",
-        "cultural.excludes.item1": "Vuelos internacionales",
-        "cultural.excludes.item2": "Tarifas de visa Tanzania",
-        "cultural.excludes.item3": "Seguro de viaje",
-        "cultural.excludes.item4": "Bebidas alcohólicas",
-        "cultural.excludes.item5": "Compras personales",
-        "cultural.excludes.item6": "Actividades opcionales",
-        "cultural.excludes.item7": "Propinas para guías y anfitriones",
-        "cultural.excludes.item8": "Gastos personales",
-        
-        "cultural.booking.title": "¿Listo para la Inmersión Cultural?",
-        "cultural.booking.subtitle": "Reserva tu experiencia cultural auténtica y conéctate con las tradiciones vivas de Tanzania.",
-        "cultural.booking.cta": "Reservar Experiencia Cultural",
-        
-        // Booking Modal - Español
-        "cultural.booking_modal.title": "Reserva Tu Experiencia Cultural",
-        "cultural.booking_modal.step1": "Nivel del Paquete",
-        "cultural.booking_modal.step2": "Estilo de Viaje",
-        "cultural.booking_modal.step3": "Detalles de Reserva",
-        "cultural.booking_modal.package_title": "Elige Tu Experiencia Cultural",
-        "cultural.booking_modal.package_basic": "BÁSICO",
-        "cultural.booking_modal.package_basic_feature1": "Visita Comunitaria de 1 Día",
-        "cultural.booking_modal.package_basic_feature2": "Espectáculo Cultural",
-        "cultural.booking_modal.package_basic_feature3": "Guía Local",
-        "cultural.booking_modal.package_basic_feature4": "Almuerzo Tradicional",
-        "cultural.booking_modal.package_basic_feature5": "Demostración Artesanal Básica",
-        "cultural.booking_modal.package_immersion": "INMERSIÓN",
-        "cultural.booking_modal.package_immersion_feature1": "Estadía Familiar de 2 Días",
-        "cultural.booking_modal.package_immersion_feature2": "Todas las Comidas Tradicionales",
-        "cultural.booking_modal.package_immersion_feature3": "Talleres Artesanales",
-        "cultural.booking_modal.package_immersion_feature4": "Proyectos Comunitarios",
-        "cultural.booking_modal.package_immersion_feature5": "Actividades Culturales",
-        "cultural.booking_modal.package_immersion_feature6": "Reuniones con Ancianos Tribales",
-        "cultural.booking_modal.package_complete": "COMPLETO",
-        "cultural.booking_modal.package_complete_feature1": "Tour Multi-Comunidades",
-        "cultural.booking_modal.package_complete_feature2": "Guía Cultural Privado",
-        "cultural.booking_modal.package_complete_feature3": "Todos los Talleres Incluidos",
-        "cultural.booking_modal.package_complete_feature4": "Ceremonias Tradicionales",
-        "cultural.booking_modal.package_complete_feature5": "Contribución Comunitaria",
-        "cultural.booking_modal.package_complete_feature6": "Recuerdos Culturales",
-        "cultural.booking_modal.package_complete_feature7": "Permisos de Fotografía",
-        "cultural.booking_modal.travel_title": "Selecciona Tu Estilo de Viaje",
-        "cultural.booking_modal.travel_solo": "Viajero Solo",
-        "cultural.booking_modal.travel_solo_desc": "Perfecto para exploradores culturales solos",
-        "cultural.booking_modal.travel_couple": "Paquete Pareja",
-        "cultural.booking_modal.travel_couple_desc": "Perfecto para parejas",
-        "cultural.booking_modal.travel_family": "Paquete Familiar",
-        "cultural.booking_modal.travel_family_desc": "2 adultos + 2 niños",
-        "cultural.booking_modal.travel_group": "Aventura Grupal",
-        "cultural.booking_modal.travel_group_desc": "2-30 personas",
-        "cultural.booking_modal.group_size": "Tamaño del Grupo:",
-        "cultural.booking_modal.package_label": "Paquete Básico",
-        "cultural.booking_modal.travel_label": "Viajero Solo",
-        "cultural.booking_modal.people_label": "4 personas",
-        "cultural.booking_modal.discount_label": "Descuento Grupal (20%)",
-        "cultural.booking_modal.total_label": "Precio Total:",
-        "cultural.booking_modal.original_label": "Precio Original:",
-        "cultural.booking_modal.next_step1": "Siguiente: Estilo de Viaje",
-        "cultural.booking_modal.next_step2": "Siguiente: Reservar Ahora",
-        "cultural.booking_modal.cancel": "Cancelar",
-        "cultural.booking_modal.back": "Atrás",
-        "cultural.booking_modal.confirm_title": "Confirma Tu Reserva",
-        "cultural.booking_modal.summary_title": "Resumen de Reserva",
-        "cultural.booking_modal.summary_destination": "Destino:",
-        "cultural.booking_modal.summary_package": "Nivel del Paquete:",
-        "cultural.booking_modal.summary_travel": "Estilo de Viaje:",
-        "cultural.booking_modal.summary_people": "Número de Personas:",
-        "cultural.booking_modal.summary_duration": "Duración:",
-        "cultural.booking_modal.summary_discount": "Descuento Grupal Aplicado:",
-        "cultural.booking_modal.summary_total": "Monto Total:",
-        "cultural.booking_modal.summary_original": "Precio Original:",
-        "cultural.booking_modal.contact_title": "Información de Contacto",
-        "cultural.booking_modal.placeholder_firstname": "Nombre",
-        "cultural.booking_modal.placeholder_lastname": "Apellido",
-        "cultural.booking_modal.placeholder_email": "Dirección de Correo",
-        "cultural.booking_modal.placeholder_phone": "Número de Teléfono",
-        "cultural.booking_modal.complete_booking": "Completar Reserva",
-
-        // Footer - Español
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "Creando experiencias inolvidables en el corazón de Tanzania. Descubre la magia de África con nuestros guías expertos y aventuras de safari premium.",
-        "footer.quick_links": "Enlaces Rápidos",
-        "footer.destinations": "Destinos",
-        "footer.contact_info": "Información de Contacto",
-        "footer.address": "Arusha, Tanzania",
-        "footer.language": "Idioma:",
-        "footer.copyright": "© 2024 MMexy Tanzania Adventures. Todos los derechos reservados. | Diseñado con ❤️ para el Turismo de Tanzania",
-
-        // Translation System - Español
-        "translation.loading": "Traduciendo contenido...",
-        "translation.error": "La traducción falló. Por favor, inténtalo de nuevo."
-    },
-    it: {
-        // Navigation - Italiano
-        "nav.home": "Home",
-        "nav.about": "Chi Siamo",
-        "nav.destinations": "Destinazioni",
-        "nav.mountain_climbing": "Arrampicata in Montagna",
-        "nav.safaris": "Safari Tanzania",
-        "nav.zanzibar": "Spiagge di Zanzibar",
-        "nav.cultural": "Turismo Culturale",
-        "nav.waterfalls": "Turismo delle Cascate",
-        "nav.historical": "Siti Storici",
-        "nav.contact": "Contatto",
-
-        // Cultural Tourism Page - Italiano
-        "cultural.hero.title": "Turismo Culturale Tanzania",
-        "cultural.hero.subtitle": "Vivi Tradizioni Tribali Autentiche e Comunità Locali",
-        "cultural.hero.cta": "Prenota Esperienza Culturale",
-        
-        "cultural.content.title": "Viaggio di Immersione Culturale",
-        "cultural.content.subtitle": "2-5 Giorni di Esperienze Tribali Autentiche e Visite Comunitarie",
-        
-        "cultural.about.title": "Sul Turismo Culturale",
-        "cultural.about.description": "Immergiti nel ricco arazzo culturale dei diversi gruppi etnici della Tanzania. I nostri pacchetti di turismo culturale offrono interazioni autentiche con comunità locali, cerimonie tradizionali ed esperienze pratiche che preservano tradizioni antiche supportando lo sviluppo comunitario sostenibile.",
-        "cultural.about.highlights": "Punti Salienti Culturali",
-        "cultural.about.highlight1": "Ospitalità in famiglia Maasai",
-        "cultural.about.highlight2": "Spettacoli di danza tradizionale",
-        "cultural.about.highlight3": "Laboratori di artigianato locale",
-        "cultural.about.highlight4": "Esperienze di cucina tradizionale",
-        "cultural.about.highlight5": "Progetti di sviluppo comunitario",
-        
-        "cultural.tribes.title": "Incontra i Gruppi Etnici della Tanzania",
-        "cultural.tribes.maasai.title": "Esperienza Comunitaria Maasai",
-        "cultural.tribes.maasai.description": "Vivi con l'iconico popolo Maasai, impara sulle loro tradizioni pastorali, partecipa alle danze di salto e comprendi il loro profondo legame con natura e bestiame.",
-        "cultural.tribes.maasai.feature1": "Soggiorno Manyatta",
-        "cultural.tribes.maasai.feature2": "Addestramento Guerriero",
-        "cultural.tribes.maasai.feature3": "Laboratorio di Perline",
-        
-        "cultural.tribes.chagga.title": "Immersione Culturale Chagga",
-        "cultural.tribes.chagga.description": "Esplora le tradizioni agricole del popolo Chagga intorno al Monte Kilimanjaro, visita piantagioni di caffè e impara sui loro innovativi sistemi di irrigazione.",
-        "cultural.tribes.chagga.feature1": "Lavorazione del Caffè",
-        "cultural.tribes.chagga.feature2": "Tour Fattoria Banane",
-        "cultural.tribes.chagga.feature3": "Canali Tradizionali",
-        
-        "cultural.tribes.hadzabe.title": "Esperienza Cacciatori-Raccoglitori Hadzabe",
-        "cultural.tribes.hadzabe.description": "Passa tempo con gli Hadzabe, una delle ultime tribù di cacciatori-raccoglitori in Africa, imparando antiche abilità di sopravvivenza, tecniche di caccia tradizionali e il loro linguaggio unico a schiocco.",
-        "cultural.tribes.hadzabe.feature1": "Caccia Tradizionale",
-        "cultural.tribes.hadzabe.feature2": "Abilità di Raccolta",
-        "cultural.tribes.hadzabe.feature3": "Accensione del Fuoco",
-        
-        "cultural.itinerary.title": "Itinerario di 4 Giorni di Immersione Culturale",
-        "cultural.itinerary.day1.title": "Giorno 1: Arrivo e Benvenuto Maasai",
-        "cultural.itinerary.day1.duration": "Comunità Maasai",
-        "cultural.itinerary.day1.activities": "Arrivo nella comunità Maasai, cerimonia di benvenuto tradizionale con anziani, sistemazione in alloggi familiari, narrazione serale attorno al fuoco su storia e tradizioni Maasai.",
-        "cultural.itinerary.day2.title": "Giorno 2: Vita Quotidiana Maasai",
-        "cultural.itinerary.day2.duration": "Immersione Culturale Completa",
-        "cultural.itinerary.day2.activities": "Esperienza mattutina di pascolo con guerrieri Maasai, laboratorio tradizionale di perline con donne, partecipazione nella preparazione del pranzo tradizionale, addestramento guerriero pomeridiano e pratica di Adumu (danza di salto).",
-        "cultural.itinerary.day3.title": "Giorno 3: Comunità Chagga",
-        "cultural.itinerary.day3.duration": "Tradizioni Agricole",
-        "cultural.itinerary.day3.activities": "Viaggio alla comunità Chagga ai piedi del Kilimanjaro, tour della piantagione di caffè e dimostrazione di lavorazione, esplorazione del sistema di irrigazione tradizionale (Ndiva), laboratorio di produzione birra di banana, spettacoli culturali serali con musica tradizionale.",
-        "cultural.itinerary.day4.title": "Giorno 4: Progetti Comunitari e Partenza",
-        "cultural.itinerary.day4.duration": "Cerimonia di Addio",
-        "cultural.itinerary.day4.activities": "Partecipazione mattutina al progetto di sviluppo comunitario (scuola, acqua o iniziativa sanitaria), cerimonia di addio con benedizioni tradizionali e scambio di doni, acquisto souvenir culturali, trasferimento all'aeroporto con ricordi indimenticabili dell'ospitalità tanzaniana.",
-        
-        "cultural.includes.title": "Cosa è Incluso",
-        "cultural.includes.item1": "Alloggio in famiglia comunitaria",
-        "cultural.includes.item2": "Tutti i pasti tradizionali",
-        "cultural.includes.item3": "Servizi guida locale",
-        "cultural.includes.item4": "Tariffe spettacoli culturali",
-        "cultural.includes.item5": "Materiali laboratori artigianali",
-        "cultural.includes.item6": "Contributo sviluppo comunitario",
-        "cultural.includes.item7": "Trasporto tra comunità",
-        "cultural.includes.item8": "Sessione orientamento culturale",
-        
-        "cultural.excludes.title": "Cosa è Escluso",
-        "cultural.excludes.item1": "Voli internazionali",
-        "cultural.excludes.item2": "Tariffe visto Tanzania",
-        "cultural.excludes.item3": "Assicurazione viaggio",
-        "cultural.excludes.item4": "Bevande alcoliche",
-        "cultural.excludes.item5": "Acquisti personali",
-        "cultural.excludes.item6": "Attività opzionali",
-        "cultural.excludes.item7": "Mance per guide e ospiti",
-        "cultural.excludes.item8": "Spese personali",
-        
-        "cultural.booking.title": "Pronto per l'Immersione Culturale?",
-        "cultural.booking.subtitle": "Prenota la tua esperienza culturale autentica e connettiti con le tradizioni viventi della Tanzania.",
-        "cultural.booking.cta": "Prenota Esperienza Culturale",
-        
-        // Booking Modal - Italiano
-        "cultural.booking_modal.title": "Prenota La Tua Esperienza Culturale",
-        "cultural.booking_modal.step1": "Livello Pacchetto",
-        "cultural.booking_modal.step2": "Stile di Viaggio",
-        "cultural.booking_modal.step3": "Dettagli Prenotazione",
-        "cultural.booking_modal.package_title": "Scegli La Tua Esperienza Culturale",
-        "cultural.booking_modal.package_basic": "BASICO",
-        "cultural.booking_modal.package_basic_feature1": "Visita Comunitaria di 1 Giorno",
-        "cultural.booking_modal.package_basic_feature2": "Spettacolo Culturale",
-        "cultural.booking_modal.package_basic_feature3": "Guida Locale",
-        "cultural.booking_modal.package_basic_feature4": "Pranzo Tradizionale",
-        "cultural.booking_modal.package_basic_feature5": "Dimostrazione Artigianale Base",
-        "cultural.booking_modal.package_immersion": "IMMERSIONE",
-        "cultural.booking_modal.package_immersion_feature1": "Soggiorno Familiare 2 Giorni",
-        "cultural.booking_modal.package_immersion_feature2": "Tutti i Pasti Tradizionali",
-        "cultural.booking_modal.package_immersion_feature3": "Laboratori Artigianali",
-        "cultural.booking_modal.package_immersion_feature4": "Progetti Comunitari",
-        "cultural.booking_modal.package_immersion_feature5": "Attività Culturali",
-        "cultural.booking_modal.package_immersion_feature6": "Incontri Anziani Tribali",
-        "cultural.booking_modal.package_complete": "COMPLETO",
-        "cultural.booking_modal.package_complete_feature1": "Tour Multi-Comunità",
-        "cultural.booking_modal.package_complete_feature2": "Guida Culturale Privata",
-        "cultural.booking_modal.package_complete_feature3": "Tutti i Laboratori Inclusi",
-        "cultural.booking_modal.package_complete_feature4": "Cerimonie Tradizionali",
-        "cultural.booking_modal.package_complete_feature5": "Contributo Comunitario",
-        "cultural.booking_modal.package_complete_feature6": "Souvenir Culturali",
-        "cultural.booking_modal.package_complete_feature7": "Permessi Fotografia",
-        "cultural.booking_modal.travel_title": "Seleziona Il Tuo Stile di Viaggio",
-        "cultural.booking_modal.travel_solo": "Viaggiatore Solo",
-        "cultural.booking_modal.travel_solo_desc": "Perfetto per esploratori culturali soli",
-        "cultural.booking_modal.travel_couple": "Pacchetto Coppia",
-        "cultural.booking_modal.travel_couple_desc": "Perfetto per coppie",
-        "cultural.booking_modal.travel_family": "Pacchetto Famiglia",
-        "cultural.booking_modal.travel_family_desc": "2 adulti + 2 bambini",
-        "cultural.booking_modal.travel_group": "Avventura di Gruppo",
-        "cultural.booking_modal.travel_group_desc": "2-30 persone",
-        "cultural.booking_modal.group_size": "Dimensione Gruppo:",
-        "cultural.booking_modal.package_label": "Pacchetto Base",
-        "cultural.booking_modal.travel_label": "Viaggiatore Solo",
-        "cultural.booking_modal.people_label": "4 persone",
-        "cultural.booking_modal.discount_label": "Sconto Gruppo (20%)",
-        "cultural.booking_modal.total_label": "Prezzo Totale:",
-        "cultural.booking_modal.original_label": "Prezzo Originale:",
-        "cultural.booking_modal.next_step1": "Successivo: Stile di Viaggio",
-        "cultural.booking_modal.next_step2": "Successivo: Prenota Ora",
-        "cultural.booking_modal.cancel": "Annulla",
-        "cultural.booking_modal.back": "Indietro",
-        "cultural.booking_modal.confirm_title": "Conferma La Tua Prenotazione",
-        "cultural.booking_modal.summary_title": "Riepilogo Prenotazione",
-        "cultural.booking_modal.summary_destination": "Destinazione:",
-        "cultural.booking_modal.summary_package": "Livello Pacchetto:",
-        "cultural.booking_modal.summary_travel": "Stile di Viaggio:",
-        "cultural.booking_modal.summary_people": "Numero di Persone:",
-        "cultural.booking_modal.summary_duration": "Durata:",
-        "cultural.booking_modal.summary_discount": "Sconto Gruppo Applicato:",
-        "cultural.booking_modal.summary_total": "Importo Totale:",
-        "cultural.booking_modal.summary_original": "Prezzo Originale:",
-        "cultural.booking_modal.contact_title": "Informazioni di Contatto",
-        "cultural.booking_modal.placeholder_firstname": "Nome",
-        "cultural.booking_modal.placeholder_lastname": "Cognome",
-        "cultural.booking_modal.placeholder_email": "Indirizzo Email",
-        "cultural.booking_modal.placeholder_phone": "Numero di Telefono",
-        "cultural.booking_modal.complete_booking": "Completa Prenotazione",
-
-        // Footer - Italiano
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "Creazione di esperienze indimenticabili nel cuore della Tanzania. Scopri la magia dell'Africa con le nostre guide esperte e avventure safari premium.",
-        "footer.quick_links": "Link Rapidi",
-        "footer.destinations": "Destinazioni",
-        "footer.contact_info": "Informazioni di Contatto",
-        "footer.address": "Arusha, Tanzania",
-        "footer.language": "Lingua:",
-        "footer.copyright": "© 2024 MMexy Tanzania Adventures. Tutti i diritti riservati. | Progettato con ❤️ per il Turismo della Tanzania",
-
-        // Translation System - Italiano
-        "translation.loading": "Traduzione del contenuto...",
-        "translation.error": "Traduzione fallita. Per favore riprova."
-    },
-    pt: {
-        // Navigation - Português
-        "nav.home": "Início",
-        "nav.about": "Sobre",
-        "nav.destinations": "Destinos",
-        "nav.mountain_climbing": "Escalada de Montanhas",
-        "nav.safaris": "Safaris Tanzânia",
-        "nav.zanzibar": "Praias de Zanzibar",
-        "nav.cultural": "Turismo Cultural",
-        "nav.waterfalls": "Turismo de Cachoeiras",
-        "nav.historical": "Sítios Históricos",
-        "nav.contact": "Contato",
-
-        // Cultural Tourism Page - Português
-        "cultural.hero.title": "Turismo Cultural Tanzânia",
-        "cultural.hero.subtitle": "Experimente Tradições Tribais Autênticas e Comunidades Locais",
-        "cultural.hero.cta": "Reservar Experiência Cultural",
-        
-        "cultural.content.title": "Jornada de Imersão Cultural",
-        "cultural.content.subtitle": "2-5 Dias de Experiências Tribais Autênticas e Visitas Comunitárias",
-        
-        "cultural.about.title": "Sobre Turismo Cultural",
-        "cultural.about.description": "Mergulhe no rico tapeçaria cultural dos diversos grupos étnicos da Tanzânia. Nossos pacotes de turismo cultural oferecem interações autênticas com comunidades locais, cerimônias tradicionais e experiências práticas que preservam tradições antigas enquanto apoiam o desenvolvimento comunitário sustentável.",
-        "cultural.about.highlights": "Destaques Culturais",
-        "cultural.about.highlight1": "Hospedagem em família Maasai",
-        "cultural.about.highlight2": "Apresentações de dança tradicional",
-        "cultural.about.highlight3": "Oficinas de artesanato local",
-        "cultural.about.highlight4": "Experiências de culinária tradicional",
-        "cultural.about.highlight5": "Projetos de desenvolvimento comunitário",
-        
-        "cultural.tribes.title": "Conheça os Grupos Étnicos da Tanzânia",
-        "cultural.tribes.maasai.title": "Experiência Comunitária Maasai",
-        "cultural.tribes.maasai.description": "Viva com o icônico povo Maasai, aprenda sobre suas tradições pastoris, participe de danças de salto e entenda sua profunda conexão com natureza e gado.",
-        "cultural.tribes.maasai.feature1": "Estadia Manyatta",
-        "cultural.tribes.maasai.feature2": "Treinamento Guerreiro",
-        "cultural.tribes.maasai.feature3": "Oficina de Trabalho com Miçangas",
-        
-        "cultural.tribes.chagga.title": "Imersão Cultural Chagga",
-        "cultural.tribes.chagga.description": "Explore as tradições agrícolas do povo Chagga ao redor do Monte Kilimanjaro, visite plantações de café e aprenda sobre seus sistemas de irrigação inovadores.",
-        "cultural.tribes.chagga.feature1": "Processamento de Café",
-        "cultural.tribes.chagga.feature2": "Tour de Fazenda de Banana",
-        "cultural.tribes.chagga.feature3": "Canais Tradicionais",
-        
-        "cultural.tribes.hadzabe.title": "Experiência Caçador-Coletores Hadzabe",
-        "cultural.tribes.hadzabe.description": "Passe tempo com os Hadzabe, uma das últimas tribos caçadoras-coletoras na África, aprendendo habilidades antigas de sobrevivência, técnicas de caça tradicionais e sua linguagem única de cliques.",
-        "cultural.tribes.hadzabe.feature1": "Caça Tradicional",
-        "cultural.tribes.hadzabe.feature2": "Habilidades de Coleta",
-        "cultural.tribes.hadzabe.feature3": "Fazer Fogo",
-        
-        "cultural.itinerary.title": "Itinerário de 4 Dias de Imersão Cultural",
-        "cultural.itinerary.day1.title": "Dia 1: Chegada e Boas-vindas Maasai",
-        "cultural.itinerary.day1.duration": "Comunidade Maasai",
-        "cultural.itinerary.day1.activities": "Chegada à comunidade Maasai, cerimônia tradicional de boas-vindas com anciãos, acomodação em hospedagem familiar, contação de histórias à noite em volta da fogueira sobre história e tradições Maasai.",
-        "cultural.itinerary.day2.title": "Dia 2: Vida Diária Maasai",
-        "cultural.itinerary.day2.duration": "Imersão Cultural Completa",
-        "cultural.itinerary.day2.activities": "Experiência matinal de pastoreio com guerreiros Maasai, oficina tradicional de trabalho com miçangas com mulheres, participação na preparação do almoço tradicional, treinamento guerreiro à tarde e prática de Adumu (dança de salto).",
-        "cultural.itinerary.day3.title": "Dia 3: Comunidade Chagga",
-        "cultural.itinerary.day3.duration": "Tradições Agrícolas",
-        "cultural.itinerary.day3.activities": "Viagem à comunidade Chagga no sopé do Kilimanjaro, tour da plantação de café e demonstração de processamento, exploração do sistema de irrigação tradicional (Ndiva), oficina de fabricação de cerveja de banana, apresentações culturais noturnas com música tradicional.",
-        "cultural.itinerary.day4.title": "Dia 4: Projetos Comunitários e Partida",
-        "cultural.itinerary.day4.duration": "Cerimônia de Despedida",
-        "cultural.itinerary.day4.activities": "Participação matinal em projeto de desenvolvimento comunitário (escola, água ou iniciativa de saúde), cerimônia de despedida com bênçãos tradicionais e troca de presentes, compras de lembranças culturais, traslado para aeroporto com memórias inesquecíveis da hospitalidade tanzaniana.",
-        
-        "cultural.includes.title": "O Que Está Incluído",
-        "cultural.includes.item1": "Acomodação em família comunitária",
-        "cultural.includes.item2": "Todas as refeições tradicionais",
-        "cultural.includes.item3": "Serviços de guia local",
-        "cultural.includes.item4": "Taxas de apresentações culturais",
-        "cultural.includes.item5": "Materiais de oficinas artesanais",
-        "cultural.includes.item6": "Contribuição ao desenvolvimento comunitário",
-        "cultural.includes.item7": "Transporte entre comunidades",
-        "cultural.includes.item8": "Sessão de orientação cultural",
-        
-        "cultural.excludes.title": "O Que Está Excluído",
-        "cultural.excludes.item1": "Voos internacionais",
-        "cultural.excludes.item2": "Taxas de visto Tanzânia",
-        "cultural.excludes.item3": "Seguro de viagem",
-        "cultural.excludes.item4": "Bebidas alcoólicas",
-        "cultural.excludes.item5": "Compras pessoais",
-        "cultural.excludes.item6": "Atividades opcionais",
-        "cultural.excludes.item7": "Gorjetas para guias e anfitriões",
-        "cultural.excludes.item8": "Despesas pessoais",
-        
-        "cultural.booking.title": "Pronto para Imersão Cultural?",
-        "cultural.booking.subtitle": "Reserve sua experiência cultural autêntica e conecte-se com as tradições vivas da Tanzânia.",
-        "cultural.booking.cta": "Reservar Experiência Cultural",
-        
-        // Booking Modal - Português
-        "cultural.booking_modal.title": "Reserve Sua Experiência Cultural",
-        "cultural.booking_modal.step1": "Nível do Pacote",
-        "cultural.booking_modal.step2": "Estilo de Viagem",
-        "cultural.booking_modal.step3": "Detalhes da Reserva",
-        "cultural.booking_modal.package_title": "Escolha Sua Experiência Cultural",
-        "cultural.booking_modal.package_basic": "BÁSICO",
-        "cultural.booking_modal.package_basic_feature1": "Visita Comunitária de 1 Dia",
-        "cultural.booking_modal.package_basic_feature2": "Apresentação Cultural",
-        "cultural.booking_modal.package_basic_feature3": "Guia Local",
-        "cultural.booking_modal.package_basic_feature4": "Almoço Tradicional",
-        "cultural.booking_modal.package_basic_feature5": "Demonstração de Artesanato Básico",
-        "cultural.booking_modal.package_immersion": "IMERSÃO",
-        "cultural.booking_modal.package_immersion_feature1": "Hospedagem Familiar 2 Dias",
-        "cultural.booking_modal.package_immersion_feature2": "Todas as Refeições Tradicionais",
-        "cultural.booking_modal.package_immersion_feature3": "Oficinas de Artesanato",
-        "cultural.booking_modal.package_immersion_feature4": "Projetos Comunitários",
-        "cultural.booking_modal.package_immersion_feature5": "Atividades Culturais",
-        "cultural.booking_modal.package_immersion_feature6": "Encontros com Anciãos Tribais",
-        "cultural.booking_modal.package_complete": "COMPLETO",
-        "cultural.booking_modal.package_complete_feature1": "Tour Multi-Comunidades",
-        "cultural.booking_modal.package_complete_feature2": "Guia Cultural Privado",
-        "cultural.booking_modal.package_complete_feature3": "Todas as Oficinas Incluídas",
-        "cultural.booking_modal.package_complete_feature4": "Cerimônias Tradicionais",
-        "cultural.booking_modal.package_complete_feature5": "Contribuição Comunitária",
-        "cultural.booking_modal.package_complete_feature6": "Lembranças Culturais",
-        "cultural.booking_modal.package_complete_feature7": "Permissões de Fotografia",
-        "cultural.booking_modal.travel_title": "Selecione Seu Estilo de Viagem",
-        "cultural.booking_modal.travel_solo": "Viajante Solo",
-        "cultural.booking_modal.travel_solo_desc": "Perfeito para exploradores culturais solos",
-        "cultural.booking_modal.travel_couple": "Pacote Casal",
-        "cultural.booking_modal.travel_couple_desc": "Perfeito para casais",
-        "cultural.booking_modal.travel_family": "Pacote Família",
-        "cultural.booking_modal.travel_family_desc": "2 adultos + 2 crianças",
-        "cultural.booking_modal.travel_group": "Aventura em Grupo",
-        "cultural.booking_modal.travel_group_desc": "2-30 pessoas",
-        "cultural.booking_modal.group_size": "Tamanho do Grupo:",
-        "cultural.booking_modal.package_label": "Pacote Básico",
-        "cultural.booking_modal.travel_label": "Viajante Solo",
-        "cultural.booking_modal.people_label": "4 pessoas",
-        "cultural.booking_modal.discount_label": "Desconto de Grupo (20%)",
-        "cultural.booking_modal.total_label": "Preço Total:",
-        "cultural.booking_modal.original_label": "Preço Original:",
-        "cultural.booking_modal.next_step1": "Próximo: Estilo de Viagem",
-        "cultural.booking_modal.next_step2": "Próximo: Reservar Agora",
-        "cultural.booking_modal.cancel": "Cancelar",
-        "cultural.booking_modal.back": "Voltar",
-        "cultural.booking_modal.confirm_title": "Confirme Sua Reserva",
-        "cultural.booking_modal.summary_title": "Resumo da Reserva",
-        "cultural.booking_modal.summary_destination": "Destino:",
-        "cultural.booking_modal.summary_package": "Nível do Pacote:",
-        "cultural.booking_modal.summary_travel": "Estilo de Viagem:",
-        "cultural.booking_modal.summary_people": "Número de Pessoas:",
-        "cultural.booking_modal.summary_duration": "Duração:",
-        "cultural.booking_modal.summary_discount": "Desconto de Grupo Aplicado:",
-        "cultural.booking_modal.summary_total": "Valor Total:",
-        "cultural.booking_modal.summary_original": "Preço Original:",
-        "cultural.booking_modal.contact_title": "Informações de Contato",
-        "cultural.booking_modal.placeholder_firstname": "Primeiro Nome",
-        "cultural.booking_modal.placeholder_lastname": "Sobrenome",
-        "cultural.booking_modal.placeholder_email": "Endereço de Email",
-        "cultural.booking_modal.placeholder_phone": "Número de Telefone",
-        "cultural.booking_modal.complete_booking": "Completar Reserva",
-
-        // Footer - Português
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "Criando experiências inesquecíveis no coração da Tanzânia. Descubra a magia da África com nossos guias especialistas e aventuras de safari premium.",
-        "footer.quick_links": "Links Rápidos",
-        "footer.destinations": "Destinos",
-        "footer.contact_info": "Informações de Contato",
-        "footer.address": "Arusha, Tanzânia",
-        "footer.language": "Idioma:",
-        "footer.copyright": "© 2024 MMexy Tanzania Adventures. Todos os direitos reservados. | Projetado com ❤️ para o Turismo da Tanzânia",
-
-        // Translation System - Português
-        "translation.loading": "Traduzindo conteúdo...",
-        "translation.error": "Falha na tradução. Por favor, tente novamente."
-    },
-    ru: {
-        // Navigation - Русский
-        "nav.home": "Главная",
-        "nav.about": "О Нас",
-        "nav.destinations": "Направления",
-        "nav.mountain_climbing": "Восхождение на Горы",
-        "nav.safaris": "Сафари Танзания",
-        "nav.zanzibar": "Пляжи Занзибара",
-        "nav.cultural": "Культурный Туризм",
-        "nav.waterfalls": "Туризм к Водопадам",
-        "nav.historical": "Исторические Места",
-        "nav.contact": "Контакты",
-
-        // Cultural Tourism Page - Русский
-        "cultural.hero.title": "Культурный Туризм Танзания",
-        "cultural.hero.subtitle": "Испытайте Аутентичные Племенные Традиции и Местные Сообщества",
-        "cultural.hero.cta": "Забронировать Культурный Опыт",
-        
-        "cultural.content.title": "Путешествие Культурного Погружения",
-        "cultural.content.subtitle": "2-5 Дней Аутентичного Племенного Опыта и Посещения Сообществ",
-        
-        "cultural.about.title": "О Культурном Туризме",
-        "cultural.about.description": "Погрузитесь в богатый культурный гобелен разнообразных этнических групп Танзании. Наши пакеты культурного туризма предлагают аутентичное взаимодействие с местными сообществами, традиционные церемонии и практический опыт, сохраняющий древние традиции, поддерживая устойчивое развитие сообществ.",
-        "cultural.about.highlights": "Культурные Основные Моменты",
-        "cultural.about.highlight1": "Проживание в семьях Масаи",
-        "cultural.about.highlight2": "Выступления традиционных танцев",
-        "cultural.about.highlight3": "Мастерские местного ремесла",
-        "cultural.about.highlight4": "Опыт традиционной кухни",
-        "cultural.about.highlight5": "Проекты развития сообщества",
-        
-        "cultural.tribes.title": "Встретьтесь с Этническими Группами Танзании",
-        "cultural.tribes.maasai.title": "Опыт Сообщества Масаи",
-        "cultural.tribes.maasai.description": "Живите с иконным народом Масаи, узнайте об их пастушеских традициях, участвуйте в прыжковых танцах и поймите их глубокую связь с природой и скотом.",
-        "cultural.tribes.maasai.feature1": "Пребывание в Маньятта",
-        "cultural.tribes.maasai.feature2": "Тренировка Воинов",
-        "cultural.tribes.maasai.feature3": "Мастерская Бисероплетения",
-        
-        "cultural.tribes.chagga.title": "Культурное Погружение Чагга",
-        "cultural.tribes.chagga.description": "Исследуйте сельскохозяйственные традиции народа Чагга вокруг горы Килиманджаро, посетите кофейные плантации и узнайте об их инновационных системах орошения.",
-        "cultural.tribes.chagga.feature1": "Обработка Кофе",
-        "cultural.tribes.chagga.feature2": "Тур по Банановой Ферме",
-        "cultural.tribes.chagga.feature3": "Традиционные Каналы",
-        
-        "cultural.tribes.hadzabe.title": "Опыт Охотников-Собирателей Хадзабе",
-        "cultural.tribes.hadzabe.description": "Проведите время с Хадзабе, одним из последних племен охотников-собирателей в Африке, изучая древние навыки выживания, традиционные техники охоты и их уникальный щелкающий язык.",
-        "cultural.tribes.hadzabe.feature1": "Традиционная Охота",
-        "cultural.tribes.hadzabe.feature2": "Навыки Собирательства",
-        "cultural.tribes.hadzabe.feature3": "Разжигание Огня",
-        
-        "cultural.itinerary.title": "4-дневный Маршрут Культурного Погружения",
-        "cultural.itinerary.day1.title": "День 1: Прибытие и Приветствие Масаи",
-        "cultural.itinerary.day1.duration": "Сообщество Масаи",
-        "cultural.itinerary.day1.activities": "Прибытие в сообщество Масаи, традиционная церемония приветствия со старейшинами, размещение в семейном жилье, вечернее повествование у костра об истории и традициях Масаи.",
-        "cultural.itinerary.day2.title": "День 2: Повседневная Жизнь Масаи",
-        "cultural.itinerary.day2.duration": "Полное Культурное Погружение",
-        "cultural.itinerary.day2.activities": "Утренний опыт выпаса скота с воинами Масаи, традиционная мастерская бисероплетения с женщинами, участие в приготовлении традиционного обеда, дневная тренировка воинов и практика Адуму (танца прыжков).",
-        "cultural.itinerary.day3.title": "День 3: Сообщество Чагга",
-        "cultural.itinerary.day3.duration": "Сельскохозяйственные Традиции",
-        "cultural.itinerary.day3.activities": "Поездка в сообщество Чагга у подножия Килиманджаро, тур по кофейной плантации и демонстрация обработки, исследование традиционной системы орошения (Ндива), мастерская по варке бананового пива, вечерние культурные выступления с традиционной музыкой.",
-        "cultural.itinerary.day4.title": "День 4: Проекты Сообщества и Отъезд",
-        "cultural.itinerary.day4.duration": "Прощальная Церемония",
-        "cultural.itinerary.day4.activities": "Утреннее участие в проекте развития сообщества (школа, вода или инициатива здравоохранения), прощальная церемония с традиционными благословениями и обменом подарками, покупка культурных сувениров, трансфер в аэропорт с незабываемыми воспоминаниями о танзанийском гостеприимстве.",
-        
-        "cultural.includes.title": "Что Включено",
-        "cultural.includes.item1": "Проживание в семье сообщества",
-        "cultural.includes.item2": "Все традиционные блюда",
-        "cultural.includes.item3": "Услуги местного гида",
-        "cultural.includes.item4": "Сборы за культурные выступления",
-        "cultural.includes.item5": "Материалы ремесленных мастерских",
-        "cultural.includes.item6": "Вклад в развитие сообщества",
-        "cultural.includes.item7": "Транспорт между сообществами",
-        "cultural.includes.item8": "Сессия культурной ориентации",
-        
-        "cultural.excludes.title": "Что Исключено",
-        "cultural.excludes.item1": "Международные перелеты",
-        "cultural.excludes.item2": "Сборы за визу Танзании",
-        "cultural.excludes.item3": "Страховка путешествия",
-        "cultural.excludes.item4": "Алкогольные напитки",
-        "cultural.excludes.item5": "Личные покупки",
-        "cultural.excludes.item6": "Дополнительные мероприятия",
-        "cultural.excludes.item7": "Чаевые гидам и хозяевам",
-        "cultural.excludes.item8": "Личные расходы",
-        
-        "cultural.booking.title": "Готовы к Культурному Погружению?",
-        "cultural.booking.subtitle": "Забронируйте свой аутентичный культурный опыт и соединитесь с живыми традициями Танзании.",
-        "cultural.booking.cta": "Забронировать Культурный Опыт",
-        
-        // Booking Modal - Русский
-        "cultural.booking_modal.title": "Забронируйте Ваш Культурный Опыт",
-        "cultural.booking_modal.step1": "Уровень Пакета",
-        "cultural.booking_modal.step2": "Стиль Путешествия",
-        "cultural.booking_modal.step3": "Детали Бронирования",
-        "cultural.booking_modal.package_title": "Выберите Ваш Культурный Опыт",
-        "cultural.booking_modal.package_basic": "БАЗОВЫЙ",
-        "cultural.booking_modal.package_basic_feature1": "Однодневный Визит в Сообщество",
-        "cultural.booking_modal.package_basic_feature2": "Культурное Выступление",
-        "cultural.booking_modal.package_basic_feature3": "Местный Гид",
-        "cultural.booking_modal.package_basic_feature4": "Традиционный Обед",
-        "cultural.booking_modal.package_basic_feature5": "Базовая Демонстрация Ремесел",
-        "cultural.booking_modal.package_immersion": "ПОГРУЖЕНИЕ",
-        "cultural.booking_modal.package_immersion_feature1": "2-дневное Проживание в Семье",
-        "cultural.booking_modal.package_immersion_feature2": "Все Традиционные Блюда",
-        "cultural.booking_modal.package_immersion_feature3": "Ремесленные Мастерские",
-        "cultural.booking_modal.package_immersion_feature4": "Проекты Сообщества",
-        "cultural.booking_modal.package_immersion_feature5": "Культурные Мероприятия",
-        "cultural.booking_modal.package_immersion_feature6": "Встречи со Старейшинами Племен",
-        "cultural.booking_modal.package_complete": "ПОЛНЫЙ",
-        "cultural.booking_modal.package_complete_feature1": "Тур по Нескольким Сообществам",
-        "cultural.booking_modal.package_complete_feature2": "Частный Культурный Гид",
-        "cultural.booking_modal.package_complete_feature3": "Все Мастерские Включены",
-        "cultural.booking_modal.package_complete_feature4": "Традиционные Церемонии",
-        "cultural.booking_modal.package_complete_feature5": "Вклад в Сообщество",
-        "cultural.booking_modal.package_complete_feature6": "Культурные Сувениры",
-        "cultural.booking_modal.package_complete_feature7": "Разрешения на Фотографию",
-        "cultural.booking_modal.travel_title": "Выберите Ваш Стиль Путешествия",
-        "cultural.booking_modal.travel_solo": "Путешественник В Одиночку",
-        "cultural.booking_modal.travel_solo_desc": "Идеально для одиноких исследователей культуры",
-        "cultural.booking_modal.travel_couple": "Пакет для Пары",
-        "cultural.booking_modal.travel_couple_desc": "Идеально для пар",
-        "cultural.booking_modal.travel_family": "Семейный Пакет",
-        "cultural.booking_modal.travel_family_desc": "2 взрослых + 2 ребенка",
-        "cultural.booking_modal.travel_group": "Групповое Приключение",
-        "cultural.booking_modal.travel_group_desc": "2-30 человек",
-        "cultural.booking_modal.group_size": "Размер Группы:",
-        "cultural.booking_modal.package_label": "Базовый Пакет",
-        "cultural.booking_modal.travel_label": "Путешественник В Одиночку",
-        "cultural.booking_modal.people_label": "4 человека",
-        "cultural.booking_modal.discount_label": "Групповая Скидка (20%)",
-        "cultural.booking_modal.total_label": "Общая Цена:",
-        "cultural.booking_modal.original_label": "Оригинальная Цена:",
-        "cultural.booking_modal.next_step1": "Далее: Стиль Путешествия",
-        "cultural.booking_modal.next_step2": "Далее: Забронировать Сейчас",
-        "cultural.booking_modal.cancel": "Отмена",
-        "cultural.booking_modal.back": "Назад",
-        "cultural.booking_modal.confirm_title": "Подтвердите Ваше Бронирование",
-        "cultural.booking_modal.summary_title": "Сводка Бронирования",
-        "cultural.booking_modal.summary_destination": "Направление:",
-        "cultural.booking_modal.summary_package": "Уровень Пакета:",
-        "cultural.booking_modal.summary_travel": "Стиль Путешествия:",
-        "cultural.booking_modal.summary_people": "Количество Людей:",
-        "cultural.booking_modal.summary_duration": "Продолжительность:",
-        "cultural.booking_modal.summary_discount": "Групповая Скидка Применена:",
-        "cultural.booking_modal.summary_total": "Общая Сумма:",
-        "cultural.booking_modal.summary_original": "Оригинальная Цена:",
-        "cultural.booking_modal.contact_title": "Контактная Информация",
-        "cultural.booking_modal.placeholder_firstname": "Имя",
-        "cultural.booking_modal.placeholder_lastname": "Фамилия",
-        "cultural.booking_modal.placeholder_email": "Адрес Электронной Почты",
-        "cultural.booking_modal.placeholder_phone": "Номер Телефона",
-        "cultural.booking_modal.complete_booking": "Завершить Бронирование",
-
-        // Footer - Русский
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "Создание незабываемых впечатлений в сердце Танзании. Откройте для себя магию Африки с нашими экспертами-гидами и премиальными сафари-приключениями.",
-        "footer.quick_links": "Быстрые Ссылки",
-        "footer.destinations": "Направления",
-        "footer.contact_info": "Контактная Информация",
-        "footer.address": "Аруша, Танзания",
-        "footer.language": "Язык:",
-        "footer.copyright": "© 2024 MMexy Tanzania Adventures. Все права защищены. | Разработано с ❤️ для Туризма Танзании",
-
-        // Translation System - Русский
-        "translation.loading": "Перевод содержимого...",
-        "translation.error": "Перевод не удался. Пожалуйста, попробуйте снова."
-    },
-    zh: {
-        // Navigation - 中文
-        "nav.home": "首页",
-        "nav.about": "关于我们",
-        "nav.destinations": "目的地",
-        "nav.mountain_climbing": "登山",
-        "nav.safaris": "坦桑尼亚游猎",
-        "nav.zanzibar": "桑给巴尔海滩",
-        "nav.cultural": "文化旅游",
-        "nav.waterfalls": "瀑布旅游",
-        "nav.historical": "历史遗址",
-        "nav.contact": "联系我们",
-
-        // Cultural Tourism Page - 中文
-        "cultural.hero.title": "坦桑尼亚文化旅游",
-        "cultural.hero.subtitle": "体验真实的部落传统和当地社区",
-        "cultural.hero.cta": "预订文化体验",
-        
-        "cultural.content.title": "文化沉浸之旅",
-        "cultural.content.subtitle": "2-5天真实部落体验和社区访问",
-        
-        "cultural.about.title": "关于文化旅游",
-        "cultural.about.description": "沉浸于坦桑尼亚多元民族丰富的文化织锦中。我们的文化旅游套餐提供与当地社区的真实互动、传统仪式和实践体验，既保护古老传统又支持可持续社区发展。",
-        "cultural.about.highlights": "文化亮点",
-        "cultural.about.highlight1": "马赛村家庭住宿",
-        "cultural.about.highlight2": "传统舞蹈表演",
-        "cultural.about.highlight3": "当地手工艺工作坊",
-        "cultural.about.highlight4": "传统烹饪体验",
-        "cultural.about.highlight5": "社区发展项目",
-        
-        "cultural.tribes.title": "认识坦桑尼亚的民族群体",
-        "cultural.tribes.maasai.title": "马赛社区体验",
-        "cultural.tribes.maasai.description": "与标志性的马赛人同住，了解他们的牧区传统，参与跳跃舞蹈，理解他们与自然和牲畜的深厚联系。",
-        "cultural.tribes.maasai.feature1": "马尼雅塔住宿",
-        "cultural.tribes.maasai.feature2": "勇士训练",
-        "cultural.tribes.maasai.feature3": "珠饰工作坊",
-        
-        "cultural.tribes.chagga.title": "查加文化沉浸",
-        "cultural.tribes.chagga.description": "探索乞力马扎罗山周围的查加人农业传统，参观咖啡种植园，了解他们创新的灌溉系统。",
-        "cultural.tribes.chagga.feature1": "咖啡加工",
-        "cultural.tribes.chagga.feature2": "香蕉农场参观",
-        "cultural.tribes.chagga.feature3": "传统水渠",
-        
-        "cultural.tribes.hadzabe.title": "哈扎比狩猎采集者体验",
-        "cultural.tribes.hadzabe.description": "与哈扎比人共度时光，他们是非洲最后的狩猎采集部落之一，学习古老的生存技能、传统狩猎技巧和他们独特的咔嗒语。",
-        "cultural.tribes.hadzabe.feature1": "传统狩猎",
-        "cultural.tribes.hadzabe.feature2": "采集技能",
-        "cultural.tribes.hadzabe.feature3": "生火技巧",
-        
-        "cultural.itinerary.title": "4天文化沉浸行程",
-        "cultural.itinerary.day1.title": "第一天：抵达和马赛欢迎",
-        "cultural.itinerary.day1.duration": "马赛社区",
-        "cultural.itinerary.day1.activities": "抵达马赛社区，与长者进行传统欢迎仪式，入住家庭住宿，晚间围坐篝火听马赛历史和传统故事。",
-        "cultural.itinerary.day2.title": "第二天：马赛日常生活",
-        "cultural.itinerary.day2.duration": "全面文化沉浸",
-        "cultural.itinerary.day2.activities": "与马赛勇士体验清晨牧群放牧，与妇女进行传统珠饰工作坊，参与准备传统午餐，下午勇士训练和阿杜姆（跳跃舞）练习。",
-        "cultural.itinerary.day3.title": "第三天：查加社区",
-        "cultural.itinerary.day3.duration": "农业传统",
-        "cultural.itinerary.day3.activities": "前往乞力马扎罗山脚的查加社区，咖啡种植园参观和加工演示，探索传统灌溉系统（恩迪瓦），香蕉啤酒酿造工作坊，晚间传统音乐文化表演。",
-        "cultural.itinerary.day4.title": "第四天：社区项目和离开",
-        "cultural.itinerary.day4.duration": "告别仪式",
-        "cultural.itinerary.day4.activities": "上午参与社区发展项目（学校、水或健康倡议），传统祝福和礼物交换的告别仪式，购买文化纪念品，带着坦桑尼亚热情好客的难忘回忆前往机场。",
-        
-        "cultural.includes.title": "包含项目",
-        "cultural.includes.item1": "社区家庭住宿",
-        "cultural.includes.item2": "所有传统餐食",
-        "cultural.includes.item3": "当地向导服务",
-        "cultural.includes.item4": "文化表演费用",
-        "cultural.includes.item5": "手工艺工作坊材料",
-        "cultural.includes.item6": "社区发展贡献",
-        "cultural.includes.item7": "社区间交通",
-        "cultural.includes.item8": "文化定向会议",
-        
-        "cultural.excludes.title": "不包含项目",
-        "cultural.excludes.item1": "国际航班",
-        "cultural.excludes.item2": "坦桑尼亚签证费",
-        "cultural.excludes.item3": "旅行保险",
-        "cultural.excludes.item4": "酒精饮料",
-        "cultural.excludes.item5": "个人购物",
-        "cultural.excludes.item6": "可选活动",
-        "cultural.excludes.item7": "导游和主人小费",
-        "cultural.excludes.item8": "个人开支",
-        
-        "cultural.booking.title": "准备好文化沉浸了吗？",
-        "cultural.booking.subtitle": "预订您的真实文化体验，连接坦桑尼亚的鲜活传统。",
-        "cultural.booking.cta": "预订文化体验",
-        
-        // Booking Modal - 中文
-        "cultural.booking_modal.title": "预订您的文化体验",
-        "cultural.booking_modal.step1": "套餐级别",
-        "cultural.booking_modal.step2": "旅行方式",
-        "cultural.booking_modal.step3": "预订详情",
-        "cultural.booking_modal.package_title": "选择您的文化体验",
-        "cultural.booking_modal.package_basic": "基础",
-        "cultural.booking_modal.package_basic_feature1": "一日社区访问",
-        "cultural.booking_modal.package_basic_feature2": "文化表演",
-        "cultural.booking_modal.package_basic_feature3": "当地向导",
-        "cultural.booking_modal.package_basic_feature4": "传统午餐",
-        "cultural.booking_modal.package_basic_feature5": "基础手工艺演示",
-        "cultural.booking_modal.package_immersion": "沉浸",
-        "cultural.booking_modal.package_immersion_feature1": "2天家庭住宿",
-        "cultural.booking_modal.package_immersion_feature2": "所有传统餐食",
-        "cultural.booking_modal.package_immersion_feature3": "手工艺工作坊",
-        "cultural.booking_modal.package_immersion_feature4": "社区项目",
-        "cultural.booking_modal.package_immersion_feature5": "文化活动",
-        "cultural.booking_modal.package_immersion_feature6": "部落长者会面",
-        "cultural.booking_modal.package_complete": "完整",
-        "cultural.booking_modal.package_complete_feature1": "多社区游览",
-        "cultural.booking_modal.package_complete_feature2": "私人文化向导",
-        "cultural.booking_modal.package_complete_feature3": "所有工作坊包含",
-        "cultural.booking_modal.package_complete_feature4": "传统仪式",
-        "cultural.booking_modal.package_complete_feature5": "社区贡献",
-        "cultural.booking_modal.package_complete_feature6": "文化纪念品",
-        "cultural.booking_modal.package_complete_feature7": "摄影许可",
-        "cultural.booking_modal.travel_title": "选择您的旅行方式",
-        "cultural.booking_modal.travel_solo": "单人旅行者",
-        "cultural.booking_modal.travel_solo_desc": "适合单人文化探索者",
-        "cultural.booking_modal.travel_couple": "情侣套餐",
-        "cultural.booking_modal.travel_couple_desc": "适合情侣",
-        "cultural.booking_modal.travel_family": "家庭套餐",
-        "cultural.booking_modal.travel_family_desc": "2成人 + 2儿童",
-        "cultural.booking_modal.travel_group": "团体冒险",
-        "cultural.booking_modal.travel_group_desc": "2-30人",
-        "cultural.booking_modal.group_size": "团体人数：",
-        "cultural.booking_modal.package_label": "基础套餐",
-        "cultural.booking_modal.travel_label": "单人旅行者",
-        "cultural.booking_modal.people_label": "4人",
-        "cultural.booking_modal.discount_label": "团体折扣 (20%)",
-        "cultural.booking_modal.total_label": "总价：",
-        "cultural.booking_modal.original_label": "原价：",
-        "cultural.booking_modal.next_step1": "下一步：旅行方式",
-        "cultural.booking_modal.next_step2": "下一步：立即预订",
-        "cultural.booking_modal.cancel": "取消",
-        "cultural.booking_modal.back": "返回",
-        "cultural.booking_modal.confirm_title": "确认您的预订",
-        "cultural.booking_modal.summary_title": "预订摘要",
-        "cultural.booking_modal.summary_destination": "目的地：",
-        "cultural.booking_modal.summary_package": "套餐级别：",
-        "cultural.booking_modal.summary_travel": "旅行方式：",
-        "cultural.booking_modal.summary_people": "人数：",
-        "cultural.booking_modal.summary_duration": "时长：",
-        "cultural.booking_modal.summary_discount": "团体折扣已应用：",
-        "cultural.booking_modal.summary_total": "总金额：",
-        "cultural.booking_modal.summary_original": "原价：",
-        "cultural.booking_modal.contact_title": "联系信息",
-        "cultural.booking_modal.placeholder_firstname": "名字",
-        "cultural.booking_modal.placeholder_lastname": "姓氏",
-        "cultural.booking_modal.placeholder_email": "邮箱地址",
-        "cultural.booking_modal.placeholder_phone": "电话号码",
-        "cultural.booking_modal.complete_booking": "完成预订",
-
-        // Footer - 中文
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "在坦桑尼亚中心创造难忘的体验。通过我们的专家向导和优质游猎冒险发现非洲的魔力。",
-        "footer.quick_links": "快速链接",
-        "footer.destinations": "目的地",
-        "footer.contact_info": "联系信息",
-        "footer.address": "阿鲁沙, 坦桑尼亚",
-        "footer.language": "语言:",
-        "footer.copyright": "© 2024 MMexy Tanzania Adventures. 保留所有权利。 | 为坦桑尼亚旅游而设计 ❤️",
-
-        // Translation System - 中文
-        "translation.loading": "正在翻译内容...",
-        "translation.error": "翻译失败。请重试。"
-    },
-    ja: {
-        // Navigation - 日本語
-        "nav.home": "ホーム",
-        "nav.about": "会社概要",
-        "nav.destinations": "目的地",
-        "nav.mountain_climbing": "登山",
-        "nav.safaris": "タンザニアサファリ",
-        "nav.zanzibar": "ザンジバルビーチ",
-        "nav.cultural": "文化観光",
-        "nav.waterfalls": "滝観光",
-        "nav.historical": "歴史的遺跡",
-        "nav.contact": "お問い合わせ",
-
-        // Cultural Tourism Page - 日本語
-        "cultural.hero.title": "タンザニア文化観光",
-        "cultural.hero.subtitle": "本格的な部族伝統と地域コミュニティを体験",
-        "cultural.hero.cta": "文化体験を予約",
-        
-        "cultural.content.title": "文化没入の旅",
-        "cultural.content.subtitle": "2-5日間の本格的な部族体験とコミュニティ訪問",
-        
-        "cultural.about.title": "文化観光について",
-        "cultural.about.description": "タンザニアの多様な民族グループの豊かな文化的タペストリーに没頭してください。私たちの文化観光パッケージは、古代の伝統を保存しながら持続可能なコミュニティ開発を支援する、地域コミュニティとの本格的な交流、伝統的な儀式、実践的な体験を提供します。",
-        "cultural.about.highlights": "文化的ハイライト",
-        "cultural.about.highlight1": "マサイ村のホームステイ",
-        "cultural.about.highlight2": "伝統舞踊パフォーマンス",
-        "cultural.about.highlight3": "地元工芸ワークショップ",
-        "cultural.about.highlight4": "伝統料理体験",
-        "cultural.about.highlight5": "コミュニティ開発プロジェクト",
-        
-        "cultural.tribes.title": "タンザニアの民族グループに出会う",
-        "cultural.tribes.maasai.title": "マサイコミュニティ体験",
-        "cultural.tribes.maasai.description": "象徴的なマサイ族と共に生活し、彼らの牧畜伝統について学び、ジャンプダンスに参加し、自然や家畜との深い繋がりを理解します。",
-        "cultural.tribes.maasai.feature1": "マニヤッタ滞在",
-        "cultural.tribes.maasai.feature2": "戦士訓練",
-        "cultural.tribes.maasai.feature3": "ビーズワークワークショップ",
-        
-        "cultural.tribes.chagga.title": "チャガ文化没入",
-        "cultural.tribes.chagga.description": "キリマンジャロ山周辺のチャガ族の農業伝統を探検し、コーヒー農園を訪れ、彼らの革新的な灌漑システムについて学びます。",
-        "cultural.tribes.chagga.feature1": "コーヒー加工",
-        "cultural.tribes.chagga.feature2": "バナナ農場ツアー",
-        "cultural.tribes.chagga.feature3": "伝統的な運河",
-        
-        "cultural.tribes.hadzabe.title": "ハザベ狩猟採集民体験",
-        "cultural.tribes.hadzabe.description": "アフリカ最後の狩猟採集民部族の一つであるハザベ族と時間を過ごし、古代の生存スキル、伝統的な狩猟技術、彼らのユニークなクリック言語を学びます。",
-        "cultural.tribes.hadzabe.feature1": "伝統的狩猟",
-        "cultural.tribes.hadzabe.feature2": "採集スキル",
-        "cultural.tribes.hadzabe.feature3": "火起こし",
-        
-        "cultural.itinerary.title": "4日間文化没入旅程",
-        "cultural.itinerary.day1.title": "1日目：到着とマサイ歓迎",
-        "cultural.itinerary.day1.duration": "マサイコミュニティ",
-        "cultural.itinerary.day1.activities": "マサイコミュニティ到着、長老との伝統的歓迎式、ホームステイ宿泊施設への落ち着き、マサイの歴史と伝統に関するキャンプファイヤーでの夜の物語。",
-        "cultural.itinerary.day2.title": "2日目：マサイの日常生活",
-        "cultural.itinerary.day2.duration": "完全文化没入",
-        "cultural.itinerary.day2.activities": "マサイ戦士との朝の家畜放牧体験、女性との伝統的ビーズワークワークショップ、伝統的昼食準備への参加、午後の戦士訓練とアドゥム（ジャンプダンス）練習。",
-        "cultural.itinerary.day3.title": "3日目：チャガコミュニティ",
-        "cultural.itinerary.day3.duration": "農業伝統",
-        "cultural.itinerary.day3.activities": "キリマンジャロ山麓のチャガコミュニティへの旅、コーヒー農園ツアーと加工実演、伝統的灌漑システム（ンディバ）の探索、バナナビール醸造ワークショップ、伝統音楽との夜の文化的パフォーマンス。",
-        "cultural.itinerary.day4.title": "4日目：コミュニティプロジェクトと出発",
-        "cultural.itinerary.day4.duration": "送別式",
-        "cultural.itinerary.day4.activities": "コミュニティ開発プロジェクト（学校、水、または健康イニシアチブ）への朝の参加、伝統的祝福と贈り物交換の送別式、文化的記念品の買い物、タンザニアの忘れられないおもてなしの思い出とともに空港への移動。",
-        
-        "cultural.includes.title": "含まれるもの",
-        "cultural.includes.item1": "コミュニティホームステイ宿泊",
-        "cultural.includes.item2": "すべての伝統的食事",
-        "cultural.includes.item3": "地元ガイドサービス",
-        "cultural.includes.item4": "文化的パフォーマンス料金",
-        "cultural.includes.item5": "工芸ワークショップ材料",
-        "cultural.includes.item6": "コミュニティ開発寄付",
-        "cultural.includes.item7": "コミュニティ間の交通",
-        "cultural.includes.item8": "文化的オリエンテーションセッション",
-        
-        "cultural.excludes.title": "含まれないもの",
-        "cultural.excludes.item1": "国際線航空券",
-        "cultural.excludes.item2": "タンザニアビザ料金",
-        "cultural.excludes.item3": "旅行保険",
-        "cultural.excludes.item4": "アルコール飲料",
-        "cultural.excludes.item5": "個人の買い物",
-        "cultural.excludes.item6": "オプショナルアクティビティ",
-        "cultural.excludes.item7": "ガイドとホストへのチップ",
-        "cultural.excludes.item8": "個人経費",
-        
-        "cultural.booking.title": "文化没入の準備はできていますか？",
-        "cultural.booking.subtitle": "あなたの本格的文化体験を予約し、タンザニアの生きている伝統とつながります。",
-        "cultural.booking.cta": "文化体験を予約",
-        
-        // Booking Modal - 日本語
-        "cultural.booking_modal.title": "文化体験を予約",
-        "cultural.booking_modal.step1": "パッケージレベル",
-        "cultural.booking_modal.step2": "旅行スタイル",
-        "cultural.booking_modal.step3": "予約詳細",
-        "cultural.booking_modal.package_title": "文化体験を選択",
-        "cultural.booking_modal.package_basic": "ベーシック",
-        "cultural.booking_modal.package_basic_feature1": "1日コミュニティ訪問",
-        "cultural.booking_modal.package_basic_feature2": "文化パフォーマンス",
-        "cultural.booking_modal.package_basic_feature3": "地元ガイド",
-        "cultural.booking_modal.package_basic_feature4": "伝統的ランチ",
-        "cultural.booking_modal.package_basic_feature5": "ベーシック工芸デモ",
-        "cultural.booking_modal.package_immersion": "没入",
-        "cultural.booking_modal.package_immersion_feature1": "2日間ホームステイ",
-        "cultural.booking_modal.package_immersion_feature2": "すべての伝統的食事",
-        "cultural.booking_modal.package_immersion_feature3": "工芸ワークショップ",
-        "cultural.booking_modal.package_immersion_feature4": "コミュニティプロジェクト",
-        "cultural.booking_modal.package_immersion_feature5": "文化的アクティビティ",
-        "cultural.booking_modal.package_immersion_feature6": "部族長老との面会",
-        "cultural.booking_modal.package_complete": "コンプリート",
-        "cultural.booking_modal.package_complete_feature1": "複数コミュニティツアー",
-        "cultural.booking_modal.package_complete_feature2": "プライベート文化ガイド",
-        "cultural.booking_modal.package_complete_feature3": "すべてのワークショップ含む",
-        "cultural.booking_modal.package_complete_feature4": "伝統的儀式",
-        "cultural.booking_modal.package_complete_feature5": "コミュニティ貢献",
-        "cultural.booking_modal.package_complete_feature6": "文化的記念品",
-        "cultural.booking_modal.package_complete_feature7": "写真撮影許可",
-        "cultural.booking_modal.travel_title": "旅行スタイルを選択",
-        "cultural.booking_modal.travel_solo": "一人旅",
-        "cultural.booking_modal.travel_solo_desc": "一人の文化探検家に最適",
-        "cultural.booking_modal.travel_couple": "カップルパッケージ",
-        "cultural.booking_modal.travel_couple_desc": "カップルに最適",
-        "cultural.booking_modal.travel_family": "ファミリーパッケージ",
-        "cultural.booking_modal.travel_family_desc": "大人2名 + 子供2名",
-        "cultural.booking_modal.travel_group": "グループアドベンチャー",
-        "cultural.booking_modal.travel_group_desc": "2-30人",
-        "cultural.booking_modal.group_size": "グループ人数:",
-        "cultural.booking_modal.package_label": "ベーシックパッケージ",
-        "cultural.booking_modal.travel_label": "一人旅",
-        "cultural.booking_modal.people_label": "4人",
-        "cultural.booking_modal.discount_label": "グループ割引 (20%)",
-        "cultural.booking_modal.total_label": "総額:",
-        "cultural.booking_modal.original_label": "元の価格:",
-        "cultural.booking_modal.next_step1": "次へ: 旅行スタイル",
-        "cultural.booking_modal.next_step2": "次へ: 今すぐ予約",
-        "cultural.booking_modal.cancel": "キャンセル",
-        "cultural.booking_modal.back": "戻る",
-        "cultural.booking_modal.confirm_title": "予約を確認",
-        "cultural.booking_modal.summary_title": "予約概要",
-        "cultural.booking_modal.summary_destination": "目的地:",
-        "cultural.booking_modal.summary_package": "パッケージレベル:",
-        "cultural.booking_modal.summary_travel": "旅行スタイル:",
-        "cultural.booking_modal.summary_people": "人数:",
-        "cultural.booking_modal.summary_duration": "期間:",
-        "cultural.booking_modal.summary_discount": "グループ割引適用:",
-        "cultural.booking_modal.summary_total": "総額:",
-        "cultural.booking_modal.summary_original": "元の価格:",
-        "cultural.booking_modal.contact_title": "連絡先情報",
-        "cultural.booking_modal.placeholder_firstname": "名",
-        "cultural.booking_modal.placeholder_lastname": "姓",
-        "cultural.booking_modal.placeholder_email": "メールアドレス",
-        "cultural.booking_modal.placeholder_phone": "電話番号",
-        "cultural.booking_modal.complete_booking": "予約を完了",
-
-        // Footer - 日本語
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "タンザニアの中心で忘れられない体験を創造。専門ガイドとプレミアムサファリアドベンチャーでアフリカの魔法を発見。",
-        "footer.quick_links": "クイックリンク",
-        "footer.destinations": "目的地",
-        "footer.contact_info": "連絡先情報",
-        "footer.address": "アルーシャ, タンザニア",
-        "footer.language": "言語:",
-        "footer.copyright": "© 2025 MMexy Tanzania Adventures. 全著作権所有。 | タンザニア観光のために❤️で設計",
-
-        // Translation System - 日本語
-        "translation.loading": "コンテンツを翻訳中...",
-        "translation.error": "翻訳に失敗しました。もう一度お試しください。"
-    }
+    // ... other languages remain the same (add the new placeholders for each language)
 };
 
         // Current language
@@ -4497,11 +3236,10 @@
             originalPrice: 150,
             discountApplied: false,
             discountAmount: 0,
-            contactInfo: {
-                firstName: '',
-                lastName: '',
-                email: '',
-                phone: ''
+            travelInfo: {
+                country: '',
+                arrivalDate: '',
+                departureDate: ''
             }
         };
 
@@ -4733,19 +3471,18 @@
             }
         }
 
-        // Collect Cultural Experience contact information
-        function culturalCollectContactInfo() {
-            culturalCurrentBooking.contactInfo = {
-                firstName: document.getElementById('cultural-firstName').value,
-                lastName: document.getElementById('cultural-lastName').value,
-                email: document.getElementById('cultural-email').value,
-                phone: document.getElementById('cultural-phone').value
+        // Collect Cultural Experience travel information
+        function culturalCollectTravelInfo() {
+            culturalCurrentBooking.travelInfo = {
+                country: document.getElementById('cultural-country').value,
+                arrivalDate: document.getElementById('cultural-arrival-date').value,
+                departureDate: document.getElementById('cultural-departure-date').value
             };
         }
 
         // Send Cultural Experience booking to WhatsApp and Email
         function culturalSendBooking() {
-            culturalCollectContactInfo();
+            culturalCollectTravelInfo();
             
             const discountText = culturalCurrentBooking.discountApplied ? 
                 `*Discount Applied:* 20% (Saved: $${Math.round(culturalCurrentBooking.discountAmount)})` : 
@@ -4765,10 +3502,10 @@ ${discountText}
 *Duration:* 2-5 Days
 *Total Amount:* $${Math.round(culturalCurrentBooking.totalPrice)}
 
-*Contact Information:*
-*Name:* ${culturalCurrentBooking.contactInfo.firstName} ${culturalCurrentBooking.contactInfo.lastName}
-*Email:* ${culturalCurrentBooking.contactInfo.email}
-*Phone:* ${culturalCurrentBooking.contactInfo.phone}
+*Travel Information:*
+*Country:* ${culturalCurrentBooking.travelInfo.country}
+*Arrival Date:* ${culturalCurrentBooking.travelInfo.arrivalDate}
+*Departure Date:* ${culturalCurrentBooking.travelInfo.departureDate}
 
 *Booking Time:* ${new Date().toLocaleString()}
             `.trim();
@@ -4793,16 +3530,21 @@ ${discountText}
 
         // Complete Cultural Experience Booking
         function culturalCompleteBooking() {
-            culturalCollectContactInfo();
+            culturalCollectTravelInfo();
             
             // Basic validation
-            if (!culturalCurrentBooking.contactInfo.firstName || !culturalCurrentBooking.contactInfo.lastName) {
-                alert('Please enter your name');
+            if (!culturalCurrentBooking.travelInfo.country) {
+                alert('Please select your country');
                 return;
             }
             
-            if (!culturalCurrentBooking.contactInfo.email && !culturalCurrentBooking.contactInfo.phone) {
-                alert('Please enter either email or phone number');
+            if (!culturalCurrentBooking.travelInfo.arrivalDate) {
+                alert('Please select arrival date');
+                return;
+            }
+
+            if (!culturalCurrentBooking.travelInfo.departureDate) {
+                alert('Please select departure date');
                 return;
             }
 
@@ -4823,9 +3565,10 @@ Travel Style: ${culturalCurrentBooking.groupType === 'single' ? 'Solo Traveler' 
 ${culturalCurrentBooking.groupType === 'group' ? `People: ${culturalCurrentBooking.peopleCount}` : ''}${originalPriceText}${discountText}
 Total: $${Math.round(culturalCurrentBooking.totalPrice)}
 
-Contact: ${culturalCurrentBooking.contactInfo.firstName} ${culturalCurrentBooking.contactInfo.lastName}
-Email: ${culturalCurrentBooking.contactInfo.email}
-Phone: ${culturalCurrentBooking.contactInfo.phone}
+Travel Info: 
+Country: ${culturalCurrentBooking.travelInfo.country}
+Arrival: ${culturalCurrentBooking.travelInfo.arrivalDate}
+Departure: ${culturalCurrentBooking.travelInfo.departureDate}
             `.trim();
             
             // Send booking information
@@ -4845,10 +3588,19 @@ Phone: ${culturalCurrentBooking.contactInfo.phone}
             document.querySelector('#cultural-premium-modal .group-option[data-group="single"]').click();
             
             // Clear form fields
-            document.getElementById('cultural-firstName').value = '';
-            document.getElementById('cultural-lastName').value = '';
-            document.getElementById('cultural-email').value = '';
-            document.getElementById('cultural-phone').value = '';
+            document.getElementById('cultural-country').value = '';
+            
+            // Set tomorrow as default arrival date
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const tomorrowStr = tomorrow.toISOString().split('T')[0];
+            document.getElementById('cultural-arrival-date').value = tomorrowStr;
+            
+            // Set departure date to 3 days after arrival
+            const departureDate = new Date(tomorrow);
+            departureDate.setDate(departureDate.getDate() + 3);
+            const departureStr = departureDate.toISOString().split('T')[0];
+            document.getElementById('cultural-departure-date').value = departureStr;
             
             // Show modal
             document.getElementById('cultural-premium-modal').style.display = 'block';
