@@ -1855,28 +1855,10 @@
     <nav class="premium-navbar" id="premiumNavbar">
         <div class="nav-container">
             <!-- Logo -->
-            <!-- <a href="index.html" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <i class="fas fa-mountain logo-icon"></i>
                 <span class="logo-text">MMexy Tanzania</span>
-            </a> -->
-
-            
-            <a href="index.html" class="nav-logo d-flex align-items-center text-decoration-none">
-    <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img me-2">
-            <span class="logo-text">MMexy</span>
-        </a>
-        <style>
-            .logo-img{
-    height: 90px;      /* unaweza kuongeza hadi 50px */
-    width: auto;
-}
-.logo-text{
-    font-weight: 800;
-    font-size: 1.9rem;
-    color: #8B4513;
-}
-
-        </style>
+            </a>
 
             <!-- Desktop Navigation -->
             <div class="desktop-nav">
@@ -1926,12 +1908,12 @@
                             </a>
                         </div>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a href="contact.html" class="nav-link" data-i18n="nav.contact">
                             <i class="fas fa-envelope"></i>
                             <span>Contact</span>
                         </a>
-                    </li> -->
+                    </li>
                 </ul>
 
                 <!-- Premium Language Selector -->
@@ -2236,11 +2218,11 @@
 
                     <div class="itinerary-day">
                         <div class="day-header">
-                            <div class="day-title" data-i18n="cultural.itinerary.day3.title">Day 3: hadzabe community</div>
+                            <div class="day-title" data-i18n="cultural.itinerary.day3.title">Day 3: Chagga Community</div>
                             <div class="day-duration" data-i18n="cultural.itinerary.day3.duration">Agricultural Traditions</div>
                         </div>
                         <div class="day-activities" data-i18n="cultural.itinerary.day3.activities">
-                            Travel to hadzabe community at the foothills of Kilimanjaro, coffee plantation tour and processing demonstration, traditional irrigation system (Ndiva) exploration, banana beer brewing workshop, evening cultural performances with traditional music.
+                            Travel to Chagga community at the foothills of Kilimanjaro, coffee plantation tour and processing demonstration, traditional irrigation system (Ndiva) exploration, banana beer brewing workshop, evening cultural performances with traditional music.
                         </div>
                     </div>
 
@@ -2525,10 +2507,11 @@
                     </div>
                 </div>
 
-                <!-- Step 3: Final Booking -->
+                <!-- Step 3: Final Booking (WITH NEW CUSTOMER FIELDS) -->
                 <div class="booking-section" id="cultural-step-3">
                     <h3 class="step-title" data-i18n="cultural.booking_modal.confirm_title">Confirm Your Booking</h3>
                     
+                    <!-- Price Summary -->
                     <div class="price-summary">
                         <h4 class="summary-title" data-i18n="cultural.booking_modal.summary_title">Booking Summary</h4>
                         <div class="price-breakdown">
@@ -2561,37 +2544,58 @@
                             <span class="total-label" data-i18n="cultural.booking_modal.summary_total">Total Amount:</span>
                             <span class="total-value" id="cultural-summary-total">$150</span>
                         </div>
-                        <!-- Original Price Display in Summary -->
                         <div class="original-price" id="cultural-summary-original-price" style="display: none;">
                             <span class="original-label" data-i18n="cultural.booking_modal.summary_original">Original Price:</span>
                             <span class="original-value" id="cultural-summary-original-value">$600</span>
                         </div>
                     </div>
 
-                    <!-- CHANGED: Country, Arrival Date, Departure Date Form -->
+                    <!-- CUSTOMER INFORMATION FORM -->
                     <div class="contact-form">
-                        <h4 class="summary-title" data-i18n="cultural.booking_modal.contact_title">Travel Information</h4>
+                        <h4 class="summary-title" data-i18n="cultural.booking_modal.customer_info_title">Customer Information</h4>
                         <div class="form-grid">
-                            <select id="cultural-country" class="form-input" data-i18n-placeholder="cultural.booking_modal.placeholder_country">
-                                <option value="">Select Country</option>
-                                <option value="USA">United States</option>
-                                <option value="UK">United Kingdom</option>
-                                <option value="Canada">Canada</option>
-                                <option value="Germany">Germany</option>
-                                <option value="France">France</option>
-                                <option value="Australia">Australia</option>
-                                <option value="Japan">Japan</option>
-                                <option value="China">China</option>
-                                <option value="India">India</option>
-                                <option value="South Africa">South Africa</option>
-                                <option value="Tanzania">Tanzania</option>
-                                <option value="Kenya">Kenya</option>
-                            </select>
-                            <input type="date" id="cultural-arrival-date" class="form-input" data-i18n-placeholder="cultural.booking_modal.placeholder_arrival">
-                            <input type="date" id="cultural-departure-date" class="form-input" data-i18n-placeholder="cultural.booking_modal.placeholder_departure">
+                            <!-- First Name -->
+                            <input type="text" id="cultural-first-name" class="form-input" 
+                                   data-i18n-placeholder="cultural.booking_modal.placeholder_first_name" 
+                                   placeholder="First Name" required>
+                            
+                            <!-- Last Name -->
+                            <input type="text" id="cultural-last-name" class="form-input" 
+                                   data-i18n-placeholder="cultural.booking_modal.placeholder_last_name" 
+                                   placeholder="Last Name" required>
+                            
+                            <!-- Email -->
+                            <input type="email" id="cultural-email" class="form-input full-width" 
+                                   data-i18n-placeholder="cultural.booking_modal.placeholder_email" 
+                                   placeholder="Email Address" required>
+                            
+                            <!-- Phone Number -->
+                            <input type="tel" id="cultural-phone" class="form-input full-width" 
+                                   data-i18n-placeholder="cultural.booking_modal.placeholder_phone" 
+                                   placeholder="Phone Number" required>
                         </div>
                     </div>
 
+                    <!-- TRAVEL INFORMATION FORM -->
+                    <div class="contact-form">
+                        <h4 class="summary-title" data-i18n="cultural.booking_modal.travel_info_title">Travel Information</h4>
+                        <div class="form-grid">
+                            <!-- Country - TEXT INPUT (User can type any country) -->
+                            <input type="text" id="cultural-country" class="form-input" 
+                                   data-i18n-placeholder="cultural.booking_modal.placeholder_country" 
+                                   placeholder="Enter your country">
+                            
+                            <!-- Arrival Date -->
+                            <input type="text" id="cultural-arrival-date" class="form-input" 
+                                   data-i18n-placeholder="cultural.booking_modal.placeholder_arrival" required>
+                            
+                            <!-- Departure Date -->
+                            <input type="text" id="cultural-departure-date" class="form-input" 
+                                   data-i18n-placeholder="cultural.booking_modal.placeholder_departure" required>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Actions -->
                     <div class="mobile-actions">
                         <div class="mobile-actions-inner">
                             <button class="mobile-back-btn" onclick="culturalPrevStep(2)">
@@ -2604,10 +2608,13 @@
                             </button>
                         </div>
                     </div>
+                    
+                    <!-- Desktop Actions -->
                     <div class="modal-actions">
                         <button class="modal-btn btn-secondary" onclick="culturalPrevStep(2)" data-i18n="cultural.booking_modal.back">Back</button>
                         <button class="modal-btn btn-primary desktop-only" onclick="culturalCompleteBooking()">
-                            <i class="fas fa-credit-card"></i> <span data-i18n="cultural.booking_modal.complete_booking">Complete Booking</span>
+                            <i class="fas fa-credit-card"></i> 
+                            <span data-i18n="cultural.booking_modal.complete_booking">Complete Booking</span>
                         </button>
                     </div>
                 </div>
@@ -2618,337 +2625,347 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // COMPLETE TRANSLATION SYSTEM - ALL 10 LANGUAGES FULLY IMPLEMENTED
-      const translations = {
-    en: {
-        // Navigation
-        "nav.home": "Home",
-        "nav.about": "About",
-        "nav.destinations": "Destinations",
-        "nav.mountain_climbing": "Mountain Climbing",
-        "nav.safaris": "Tanzania Safaris",
-        "nav.zanzibar": "Zanzibar Beaches",
-        "nav.cultural": "Cultural Tourism",
-        "nav.waterfalls": "Waterfall Tourism",
-        "nav.historical": "Historical Sites",
-        "nav.contact": "Contact",
+        const translations = {
+            en: {
+                // Navigation
+                "nav.home": "Home",
+                "nav.about": "About",
+                "nav.destinations": "Destinations",
+                "nav.mountain_climbing": "Mountain Climbing",
+                "nav.safaris": "Tanzania Safaris",
+                "nav.zanzibar": "Zanzibar Beaches",
+                "nav.cultural": "Cultural Tourism",
+                "nav.waterfalls": "Waterfall Tourism",
+                "nav.historical": "Historical Sites",
+                "nav.contact": "Contact",
 
-        // Cultural Tourism Page
-        "cultural.hero.title": "Cultural Tourism Tanzania",
-        "cultural.hero.subtitle": "Experience Authentic Tribal Traditions and Local Communities",
-        "cultural.hero.cta": "Book Cultural Experience",
-        
-        "cultural.content.title": "Cultural Immersion Journey",
-        "cultural.content.subtitle": "2-5 Days of Authentic Tribal Experiences and Community Visits",
-        
-        "cultural.about.title": "About Cultural Tourism",
-        "cultural.about.description": "Immerse yourself in the rich cultural tapestry of Tanzania's diverse ethnic groups. Our cultural tourism packages offer authentic interactions with local communities, traditional ceremonies, and hands-on experiences that preserve ancient traditions while supporting sustainable community development.",
-        "cultural.about.highlights": "Cultural Highlights",
-        "cultural.about.highlight1": "Maasai village homestays",
-        "cultural.about.highlight2": "Traditional dance performances",
-        "cultural.about.highlight3": "Local craft workshops",
-        "cultural.about.highlight4": "Traditional cooking experiences",
-        "cultural.about.highlight5": "Community development projects",
-        
-        "cultural.tribes.title": "Meet Tanzania's Ethnic Groups",
-        "cultural.tribes.maasai.title": "Maasai Community Experience",
-        "cultural.tribes.maasai.description": "Live with the iconic Maasai people, learn about their pastoral traditions, participate in jumping dances, and understand their deep connection with nature and livestock.",
-        "cultural.tribes.maasai.feature1": "Manyatta Stay",
-        "cultural.tribes.maasai.feature2": "Warrior Training",
-        "cultural.tribes.maasai.feature3": "Beadwork Workshop",
-        
-        "cultural.tribes.chagga.title": "Chagga Cultural Immersion",
-        "cultural.tribes.chagga.description": "Explore the agricultural traditions of the Chagga people around Mount Kilimanjaro, visit coffee plantations, and learn about their innovative irrigation systems.",
-        "cultural.tribes.chagga.feature1": "Coffee Processing",
-        "cultural.tribes.chagga.feature2": "Banana Farm Tour",
-        "cultural.tribes.chagga.feature3": "Traditional Canals",
-        
-        "cultural.tribes.hadzabe.title": "Hadzabe Hunter-Gatherer Experience",
-        "cultural.tribes.hadzabe.description": "Spend time with the Hadzabe, one of the last hunter-gatherer tribes in Africa, learning ancient survival skills, traditional hunting techniques, and their unique click language.",
-        "cultural.tribes.hadzabe.feature1": "Traditional Hunting",
-        "cultural.tribes.hadzabe.feature2": "Foraging Skills",
-        "cultural.tribes.hadzabe.feature3": "Fire Making",
-        
-        "cultural.itinerary.title": "4-Day Cultural Immersion Itinerary",
-        "cultural.itinerary.day1.title": "Day 1: Arrival & Maasai Welcome",
-        "cultural.itinerary.day1.duration": "Maasai Community",
-        "cultural.itinerary.day1.activities": "Arrive at Maasai community, traditional welcome ceremony with elders, settle into homestay accommodations, evening storytelling around campfire about Maasai history and traditions.",
-        "cultural.itinerary.day2.title": "Day 2: Maasai Daily Life",
-        "cultural.itinerary.day2.duration": "Full Cultural Immersion",
-        "cultural.itinerary.day2.activities": "Morning livestock herding experience with Maasai warriors, traditional beadwork workshop with women, participate in preparing traditional lunch, afternoon warrior training and Adumu (jumping dance) practice.",
-        "cultural.itinerary.day3.title": "Day 3: Chagga Community",
-        "cultural.itinerary.day3.duration": "Agricultural Traditions",
-        "cultural.itinerary.day3.activities": "Travel to Chagga community at the foothills of Kilimanjaro, coffee plantation tour and processing demonstration, traditional irrigation system (Ndiva) exploration, banana beer brewing workshop, evening cultural performances with traditional music.",
-        "cultural.itinerary.day4.title": "Day 4: Community Projects & Departure",
-        "cultural.itinerary.day4.duration": "Farewell Ceremony",
-        "cultural.itinerary.day4.activities": "Morning participation in community development project (school, water, or health initiative), farewell ceremony with traditional blessings and gift exchange, cultural souvenir shopping, transfer to airport with unforgettable memories of Tanzanian hospitality.",
-        
-        "cultural.includes.title": "What's Included",
-        "cultural.includes.item1": "Community homestay accommodation",
-        "cultural.includes.item2": "All traditional meals",
-        "cultural.includes.item3": "Local guide services",
-        "cultural.includes.item4": "Cultural performance fees",
-        "cultural.includes.item5": "Craft workshop materials",
-        "cultural.includes.item6": "Community development contribution",
-        "cultural.includes.item7": "Transportation between communities",
-        "cultural.includes.item8": "Cultural orientation session",
-        
-        "cultural.excludes.title": "What's Excluded",
-        "cultural.excludes.item1": "International flights",
-        "cultural.excludes.item2": "Tanzania visa fees",
-        "cultural.excludes.item3": "Travel insurance",
-        "cultural.excludes.item4": "Alcoholic beverages",
-        "cultural.excludes.item5": "Personal shopping",
-        "cultural.excludes.item6": "Optional activities",
-        "cultural.excludes.item7": "Tips for guides and hosts",
-        "cultural.excludes.item8": "Personal expenses",
-        
-        "cultural.booking.title": "Ready for Cultural Immersion?",
-        "cultural.booking.subtitle": "Book your authentic cultural experience and connect with Tanzania's living traditions.",
-        "cultural.booking.cta": "Book Cultural Experience",
-        
-        // Booking Modal
-        "cultural.booking_modal.title": "Book Your Cultural Experience",
-        "cultural.booking_modal.step1": "Package Level",
-        "cultural.booking_modal.step2": "Travel Style",
-        "cultural.booking_modal.step3": "Booking Details",
-        "cultural.booking_modal.package_title": "Choose Your Cultural Experience",
-        "cultural.booking_modal.package_basic": "BASIC",
-        "cultural.booking_modal.package_basic_feature1": "Day Community Visit",
-        "cultural.booking_modal.package_basic_feature2": "Cultural Performance",
-        "cultural.booking_modal.package_basic_feature3": "Local Guide",
-        "cultural.booking_modal.package_basic_feature4": "Traditional Lunch",
-        "cultural.booking_modal.package_basic_feature5": "Basic Craft Demo",
-        "cultural.booking_modal.package_immersion": "IMMERSION",
-        "cultural.booking_modal.package_immersion_feature1": "2-Day Homestay",
-        "cultural.booking_modal.package_immersion_feature2": "All Traditional Meals",
-        "cultural.booking_modal.package_immersion_feature3": "Craft Workshops",
-        "cultural.booking_modal.package_immersion_feature4": "Community Projects",
-        "cultural.booking_modal.package_immersion_feature5": "Cultural Activities",
-        "cultural.booking_modal.package_immersion_feature6": "Tribal Elder Meetings",
-        "cultural.booking_modal.package_complete": "COMPLETE",
-        "cultural.booking_modal.package_complete_feature1": "Multi-Community Tour",
-        "cultural.booking_modal.package_complete_feature2": "Private Cultural Guide",
-        "cultural.booking_modal.package_complete_feature3": "All Workshops Included",
-        "cultural.booking_modal.package_complete_feature4": "Traditional Ceremonies",
-        "cultural.booking_modal.package_complete_feature5": "Community Contribution",
-        "cultural.booking_modal.package_complete_feature6": "Cultural Souvenirs",
-        "cultural.booking_modal.package_complete_feature7": "Photography Permits",
-        "cultural.booking_modal.travel_title": "Select Your Travel Style",
-        "cultural.booking_modal.travel_solo": "Solo Traveler",
-        "cultural.booking_modal.travel_solo_desc": "Perfect for solo cultural explorers",
-        "cultural.booking_modal.travel_couple": "Couple Package",
-        "cultural.booking_modal.travel_couple_desc": "Perfect for couples",
-        "cultural.booking_modal.travel_family": "Family Package",
-        "cultural.booking_modal.travel_family_desc": "2 adults + 2 children",
-        "cultural.booking_modal.travel_group": "Group Adventure",
-        "cultural.booking_modal.travel_group_desc": "2-30 people",
-        "cultural.booking_modal.group_size": "Group Size:",
-        "cultural.booking_modal.package_label": "Basic Package",
-        "cultural.booking_modal.travel_label": "Solo Traveler",
-        "cultural.booking_modal.people_label": "4 people",
-        "cultural.booking_modal.discount_label": "Group Discount (20%)",
-        "cultural.booking_modal.total_label": "Total Price:",
-        "cultural.booking_modal.original_label": "Original Price:",
-        "cultural.booking_modal.next_step1": "Next: Travel Style",
-        "cultural.booking_modal.next_step2": "Next: Book Now",
-        "cultural.booking_modal.cancel": "Cancel",
-        "cultural.booking_modal.back": "Back",
-        "cultural.booking_modal.confirm_title": "Confirm Your Booking",
-        "cultural.booking_modal.summary_title": "Booking Summary",
-        "cultural.booking_modal.summary_destination": "Destination:",
-        "cultural.booking_modal.summary_package": "Package Level:",
-        "cultural.booking_modal.summary_travel": "Travel Style:",
-        "cultural.booking_modal.summary_people": "Number of People:",
-        "cultural.booking_modal.summary_duration": "Duration:",
-        "cultural.booking_modal.summary_discount": "Group Discount Applied:",
-        "cultural.booking_modal.summary_total": "Total Amount:",
-        "cultural.booking_modal.summary_original": "Original Price:",
-        "cultural.booking_modal.contact_title": "Travel Information",
-        "cultural.booking_modal.placeholder_country": "Select Country",
-        "cultural.booking_modal.placeholder_arrival": "Arrival Date",
-        "cultural.booking_modal.placeholder_departure": "Departure Date",
-        "cultural.booking_modal.complete_booking": "Complete Booking",
+                // Cultural Tourism Page
+                "cultural.hero.title": "Cultural Tourism Tanzania",
+                "cultural.hero.subtitle": "Experience Authentic Tribal Traditions and Local Communities",
+                "cultural.hero.cta": "Book Cultural Experience",
+                
+                "cultural.content.title": "Cultural Immersion Journey",
+                "cultural.content.subtitle": "2-5 Days of Authentic Tribal Experiences and Community Visits",
+                
+                "cultural.about.title": "About Cultural Tourism",
+                "cultural.about.description": "Immerse yourself in the rich cultural tapestry of Tanzania's diverse ethnic groups. Our cultural tourism packages offer authentic interactions with local communities, traditional ceremonies, and hands-on experiences that preserve ancient traditions while supporting sustainable community development.",
+                "cultural.about.highlights": "Cultural Highlights",
+                "cultural.about.highlight1": "Maasai village homestays",
+                "cultural.about.highlight2": "Traditional dance performances",
+                "cultural.about.highlight3": "Local craft workshops",
+                "cultural.about.highlight4": "Traditional cooking experiences",
+                "cultural.about.highlight5": "Community development projects",
+                
+                "cultural.tribes.title": "Meet Tanzania's Ethnic Groups",
+                "cultural.tribes.maasai.title": "Maasai Community Experience",
+                "cultural.tribes.maasai.description": "Live with the iconic Maasai people, learn about their pastoral traditions, participate in jumping dances, and understand their deep connection with nature and livestock.",
+                "cultural.tribes.maasai.feature1": "Manyatta Stay",
+                "cultural.tribes.maasai.feature2": "Warrior Training",
+                "cultural.tribes.maasai.feature3": "Beadwork Workshop",
+                
+                "cultural.tribes.chagga.title": "Chagga Cultural Immersion",
+                "cultural.tribes.chagga.description": "Explore the agricultural traditions of the Chagga people around Mount Kilimanjaro, visit coffee plantations, and learn about their innovative irrigation systems.",
+                "cultural.tribes.chagga.feature1": "Coffee Processing",
+                "cultural.tribes.chagga.feature2": "Banana Farm Tour",
+                "cultural.tribes.chagga.feature3": "Traditional Canals",
+                
+                "cultural.tribes.hadzabe.title": "Hadzabe Hunter-Gatherer Experience",
+                "cultural.tribes.hadzabe.description": "Spend time with the Hadzabe, one of the last hunter-gatherer tribes in Africa, learning ancient survival skills, traditional hunting techniques, and their unique click language.",
+                "cultural.tribes.hadzabe.feature1": "Traditional Hunting",
+                "cultural.tribes.hadzabe.feature2": "Foraging Skills",
+                "cultural.tribes.hadzabe.feature3": "Fire Making",
+                
+                "cultural.itinerary.title": "4-Day Cultural Immersion Itinerary",
+                "cultural.itinerary.day1.title": "Day 1: Arrival & Maasai Welcome",
+                "cultural.itinerary.day1.duration": "Maasai Community",
+                "cultural.itinerary.day1.activities": "Arrive at Maasai community, traditional welcome ceremony with elders, settle into homestay accommodations, evening storytelling around campfire about Maasai history and traditions.",
+                "cultural.itinerary.day2.title": "Day 2: Maasai Daily Life",
+                "cultural.itinerary.day2.duration": "Full Cultural Immersion",
+                "cultural.itinerary.day2.activities": "Morning livestock herding experience with Maasai warriors, traditional beadwork workshop with women, participate in preparing traditional lunch, afternoon warrior training and Adumu (jumping dance) practice.",
+                "cultural.itinerary.day3.title": "Day 3: Chagga Community",
+                "cultural.itinerary.day3.duration": "Agricultural Traditions",
+                "cultural.itinerary.day3.activities": "Travel to Chagga community at the foothills of Kilimanjaro, coffee plantation tour and processing demonstration, traditional irrigation system (Ndiva) exploration, banana beer brewing workshop, evening cultural performances with traditional music.",
+                "cultural.itinerary.day4.title": "Day 4: Community Projects & Departure",
+                "cultural.itinerary.day4.duration": "Farewell Ceremony",
+                "cultural.itinerary.day4.activities": "Morning participation in community development project (school, water, or health initiative), farewell ceremony with traditional blessings and gift exchange, cultural souvenir shopping, transfer to airport with unforgettable memories of Tanzanian hospitality.",
+                
+                "cultural.includes.title": "What's Included",
+                "cultural.includes.item1": "Community homestay accommodation",
+                "cultural.includes.item2": "All traditional meals",
+                "cultural.includes.item3": "Local guide services",
+                "cultural.includes.item4": "Cultural performance fees",
+                "cultural.includes.item5": "Craft workshop materials",
+                "cultural.includes.item6": "Community development contribution",
+                "cultural.includes.item7": "Transportation between communities",
+                "cultural.includes.item8": "Cultural orientation session",
+                
+                "cultural.excludes.title": "What's Excluded",
+                "cultural.excludes.item1": "International flights",
+                "cultural.excludes.item2": "Tanzania visa fees",
+                "cultural.excludes.item3": "Travel insurance",
+                "cultural.excludes.item4": "Alcoholic beverages",
+                "cultural.excludes.item5": "Personal shopping",
+                "cultural.excludes.item6": "Optional activities",
+                "cultural.excludes.item7": "Tips for guides and hosts",
+                "cultural.excludes.item8": "Personal expenses",
+                
+                "cultural.booking.title": "Ready for Cultural Immersion?",
+                "cultural.booking.subtitle": "Book your authentic cultural experience and connect with Tanzania's living traditions.",
+                "cultural.booking.cta": "Book Cultural Experience",
+                
+                // Booking Modal
+                "cultural.booking_modal.title": "Book Your Cultural Experience",
+                "cultural.booking_modal.step1": "Package Level",
+                "cultural.booking_modal.step2": "Travel Style",
+                "cultural.booking_modal.step3": "Booking Details",
+                "cultural.booking_modal.package_title": "Choose Your Cultural Experience",
+                "cultural.booking_modal.package_basic": "BASIC",
+                "cultural.booking_modal.package_basic_feature1": "Day Community Visit",
+                "cultural.booking_modal.package_basic_feature2": "Cultural Performance",
+                "cultural.booking_modal.package_basic_feature3": "Local Guide",
+                "cultural.booking_modal.package_basic_feature4": "Traditional Lunch",
+                "cultural.booking_modal.package_basic_feature5": "Basic Craft Demo",
+                "cultural.booking_modal.package_immersion": "IMMERSION",
+                "cultural.booking_modal.package_immersion_feature1": "2-Day Homestay",
+                "cultural.booking_modal.package_immersion_feature2": "All Traditional Meals",
+                "cultural.booking_modal.package_immersion_feature3": "Craft Workshops",
+                "cultural.booking_modal.package_immersion_feature4": "Community Projects",
+                "cultural.booking_modal.package_immersion_feature5": "Cultural Activities",
+                "cultural.booking_modal.package_immersion_feature6": "Tribal Elder Meetings",
+                "cultural.booking_modal.package_complete": "COMPLETE",
+                "cultural.booking_modal.package_complete_feature1": "Multi-Community Tour",
+                "cultural.booking_modal.package_complete_feature2": "Private Cultural Guide",
+                "cultural.booking_modal.package_complete_feature3": "All Workshops Included",
+                "cultural.booking_modal.package_complete_feature4": "Traditional Ceremonies",
+                "cultural.booking_modal.package_complete_feature5": "Community Contribution",
+                "cultural.booking_modal.package_complete_feature6": "Cultural Souvenirs",
+                "cultural.booking_modal.package_complete_feature7": "Photography Permits",
+                "cultural.booking_modal.travel_title": "Select Your Travel Style",
+                "cultural.booking_modal.travel_solo": "Solo Traveler",
+                "cultural.booking_modal.travel_solo_desc": "Perfect for solo cultural explorers",
+                "cultural.booking_modal.travel_couple": "Couple Package",
+                "cultural.booking_modal.travel_couple_desc": "Perfect for couples",
+                "cultural.booking_modal.travel_family": "Family Package",
+                "cultural.booking_modal.travel_family_desc": "2 adults + 2 children",
+                "cultural.booking_modal.travel_group": "Group Adventure",
+                "cultural.booking_modal.travel_group_desc": "2-30 people",
+                "cultural.booking_modal.group_size": "Group Size:",
+                "cultural.booking_modal.package_label": "Basic Package",
+                "cultural.booking_modal.travel_label": "Solo Traveler",
+                "cultural.booking_modal.people_label": "4 people",
+                "cultural.booking_modal.discount_label": "Group Discount (20%)",
+                "cultural.booking_modal.total_label": "Total Price:",
+                "cultural.booking_modal.original_label": "Original Price:",
+                "cultural.booking_modal.next_step1": "Next: Travel Style",
+                "cultural.booking_modal.next_step2": "Next: Book Now",
+                "cultural.booking_modal.cancel": "Cancel",
+                "cultural.booking_modal.back": "Back",
+                "cultural.booking_modal.confirm_title": "Confirm Your Booking",
+                "cultural.booking_modal.summary_title": "Booking Summary",
+                "cultural.booking_modal.summary_destination": "Destination:",
+                "cultural.booking_modal.summary_package": "Package Level:",
+                "cultural.booking_modal.summary_travel": "Travel Style:",
+                "cultural.booking_modal.summary_people": "Number of People:",
+                "cultural.booking_modal.summary_duration": "Duration:",
+                "cultural.booking_modal.summary_discount": "Group Discount Applied:",
+                "cultural.booking_modal.summary_total": "Total Amount:",
+                "cultural.booking_modal.summary_original": "Original Price:",
+                "cultural.booking_modal.customer_info_title": "Customer Information",
+                "cultural.booking_modal.placeholder_first_name": "First Name",
+                "cultural.booking_modal.placeholder_last_name": "Last Name",
+                "cultural.booking_modal.placeholder_email": "Email Address",
+                "cultural.booking_modal.placeholder_phone": "Phone Number",
+                "cultural.booking_modal.travel_info_title": "Travel Information",
+                "cultural.booking_modal.placeholder_country": "Enter your country",
+                "cultural.booking_modal.placeholder_arrival": "Arrival Date",
+                "cultural.booking_modal.placeholder_departure": "Departure Date",
+                "cultural.booking_modal.complete_booking": "Complete Booking",
 
-        // Footer
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.",
-        "footer.quick_links": "Quick Links",
-        "footer.destinations": "Destinations",
-        "footer.contact_info": "Contact Info",
-        "footer.address": "Arusha, Tanzania",
-        "footer.language": "Language:",
-        "footer.copyright": "© 2024 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism",
+                // Footer
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.",
+                "footer.quick_links": "Quick Links",
+                "footer.destinations": "Destinations",
+                "footer.contact_info": "Contact Info",
+                "footer.address": "Arusha, Tanzania",
+                "footer.language": "Language:",
+                "footer.copyright": "© 2025 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism",
 
-        // Translation System
-        "translation.loading": "Translating content...",
-        "translation.error": "Translation failed. Please try again."
-    },
-    sw: {
-        // Navigation - Kiswahili
-        "nav.home": "Nyumbani",
-        "nav.about": "Kuhusu Sisi",
-        "nav.destinations": "Sehemu za Kusisimua",
-        "nav.mountain_climbing": "Kupanda Milima",
-        "nav.safaris": "Safari Tanzania",
-        "nav.zanzibar": "Fuoni za Zanzibar",
-        "nav.cultural": "Utalii wa Kitamaduni",
-        "nav.waterfalls": "Utalii wa Maporomoko",
-        "nav.historical": "Maeneo ya Kihistoria",
-        "nav.contact": "Wasiliana Nasi",
+                // Translation System
+                "translation.loading": "Translating content...",
+                "translation.error": "Translation failed. Please try again."
+            },
+            sw: {
+                // Navigation - Kiswahili
+                "nav.home": "Nyumbani",
+                "nav.about": "Kuhusu Sisi",
+                "nav.destinations": "Sehemu za Kusisimua",
+                "nav.mountain_climbing": "Kupanda Milima",
+                "nav.safaris": "Safari Tanzania",
+                "nav.zanzibar": "Fuoni za Zanzibar",
+                "nav.cultural": "Utalii wa Kitamaduni",
+                "nav.waterfalls": "Utalii wa Maporomoko",
+                "nav.historical": "Maeneo ya Kihistoria",
+                "nav.contact": "Wasiliana Nasi",
 
-        // Cultural Tourism Page - Kiswahili
-        "cultural.hero.title": "Utalii wa Kitamaduni Tanzania",
-        "cultural.hero.subtitle": "Pata Uzoefu wa Mila za Kikabila na Jamii za Kienyeji",
-        "cultural.hero.cta": "Nunua Uzoefu wa Kitamaduni",
-        
-        "cultural.content.title": "Safari ya Kuzama Kitamaduni",
-        "cultural.content.subtitle": "Siku 2-5 za Uzoefu wa Kikabila na Ziara za Jamii",
-        
-        "cultural.about.title": "Kuhusu Utalii wa Kitamaduni",
-        "cultural.about.description": "Zama katika utando mzuri wa kitamaduni wa makabila mbalimbali ya Tanzania. Vifurushi vyetu vya utalii wa kitamaduni vinatoa mwingiliano halisi na jamii za kienyeji, sherehe za kitamaduni, na uzoefu wa vitendo unaohifadhi mila za kale huku ukisaidia maendeleo endelevu ya jamii.",
-        "cultural.about.highlights": "Vipengele Vikuu vya Kitamaduni",
-        "cultural.about.highlight1": "Makao ya kikabila ya Wamaasai",
-        "cultural.about.highlight2": "Maonyesho ya ngoma za kitamaduni",
-        "cultural.about.highlight3": "Warsha za ufundi wa kienyeji",
-        "cultural.about.highlight4": "Uzoefu wa kupikia kitamaduni",
-        "cultural.about.highlight5": "Miradi ya maendeleo ya jamii",
-        
-        "cultural.tribes.title": "Kutana na Makabila ya Tanzania",
-        "cultural.tribes.maasai.title": "Uzoefu wa Jamii ya Wamaasai",
-        "cultural.tribes.maasai.description": "Kaa na watu wa kihistoria wa Wamaasai, jifunze kuhusu mila zao za ufugaji, shiriki katika ngoma za kuruka, na uelewe uhusiano wao wa kina na asili na mifugo.",
-        "cultural.tribes.maasai.feature1": "Kukaa Manyatta",
-        "cultural.tribes.maasai.feature2": "Mafunzo ya Vita",
-        "cultural.tribes.maasai.feature3": "Warsha ya Ushonaji Shanga",
-        
-        "cultural.tribes.chagga.title": "Kuzama Kitamaduni kwa Wachagga",
-        "cultural.tribes.chagga.description": "Chunguza mila za kilimo za Wachagga karibu na Mlima Kilimanjaro, tembelea mashamba ya kahawa, na ujifunze kuhusu mifumo yao ya uvumilivu wa umwagiliaji.",
-        "cultural.tribes.chagga.feature1": "Usindikaji wa Kahawa",
-        "cultural.tribes.chagga.feature2": "Ziara ya Shamba la Ndizi",
-        "cultural.tribes.chagga.feature3": "Mifereji ya Kitamaduni",
-        
-        "cultural.tribes.hadzabe.title": "Uzoefu wa Wawindaji-Wakusanyaji Hadzabe",
-        "cultural.tribes.hadzabe.description": "Kaa na Wahadzabe, moja ya makabila ya mwisho ya wawindaji-wakusanyaji barani Afrika, ukijifunza ujuzi wa kale wa maisha, mbinu za kuwinda kitamaduni, na lugha yao ya kipekee ya kubofya.",
-        "cultural.tribes.hadzabe.feature1": "Kuwinda Kitamaduni",
-        "cultural.tribes.hadzabe.feature2": "Ujuzi wa Kukusanya Chakula",
-        "cultural.tribes.hadzabe.feature3": "Kutengeneza Moto",
-        
-        "cultural.itinerary.title": "Ratiba ya Siku 4 ya Kuzama Kitamaduni",
-        "cultural.itinerary.day1.title": "Siku ya 1: Kuwasili na Karibuni ya Wamaasai",
-        "cultural.itinerary.day1.duration": "Jamii ya Wamaasai",
-        "cultural.itinerary.day1.activities": "Wasili kwenye jamii ya Wamaasai, sherehe ya kukaribisha kitamaduni na wazee, kaa katika makao ya kikabila, hadithi za jioni karibu na moto wa kambi kuhusu historia na mila za Wamaasai.",
-        "cultural.itinerary.day2.title": "Siku ya 2: Maisha ya Kila Siku ya Wamaasai",
-        "cultural.itinerary.day2.duration": "Kuzama Kamili Kitamaduni",
-        "cultural.itinerary.day2.activities": "Uzoefu wa asubuhi wa kuchunga mifugo na mashujaa wa Wamaasai, warsha ya ushonaji shanga kitamaduni na wanawake, shiriki katika kuandaa chakula cha mchana kitamaduni, mafunzo ya mashujaa jioni na mazoezi ya Adumu (ngoma ya kuruka).",
-        "cultural.itinerary.day3.title": "Siku ya 3: Jamii ya Wachagga",
-        "cultural.itinerary.day3.duration": "Mila za Kilimo",
-        "cultural.itinerary.day3.activities": "Safiri hadi jamii ya Wachagga kwenye nyayo za Kilimanjaro, ziara ya shamba la kahawa na maonyesho ya usindikaji, uchunguzi wa mfumo wa umwagiliaji kitamaduni (Ndiva), warsha ya kutengeneza pombe ya ndizi, maonyesho ya kitamaduni jioni na muziki wa kitamaduni.",
-        "cultural.itinerary.day4.title": "Siku ya 4: Miradi ya Jamii na Kuondoka",
-        "cultural.itinerary.day4.duration": "Sherehe ya Kwaheri",
-        "cultural.itinerary.day4.activities": "Shiriki asubuhi katika mradi wa maendeleo ya jamii (shule, maji, au mpango wa afya), sherehe ya kwaheri na baraka za kitamaduni na kubadilishana zawadi, ununuzi wa kumbukumbu za kitamaduni, kuhamishwa kwenye uwanja wa ndege na kumbukumbu zisizosahaulika za ukarimu wa Kitanzania.",
-        
-        "cultural.includes.title": "Kinachojumuishwa",
-        "cultural.includes.item1": "Makao ya kikabila ya jamii",
-        "cultural.includes.item2": "Vyakula vyote vya kitamaduni",
-        "cultural.includes.item3": "Huduma za mwongozaji wa kienyeji",
-        "cultural.includes.item4": "Ada za maonyesho ya kitamaduni",
-        "cultural.includes.item5": "Vifaa vya warsha za ufundi",
-        "cultural.includes.item6": "Mchango wa maendeleo ya jamii",
-        "cultural.includes.item7": "Usafiri kati ya jamii",
-        "cultural.includes.item8": "Kipindi cha maelekezo ya kitamaduni",
-        
-        "cultural.excludes.title": "Kinachojitenga",
-        "cultural.excludes.item1": "Ndege za kimataifa",
-        "cultural.excludes.item2": "Ada za visa za Tanzania",
-        "cultural.excludes.item3": "Bima ya kusafiri",
-        "cultural.excludes.item4": "Vinywaji vya pombe",
-        "cultural.excludes.item5": "Ununuzi wa kibinafsi",
-        "cultural.excludes.item6": "Shughuli za hiari",
-        "cultural.excludes.item7": "Bahasha kwa waongozaji na wenyewe",
-        "cultural.excludes.item8": "Matumizi ya kibinafsi",
-        
-        "cultural.booking.title": "Uko Tayari Kuzama Kitamaduni?",
-        "cultural.booking.subtitle": "Nunua uzoefu wako halisi wa kitamaduni na uungane na mila hai za Tanzania.",
-        "cultural.booking.cta": "Nunua Uzoefu wa Kitamaduni",
-        
-        // Booking Modal - Kiswahili
-        "cultural.booking_modal.title": "Nunua Uzoefu Wako wa Kitamaduni",
-        "cultural.booking_modal.step1": "Kiwango cha Kifurushi",
-        "cultural.booking_modal.step2": "Mtindo wa Kusafiri",
-        "cultural.booking_modal.step3": "Maelezo ya Kuhifadhi",
-        "cultural.booking_modal.package_title": "Chagua Uzoefu Wako wa Kitamaduni",
-        "cultural.booking_modal.package_basic": "MSINGI",
-        "cultural.booking_modal.package_basic_feature1": "Ziara ya Siku moja ya Jamii",
-        "cultural.booking_modal.package_basic_feature2": "Maonyesho ya Kitamaduni",
-        "cultural.booking_modal.package_basic_feature3": "Mwongozaji wa Kienyeji",
-        "cultural.booking_modal.package_basic_feature4": "Chakula cha Mchana Kitamaduni",
-        "cultural.booking_modal.package_basic_feature5": "Maonyesho ya Msingi ya Ufundi",
-        "cultural.booking_modal.package_immersion": "KUZAMA",
-        "cultural.booking_modal.package_immersion_feature1": "Kukaa Siku 2 kwa Jamii",
-        "cultural.booking_modal.package_immersion_feature2": "Vyakula Vyote vya Kitamaduni",
-        "cultural.booking_modal.package_immersion_feature3": "Warsha za Ufundi",
-        "cultural.booking_modal.package_immersion_feature4": "Miradi ya Jamii",
-        "cultural.booking_modal.package_immersion_feature5": "Shughuli za Kitamaduni",
-        "cultural.booking_modal.package_immersion_feature6": "Mikutano na Wazee wa Kikabila",
-        "cultural.booking_modal.package_complete": "KAMILI",
-        "cultural.booking_modal.package_complete_feature1": "Safari ya Jamii Nyingi",
-        "cultural.booking_modal.package_complete_feature2": "Mwongozaji wa Kitamaduni Binafsi",
-        "cultural.booking_modal.package_complete_feature3": "Warsha Zote Zimejumuishwa",
-        "cultural.booking_modal.package_complete_feature4": "Sherehe za Kitamaduni",
-        "cultural.booking_modal.package_complete_feature5": "Mchango wa Jamii",
-        "cultural.booking_modal.package_complete_feature6": "Kumbukumbu za Kitamaduni",
-        "cultural.booking_modal.package_complete_feature7": "Vibali vya Kupiga Picha",
-        "cultural.booking_modal.travel_title": "Chagua Mtindo Wako wa Kusafiri",
-        "cultural.booking_modal.travel_solo": "Msafiri Pelekezi",
-        "cultural.booking_modal.travel_solo_desc": "Kamili kwa wachunguzi wa kitamaduni peke yao",
-        "cultural.booking_modal.travel_couple": "Kifurushi cha Wenzi",
-        "cultural.booking_modal.travel_couple_desc": "Kamili kwa wenzi",
-        "cultural.booking_modal.travel_family": "Kifurushi cha Familia",
-        "cultural.booking_modal.travel_family_desc": "Watu wazima 2 + watoto 2",
-        "cultural.booking_modal.travel_group": "Mikakati ya Kikundi",
-        "cultural.booking_modal.travel_group_desc": "Watu 2-30",
-        "cultural.booking_modal.group_size": "Ukubwa wa Kikundi:",
-        "cultural.booking_modal.package_label": "Kifurushi cha Msingi",
-        "cultural.booking_modal.travel_label": "Msafiri Pelekezi",
-        "cultural.booking_modal.people_label": "Watu 4",
-        "cultural.booking_modal.discount_label": "Punguzo la Kikundi (20%)",
-        "cultural.booking_modal.total_label": "Jumla ya Bei:",
-        "cultural.booking_modal.original_label": "Bei ya Asili:",
-        "cultural.booking_modal.next_step1": "Inayofuata: Mtindo wa Kusafiri",
-        "cultural.booking_modal.next_step2": "Inayofuata: Nunua Sasa",
-        "cultural.booking_modal.cancel": "Ghairi",
-        "cultural.booking_modal.back": "Nyuma",
-        "cultural.booking_modal.confirm_title": "Thibitisha Kuhifadhi Kwako",
-        "cultural.booking_modal.summary_title": "Muhtasari wa Kuhifadhi",
-        "cultural.booking_modal.summary_destination": "Lengo la Kusafiri:",
-        "cultural.booking_modal.summary_package": "Kiwango cha Kifurushi:",
-        "cultural.booking_modal.summary_travel": "Mtindo wa Kusafiri:",
-        "cultural.booking_modal.summary_people": "Idadi ya Watu:",
-        "cultural.booking_modal.summary_duration": "Muda:",
-        "cultural.booking_modal.summary_discount": "Punguzo la Kikundi Limewekwa:",
-        "cultural.booking_modal.summary_total": "Jumla ya Kiasi:",
-        "cultural.booking_modal.summary_original": "Bei ya Asili:",
-        "cultural.booking_modal.contact_title": "Maelezo ya Safari",
-        "cultural.booking_modal.placeholder_country": "Chagua Nchi",
-        "cultural.booking_modal.placeholder_arrival": "Tarehe ya Kuwasili",
-        "cultural.booking_modal.placeholder_departure": "Tarehe ya Kuondoka",
-        "cultural.booking_modal.complete_booking": "Kamilisha Kuhifadhi",
+                // Cultural Tourism Page - Kiswahili
+                "cultural.hero.title": "Utalii wa Kitamaduni Tanzania",
+                "cultural.hero.subtitle": "Pata Uzoefu wa Mila za Kikabila na Jamii za Kienyeji",
+                "cultural.hero.cta": "Nunua Uzoefu wa Kitamaduni",
+                
+                "cultural.content.title": "Safari ya Kuzama Kitamaduni",
+                "cultural.content.subtitle": "Siku 2-5 za Uzoefu wa Kikabila na Ziara za Jamii",
+                
+                "cultural.about.title": "Kuhusu Utalii wa Kitamaduni",
+                "cultural.about.description": "Zama katika utando mzuri wa kitamaduni wa makabila mbalimbali ya Tanzania. Vifurushi vyetu vya utalii wa kitamaduni vinatoa mwingiliano halisi na jamii za kienyeji, sherehe za kitamaduni, na uzoefu wa vitendo unaohifadhi mila za kale huku ukisaidia maendeleo endelevu ya jamii.",
+                "cultural.about.highlights": "Vipengele Vikuu vya Kitamaduni",
+                "cultural.about.highlight1": "Makao ya kikabila ya Wamaasai",
+                "cultural.about.highlight2": "Maonyesho ya ngoma za kitamaduni",
+                "cultural.about.highlight3": "Warsha za ufundi wa kienyeji",
+                "cultural.about.highlight4": "Uzoefu wa kupikia kitamaduni",
+                "cultural.about.highlight5": "Miradi ya maendeleo ya jamii",
+                
+                "cultural.tribes.title": "Kutana na Makabila ya Tanzania",
+                "cultural.tribes.maasai.title": "Uzoefu wa Jamii ya Wamaasai",
+                "cultural.tribes.maasai.description": "Kaa na watu wa kihistoria wa Wamaasai, jifunze kuhusu mila zao za ufugaji, shiriki katika ngoma za kuruka, na uelewe uhusiano wao wa kina na asili na mifugo.",
+                "cultural.tribes.maasai.feature1": "Kukaa Manyatta",
+                "cultural.tribes.maasai.feature2": "Mafunzo ya Vita",
+                "cultural.tribes.maasai.feature3": "Warsha ya Ushonaji Shanga",
+                
+                "cultural.tribes.chagga.title": "Kuzama Kitamaduni kwa Wachagga",
+                "cultural.tribes.chagga.description": "Chunguza mila za kilimo za Wachagga karibu na Mlima Kilimanjaro, tembelea mashamba ya kahawa, na ujifunze kuhusu mifumo yao ya uvumilivu wa umwagiliaji.",
+                "cultural.tribes.chagga.feature1": "Usindikaji wa Kahawa",
+                "cultural.tribes.chagga.feature2": "Ziara ya Shamba la Ndizi",
+                "cultural.tribes.chagga.feature3": "Mifereji ya Kitamaduni",
+                
+                "cultural.tribes.hadzabe.title": "Uzoefu wa Wawindaji-Wakusanyaji Hadzabe",
+                "cultural.tribes.hadzabe.description": "Kaa na Wahadzabe, moja ya makabila ya mwisho ya wawindaji-wakusanyaji barani Afrika, ukijifunza ujuzi wa kale wa maisha, mbinu za kuwinda kitamaduni, na lugha yao ya kipekee ya kubofya.",
+                "cultural.tribes.hadzabe.feature1": "Kuwinda Kitamaduni",
+                "cultural.tribes.hadzabe.feature2": "Ujuzi wa Kukusanya Chakula",
+                "cultural.tribes.hadzabe.feature3": "Kutengeneza Moto",
+                
+                "cultural.itinerary.title": "Ratiba ya Siku 4 ya Kuzama Kitamaduni",
+                "cultural.itinerary.day1.title": "Siku ya 1: Kuwasili na Karibuni ya Wamaasai",
+                "cultural.itinerary.day1.duration": "Jamii ya Wamaasai",
+                "cultural.itinerary.day1.activities": "Wasili kwenye jamii ya Wamaasai, sherehe ya kukaribisha kitamaduni na wazee, kaa katika makao ya kikabila, hadithi za jioni karibu na moto wa kambi kuhusu historia na mila za Wamaasai.",
+                "cultural.itinerary.day2.title": "Siku ya 2: Maisha ya Kila Siku ya Wamaasai",
+                "cultural.itinerary.day2.duration": "Kuzama Kamili Kitamaduni",
+                "cultural.itinerary.day2.activities": "Uzoefu wa asubuhi wa kuchunga mifugo na mashujaa wa Wamaasai, warsha ya ushonaji shanga kitamaduni na wanawake, shiriki katika kuandaa chakula cha mchana kitamaduni, mafunzo ya mashujaa jioni na mazoezi ya Adumu (ngoma ya kuruka).",
+                "cultural.itinerary.day3.title": "Siku ya 3: Jamii ya Wachagga",
+                "cultural.itinerary.day3.duration": "Mila za Kilimo",
+                "cultural.itinerary.day3.activities": "Safiri hadi jamii ya Wachagga kwenye nyayo za Kilimanjaro, ziara ya shamba la kahawa na maonyesho ya usindikaji, uchunguzi wa mfumo wa umwagiliaji kitamaduni (Ndiva), warsha ya kutengeneza pombe ya ndizi, maonyesho ya kitamaduni jioni na muziki wa kitamaduni.",
+                "cultural.itinerary.day4.title": "Siku ya 4: Miradi ya Jamii na Kuondoka",
+                "cultural.itinerary.day4.duration": "Sherehe ya Kwaheri",
+                "cultural.itinerary.day4.activities": "Shiriki asubuhi katika mradi wa maendeleo ya jamii (shule, maji, au mpango wa afya), sherehe ya kwaheri na baraka za kitamaduni na kubadilishana zawadi, ununuzi wa kumbukumbu za kitamaduni, kuhamishwa kwenye uwanja wa ndege na kumbukumbu zisizosahaulika za ukarimu wa Kitanzania.",
+                
+                "cultural.includes.title": "Kinachojumuishwa",
+                "cultural.includes.item1": "Makao ya kikabila ya jamii",
+                "cultural.includes.item2": "Vyakula vyote vya kitamaduni",
+                "cultural.includes.item3": "Huduma za mwongozaji wa kienyeji",
+                "cultural.includes.item4": "Ada za maonyesho ya kitamaduni",
+                "cultural.includes.item5": "Vifaa vya warsha za ufundi",
+                "cultural.includes.item6": "Mchango wa maendeleo ya jamii",
+                "cultural.includes.item7": "Usafiri kati ya jamii",
+                "cultural.includes.item8": "Kipindi cha maelekezo ya kitamaduni",
+                
+                "cultural.excludes.title": "Kinachojitenga",
+                "cultural.excludes.item1": "Ndege za kimataifa",
+                "cultural.excludes.item2": "Ada za visa za Tanzania",
+                "cultural.excludes.item3": "Bima ya kusafiri",
+                "cultural.excludes.item4": "Vinywaji vya pombe",
+                "cultural.excludes.item5": "Ununuzi wa kibinafsi",
+                "cultural.excludes.item6": "Shughuli za hiari",
+                "cultural.excludes.item7": "Bahasha kwa waongozaji na wenyewe",
+                "cultural.excludes.item8": "Matumizi ya kibinafsi",
+                
+                "cultural.booking.title": "Uko Tayari Kuzama Kitamaduni?",
+                "cultural.booking.subtitle": "Nunua uzoefu wako halisi wa kitamaduni na uungane na mila hai za Tanzania.",
+                "cultural.booking.cta": "Nunua Uzoefu wa Kitamaduni",
+                
+                // Booking Modal - Kiswahili
+                "cultural.booking_modal.title": "Nunua Uzoefu Wako wa Kitamaduni",
+                "cultural.booking_modal.step1": "Kiwango cha Kifurushi",
+                "cultural.booking_modal.step2": "Mtindo wa Kusafiri",
+                "cultural.booking_modal.step3": "Maelezo ya Kuhifadhi",
+                "cultural.booking_modal.package_title": "Chagua Uzoefu Wako wa Kitamaduni",
+                "cultural.booking_modal.package_basic": "MSINGI",
+                "cultural.booking_modal.package_basic_feature1": "Ziara ya Siku moja ya Jamii",
+                "cultural.booking_modal.package_basic_feature2": "Maonyesho ya Kitamaduni",
+                "cultural.booking_modal.package_basic_feature3": "Mwongozaji wa Kienyeji",
+                "cultural.booking_modal.package_basic_feature4": "Chakula cha Mchana Kitamaduni",
+                "cultural.booking_modal.package_basic_feature5": "Maonyesho ya Msingi ya Ufundi",
+                "cultural.booking_modal.package_immersion": "KUZAMA",
+                "cultural.booking_modal.package_immersion_feature1": "Kukaa Siku 2 kwa Jamii",
+                "cultural.booking_modal.package_immersion_feature2": "Vyakula Vyote vya Kitamaduni",
+                "cultural.booking_modal.package_immersion_feature3": "Warsha za Ufundi",
+                "cultural.booking_modal.package_immersion_feature4": "Miradi ya Jamii",
+                "cultural.booking_modal.package_immersion_feature5": "Shughuli za Kitamaduni",
+                "cultural.booking_modal.package_immersion_feature6": "Mikutano na Wazee wa Kikabila",
+                "cultural.booking_modal.package_complete": "KAMILI",
+                "cultural.booking_modal.package_complete_feature1": "Safari ya Jamii Nyingi",
+                "cultural.booking_modal.package_complete_feature2": "Mwongozaji wa Kitamaduni Binafsi",
+                "cultural.booking_modal.package_complete_feature3": "Warsha Zote Zimejumuishwa",
+                "cultural.booking_modal.package_complete_feature4": "Sherehe za Kitamaduni",
+                "cultural.booking_modal.package_complete_feature5": "Mchango wa Jamii",
+                "cultural.booking_modal.package_complete_feature6": "Kumbukumbu za Kitamaduni",
+                "cultural.booking_modal.package_complete_feature7": "Vibali vya Kupiga Picha",
+                "cultural.booking_modal.travel_title": "Chagua Mtindo Wako wa Kusafiri",
+                "cultural.booking_modal.travel_solo": "Msafiri Pelekezi",
+                "cultural.booking_modal.travel_solo_desc": "Kamili kwa wachunguzi wa kitamaduni peke yao",
+                "cultural.booking_modal.travel_couple": "Kifurushi cha Wenzi",
+                "cultural.booking_modal.travel_couple_desc": "Kamili kwa wenzi",
+                "cultural.booking_modal.travel_family": "Kifurushi cha Familia",
+                "cultural.booking_modal.travel_family_desc": "Watu wazima 2 + watoto 2",
+                "cultural.booking_modal.travel_group": "Mikakati ya Kikundi",
+                "cultural.booking_modal.travel_group_desc": "Watu 2-30",
+                "cultural.booking_modal.group_size": "Ukubwa wa Kikundi:",
+                "cultural.booking_modal.package_label": "Kifurushi cha Msingi",
+                "cultural.booking_modal.travel_label": "Msafiri Pelekezi",
+                "cultural.booking_modal.people_label": "Watu 4",
+                "cultural.booking_modal.discount_label": "Punguzo la Kikundi (20%)",
+                "cultural.booking_modal.total_label": "Jumla ya Bei:",
+                "cultural.booking_modal.original_label": "Bei ya Asili:",
+                "cultural.booking_modal.next_step1": "Inayofuata: Mtindo wa Kusafiri",
+                "cultural.booking_modal.next_step2": "Inayofuata: Nunua Sasa",
+                "cultural.booking_modal.cancel": "Ghairi",
+                "cultural.booking_modal.back": "Nyuma",
+                "cultural.booking_modal.confirm_title": "Thibitisha Kuhifadhi Kwako",
+                "cultural.booking_modal.summary_title": "Muhtasari wa Kuhifadhi",
+                "cultural.booking_modal.summary_destination": "Lengo la Kusafiri:",
+                "cultural.booking_modal.summary_package": "Kiwango cha Kifurushi:",
+                "cultural.booking_modal.summary_travel": "Mtindo wa Kusafiri:",
+                "cultural.booking_modal.summary_people": "Idadi ya Watu:",
+                "cultural.booking_modal.summary_duration": "Muda:",
+                "cultural.booking_modal.summary_discount": "Punguzo la Kikundi Limewekwa:",
+                "cultural.booking_modal.summary_total": "Jumla ya Kiasi:",
+                "cultural.booking_modal.summary_original": "Bei ya Asili:",
+                "cultural.booking_modal.customer_info_title": "Maelezo ya Mteja",
+                "cultural.booking_modal.placeholder_first_name": "Jina la Kwanza",
+                "cultural.booking_modal.placeholder_last_name": "Jina la Mwisho",
+                "cultural.booking_modal.placeholder_email": "Anwani ya Barua Pepe",
+                "cultural.booking_modal.placeholder_phone": "Nambari ya Simu",
+                "cultural.booking_modal.travel_info_title": "Maelezo ya Safari",
+                "cultural.booking_modal.placeholder_country": "Weka nchi yako",
+                "cultural.booking_modal.placeholder_arrival": "Tarehe ya Kuwasili",
+                "cultural.booking_modal.placeholder_departure": "Tarehe ya Kuondoka",
+                "cultural.booking_modal.complete_booking": "Kamilisha Kuhifadhi",
 
-        // Footer - Kiswahili
-        "footer.company": "MMexy Tanzania Adventures",
-        "footer.description": "Kuunda uzoefu usiosahaulika moyoni mwa Tanzania. Gundua uchawi wa Afrika na waongozaji wetu wataalamu na safari za anasa za kipekee.",
-        "footer.quick_links": "Viungo vya Haraka",
-        "footer.destinations": "Sehemu za Kusisimua",
-        "footer.contact_info": "Maelezo ya Mawasiliano",
-        "footer.address": "Arusha, Tanzania",
-        "footer.language": "Lugha:",
-        "footer.copyright": "© 2024 MMexy Tanzania Adventures. Haki zote zimehifadhiwa. | Imebuniwa kwa ❤️ kwa Utalii wa Tanzania",
+                // Footer - Kiswahili
+                "footer.company": "MMexy Tanzania Adventures",
+                "footer.description": "Kuunda uzoefu usiosahaulika moyoni mwa Tanzania. Gundua uchawi wa Afrika na waongozaji wetu wataalamu na safari za anasa za kipekee.",
+                "footer.quick_links": "Viungo vya Haraka",
+                "footer.destinations": "Sehemu za Kusisimua",
+                "footer.contact_info": "Maelezo ya Mawasiliano",
+                "footer.address": "Arusha, Tanzania",
+                "footer.language": "Lugha:",
+                "footer.copyright": "© 2025 MMexy Tanzania Adventures. Haki zote zimehifadhiwa. | Imebuniwa kwa ❤️ kwa Utalii wa Tanzania",
 
-        // Translation System - Kiswahili
-        "translation.loading": "Inatafsiri maudhui...",
-        "translation.error": "Kutafsiri hakukufanikiwa. Tafadhali jaribu tena."
-    },
-    // ... other languages remain the same (add the new placeholders for each language)
-};
+                // Translation System - Kiswahili
+                "translation.loading": "Inatafsiri maudhui...",
+                "translation.error": "Kutafsiri hakukufanikiwa. Tafadhali jaribu tena."
+            },
+            // ... tafsiri za lugha zingine zinaweza kuongezwa hapa
+        };
 
         // Current language
         let currentLanguage = 'en';
@@ -2971,21 +2988,18 @@
             
             showTranslationLoading();
             
-            // Simulate translation delay for premium feel
             setTimeout(() => {
                 currentLanguage = lang;
                 
                 document.querySelectorAll('[data-i18n]').forEach(element => {
                     const key = element.getAttribute('data-i18n');
                     if (translations[lang] && translations[lang][key]) {
-                        // Add fade out effect
                         element.style.opacity = '0';
                         
                         setTimeout(() => {
                             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                                 element.placeholder = translations[lang][key];
                             } else if (element.tagName === 'SELECT') {
-                                // Handle select options differently
                                 const options = element.querySelectorAll('option');
                                 options.forEach(opt => {
                                     const optKey = opt.getAttribute('data-i18n');
@@ -2997,7 +3011,6 @@
                                 element.textContent = translations[lang][key];
                             }
                             
-                            // Add fade in effect
                             element.style.opacity = '1';
                         }, 50);
                     }
@@ -3186,13 +3199,9 @@
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     if (!this.classList.contains('sidebar-dropdown-toggle')) {
-                        // Remove active class from all links
                         navLinks.forEach(l => l.classList.remove('active'));
-                        
-                        // Add active class to clicked link
                         this.classList.add('active');
                         
-                        // Close sidebar if on mobile
                         if (window.innerWidth <= 1024) {
                             closeSidebarFunction();
                         }
@@ -3225,6 +3234,10 @@
             setTimeout(hideTranslationLoading, 3000);
         });
 
+        // ==============================================
+        // CULTURAL EXPERIENCE BOOKING SYSTEM - UPDATED
+        // ==============================================
+
         // Cultural Experience Booking System Variables
         let culturalCurrentBooking = {
             destination: 'cultural',
@@ -3236,8 +3249,15 @@
             originalPrice: 150,
             discountApplied: false,
             discountAmount: 0,
+            // ADDED NEW CUSTOMER INFO FIELDS
+            customerInfo: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: ''
+            },
             travelInfo: {
-                country: '',
+                country: '', // Now text input, user can type any country
                 arrivalDate: '',
                 departureDate: ''
             }
@@ -3319,14 +3339,12 @@
                 if (culturalCurrentBooking.groupType === 'group') {
                     peopleCounter.style.display = 'flex';
                     document.getElementById('cultural-people-item').style.display = 'flex';
-                    // Set minimum for group adventure
                     culturalCurrentBooking.peopleCount = 2;
                     document.getElementById('cultural-people-count').textContent = culturalCurrentBooking.peopleCount;
                 } else {
                     peopleCounter.style.display = 'none';
                     document.getElementById('cultural-people-item').style.display = 'none';
                     
-                    // Set default people counts for other options
                     if (culturalCurrentBooking.groupType === 'single') {
                         culturalCurrentBooking.peopleCount = 1;
                     } else if (culturalCurrentBooking.groupType === 'double') {
@@ -3365,7 +3383,6 @@
                 multiplier = 2;
             }
             
-            // Calculate original price
             culturalCurrentBooking.originalPrice = basePrice * multiplier;
             
             // Apply 20% discount for groups of 3 or more people
@@ -3409,7 +3426,6 @@
                     `x${culturalCurrentBooking.peopleCount}`;
             }
             
-            // Show/hide discount
             const discountItem = document.getElementById('cultural-discount-item');
             const originalPriceDisplay = document.getElementById('cultural-original-price');
             
@@ -3471,10 +3487,19 @@
             }
         }
 
-        // Collect Cultural Experience travel information
+        // Collect Cultural Experience customer and travel information
         function culturalCollectTravelInfo() {
+            // Collect customer information
+            culturalCurrentBooking.customerInfo = {
+                firstName: document.getElementById('cultural-first-name').value.trim(),
+                lastName: document.getElementById('cultural-last-name').value.trim(),
+                email: document.getElementById('cultural-email').value.trim(),
+                phone: document.getElementById('cultural-phone').value.trim()
+            };
+            
+            // Collect travel information
             culturalCurrentBooking.travelInfo = {
-                country: document.getElementById('cultural-country').value,
+                country: document.getElementById('cultural-country').value.trim(),
                 arrivalDate: document.getElementById('cultural-arrival-date').value,
                 departureDate: document.getElementById('cultural-departure-date').value
             };
@@ -3482,8 +3507,6 @@
 
         // Send Cultural Experience booking to WhatsApp and Email
         function culturalSendBooking() {
-            culturalCollectTravelInfo();
-            
             const discountText = culturalCurrentBooking.discountApplied ? 
                 `*Discount Applied:* 20% (Saved: $${Math.round(culturalCurrentBooking.discountAmount)})` : 
                 '';
@@ -3491,6 +3514,13 @@
             const summary = `
 🎭 *NEW CULTURAL EXPERIENCE BOOKING* 🌍
 
+*CUSTOMER INFORMATION:*
+*First Name:* ${culturalCurrentBooking.customerInfo.firstName}
+*Last Name:* ${culturalCurrentBooking.customerInfo.lastName}
+*Email:* ${culturalCurrentBooking.customerInfo.email}
+*Phone:* ${culturalCurrentBooking.customerInfo.phone}
+
+*BOOKING DETAILS:*
 *Destination:* Cultural Tourism
 *Package Level:* ${culturalCurrentBooking.packageLevel.toUpperCase()}
 *Travel Style:* ${culturalCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
@@ -3502,7 +3532,7 @@ ${discountText}
 *Duration:* 2-5 Days
 *Total Amount:* $${Math.round(culturalCurrentBooking.totalPrice)}
 
-*Travel Information:*
+*TRAVEL INFORMATION:*
 *Country:* ${culturalCurrentBooking.travelInfo.country}
 *Arrival Date:* ${culturalCurrentBooking.travelInfo.arrivalDate}
 *Departure Date:* ${culturalCurrentBooking.travelInfo.departureDate}
@@ -3532,19 +3562,55 @@ ${discountText}
         function culturalCompleteBooking() {
             culturalCollectTravelInfo();
             
-            // Basic validation
+            // Validate customer information
+            if (!culturalCurrentBooking.customerInfo.firstName) {
+                alert('Please enter your first name');
+                document.getElementById('cultural-first-name').focus();
+                return;
+            }
+            
+            if (!culturalCurrentBooking.customerInfo.lastName) {
+                alert('Please enter your last name');
+                document.getElementById('cultural-last-name').focus();
+                return;
+            }
+            
+            if (!culturalCurrentBooking.customerInfo.email) {
+                alert('Please enter your email address');
+                document.getElementById('cultural-email').focus();
+                return;
+            }
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(culturalCurrentBooking.customerInfo.email)) {
+                alert('Please enter a valid email address');
+                document.getElementById('cultural-email').focus();
+                return;
+            }
+            
+            if (!culturalCurrentBooking.customerInfo.phone) {
+                alert('Please enter your phone number');
+                document.getElementById('cultural-phone').focus();
+                return;
+            }
+            
+            // Validate travel information
             if (!culturalCurrentBooking.travelInfo.country) {
-                alert('Please select your country');
+                alert('Please enter your country');
+                document.getElementById('cultural-country').focus();
                 return;
             }
             
             if (!culturalCurrentBooking.travelInfo.arrivalDate) {
                 alert('Please select arrival date');
+                document.getElementById('cultural-arrival-date').focus();
                 return;
             }
 
             if (!culturalCurrentBooking.travelInfo.departureDate) {
                 alert('Please select departure date');
+                document.getElementById('cultural-departure-date').focus();
                 return;
             }
 
@@ -3558,6 +3624,10 @@ ${discountText}
 
             const summary = `
 Destination: Cultural Tourism
+Customer: ${culturalCurrentBooking.customerInfo.firstName} ${culturalCurrentBooking.customerInfo.lastName}
+Email: ${culturalCurrentBooking.customerInfo.email}
+Phone: ${culturalCurrentBooking.customerInfo.phone}
+
 Package: ${culturalCurrentBooking.packageLevel.toUpperCase()}
 Travel Style: ${culturalCurrentBooking.groupType === 'single' ? 'Solo Traveler' : 
                 culturalCurrentBooking.groupType === 'double' ? 'Couple Package' : 
@@ -3571,7 +3641,6 @@ Arrival: ${culturalCurrentBooking.travelInfo.arrivalDate}
 Departure: ${culturalCurrentBooking.travelInfo.departureDate}
             `.trim();
             
-            // Send booking information
             culturalSendBooking();
             
             alert(`Cultural Experience Booking Information Sent!\n\n${summary}\n\nWe have sent your booking details to our team via WhatsApp and email. We will contact you shortly to confirm your cultural immersion!`);
@@ -3580,29 +3649,31 @@ Departure: ${culturalCurrentBooking.travelInfo.departureDate}
 
         // Open Cultural Experience Booking Modal
         function openCulturalBookingModal() {
-            // Reset to first step
             culturalShowStep(1);
             
-            // Set default selections
             document.querySelector('#cultural-premium-modal .package-level.local').click();
             document.querySelector('#cultural-premium-modal .group-option[data-group="single"]').click();
             
             // Clear form fields
+            document.getElementById('cultural-first-name').value = '';
+            document.getElementById('cultural-last-name').value = '';
+            document.getElementById('cultural-email').value = '';
+            document.getElementById('cultural-phone').value = '';
             document.getElementById('cultural-country').value = '';
             
-            // Set tomorrow as default arrival date
+            // Set default dates
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             const tomorrowStr = tomorrow.toISOString().split('T')[0];
             document.getElementById('cultural-arrival-date').value = tomorrowStr;
+            document.getElementById('cultural-arrival-date').min = tomorrowStr;
             
-            // Set departure date to 3 days after arrival
             const departureDate = new Date(tomorrow);
             departureDate.setDate(departureDate.getDate() + 3);
             const departureStr = departureDate.toISOString().split('T')[0];
             document.getElementById('cultural-departure-date').value = departureStr;
+            document.getElementById('cultural-departure-date').min = tomorrowStr;
             
-            // Show modal
             document.getElementById('cultural-premium-modal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
@@ -3621,7 +3692,7 @@ Departure: ${culturalCurrentBooking.travelInfo.departureDate}
             }
         });
 
-        // Initialize Cultural Experience default selections when modal opens
+        // Initialize Cultural Experience default selections
         document.addEventListener('DOMContentLoaded', function() {
             // Cultural Experience modal will initialize when opened
         });
