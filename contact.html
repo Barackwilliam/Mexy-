@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://www.jamiitek.com/api/js/Hc3fuSgmvBdTIR26g7U2L4qwn14w5v1ud960UZkq8yiuNYM-BLTAdoMatQygbIeG/"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | MMexy Tanzania Adventures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a6d38;
+            --secondary: #f9a825;
+            --accent: #1565c0;
+            --light: #f5f5f5;
+            --dark: #333333;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --premium-gold: #ffd700;
+            --artistic-brown: #8B4513;
+            --safari-orange: #FF8C00;
+            --nature-green: #228B22;
+            --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Merriweather',serif; line-height:1.7; color:var(--dark); background:#f9f9f9; overflow-x:hidden; }
+        h1,h2,h3,h4 { font-family:'Cinzel',serif; font-weight:700; letter-spacing:0.5px; }
+
+        /* ===== TRANSLATION LOADING ===== */
+        .translation-loading {
+            position:fixed; top:0; left:0; width:100%; height:100%;
+            background:rgba(26,109,56,0.95); display:flex; flex-direction:column;
+            align-items:center; justify-content:center; z-index:9999;
+            opacity:0; visibility:hidden; transition:var(--transition);
+        }
+        .translation-loading.active { opacity:1; visibility:visible; }
+        .loading-spinner {
+            width:50px; height:50px; border:4px solid rgba(255,255,255,0.3);
+            border-top:4px solid #fff; border-radius:50%; animation:spin 1s linear infinite; margin-bottom:15px;
+        }
+        .translation-loading p { color:#fff; font-family:'Poppins',sans-serif; font-size:1rem; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+
+        /* ===== NAVBAR ===== */
+        .premium-navbar {
+            position:fixed; top:0; width:100%;
+            background:rgba(255,255,255,0.97); backdrop-filter:blur(20px);
+            z-index:1000; padding:12px 0; transition:var(--transition);
+            border-bottom:1px solid rgba(139,69,19,0.1);
+        }
+        .premium-navbar.scrolled { padding:8px 0; box-shadow:0 8px 32px rgba(0,0,0,0.12); }
+        .nav-container { width:90%; max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+        .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--artistic-brown); font-weight:800; font-size:1.6rem; font-family:'Cinzel',serif; transition:var(--transition); }
+        .nav-logo:hover { color:var(--safari-orange); transform:scale(1.03); }
+        .logo-img { height:60px; width:auto; }
+        .logo-text { font-weight:800; font-size:1.6rem; color:#8B4513; }
+        .desktop-nav { display:flex; align-items:center; gap:25px; }
+        .nav-menu { display:flex; list-style:none; gap:5px; margin:0; padding:0; }
+        .nav-link { display:flex; align-items:center; gap:7px; text-decoration:none; color:var(--dark); font-weight:500; padding:9px 14px; border-radius:25px; transition:var(--transition); font-family:'Poppins',sans-serif; font-size:0.9rem; }
+        .nav-link:hover, .nav-link.active { background:linear-gradient(135deg,var(--safari-orange),var(--secondary)); color:white; transform:translateY(-2px); }
+        .dropdown-parent { position:relative; }
+        .dropdown { position:absolute; top:100%; left:0; background:rgba(255,255,255,0.98); backdrop-filter:blur(20px); border-radius:15px; padding:12px; min-width:230px; opacity:0; visibility:hidden; transform:translateY(15px); transition:var(--transition); box-shadow:var(--shadow-lg); border:1px solid rgba(139,69,19,0.1); z-index:100; }
+        .dropdown-parent:hover .dropdown { opacity:1; visibility:visible; transform:translateY(5px); }
+        .dropdown-item { display:flex; align-items:center; gap:10px; padding:10px 14px; text-decoration:none; color:var(--dark); border-radius:10px; transition:var(--transition); margin-bottom:3px; font-family:'Poppins',sans-serif; font-size:0.88rem; }
+        .dropdown-item:hover { background:linear-gradient(135deg,var(--safari-orange),var(--secondary)); color:white; }
+        .mobile-menu-btn { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; }
+        .menu-line { width:25px; height:3px; background:var(--artistic-brown); border-radius:2px; transition:var(--transition); }
+        .mobile-menu-btn.active .menu-line:nth-child(1) { transform:rotate(45deg) translate(6px,6px); }
+        .mobile-menu-btn.active .menu-line:nth-child(2) { opacity:0; }
+        .mobile-menu-btn.active .menu-line:nth-child(3) { transform:rotate(-45deg) translate(6px,-6px); }
+        /* Language Selector */
+        .language-selector { position:relative; margin-left:10px; }
+        .current-language { display:flex; align-items:center; gap:8px; padding:9px 14px; background:rgba(139,69,19,0.08); border:1px solid rgba(139,69,19,0.2); border-radius:20px; color:var(--dark); cursor:pointer; transition:var(--transition); font-weight:500; font-size:0.88rem; font-family:'Poppins',sans-serif; }
+        .current-language:hover { background:rgba(139,69,19,0.15); border-color:var(--safari-orange); }
+        .language-flag { font-size:1.1rem; }
+        .language-dropdown { position:absolute; top:calc(100% + 8px); right:0; background:rgba(255,255,255,0.98); backdrop-filter:blur(20px); border-radius:15px; padding:12px; min-width:180px; opacity:0; visibility:hidden; transform:translateY(10px); transition:var(--transition); border:1px solid rgba(139,69,19,0.1); box-shadow:var(--shadow-lg); z-index:200; }
+        .language-selector:hover .language-dropdown { opacity:1; visibility:visible; transform:translateY(0); }
+        .language-option { display:flex; align-items:center; gap:10px; padding:10px 13px; color:var(--dark); text-decoration:none; border-radius:10px; transition:var(--transition); margin-bottom:4px; font-family:'Poppins',sans-serif; font-size:0.88rem; }
+        .language-option:hover { background:rgba(255,140,0,0.1); color:var(--safari-orange); transform:translateX(4px); }
+        .language-option.active { background:linear-gradient(135deg,var(--safari-orange),var(--secondary)); color:white; font-weight:600; }
+        /* Sidebar */
+        .sidebar-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); backdrop-filter:blur(5px); z-index:1999; opacity:0; visibility:hidden; transition:var(--transition); }
+        .sidebar-overlay.active { opacity:1; visibility:visible; }
+        .premium-sidebar { position:fixed; top:0; right:-420px; width:360px; height:100vh; background:rgba(255,255,255,0.98); z-index:2000; transition:var(--transition); box-shadow:-5px 0 30px rgba(0,0,0,0.12); display:flex; flex-direction:column; overflow-y:auto; }
+        .premium-sidebar.active { right:0; }
+        .sidebar-header { display:flex; justify-content:space-between; align-items:center; padding:22px 25px; border-bottom:1px solid rgba(139,69,19,0.1); }
+        .sidebar-logo { display:flex; align-items:center; gap:10px; color:var(--artistic-brown); font-weight:700; font-size:1.2rem; font-family:'Cinzel',serif; }
+        .sidebar-logo-icon { font-size:1.6rem; color:var(--safari-orange); }
+        .close-sidebar { background:none; border:none; font-size:1.4rem; color:var(--artistic-brown); cursor:pointer; transition:var(--transition); }
+        .close-sidebar:hover { color:var(--safari-orange); transform:rotate(90deg); }
+        .sidebar-content { flex:1; padding:20px 25px; }
+        .sidebar-nav { list-style:none; margin:0 0 20px; padding:0; }
+        .sidebar-item { margin-bottom:5px; }
+        .sidebar-link { display:flex; align-items:center; gap:12px; padding:12px 16px; text-decoration:none; color:var(--dark); border-radius:12px; transition:var(--transition); font-family:'Poppins',sans-serif; font-size:0.92rem; font-weight:500; }
+        .sidebar-link:hover, .sidebar-link.active { background:linear-gradient(135deg,var(--safari-orange),var(--secondary)); color:white; }
+        .sidebar-dropdown { display:none; margin-left:20px; margin-top:5px; }
+        .sidebar-dropdown.active { display:block; }
+        .sidebar-dropdown-toggle.active { background:linear-gradient(135deg,rgba(255,140,0,0.1),rgba(249,168,37,0.05)); color:var(--safari-orange); }
+        .dropdown-arrow { margin-left:auto; transition:var(--transition); font-size:0.75rem; }
+        .sidebar-dropdown-toggle.active .dropdown-arrow { transform:rotate(180deg); }
+        .mobile-language-selector { padding:15px 0; }
+        .mobile-language-selector label { font-family:'Poppins',sans-serif; font-weight:600; color:var(--dark); font-size:0.88rem; margin-bottom:8px; display:block; }
+        .sidebar-language { width:100%; background:rgba(139,69,19,0.05); border:1px solid rgba(139,69,19,0.2); border-radius:10px; padding:10px 14px; color:var(--dark); font-weight:500; font-family:'Poppins',sans-serif; cursor:pointer; transition:var(--transition); font-size:0.88rem; }
+        .sidebar-language:hover { border-color:var(--safari-orange); }
+        .sidebar-footer { padding:20px 25px; border-top:1px solid rgba(139,69,19,0.1); }
+        .sidebar-social { display:flex; gap:12px; }
+        .social-link { width:38px; height:38px; background:linear-gradient(135deg,var(--primary),var(--nature-green)); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:var(--transition); font-size:0.9rem; }
+        .social-link:hover { transform:translateY(-3px) scale(1.1); background:linear-gradient(135deg,var(--safari-orange),var(--secondary)); }
+        @media(max-width:1024px) { .desktop-nav { display:none; } .mobile-menu-btn { display:flex; } }
+
+        /* ===== HERO ===== */
+        .contact-hero {
+            min-height:45vh; padding-top:90px;
+            background:linear-gradient(135deg,rgba(26,109,56,0.92) 0%,rgba(139,69,19,0.85) 50%,rgba(255,140,0,0.75) 100%),
+                url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=80') center/cover no-repeat fixed;
+            display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden;
+        }
+        .contact-hero::before {
+            content:''; position:absolute; inset:0;
+            background:radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,0.3) 100%);
+        }
+        .hero-content { position:relative; z-index:2; max-width:800px; padding:40px 20px; animation:heroFadeUp 1s ease both; }
+        @keyframes heroFadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+        .hero-badge {
+            display:inline-flex; align-items:center; gap:8px;
+            background:rgba(255,255,255,0.15); backdrop-filter:blur(10px);
+            border:1px solid rgba(255,255,255,0.3); border-radius:30px;
+            padding:8px 20px; color:#fff; font-family:'Poppins',sans-serif;
+            font-size:0.85rem; font-weight:500; letter-spacing:1px; margin-bottom:20px;
+        }
+        .hero-content h1 {
+            font-size:clamp(2.2rem,5vw,4rem); color:#fff;
+            text-shadow:0 4px 20px rgba(0,0,0,0.5); margin-bottom:15px;
+            line-height:1.15; font-family:'Cinzel',serif;
+        }
+        .hero-content p {
+            font-size:clamp(1rem,2vw,1.3rem); color:rgba(255,255,255,0.9);
+            font-family:'Playfair Display',serif; font-style:italic;
+            text-shadow:0 2px 10px rgba(0,0,0,0.4); margin-bottom:0;
+        }
+        .hero-wave { position:absolute; bottom:0; left:0; width:100%; overflow:hidden; line-height:0; }
+        .hero-wave svg { display:block; }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content { padding-top:0; }
+        .container { width:90%; max-width:1200px; margin:0 auto; }
+        .section-tag {
+            display:inline-block; background:linear-gradient(135deg,var(--safari-orange),var(--secondary));
+            color:white; padding:6px 18px; border-radius:30px; font-family:'Poppins',sans-serif;
+            font-size:0.78rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:14px;
+        }
+        .section-title h2 { font-size:clamp(1.8rem,3.5vw,2.8rem); color:var(--artistic-brown); margin-bottom:12px; }
+        .section-title p { font-size:1.05rem; color:#666; max-width:600px; line-height:1.8; }
+
+        /* ===== CONTACT CARDS ROW ===== */
+        .contact-cards-section { padding:70px 0 40px; }
+        .contact-cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:50px; }
+        .contact-card {
+            background:#fff; border-radius:22px; padding:40px 30px; text-align:center;
+            box-shadow:var(--shadow); border:1px solid rgba(139,69,19,0.07);
+            transition:var(--transition); position:relative; overflow:hidden;
+        }
+        .contact-card::before {
+            content:''; position:absolute; top:0; left:0; right:0; height:4px;
+            background:linear-gradient(90deg,var(--primary),var(--safari-orange));
+            transform:scaleX(0); transform-origin:left; transition:var(--transition);
+        }
+        .contact-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+        .contact-card:hover::before { transform:scaleX(1); }
+        .card-icon-wrap {
+            width:80px; height:80px; border-radius:50%; margin:0 auto 22px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:2rem; transition:var(--transition);
+        }
+        .card-icon-wrap.green { background:linear-gradient(135deg,var(--primary),var(--nature-green)); color:#fff; }
+        .card-icon-wrap.orange { background:linear-gradient(135deg,var(--safari-orange),var(--secondary)); color:#fff; }
+        .card-icon-wrap.brown { background:linear-gradient(135deg,var(--artistic-brown),#c0652b); color:#fff; }
+        .contact-card:hover .card-icon-wrap { transform:scale(1.12) rotate(5deg); }
+        .contact-card h3 { font-size:1.15rem; color:var(--artistic-brown); margin-bottom:10px; font-family:'Cinzel',serif; }
+        .contact-card p { color:#555; font-size:0.92rem; line-height:1.7; margin-bottom:0; font-family:'Poppins',sans-serif; }
+        .contact-card a { color:var(--primary); text-decoration:none; font-weight:600; transition:var(--transition); }
+        .contact-card a:hover { color:var(--safari-orange); }
+        .card-badge {
+            display:inline-block; margin-top:12px; background:rgba(26,109,56,0.08);
+            color:var(--primary); padding:4px 14px; border-radius:20px;
+            font-size:0.78rem; font-family:'Poppins',sans-serif; font-weight:600;
+        }
+
+        /* ===== MAIN GRID: FORM + MAP ===== */
+        .contact-main-section { padding:20px 0 80px; }
+        .contact-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:40px; align-items:start; }
+
+        /* --- FORM --- */
+        .form-card {
+            background:#fff; border-radius:24px; padding:48px 40px;
+            box-shadow:var(--shadow-lg); border:1px solid rgba(139,69,19,0.06);
+            position:relative; overflow:hidden;
+        }
+        .form-card::after {
+            content:''; position:absolute; bottom:-60px; right:-60px;
+            width:200px; height:200px; border-radius:50%;
+            background:linear-gradient(135deg,rgba(255,140,0,0.06),rgba(249,168,37,0.04));
+            pointer-events:none;
+        }
+        .form-header { margin-bottom:30px; }
+        .form-header h2 { font-size:1.8rem; color:var(--artistic-brown); margin-bottom:8px; }
+        .form-header p { color:#666; font-family:'Poppins',sans-serif; font-size:0.92rem; }
+        .form-group { margin-bottom:22px; }
+        .form-group label {
+            display:block; font-family:'Poppins',sans-serif; font-size:0.85rem;
+            font-weight:600; color:var(--dark); margin-bottom:8px; letter-spacing:0.3px;
+        }
+        .form-group label i { margin-right:6px; color:var(--safari-orange); }
+        .form-control {
+            width:100%; padding:13px 18px;
+            border:2px solid rgba(139,69,19,0.12); border-radius:12px;
+            font-family:'Poppins',sans-serif; font-size:0.92rem; color:var(--dark);
+            background:#fafafa; transition:var(--transition); outline:none;
+        }
+        .form-control:focus { border-color:var(--safari-orange); background:#fff; box-shadow:0 0 0 4px rgba(255,140,0,0.08); }
+        .form-control::placeholder { color:#bbb; }
+        textarea.form-control { resize:vertical; min-height:130px; }
+        .form-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+        .btn-submit {
+            width:100%; padding:16px 30px;
+            background:linear-gradient(135deg,var(--primary),var(--nature-green));
+            color:#fff; border:none; border-radius:50px; font-family:'Poppins',sans-serif;
+            font-size:1rem; font-weight:700; cursor:pointer; transition:var(--transition);
+            display:flex; align-items:center; justify-content:center; gap:10px;
+            letter-spacing:0.5px; position:relative; overflow:hidden;
+        }
+        .btn-submit::before {
+            content:''; position:absolute; inset:0;
+            background:linear-gradient(135deg,var(--safari-orange),var(--secondary));
+            opacity:0; transition:var(--transition);
+        }
+        .btn-submit:hover::before { opacity:1; }
+        .btn-submit:hover { transform:translateY(-3px); box-shadow:0 12px 35px rgba(26,109,56,0.4); }
+        .btn-submit span, .btn-submit i { position:relative; z-index:1; }
+        .form-success {
+            display:none; padding:18px 22px; background:linear-gradient(135deg,rgba(26,109,56,0.08),rgba(34,139,34,0.05));
+            border:1px solid rgba(26,109,56,0.2); border-radius:14px; text-align:center;
+            color:var(--primary); font-family:'Poppins',sans-serif; font-size:0.92rem; margin-top:16px;
+        }
+        .form-success.show { display:flex; align-items:center; gap:10px; justify-content:center; }
+
+        /* --- MAP --- */
+        .map-card {
+            background:#fff; border-radius:24px; overflow:hidden;
+            box-shadow:var(--shadow-lg); border:1px solid rgba(139,69,19,0.06);
+        }
+        .map-header { padding:28px 30px 20px; border-bottom:1px solid rgba(139,69,19,0.08); }
+        .map-header h3 { font-size:1.3rem; color:var(--artistic-brown); margin-bottom:6px; }
+        .map-header p { color:#666; font-family:'Poppins',sans-serif; font-size:0.88rem; }
+        .map-location-badge {
+            display:inline-flex; align-items:center; gap:7px; margin-top:10px;
+            background:linear-gradient(135deg,rgba(255,140,0,0.1),rgba(249,168,37,0.06));
+            border:1px solid rgba(255,140,0,0.25); border-radius:20px;
+            padding:6px 14px; font-family:'Poppins',sans-serif; font-size:0.82rem;
+            color:var(--safari-orange); font-weight:600;
+        }
+        .map-embed-wrap { position:relative; width:100%; height:380px; }
+        .map-embed-wrap iframe { width:100%; height:100%; border:0; display:block; }
+        .map-overlay-btn {
+            position:absolute; bottom:16px; right:16px;
+            background:linear-gradient(135deg,var(--primary),var(--nature-green));
+            color:#fff; padding:10px 18px; border-radius:25px; text-decoration:none;
+            font-family:'Poppins',sans-serif; font-size:0.82rem; font-weight:600;
+            display:flex; align-items:center; gap:7px; box-shadow:0 4px 16px rgba(0,0,0,0.25);
+            transition:var(--transition);
+        }
+        .map-overlay-btn:hover { background:linear-gradient(135deg,var(--safari-orange),var(--secondary)); transform:translateY(-2px); }
+        .map-info-strip {
+            padding:20px 30px; background:#fafafa; border-top:1px solid rgba(139,69,19,0.08);
+            display:flex; flex-wrap:wrap; gap:20px;
+        }
+        .map-info-item { display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-size:0.85rem; color:#555; }
+        .map-info-item i { color:var(--safari-orange); width:18px; text-align:center; }
+        .map-info-item strong { color:var(--dark); }
+
+        /* ===== WORKING HOURS ===== */
+        .hours-section { padding:0 0 80px; }
+        .hours-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:40px; }
+        .hours-card {
+            background:#fff; border-radius:18px; padding:30px;
+            box-shadow:var(--shadow); border:1px solid rgba(139,69,19,0.07);
+            transition:var(--transition);
+        }
+        .hours-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+        .hours-card-head { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+        .hours-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; }
+        .hours-icon.green { background:linear-gradient(135deg,var(--primary),var(--nature-green)); color:#fff; }
+        .hours-icon.orange { background:linear-gradient(135deg,var(--safari-orange),var(--secondary)); color:#fff; }
+        .hours-icon.blue { background:linear-gradient(135deg,#1565c0,#1976d2); color:#fff; }
+        .hours-card h3 { font-size:1rem; color:var(--artistic-brown); font-family:'Cinzel',serif; }
+        .hours-table { width:100%; border-collapse:collapse; }
+        .hours-table tr { border-bottom:1px solid rgba(139,69,19,0.06); }
+        .hours-table tr:last-child { border-bottom:none; }
+        .hours-table td { padding:9px 0; font-family:'Poppins',sans-serif; font-size:0.85rem; color:#555; }
+        .hours-table td:last-child { text-align:right; font-weight:600; color:var(--primary); }
+        .status-badge { display:inline-flex; align-items:center; gap:5px; padding:3px 10px; border-radius:12px; font-size:0.75rem; font-weight:700; font-family:'Poppins',sans-serif; }
+        .status-badge.open { background:rgba(26,109,56,0.1); color:var(--primary); }
+        .status-badge.dot { width:7px; height:7px; border-radius:50%; background:currentColor; display:inline-block; animation:pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+        /* ===== SOCIAL SECTION ===== */
+        .social-section { background:linear-gradient(135deg,var(--primary) 0%,var(--nature-green) 50%,var(--artistic-brown) 100%); padding:70px 0; }
+        .social-inner { text-align:center; }
+        .social-inner h2 { color:#fff; font-size:2rem; margin-bottom:12px; }
+        .social-inner p { color:rgba(255,255,255,0.85); font-family:'Poppins',sans-serif; font-size:1rem; margin-bottom:35px; }
+        .social-links-row { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
+        .social-big-btn {
+            display:flex; align-items:center; gap:12px;
+            padding:14px 28px; border-radius:50px; text-decoration:none;
+            font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem;
+            transition:var(--transition); min-width:160px; justify-content:center;
+        }
+        .social-big-btn:hover { transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,0.3); }
+        .social-big-btn.whatsapp { background:#25D366; color:#fff; }
+        .social-big-btn.facebook { background:#1877F2; color:#fff; }
+        .social-big-btn.instagram { background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; }
+        .social-big-btn.email-btn { background:#fff; color:var(--primary); }
+
+        /* ===== FOOTER ===== */
+        .footer { background:linear-gradient(135deg,#1a2f1a,var(--artistic-brown)); color:#fff; padding:60px 0 20px; }
+        .footer-content { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:35px; margin-bottom:40px; }
+        .footer-section h3 { font-size:1.2rem; margin-bottom:18px; color:var(--secondary); font-family:'Cinzel',serif; }
+        .footer-section p { color:rgba(255,255,255,0.75); font-size:0.88rem; line-height:1.9; font-family:'Poppins',sans-serif; }
+        .footer-links { list-style:none; }
+        .footer-links li { margin-bottom:10px; }
+        .footer-links a { color:rgba(255,255,255,0.75); text-decoration:none; transition:var(--transition); display:flex; align-items:center; gap:9px; font-family:'Poppins',sans-serif; font-size:0.88rem; }
+        .footer-links a:hover { color:var(--secondary); transform:translateX(5px); }
+        .footer-bottom { text-align:center; padding-top:28px; border-top:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.5); font-family:'Poppins',sans-serif; font-size:0.82rem; }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:900px) {
+            .contact-grid { grid-template-columns:1fr; }
+            .contact-cards-grid { grid-template-columns:1fr; }
+            .form-row { grid-template-columns:1fr; }
+            .map-embed-wrap { height:300px; }
+        }
+        @media(max-width:600px) {
+            .hero-content h1 { font-size:2rem; }
+            .form-card { padding:30px 20px; }
+            .social-big-btn { min-width:130px; padding:12px 18px; font-size:0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Translation Loading Overlay -->
+<div class="translation-loading" id="translationLoading">
+    <div class="loading-spinner"></div>
+    <p data-i18n="translation.loading">Translating content...</p>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="premium-navbar" id="premiumNavbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img" onerror="this.style.display='none'">
+            <span class="logo-text">MMexy</span>
+        </a>
+        <div class="desktop-nav">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link"><i class="fas fa-home"></i><span data-i18n="nav.home">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="about-us.html" class="nav-link"><i class="fas fa-info-circle"></i><span data-i18n="nav.about">About</span></a>
+                </li>
+                <li class="nav-item dropdown-parent">
+                    <a href="#" class="nav-link"><i class="fas fa-map-marked-alt"></i><span data-i18n="nav.destinations">Destinations</span><i class="fas fa-chevron-down" style="font-size:0.75rem;"></i></a>
+                    <div class="dropdown">
+                        <a href="mountain-climbing.html" class="dropdown-item"><i class="fas fa-mountain"></i><span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a>
+                        <a href="tanzania-safaris.html" class="dropdown-item"><i class="fas fa-binoculars"></i><span data-i18n="nav.safaris">Tanzania Safaris</span></a>
+                        <a href="zanzibar-beaches.html" class="dropdown-item"><i class="fas fa-umbrella-beach"></i><span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a>
+                        <a href="cultural-tourism.html" class="dropdown-item"><i class="fas fa-music"></i><span data-i18n="nav.cultural">Cultural Tourism</span></a>
+                        <a href="waterfall-tourism.html" class="dropdown-item"><i class="fas fa-water"></i><span data-i18n="nav.waterfalls">Waterfall Tourism</span></a>
+                        <a href="historical-sites.html" class="dropdown-item"><i class="fas fa-landmark"></i><span data-i18n="nav.historical">Historical Sites</span></a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i><span data-i18n="nav.contact">Contact</span></a>
+                </li>
+            </ul>
+            <!-- Language Selector — 3 languages only -->
+            <div class="language-selector">
+                <div class="current-language" id="currentLangDisplay">
+                    <span class="language-flag">🇺🇸</span>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down" style="font-size:0.75rem;"></i>
+                </div>
+                <div class="language-dropdown">
+                    <a href="#" class="language-option active" data-lang="en"><span class="language-flag">🇺🇸</span><span>English</span></a>
+                    <a href="#" class="language-option" data-lang="sw"><span class="language-flag">🇹🇿</span><span>Kiswahili</span></a>
+                    <a href="#" class="language-option" data-lang="fr"><span class="language-flag">🇫🇷</span><span>Français</span></a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Sidebar Overlay + Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="premium-sidebar" id="premiumSidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-logo"><i class="fas fa-mountain sidebar-logo-icon"></i><span>MMexy Tanzania</span></div>
+        <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-content">
+        <ul class="sidebar-nav">
+            <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i class="fas fa-home"></i><span data-i18n="nav.home">Home</span></a></li>
+            <li class="sidebar-item"><a href="about-us.html" class="sidebar-link"><i class="fas fa-info-circle"></i><span data-i18n="nav.about">About Us</span></a></li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link sidebar-dropdown-toggle" id="destinationsToggle">
+                    <i class="fas fa-map-marked-alt"></i><span data-i18n="nav.destinations">Destinations</span><i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <div class="sidebar-dropdown" id="destinationsDropdown">
+                    <a href="mountain-climbing.html" class="sidebar-link"><i class="fas fa-mountain"></i><span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a>
+                    <a href="tanzania-safaris.html" class="sidebar-link"><i class="fas fa-binoculars"></i><span data-i18n="nav.safaris">Tanzania Safaris</span></a>
+                    <a href="zanzibar-beaches.html" class="sidebar-link"><i class="fas fa-umbrella-beach"></i><span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a>
+                    <a href="cultural-tourism.html" class="sidebar-link"><i class="fas fa-music"></i><span data-i18n="nav.cultural">Cultural Tourism</span></a>
+                    <a href="waterfall-tourism.html" class="sidebar-link"><i class="fas fa-water"></i><span data-i18n="nav.waterfalls">Waterfall Tourism</span></a>
+                    <a href="historical-sites.html" class="sidebar-link"><i class="fas fa-landmark"></i><span data-i18n="nav.historical">Historical Sites</span></a>
+                </div>
+            </li>
+            <li class="sidebar-item"><a href="contact.html" class="sidebar-link active"><i class="fas fa-envelope"></i><span data-i18n="nav.contact">Contact</span></a></li>
+        </ul>
+        <div class="mobile-language-selector">
+            <label for="sidebarLanguage" data-i18n="footer.language">Language:</label>
+            <select class="sidebar-language" id="sidebarLanguage" style="color:#333;">
+                <option value="en">🇺🇸 English</option>
+                <option value="sw">🇹🇿 Kiswahili</option>
+                <option value="fr">🇫🇷 Français</option>
+            </select>
+        </div>
+    </div>
+    <div class="sidebar-footer">
+        <div class="sidebar-social">
+            <a href="https://wa.me/255797331005" target="_blank" class="social-link" style="background:#25D366;"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:info@mmexy.com" class="social-link"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+    <!-- HERO -->
+    <section class="contact-hero">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                <span data-i18n="contact.hero_badge">Arusha, Tanzania</span>
+            </div>
+            <h1 data-i18n="contact.hero_title">Get In Touch With Us</h1>
+            <p data-i18n="contact.hero_subtitle">We're here to help plan your perfect Tanzanian adventure</p>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60">
+                <path fill="#f9f9f9" fill-opacity="1" d="M0,30L80,25C160,20,320,10,480,12C640,14,800,28,960,32C1120,36,1280,28,1360,24L1440,20V60H1360C1280,60,1120,60,960,60C800,60,640,60,480,60C320,60,160,60,80,60H0Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- CONTACT CARDS -->
+    <section class="contact-cards-section">
+        <div class="container">
+            <div style="text-align:center;" data-aos="fade-up">
+                <span class="section-tag" data-i18n="contact.tag">Contact Information</span>
+                <div class="section-title">
+                    <h2 data-i18n="contact.cards_title">Ways to Reach Us</h2>
+                    <p data-i18n="contact.cards_subtitle">Choose your preferred way to connect with our team of Tanzania adventure experts</p>
+                </div>
+            </div>
+            <div class="contact-cards-grid">
+                <!-- Phone -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon-wrap green">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 data-i18n="contact.phone_title">Call Us</h3>
+                    <p data-i18n="contact.phone_desc">Available 7 days a week for your inquiries</p>
+                    <br>
+                    <a href="tel:+255797331005" style="font-size:1.1rem; display:block; margin-bottom:6px;">+255 797 331 005</a>
+                    <a href="https://wa.me/255797331005" target="_blank" style="color:var(--nature-green); font-size:0.88rem;"><i class="fab fa-whatsapp"></i> WhatsApp Available</a>
+                    <span class="card-badge" data-i18n="contact.phone_hours">Mon–Sun · 7am–9pm</span>
+                </div>
+                <!-- Email -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon-wrap orange">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3 data-i18n="contact.email_title">Email Us</h3>
+                    <p data-i18n="contact.email_desc">We reply within 24 hours to all inquiries</p>
+                    <br>
+                    <a href="mailto:info@mmexy.com" style="font-size:1.05rem; display:block; margin-bottom:6px;">info@mmexy.com</a>
+                    <span style="font-size:0.82rem; color:#888; font-family:'Poppins',sans-serif;" data-i18n="contact.email_note">For booking & general enquiries</span>
+                    <span class="card-badge" data-i18n="contact.email_response">Response in 24 hrs</span>
+                </div>
+                <!-- Location -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon-wrap brown">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 data-i18n="contact.location_title">Visit Our Office</h3>
+                    <p data-i18n="contact.location_desc">Come meet us and plan your adventure in person</p>
+                    <br>
+                    <strong style="display:block; color:var(--artistic-brown); font-family:'Cinzel',serif; font-size:0.95rem; margin-bottom:4px;">Sanawari, Arusha</strong>
+                    <span style="font-size:0.85rem; color:#666; font-family:'Poppins',sans-serif;">Tanzania, East Africa</span>
+                    <span class="card-badge" data-i18n="contact.location_badge">Open Daily</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM + MAP -->
+    <section class="contact-main-section">
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- CONTACT FORM -->
+                <div class="form-card" data-aos="fade-right">
+                    <div class="form-header">
+                        <span class="section-tag" data-i18n="contact.form_tag">Send a Message</span>
+                        <h2 data-i18n="contact.form_title">Start Your Adventure Today</h2>
+                        <p data-i18n="contact.form_subtitle">Fill in your details and we'll craft a personalised itinerary just for you</p>
+                    </div>
+                    <form id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName"><i class="fas fa-user"></i><span data-i18n="contact.form_firstname">First Name</span></label>
+                                <input type="text" id="firstName" class="form-control" data-i18n-placeholder="contact.form_firstname_ph" placeholder="Your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName"><i class="fas fa-user"></i><span data-i18n="contact.form_lastname">Last Name</span></label>
+                                <input type="text" id="lastName" class="form-control" data-i18n-placeholder="contact.form_lastname_ph" placeholder="Your last name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailInput"><i class="fas fa-envelope"></i><span data-i18n="contact.form_email">Email Address</span></label>
+                            <input type="email" id="emailInput" class="form-control" data-i18n-placeholder="contact.form_email_ph" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneInput"><i class="fas fa-phone"></i><span data-i18n="contact.form_phone">Phone / WhatsApp</span></label>
+                            <input type="tel" id="phoneInput" class="form-control" data-i18n-placeholder="contact.form_phone_ph" placeholder="+255 7XX XXX XXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="destination"><i class="fas fa-map-marker-alt"></i><span data-i18n="contact.form_destination">Interested Destination</span></label>
+                            <select id="destination" class="form-control">
+                                <option value="" data-i18n="contact.form_dest_default">-- Select a destination --</option>
+                                <option value="kilimanjaro" data-i18n="nav.mountain_climbing">Mountain Climbing</option>
+                                <option value="safari" data-i18n="nav.safaris">Tanzania Safaris</option>
+                                <option value="zanzibar" data-i18n="nav.zanzibar">Zanzibar Beaches</option>
+                                <option value="cultural" data-i18n="nav.cultural">Cultural Tourism</option>
+                                <option value="waterfall" data-i18n="nav.waterfalls">Waterfall Tourism</option>
+                                <option value="historical" data-i18n="nav.historical">Historical Sites</option>
+                                <option value="other" data-i18n="contact.form_dest_other">Other / Multiple</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment-alt"></i><span data-i18n="contact.form_message">Your Message</span></label>
+                            <textarea id="message" class="form-control" rows="4" data-i18n-placeholder="contact.form_message_ph" placeholder="Tell us about your travel plans, group size, preferred dates..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-i18n="contact.form_submit">Send via WhatsApp</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <div class="form-success" id="formSuccess">
+                            <i class="fas fa-check-circle" style="font-size:1.3rem; color:var(--primary);"></i>
+                            <span data-i18n="contact.form_success">Message sent! We'll get back to you within 24 hours.</span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- GOOGLE MAP -->
+                <div class="map-card" data-aos="fade-left">
+                    <div class="map-header">
+                        <h3 data-i18n="contact.map_title">Find Us on the Map</h3>
+                        <p data-i18n="contact.map_desc">Our office is located in Sanawari, one of Arusha's most accessible neighbourhoods — the gateway to Tanzania's greatest adventures.</p>
+                        <div class="map-location-badge">
+                            <i class="fas fa-map-pin"></i>
+                            <span>Sanawari, Arusha, Tanzania</span>
+                        </div>
+                    </div>
+                    <div class="map-embed-wrap">
+                        <!-- Advanced Google Maps embed — Sanawari, Arusha -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.8812083337!2d36.68!3d-3.365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371fd2b4db0c13%3A0xa42e27ee74dc72c2!2sSanawari%2C%20Arusha%2C%20Tanzania!5e0!3m2!1sen!2stz!4v1710000000000!5m2!1sen!2stz"
+                            style="width:100%;height:100%;border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="MMexy Tanzania Adventures – Sanawari, Arusha">
+                        </iframe>
+                        <a href="https://maps.google.com/?q=Sanawari,Arusha,Tanzania" target="_blank" class="map-overlay-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="contact.map_open">Open in Google Maps</span>
+                        </a>
+                    </div>
+                    <div class="map-info-strip">
+                        <div class="map-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div><strong data-i18n="contact.map_address">Sanawari, Arusha</strong><br><span style="font-size:0.8rem; color:#888;">Tanzania, East Africa</span></div>
+                        </div>
+                        <div class="map-info-item">
+                            <i class="fas fa-car"></i>
+                            <div><strong data-i18n="contact.map_drive">~10 min from city centre</strong><br><span style="font-size:0.8rem; color:#888;" data-i18n="contact.map_near">Near Arusha Airport road</span></div>
+                        </div>
+                        <div class="map-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div><strong data-i18n="contact.map_hours">Mon – Sun</strong><br><span style="font-size:0.8rem; color:#888;">7:00 – 21:00</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKING HOURS -->
+    <section class="hours-section">
+        <div class="container">
+            <div style="text-align:center;" data-aos="fade-up">
+                <span class="section-tag" data-i18n="contact.hours_tag">Availability</span>
+                <div class="section-title">
+                    <h2 data-i18n="contact.hours_title">When Can You Reach Us?</h2>
+                    <p data-i18n="contact.hours_subtitle">Our team is always ready to assist you plan the perfect Tanzanian experience</p>
+                </div>
+            </div>
+            <div class="hours-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Office Hours -->
+                <div class="hours-card">
+                    <div class="hours-card-head">
+                        <div class="hours-icon green"><i class="fas fa-building"></i></div>
+                        <h3 data-i18n="contact.hours_office">Office Hours</h3>
+                    </div>
+                    <table class="hours-table">
+                        <tr><td data-i18n="contact.day_mon_fri">Monday – Friday</td><td>7:00 AM – 9:00 PM</td></tr>
+                        <tr><td data-i18n="contact.day_saturday">Saturday</td><td>8:00 AM – 8:00 PM</td></tr>
+                        <tr><td data-i18n="contact.day_sunday">Sunday</td><td>9:00 AM – 6:00 PM</td></tr>
+                    </table>
+                </div>
+                <!-- WhatsApp & Phone -->
+                <div class="hours-card">
+                    <div class="hours-card-head">
+                        <div class="hours-icon orange"><i class="fab fa-whatsapp"></i></div>
+                        <h3 data-i18n="contact.hours_whatsapp">WhatsApp & Phone</h3>
+                    </div>
+                    <table class="hours-table">
+                        <tr><td data-i18n="contact.day_daily">Every Day</td><td>7:00 AM – 9:00 PM</td></tr>
+                        <tr><td data-i18n="contact.hours_emergency">Emergencies</td><td data-i18n="contact.hours_24_7">24 / 7</td></tr>
+                    </table>
+                    <div style="margin-top:16px; text-align:center;">
+                        <a href="https://wa.me/255797331005" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 22px;border-radius:30px;text-decoration:none;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.88rem;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Us Now
+                        </a>
+                    </div>
+                </div>
+                <!-- Email Response -->
+                <div class="hours-card">
+                    <div class="hours-card-head">
+                        <div class="hours-icon blue"><i class="fas fa-envelope"></i></div>
+                        <h3 data-i18n="contact.hours_email">Email Response</h3>
+                    </div>
+                    <table class="hours-table">
+                        <tr><td data-i18n="contact.hours_weekdays">Weekdays</td><td data-i18n="contact.hours_within_2">Within 2 hours</td></tr>
+                        <tr><td data-i18n="contact.hours_weekends">Weekends</td><td data-i18n="contact.hours_within_24">Within 24 hours</td></tr>
+                    </table>
+                    <div style="margin-top:16px; text-align:center;">
+                        <a href="mailto:info@mmexy.com" style="display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:10px 22px;border-radius:30px;text-decoration:none;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.88rem;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                            <i class="fas fa-envelope"></i> info@mmexy.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL SECTION -->
+    <section class="social-section">
+        <div class="container">
+            <div class="social-inner" data-aos="fade-up">
+                <h2 data-i18n="contact.social_title">Connect With MMexy Adventures</h2>
+                <p data-i18n="contact.social_subtitle">Follow us for daily Tanzania travel inspiration, safari updates, and special offers</p>
+                <div class="social-links-row">
+                    <a href="https://wa.me/255797331005" target="_blank" class="social-big-btn whatsapp">
+                        <i class="fab fa-whatsapp fa-lg"></i> WhatsApp
+                    </a>
+                    <a href="#" class="social-big-btn facebook">
+                        <i class="fab fa-facebook-f fa-lg"></i> Facebook
+                    </a>
+                    <a href="#" class="social-big-btn instagram">
+                        <i class="fab fa-instagram fa-lg"></i> Instagram
+                    </a>
+                    <a href="mailto:info@mmexy.com" class="social-big-btn email-btn">
+                        <i class="fas fa-envelope fa-lg"></i> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer.company">MMexy Tanzania Adventures</h3>
+                    <p data-i18n="footer.description">Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-i18n="footer.quick_links">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+                        <li><a href="about-us.html"><i class="fas fa-info-circle"></i> <span data-i18n="nav.about">About Us</span></a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-i18n="footer.destinations">Destinations</h3>
+                   <ul class="footer-links">
+                            <li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a></li>
+                            <li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.safaris">Tanzania Safaris</span></a></li>
+                            <li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a></li>
+                            <li><a href="cultural-tourism.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.zanzibar">Cultural tourism</span></a></li>
+                            <li><a href="waterfall-tourism.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.zanzibar">waterfall tourism</span></a></li>
+                            <li><a href="historical-sites.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">historical sites</span></a></li>
+                        </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-i18n="footer.contact_info">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://maps.google.com/?q=Sanawari,Arusha,Tanzania" target="_blank"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Sanawari, Arusha, Tanzania</span></a></li>
+                        <li><a href="tel:+255797331005"><i class="fas fa-phone"></i> +255 797 331 005</a></li>
+                        <li><a href="mailto:info@mmexy.com"><i class="fas fa-envelope"></i> info@mmexy.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">© 2026 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// ===== TRANSLATIONS — 3 LANGUAGES =====
+let currentLanguage = 'en';
+
+const translations = {
+    en: {
+        "nav.home": "Home",
+        "nav.about": "About",
+        "nav.destinations": "Destinations",
+        "nav.mountain_climbing": "Mountain Climbing",
+        "nav.safaris": "Tanzania Safaris",
+        "nav.zanzibar": "Zanzibar Beaches",
+        "nav.cultural": "Cultural Tourism",
+        "nav.waterfalls": "Waterfall Tourism",
+        "nav.historical": "Historical Sites",
+        "nav.contact": "Contact",
+        "footer.language": "Language:",
+        "footer.company": "MMexy Tanzania Adventures",
+        "footer.description": "Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.",
+        "footer.quick_links": "Quick Links",
+        "footer.destinations": "Destinations",
+        "footer.contact_info": "Contact Info",
+        "footer.address": "Sanawari, Arusha, Tanzania",
+        "footer.copyright": "© 2026 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism",
+        "translation.loading": "Translating content...",
+        // Hero
+        "contact.hero_badge": "Arusha, Tanzania",
+        "contact.hero_title": "Get In Touch With Us",
+        "contact.hero_subtitle": "We're here to help plan your perfect Tanzanian adventure",
+        // Cards section
+        "contact.tag": "Contact Information",
+        "contact.cards_title": "Ways to Reach Us",
+        "contact.cards_subtitle": "Choose your preferred way to connect with our team of Tanzania adventure experts",
+        "contact.phone_title": "Call Us",
+        "contact.phone_desc": "Available 7 days a week for your inquiries",
+        "contact.phone_hours": "Mon–Sun · 7am–9pm",
+        "contact.email_title": "Email Us",
+        "contact.email_desc": "We reply within 24 hours to all inquiries",
+        "contact.email_note": "For booking & general enquiries",
+        "contact.email_response": "Response in 24 hrs",
+        "contact.location_title": "Visit Our Office",
+        "contact.location_desc": "Come meet us and plan your adventure in person",
+        "contact.location_badge": "Open Daily",
+        // Form
+        "contact.form_tag": "Send a Message",
+        "contact.form_title": "Start Your Adventure Today",
+        "contact.form_subtitle": "Fill in your details and we'll craft a personalised itinerary just for you",
+        "contact.form_firstname": "First Name",
+        "contact.form_firstname_ph": "Your first name",
+        "contact.form_lastname": "Last Name",
+        "contact.form_lastname_ph": "Your last name",
+        "contact.form_email": "Email Address",
+        "contact.form_email_ph": "your@email.com",
+        "contact.form_phone": "Phone / WhatsApp",
+        "contact.form_phone_ph": "+255 7XX XXX XXX",
+        "contact.form_destination": "Interested Destination",
+        "contact.form_dest_default": "-- Select a destination --",
+        "contact.form_dest_other": "Other / Multiple",
+        "contact.form_message": "Your Message",
+        "contact.form_message_ph": "Tell us about your travel plans, group size, preferred dates...",
+        "contact.form_submit": "Send via WhatsApp",
+        "contact.form_success": "Message sent! We'll get back to you within 24 hours.",
+        // Map
+        "contact.map_title": "Find Us on the Map",
+        "contact.map_desc": "Our office is located in Sanawari, one of Arusha's most accessible neighbourhoods — the gateway to Tanzania's greatest adventures.",
+        "contact.map_open": "Open in Google Maps",
+        "contact.map_address": "Sanawari, Arusha",
+        "contact.map_drive": "~10 min from city centre",
+        "contact.map_near": "Near Arusha Airport road",
+        "contact.map_hours": "Mon – Sun",
+        // Hours
+        "contact.hours_tag": "Availability",
+        "contact.hours_title": "When Can You Reach Us?",
+        "contact.hours_subtitle": "Our team is always ready to assist you plan the perfect Tanzanian experience",
+        "contact.hours_office": "Office Hours",
+        "contact.day_mon_fri": "Monday – Friday",
+        "contact.day_saturday": "Saturday",
+        "contact.day_sunday": "Sunday",
+        "contact.hours_whatsapp": "WhatsApp & Phone",
+        "contact.day_daily": "Every Day",
+        "contact.hours_emergency": "Emergencies",
+        "contact.hours_24_7": "24 / 7",
+        "contact.hours_email": "Email Response",
+        "contact.hours_weekdays": "Weekdays",
+        "contact.hours_within_2": "Within 2 hours",
+        "contact.hours_weekends": "Weekends",
+        "contact.hours_within_24": "Within 24 hours",
+        // Social
+        "contact.social_title": "Connect With MMexy Adventures",
+        "contact.social_subtitle": "Follow us for daily Tanzania travel inspiration, safari updates, and special offers"
+    },
+
+    sw: {
+        "nav.home": "Nyumbani",
+        "nav.about": "Kuhusu Sisi",
+        "nav.destinations": "Sehemu za Kusisimua",
+        "nav.mountain_climbing": "Kupanda Milima",
+        "nav.safaris": "Safari Tanzania",
+        "nav.zanzibar": "Fuoni za Zanzibar",
+        "nav.cultural": "Utalii wa Kitamaduni",
+        "nav.waterfalls": "Utalii wa Maporomoko",
+        "nav.historical": "Maeneo ya Kihistoria",
+        "nav.contact": "Wasiliana Nasi",
+        "footer.language": "Lugha:",
+        "footer.company": "MMexy Tanzania Adventures",
+        "footer.description": "Tunatengeneza uzoefu usiosahaulika moyoni mwa Tanzania. Gundua uchawi wa Afrika kwa waongozaji wetu wataalamu na safari za anasa za kipekee.",
+        "footer.quick_links": "Viungo vya Haraka",
+        "footer.destinations": "Sehemu za Kusisimua",
+        "footer.contact_info": "Maelezo ya Mawasiliano",
+        "footer.address": "Sanawari, Arusha, Tanzania",
+        "footer.copyright": "© 2026 MMexy Tanzania Adventures. Haki zote zimehifadhiwa. | Imebuniwa kwa ❤️ kwa Utalii wa Tanzania",
+        "translation.loading": "Inatafsiri maudhui...",
+        "contact.hero_badge": "Arusha, Tanzania",
+        "contact.hero_title": "Wasiliana Nasi",
+        "contact.hero_subtitle": "Tuko hapa kukusaidia kupanga safari yako kamili ya Tanzania",
+        "contact.tag": "Maelezo ya Mawasiliano",
+        "contact.cards_title": "Njia za Kuwasiliana Nasi",
+        "contact.cards_subtitle": "Chagua njia unayopendelea kuungana na timu yetu ya wataalamu wa safari za Tanzania",
+        "contact.phone_title": "Piga Simu",
+        "contact.phone_desc": "Tunapatikana siku 7 kwa wiki kwa maswali yako",
+        "contact.phone_hours": "Jua–Jua · 7asubuhi–9jioni",
+        "contact.email_title": "Tuma Barua Pepe",
+        "contact.email_desc": "Tunajibu ndani ya masaa 24 kwa maswali yote",
+        "contact.email_note": "Kwa ubronaji na maswali ya jumla",
+        "contact.email_response": "Jibu ndani ya masaa 24",
+        "contact.location_title": "Tembelea Ofisi Yetu",
+        "contact.location_desc": "Kuja ututembelee na upange safari yako ana kwa ana",
+        "contact.location_badge": "Wazi Kila Siku",
+        "contact.form_tag": "Tuma Ujumbe",
+        "contact.form_title": "Anza Safari Yako Leo",
+        "contact.form_subtitle": "Jaza maelezo yako na tutatengeneza ratiba ya kibinafsi kwako",
+        "contact.form_firstname": "Jina la Kwanza",
+        "contact.form_firstname_ph": "Jina lako la kwanza",
+        "contact.form_lastname": "Jina la Familia",
+        "contact.form_lastname_ph": "Jina lako la familia",
+        "contact.form_email": "Anwani ya Barua Pepe",
+        "contact.form_email_ph": "barua@pepe.com",
+        "contact.form_phone": "Simu / WhatsApp",
+        "contact.form_phone_ph": "+255 7XX XXX XXX",
+        "contact.form_destination": "Sehemu Unayopenda",
+        "contact.form_dest_default": "-- Chagua sehemu --",
+        "contact.form_dest_other": "Nyingine / Kadhaa",
+        "contact.form_message": "Ujumbe Wako",
+        "contact.form_message_ph": "Tuambie kuhusu mipango yako ya safari, idadi ya watu, tarehe unazopenda...",
+        "contact.form_submit": "Tuma kupitia WhatsApp",
+        "contact.form_success": "Ujumbe umetumwa! Tutawasiliana nawe ndani ya masaa 24.",
+        "contact.map_title": "Tupata kwenye Ramani",
+        "contact.map_desc": "Ofisi yetu ipo Sanawari, moja ya mitaa inayopatikana zaidi ya Arusha — lango la michezo mikubwa ya Tanzania.",
+        "contact.map_open": "Fungua Google Maps",
+        "contact.map_address": "Sanawari, Arusha",
+        "contact.map_drive": "~dakika 10 kutoka katikati ya mji",
+        "contact.map_near": "Karibu na barabara ya Uwanja wa Ndege wa Arusha",
+        "contact.map_hours": "Jua – Jua",
+        "contact.hours_tag": "Upatikanaji",
+        "contact.hours_title": "Unaweza Kuwasiliana Nasi Lini?",
+        "contact.hours_subtitle": "Timu yetu iko tayari kukusaidia kupanga uzoefu kamili wa Tanzania",
+        "contact.hours_office": "Saa za Ofisi",
+        "contact.day_mon_fri": "Jumatatu – Ijumaa",
+        "contact.day_saturday": "Jumamosi",
+        "contact.day_sunday": "Jumapili",
+        "contact.hours_whatsapp": "WhatsApp & Simu",
+        "contact.day_daily": "Kila Siku",
+        "contact.hours_emergency": "Dharura",
+        "contact.hours_24_7": "24 / 7",
+        "contact.hours_email": "Majibu ya Barua Pepe",
+        "contact.hours_weekdays": "Siku za Kazi",
+        "contact.hours_within_2": "Ndani ya masaa 2",
+        "contact.hours_weekends": "Wikendi",
+        "contact.hours_within_24": "Ndani ya masaa 24",
+        "contact.social_title": "Ungana na MMexy Adventures",
+        "contact.social_subtitle": "Tufuate kwa msukumo wa kila siku wa safari za Tanzania, masasisho ya safari, na ofa maalum"
+    },
+
+    fr: {
+        "nav.home": "Accueil",
+        "nav.about": "À Propos",
+        "nav.destinations": "Destinations",
+        "nav.mountain_climbing": "Ascension de Montagnes",
+        "nav.safaris": "Safaris Tanzanie",
+        "nav.zanzibar": "Plages de Zanzibar",
+        "nav.cultural": "Tourisme Culturel",
+        "nav.waterfalls": "Tourisme des Cascades",
+        "nav.historical": "Sites Historiques",
+        "nav.contact": "Contact",
+        "footer.language": "Langue:",
+        "footer.company": "MMexy Tanzania Adventures",
+        "footer.description": "Création d'expériences inoubliables au cœur de la Tanzanie. Découvrez la magie de l'Afrique avec nos guides experts et nos aventures safari premium.",
+        "footer.quick_links": "Liens Rapides",
+        "footer.destinations": "Destinations",
+        "footer.contact_info": "Informations de Contact",
+        "footer.address": "Sanawari, Arusha, Tanzanie",
+        "footer.copyright": "© 2026 MMexy Tanzania Adventures. Tous droits réservés. | Conçu avec ❤️ pour le Tourisme Tanzanien",
+        "translation.loading": "Traduction du contenu...",
+        "contact.hero_badge": "Arusha, Tanzanie",
+        "contact.hero_title": "Contactez-Nous",
+        "contact.hero_subtitle": "Nous sommes là pour vous aider à planifier votre parfaite aventure tanzanienne",
+        "contact.tag": "Informations de Contact",
+        "contact.cards_title": "Comment Nous Joindre",
+        "contact.cards_subtitle": "Choisissez votre façon préférée de contacter notre équipe d'experts en aventures tanzaniennes",
+        "contact.phone_title": "Appelez-Nous",
+        "contact.phone_desc": "Disponible 7 jours sur 7 pour vos demandes",
+        "contact.phone_hours": "Lun–Dim · 7h–21h",
+        "contact.email_title": "Écrivez-Nous",
+        "contact.email_desc": "Nous répondons dans les 24 heures à toutes les demandes",
+        "contact.email_note": "Pour les réservations et demandes générales",
+        "contact.email_response": "Réponse sous 24 h",
+        "contact.location_title": "Visitez Notre Bureau",
+        "contact.location_desc": "Venez nous rencontrer et planifiez votre aventure en personne",
+        "contact.location_badge": "Ouvert Tous les Jours",
+        "contact.form_tag": "Envoyer un Message",
+        "contact.form_title": "Commencez Votre Aventure Aujourd'hui",
+        "contact.form_subtitle": "Remplissez vos coordonnées et nous créerons un itinéraire personnalisé pour vous",
+        "contact.form_firstname": "Prénom",
+        "contact.form_firstname_ph": "Votre prénom",
+        "contact.form_lastname": "Nom de famille",
+        "contact.form_lastname_ph": "Votre nom de famille",
+        "contact.form_email": "Adresse Email",
+        "contact.form_email_ph": "votre@email.com",
+        "contact.form_phone": "Téléphone / WhatsApp",
+        "contact.form_phone_ph": "+255 7XX XXX XXX",
+        "contact.form_destination": "Destination Souhaitée",
+        "contact.form_dest_default": "-- Sélectionner une destination --",
+        "contact.form_dest_other": "Autre / Multiple",
+        "contact.form_message": "Votre Message",
+        "contact.form_message_ph": "Parlez-nous de vos projets de voyage, taille du groupe, dates préférées...",
+        "contact.form_submit": "Envoyer via WhatsApp",
+        "contact.form_success": "Message envoyé! Nous vous répondrons dans les 24 heures.",
+        "contact.map_title": "Trouvez-Nous sur la Carte",
+        "contact.map_desc": "Notre bureau est situé à Sanawari, l'un des quartiers les plus accessibles d'Arusha — la porte des plus grandes aventures tanzaniennes.",
+        "contact.map_open": "Ouvrir dans Google Maps",
+        "contact.map_address": "Sanawari, Arusha",
+        "contact.map_drive": "~10 min du centre-ville",
+        "contact.map_near": "Près de la route de l'aéroport d'Arusha",
+        "contact.map_hours": "Lun – Dim",
+        "contact.hours_tag": "Disponibilité",
+        "contact.hours_title": "Quand Pouvez-Vous Nous Joindre?",
+        "contact.hours_subtitle": "Notre équipe est toujours prête à vous aider à planifier la parfaite expérience tanzanienne",
+        "contact.hours_office": "Heures de Bureau",
+        "contact.day_mon_fri": "Lundi – Vendredi",
+        "contact.day_saturday": "Samedi",
+        "contact.day_sunday": "Dimanche",
+        "contact.hours_whatsapp": "WhatsApp & Téléphone",
+        "contact.day_daily": "Chaque Jour",
+        "contact.hours_emergency": "Urgences",
+        "contact.hours_24_7": "24 h / 24",
+        "contact.hours_email": "Réponse par Email",
+        "contact.hours_weekdays": "Jours de Semaine",
+        "contact.hours_within_2": "Dans les 2 heures",
+        "contact.hours_weekends": "Week-ends",
+        "contact.hours_within_24": "Dans les 24 heures",
+        "contact.social_title": "Rejoignez MMexy Adventures",
+        "contact.social_subtitle": "Suivez-nous pour l'inspiration quotidienne sur les voyages en Tanzanie, les mises à jour safari et les offres spéciales"
+    }
+};
+
+// ===== TRANSLATION ENGINE =====
+function showTranslationLoading() {
+    const l = document.getElementById('translationLoading');
+    if (l) l.classList.add('active');
+}
+function hideTranslationLoading() {
+    const l = document.getElementById('translationLoading');
+    if (l) l.classList.remove('active');
+}
+
+function changeLanguage(lang) {
+    if (lang === currentLanguage) return;
+    showTranslationLoading();
+
+    setTimeout(() => {
+        currentLanguage = lang;
+
+        // Translate all data-i18n elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.textContent = translations[lang][key];
+                    el.style.opacity = '1';
+                }, 60);
+            }
+        });
+
+        // Translate placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang] && translations[lang][key]) {
+                el.placeholder = translations[lang][key];
+            }
+        });
+
+        // Update display button
+        const flags = { en: '🇺🇸', sw: '🇹🇿', fr: '🇫🇷' };
+        const names = { en: 'English', sw: 'Kiswahili', fr: 'Français' };
+        const display = document.getElementById('currentLangDisplay');
+        if (display) {
+            display.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                display.innerHTML = `<span class="language-flag">${flags[lang]}</span><span>${names[lang]}</span><i class="fas fa-chevron-down" style="font-size:0.75rem;"></i>`;
+                display.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Update active option
+        document.querySelectorAll('.language-option').forEach(o => {
+            o.classList.toggle('active', o.getAttribute('data-lang') === lang);
+        });
+
+        const sl = document.getElementById('sidebarLanguage');
+        if (sl) sl.value = lang;
+        document.documentElement.lang = lang;
+        localStorage.setItem('preferredLanguage', lang);
+
+        hideTranslationLoading();
+
+        // Toast notification
+        const names2 = { en: 'English', sw: 'Kiswahili', fr: 'Français' };
+        const toast = document.createElement('div');
+        toast.style.cssText = 'position:fixed;bottom:30px;right:20px;background:var(--primary);color:#fff;padding:13px 22px;border-radius:50px;box-shadow:0 8px 25px rgba(0,0,0,0.2);z-index:10000;transform:translateY(80px);transition:transform 0.35s cubic-bezier(.34,1.56,.64,1);font-family:Poppins,sans-serif;font-size:0.88rem;font-weight:600;display:flex;align-items:center;gap:8px;';
+        toast.innerHTML = `<i class="fas fa-globe"></i> ${names2[lang]}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.style.transform = 'translateY(0)', 50);
+        setTimeout(() => { toast.style.transform = 'translateY(80px)'; setTimeout(() => toast.remove(), 400); }, 2800);
+
+    }, 450);
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+
+    // Navbar scroll
+    const navbar = document.getElementById('premiumNavbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Sidebar
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('premiumSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const closeBtn = document.getElementById('closeSidebar');
+    const destToggle = document.getElementById('destinationsToggle');
+    const destDropdown = document.getElementById('destinationsDropdown');
+
+    function openSidebar() {
+        mobileBtn.classList.add('active');
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+        mobileBtn.classList.remove('active');
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    mobileBtn.addEventListener('click', () => sidebar.classList.contains('active') ? closeSidebar() : openSidebar());
+    closeBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+
+    destToggle.addEventListener('click', e => {
+        e.preventDefault();
+        destToggle.classList.toggle('active');
+        destDropdown.classList.toggle('active');
+    });
+
+    // Language listeners
+    document.querySelectorAll('.language-option').forEach(opt => {
+        opt.addEventListener('click', e => {
+            e.preventDefault();
+            changeLanguage(opt.getAttribute('data-lang'));
+        });
+    });
+    const sidebar_lang = document.getElementById('sidebarLanguage');
+    if (sidebar_lang) sidebar_lang.addEventListener('change', () => changeLanguage(sidebar_lang.value));
+
+    // Load saved language
+    const saved = localStorage.getItem('preferredLanguage') || 'en';
+    if (saved !== 'en' && translations[saved]) changeLanguage(saved);
+
+    // ===== CONTACT FORM → WhatsApp =====
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const fname = document.getElementById('firstName').value.trim();
+        const lname = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('emailInput').value.trim();
+        const phone = document.getElementById('phoneInput').value.trim();
+        const dest  = document.getElementById('destination').value;
+        const msg   = document.getElementById('message').value.trim();
+
+        if (!fname || !email) {
+            alert(currentLanguage === 'sw' ? 'Tafadhali jaza jina na barua pepe.' :
+                  currentLanguage === 'fr' ? 'Veuillez remplir le prénom et l\'email.' :
+                  'Please fill in your name and email.');
+            return;
+        }
+
+        const destNames = {
+            kilimanjaro: 'Mountain Climbing', safari: 'Tanzania Safaris',
+            zanzibar: 'Zanzibar Beaches', cultural: 'Cultural Tourism',
+            waterfall: 'Waterfall Tourism', historical: 'Historical Sites', other: 'Multiple Destinations'
+        };
+
+        const text = `🌍 *New Enquiry — MMexy Tanzania Adventures*\n\n` +
+            `👤 *Name:* ${fname} ${lname}\n` +
+            `📧 *Email:* ${email}\n` +
+            `📞 *Phone:* ${phone || 'Not provided'}\n` +
+            `🗺️ *Destination:* ${destNames[dest] || 'Not specified'}\n` +
+            `💬 *Message:*\n${msg || 'No message provided'}\n\n` +
+            `_Sent from mmexy.com contact page_`;
+
+        const waURL = `https://wa.me/255797331005?text=${encodeURIComponent(text)}`;
+        window.open(waURL, '_blank');
+
+        // Show success
+        const success = document.getElementById('formSuccess');
+        success.classList.add('show');
+        setTimeout(() => success.classList.remove('show'), 6000);
+        this.reset();
+    });
+});
+</script>
+</body>
+</html>

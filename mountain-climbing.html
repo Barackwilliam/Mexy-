@@ -349,6 +349,12 @@
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
                     <li class="nav-item"><a href="about-us.html" class="nav-link"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+                     <li class="nav-item">
+                        <a href="contact.html" class="nav-link" data-i18n="nav.about">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Contact Us</span>
+                        </a>
+                    </li>
                     <li class="nav-item dropdown-parent">
                         <a href="#" class="nav-link active"><i class="fas fa-map-marked-alt"></i><span>Destinations</span><i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
                         <div class="dropdown">
@@ -390,6 +396,12 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i class="fas fa-home"></i><span>Home</span></a></li>
                 <li class="sidebar-item"><a href="about-us.html" class="sidebar-link"><i class="fas fa-info-circle"></i><span>About Us</span></a></li>
+                <li class="sidebar-item">
+                    <a href="contact.html" class="sidebar-link active" data-i18n="nav.about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link sidebar-dropdown-toggle active" id="destinationsToggle">
                         <i class="fas fa-map-marked-alt"></i><span>Destinations</span><i class="fas fa-chevron-down dropdown-arrow"></i>
@@ -787,9 +799,12 @@
                     <div class="footer-section">
                         <h3>Destinations</h3>
                         <ul class="footer-links">
-                            <li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i> Mountain Climbing</a></li>
-                            <li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i> Tanzania Safaris</a></li>
-                            <li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i> Zanzibar Beaches</a></li>
+                            <li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a></li>
+                            <li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.safaris">Tanzania Safaris</span></a></li>
+                            <li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a></li>
+                            <li><a href="cultural-tourism.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.zanzibar">Cultural tourism</span></a></li>
+                            <li><a href="waterfall-tourism.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.zanzibar">waterfall tourism</span></a></li>
+                            <li><a href="historical-sites.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">historical sites</span></a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
@@ -1284,5 +1299,11 @@
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 </style>
+
+<script
+  src="jamiitek-status.js"
+  data-api-key="THEIR_API_KEY_HERE"
+  data-api-url="https://jamiitek.co.tz/api/site-status/">
+</script>
 </body>
 </html>
