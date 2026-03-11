@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://www.jamiitek.com/api/js/Hc3fuSgmvBdTIR26g7U2L4qwn14w5v1ud960UZkq8yiuNYM-BLTAdoMatQygbIeG/"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MMexy Tanzania Adventures | Unique Tourism Experiences in Tanzania</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -372,6 +373,144 @@
             box-shadow: 0 8px 20px rgba(249, 168, 37, 0.3);
         }
 
+        /* ===== MOBILE FLOATING LANGUAGE BUTTON (LEFT SIDE) ===== */
+        .floating-language-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px; /* Changed from right to left */
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            align-items: flex-start; /* Changed from flex-end to flex-start */
+        }
+
+        /* Show only on mobile devices */
+        @media (max-width: 1024px) {
+            .floating-language-btn {
+                display: flex;
+            }
+            
+            /* Hide desktop language selector on mobile */
+            .desktop-nav .language-selector {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .floating-language-btn {
+                display: none !important;
+            }
+        }
+
+        .floating-language-main {
+            width: auto; /* Changed from 60px to auto */
+            height: 60px;
+            border-radius: 30px; /* Changed from 50% to 30px for pill shape */
+            background: linear-gradient(135deg, var(--nature-green), var(--primary)); /* Green color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: 3px solid white;
+            color: white;
+            font-size: 1rem;
+            padding: 0 20px; /* Added padding for text */
+            gap: 10px; /* Space between icon and text */
+        }
+
+        .floating-language-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--primary), var(--nature-green));
+        }
+
+        .floating-language-main.active {
+            transform: rotate(180deg);
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+        }
+
+        .floating-language-dropdown {
+            position: absolute;
+            bottom: 70px;
+            left: 0; /* Changed from right to left */
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 15px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .floating-language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .floating-language-dropdown::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 20px; /* Changed from right to left */
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            transform: rotate(45deg);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+            border-right: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .floating-language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: 10px;
+            transition: var(--transition);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .floating-language-option:hover {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            transform: translateX(5px); /* Changed from -5px to 5px */
+        }
+
+        .floating-language-option.active {
+            background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+            color: white;
+            font-weight: 600;
+        }
+
+        .floating-language-flag {
+            font-size: 1.2rem;
+            min-width: 24px;
+        }
+
+        /* Floating button text styling */
+        .floating-button-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Animation for button text */
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* ===== PREMIUM TRANSLATION SYSTEM ===== */
         .translation-system {
             position: relative;
@@ -642,78 +781,58 @@
         }
 
         /* Enhanced Hero Section Styles */
-        /* .hero {
+        .hero {
+            position: relative;
             height: 100vh;
-            background: linear-gradient(rgba(26, 109, 56, 0.7), rgba(139, 69, 19, 0.6)), 
-                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        } */     
+        }
 
+        /* Slideshow background (DIMMED + BLURRED) */
+        .hero-slides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-size: cover;
+            background-position: center;
+            animation: heroSlide 18s infinite;
+            filter: brightness(45%) blur(2px);
+        }
 
-/* HERO SECTION */
-.hero {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
+        /* Strong gradient overlay for text clarity */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.199);
+            z-index: -1;
+        }
 
-/* Slideshow background (DIMMED + BLURRED) */
-.hero-slides {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    background-size: cover;
-    background-position: center;
-    animation: heroSlide 18s infinite;
-    filter: brightness(45%) blur(2px); /* 👈 hapa ndiko kufifia kunafanyika */
-}
-
-/* Strong gradient overlay for text clarity */
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.45); /* 👈 layer ya kuongeza ufifia */
-    z-index: -1;
-}
-
-/* 3-Image Slide Animation */
-@keyframes heroSlide {
-    0% {
-        background-image: url("https://morningstarsafaris.com/wp-content/uploads/2020/03/6-Days-Best-of-Tanzania-Adventure-Safari.jpg");
-    }
-    33% {
-        background-image: url("https://tanzaniaelsewhere.com/img/safari13.jpg");
-    }
-    66% {
-        background-image: url("https://www.acquiresafaris.com/wp-content/uploads/2018/04/blue-bay-zanzibar-720x500.jpg");
-    }
-    100% {
-        background-image: url("https://www.matadiafricatraveltours.com/wp-content/uploads/2019/06/private-tours-cape-town-141-dcb0e49b0b5c08ffa5b79e3f5573a2e8.jpg");
-    }
-}
-
+        /* 3-Image Slide Animation */
+        @keyframes heroSlide {
+            0% {
+                background-image: url("https://morningstarsafaris.com/wp-content/uploads/2020/03/6-Days-Best-of-Tanzania-Adventure-Safari.jpg");
+            }
+            33% {
+                background-image: url("https://tanzaniaelsewhere.com/img/safari13.jpg");
+            }
+            66% {
+                background-image: url("https://www.acquiresafaris.com/wp-content/uploads/2018/04/blue-bay-zanzibar-720x500.jpg");
+            }
+            100% {
+                background-image: url("https://www.matadiafricatraveltours.com/wp-content/uploads/2019/06/private-tours-cape-town-141-dcb0e49b0b5c08ffa5b79e3f5573a2e8.jpg");
+            }
+        }
 
         .hero::before {
             content: '';
@@ -1724,6 +1843,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Premium Translation Loading -->
     <div class="translation-loading" id="translationLoading">
@@ -1735,10 +1855,29 @@
     <nav class="premium-navbar" id="premiumNavbar">
         <div class="nav-container">
             <!-- Logo -->
-            <a href="index.html" class="nav-logo">
+            <!-- <a href="index.html" class="nav-logo">
                 <i class="fas fa-mountain logo-icon"></i>
                 <span class="logo-text">MMexy Tanzania</span>
-            </a>
+            </a> -->
+
+
+            <a href="index.html" class="nav-logo d-flex align-items-center text-decoration-none">
+    <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img me-2">
+            <span class="logo-text">MMexy</span>
+        </a>
+        <style>
+            .logo-img{
+    height: 90px;      /* unaweza kuongeza hadi 50px */
+    width: auto;
+}
+.logo-text{
+    font-weight: 800;
+    font-size: 1.9rem;
+    color: #8B4513;
+}
+
+        </style>
+
 
             <!-- Desktop Navigation -->
             <div class="desktop-nav">
@@ -1753,6 +1892,11 @@
                         <a href="about-us.html" class="nav-link" data-i18n="nav.about">
                             <i class="fas fa-info-circle"></i>
                             <span>About</span>
+                        </a>
+                    </li> <li class="nav-item">
+                        <a href="contact.html" class="nav-link" data-i18n="nav.about">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Contact Us</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown-parent">
@@ -1888,6 +2032,11 @@
                         <i class="fas fa-info-circle"></i>
                         <span>About Us</span>
                     </a>
+                </li> <li class="sidebar-item">
+                    <a href="contact.html" class="sidebar-link" data-i18n="nav.about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Contact Us</span>
+                    </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link sidebar-dropdown-toggle" id="destinationsToggle" data-i18n="nav.destinations">
@@ -1967,6 +2116,57 @@
         </div>
     </div>
 
+    <!-- Mobile Floating Language Button (Left Side - Green with Text) -->
+    <div class="floating-language-btn" id="floatingLanguageBtn">
+        <div class="floating-language-dropdown" id="floatingLanguageDropdown">
+            <a href="#" class="floating-language-option active" data-lang="en">
+                <span class="floating-language-flag">🇺🇸</span>
+                <span>English</span>
+                <i class="fas fa-check"></i>
+            </a>
+            <a href="#" class="floating-language-option" data-lang="sw">
+                <span class="floating-language-flag">🇹🇿</span>
+                <span>Kiswahili</span>
+            </a>
+            <a href="#" class="floating-language-option" data-lang="fr">
+                <span class="floating-language-flag">🇫🇷</span>
+                <span>Français</span>
+            </a>
+            <a href="#" class="floating-language-option" data-lang="de">
+                <span class="floating-language-flag">🇩🇪</span>
+                <span>Deutsch</span>
+            </a>
+            <a href="#" class="floating-language-option" data-lang="es">
+                <span class="floating-language-flag">🇪🇸</span>
+                <span>Español</span>
+            </a>
+            <a href="#" class="floating-language-option" data-lang="it">
+                <span class="floating-language-flag">🇮🇹</span>
+                <span>Italiano</span>
+            </a>
+            <a href="#" class="floating-language-option" data-lang="pt">
+                <span class="floating-language-flag">🇵🇹</span>
+                <span>Português</span>
+            </a>
+            <a href="#" class="floating-language-option" data-lang="ru">
+                <span class="floating-language-flag">🇷🇺</span>
+                <span>Русский</span>
+            </a>
+            <a href="#" class="floating-language-option" data-lang="zh">
+                <span class="floating-language-flag">🇨🇳</span>
+                <span>中文</span>
+            </a>
+            <a href="#" class="floating-language-option" data-lang="ja">
+                <span class="floating-language-flag">🇯🇵</span>
+                <span>日本語</span>
+            </a>
+        </div>
+        <button class="floating-language-main" id="floatingLanguageMain">
+            <i class="fas fa-language"></i>
+            <span class="floating-button-text">Change Language</span>
+        </button>
+    </div>
+
     <!-- Main Content -->
     <div class="main-content">
         <!-- Hero Section -->
@@ -2009,9 +2209,7 @@
                         <div class="highlight">
                             <p data-i18n="about.highlight">We provide exceptional services to our guests, offering them a unique and immersive experience of Tanzania's rich cultural heritage and natural wonders.</p>
                         </div>
-                        
-                        <p data-i18n="about.description2">Our team comprises seasoned experts with extensive experience in the tourism sector, possessing intimate knowledge of all significant tourist destinations across the country.</p>
-                        
+                                                
                         <!-- Read More Button -->
                         <a href="about-us.html" class="btn">
                             <span data-i18n="about.read_more">Read More</span>
@@ -2175,7 +2373,7 @@
                             <div class="card-footer">
                                 <div class="price-range">
                                     <span class="from" data-i18n="destinations.from">From</span>
-                                    <span class="price">$300</span>
+                                    <span class="price">$139</span>
                                 </div>
                                 <a href="zanzibar-beaches.html" class="explore-btn">
                                     <span data-i18n="destinations.zanzibar.cta">Discover Paradise</span>
@@ -2223,7 +2421,7 @@
                             <div class="card-footer">
                                 <div class="price-range">
                                     <span class="from" data-i18n="destinations.from">From</span>
-                                    <span class="price">$250</span>
+                                    <span class="price">$1200</span>
                                 </div>
                                 <a href="cultural-tourism.html" class="explore-btn">
                                     <span data-i18n="destinations.cultural.cta">Experience Culture</span>
@@ -2271,7 +2469,7 @@
                             <div class="card-footer">
                                 <div class="price-range">
                                     <span class="from" data-i18n="destinations.from">From</span>
-                                    <span class="price">$180</span>
+                                    <span class="price">$300</span>
                                 </div>
                                 <a href="waterfall-tourism.html" class="explore-btn">
                                     <span data-i18n="destinations.waterfall.cta">Explore Waterfalls</span>
@@ -2313,7 +2511,7 @@
                             <div class="card-footer">
                                 <div class="price-range">
                                     <span class="from" data-i18n="destinations.from">From</span>
-                                    <span class="price">$150</span>
+                                    <span class="price">$250</span>
                                 </div>
                                 <a href="historical-sites.html" class="explore-btn">
                                     <span data-i18n="destinations.historical.cta">Explore Heritage</span>
@@ -2344,7 +2542,6 @@
                 <div class="decoration-circle circle-3"></div>
             </div>
         </section>
-
         <!-- Contact Section -->
         <section class="contact" id="contact">
             <div class="container">
@@ -2356,21 +2553,113 @@
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name" data-i18n="contact.form.name">Full Name</label>
-                            <input type="text" id="name" name="name" required data-i18n-placeholder="contact.form.name_placeholder">
+                            <input type="text" id="name" name="name" required data-i18n-placeholder="contact.form.name_placeholder" placeholder="Enter your full name">
                         </div>
                         <div class="form-group">
                             <label for="email" data-i18n="contact.form.email">Email Address</label>
-                            <input type="email" id="email" name="email" required data-i18n-placeholder="contact.form.email_placeholder">
+                            <input type="email" id="email" name="email" required data-i18n-placeholder="contact.form.email_placeholder" placeholder="Enter your email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-i18n="contact.form.phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required data-i18n-placeholder="contact.form.phone_placeholder" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="package" data-i18n="contact.form.package">Package Interested In</label>
+                            <select id="package" name="package" required>
+                                <option value="" data-i18n="contact.form.package_select">Select a package</option>
+                                <option value="City Tour Luxury Package" data-i18n="contact.form.package_city">City Tour Luxury Package ($1,000 USD)</option>
+                                <option value="Paje Beach Luxury Package" data-i18n="contact.form.package_paje">Paje Beach Luxury Package ($1,500 USD)</option>
+                                <option value="Kiwengwa Luxury Package" data-i18n="contact.form.package_kiwengwa">Kiwengwa Luxury Package ($1,800 USD)</option>
+                                <option value="Safari & Nungwi Luxury Package" data-i18n="contact.form.package_safari">Safari & Nungwi Luxury Package ($2,500 USD)</option>
+                                <option value="VVIP City Tour Ultimate" data-i18n="contact.form.package_vvip_city">VVIP City Tour Ultimate ($33,000 USD)</option>
+                                <option value="VVIP Safari & Nungwi Ultimate" data-i18n="contact.form.package_vvip_safari">VVIP Safari & Nungwi Ultimate ($37,000 USD)</option>
+                                <option value="Other/Not Sure" data-i18n="contact.form.package_other">Other/Not Sure</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="message" data-i18n="contact.form.message">Your Message</label>
-                            <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contact.form.message_placeholder"></textarea>
+                            <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contact.form.message_placeholder" placeholder="Tell us about your travel plans, questions, or special requests..."></textarea>
                         </div>
-                        <button type="submit" class="btn" data-i18n="contact.form.submit">Send Message</button>
+                        <button type="submit" class="btn" data-i18n="contact.form.submit">Send Message via WhatsApp</button>
                     </form>
                 </div>
             </div>
         </section>
+
+        <!-- JavaScript for WhatsApp Form Submission -->
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Collect form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    package: document.getElementById('package').value,
+                    message: document.getElementById('message').value,
+                    date: new Date().toLocaleString()
+                };
+                
+                // Format message for WhatsApp
+                const whatsappMessage = `
+*NEW SAFARI INQUIRY* 🦁
+
+*Client Details:*
+👤 Name: ${formData.name}
+📧 Email: ${formData.email}
+📱 Phone: ${formData.phone}
+
+*Package Interest:*
+📦 ${formData.package}
+
+*Message:*
+${formData.message}
+
+*Submission Time:* ${formData.date}
+                `.trim();
+                
+                // Encode message for URL
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                
+                // WhatsApp phone number (with country code)
+                const phoneNumber = '255714331051';
+                
+                // Create WhatsApp URL
+                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                
+                // Open WhatsApp in new tab
+                window.open(whatsappURL, '_blank');
+                
+                // Optional: Show success message
+                alert('Opening WhatsApp with your message... Please send the message to complete your inquiry.');
+                
+                // Optional: Reset form after submission
+                // document.getElementById('contactForm').reset();
+            });
+            
+            // Optional: Add form validation
+            function validateForm() {
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                
+                // Basic phone validation (Tanzanian format)
+                const phoneRegex = /^(\+255|255|0)[0-9]{9}$/;
+                if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
+                    alert('Please enter a valid Tanzanian phone number (e.g., 0714331051, 255714331051)');
+                    return false;
+                }
+                
+                // Basic email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
+                    return false;
+                }
+                
+                return true;
+            }
+        </script>
 
         <!-- Footer -->
         <footer class="footer">
@@ -2394,19 +2683,22 @@
                             <li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a></li>
                             <li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.safaris">Tanzania Safaris</span></a></li>
                             <li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a></li>
+                            <li><a href="cultural-tourism.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.zanzibar">Cultural tourism</span></a></li>
+                            <li><a href="waterfall-tourism.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.zanzibar">waterfall tourism</span></a></li>
+                            <li><a href="historical-sites.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">historical sites</span></a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h3 data-i18n="footer.contact_info">Contact Info</h3>
                         <ul class="footer-links">
                             <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Arusha, Tanzania</span></a></li>
-                            <li><a href="tel:+255123456789"><i class="fas fa-phone"></i> +255 123 456 789</a></li>
-                            <li><a href="mailto:info@mmexytanzania.com"><i class="fas fa-envelope"></i> info@mmexytanzania.com</a></li>
+                            <li><a href="tel:+255123456789"><i class="fas fa-phone"></i> +255 714331051</a></li>
+                            <li><a href="mailto:info@mmexy.com"><i class="fas fa-envelope"></i> info@mmexy.com</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p data-i18n="footer.copyright">&copy; 2025 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism</p>
+                    <p data-i18n="footer.copyright">&copy; 2026 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism</p>
                 </div>
             </div>
         </footer>
@@ -4073,5 +4365,303 @@
             setTimeout(hideTranslationLoading, 3000);
         });
     </script>
+
+    <script>
+        // Mobile Floating Language Button Functionality
+        const floatingLanguageMain = document.getElementById('floatingLanguageMain');
+        const floatingLanguageDropdown = document.getElementById('floatingLanguageDropdown');
+
+        if (floatingLanguageMain && floatingLanguageDropdown) {
+            // Toggle language dropdown
+            floatingLanguageMain.addEventListener('click', function(e) {
+                e.stopPropagation();
+                floatingLanguageMain.classList.toggle('active');
+                floatingLanguageDropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!floatingLanguageMain.contains(e.target) && !floatingLanguageDropdown.contains(e.target)) {
+                    floatingLanguageMain.classList.remove('active');
+                    floatingLanguageDropdown.classList.remove('active');
+                }
+            });
+
+            // Language selection for floating button
+            const floatingLanguageOptions = floatingLanguageDropdown.querySelectorAll('.floating-language-option');
+            floatingLanguageOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all options
+                    floatingLanguageOptions.forEach(opt => {
+                        opt.classList.remove('active');
+                        opt.querySelector('.fa-check')?.remove();
+                    });
+                    
+                    // Add active class to selected option
+                    this.classList.add('active');
+                    
+                    // Add checkmark
+                    const checkIcon = document.createElement('i');
+                    checkIcon.className = 'fas fa-check';
+                    this.appendChild(checkIcon);
+                    
+                    // Get selected language
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Update floating button text based on language
+                    updateFloatingButtonText(lang);
+                    
+                    // Change language (using your existing translation function)
+                    if (typeof changeLanguage === 'function') {
+                        changeLanguage(lang);
+                    }
+                    
+                    // Close dropdown after selection
+                    setTimeout(() => {
+                        floatingLanguageMain.classList.remove('active');
+                        floatingLanguageDropdown.classList.remove('active');
+                    }, 300);
+                });
+            });
+
+            // Function to update floating button text based on language
+            function updateFloatingButtonText(lang) {
+                const textMap = {
+                    'en': 'Change Language',
+                    'sw': 'Badilisha Lugha',
+                    'fr': 'Changer de Langue',
+                    'de': 'Sprache Ändern',
+                    'es': 'Cambiar Idioma',
+                    'it': 'Cambia Lingua',
+                    'pt': 'Mudar Idioma',
+                    'ru': 'Сменить Язык',
+                    'zh': '更改语言',
+                    'ja': '言語を変更'
+                };
+                
+                // Update button text
+                const buttonText = floatingLanguageMain.querySelector('.floating-button-text');
+                if (buttonText) {
+                    buttonText.textContent = textMap[lang] || 'Change Language';
+                    buttonText.style.animation = 'fadeInText 0.3s ease';
+                }
+                
+                // Update button flag icon
+                const flagMap = {
+                    'en': '🇺🇸',
+                    'sw': '🇹🇿', 
+                    'fr': '🇫🇷',
+                    'de': '🇩🇪',
+                    'es': '🇪🇸',
+                    'it': '🇮🇹',
+                    'pt': '🇵🇹',
+                    'ru': '🇷🇺',
+                    'zh': '🇨🇳',
+                    'ja': '🇯🇵'
+                };
+                
+                // Update flag icon if exists, otherwise update language icon
+                const flagIcon = floatingLanguageMain.querySelector('.floating-language-flag');
+                const langIcon = floatingLanguageMain.querySelector('.fa-language');
+                
+                if (flagIcon) {
+                    flagIcon.textContent = flagMap[lang] || '🌐';
+                } else if (langIcon) {
+                    langIcon.textContent = flagMap[lang] || '🌐';
+                }
+            }
+
+            // Sync floating button with current language
+            function syncFloatingButtonWithCurrentLang() {
+                const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+                updateFloatingButtonText(currentLang);
+                
+                // Update active option in floating dropdown
+                floatingLanguageOptions.forEach(option => {
+                    option.classList.remove('active');
+                    option.querySelector('.fa-check')?.remove();
+                    
+                    if (option.getAttribute('data-lang') === currentLang) {
+                        option.classList.add('active');
+                        const checkIcon = document.createElement('i');
+                        checkIcon.className = 'fas fa-check';
+                        option.appendChild(checkIcon);
+                    }
+                });
+            }
+
+            // Call sync function on page load
+            syncFloatingButtonWithCurrentLang();
+            
+            // Listen for language changes from other selectors
+            document.addEventListener('languageChanged', function(e) {
+                if (e.detail && e.detail.language) {
+                    syncFloatingButtonWithCurrentLang();
+                }
+            });
+        }
+
+        // Helper function to update all language selectors
+        function updateAllLanguageSelectors(lang) {
+            // Update desktop selector
+            const desktopOptions = document.querySelectorAll('.language-option');
+            desktopOptions.forEach(option => {
+                option.classList.remove('active');
+                option.querySelector('.fa-check')?.remove();
+                
+                if (option.getAttribute('data-lang') === lang) {
+                    option.classList.add('active');
+                    const checkIcon = document.createElement('i');
+                    checkIcon.className = 'fas fa-check';
+                    option.appendChild(checkIcon);
+                    
+                    // Update current language display
+                    const currentLang = document.querySelector('.current-language');
+                    if (currentLang) {
+                        const flag = option.querySelector('.language-flag')?.textContent || '🇺🇸';
+                        const text = option.querySelector('span:not(.language-flag)')?.textContent || 'English';
+                        currentLang.querySelector('.language-flag').textContent = flag;
+                        currentLang.querySelector('span:not(.language-flag)').textContent = text;
+                    }
+                }
+            });
+            
+            // Update sidebar selector
+            const sidebarSelect = document.getElementById('sidebarLanguage');
+            if (sidebarSelect) {
+                sidebarSelect.value = lang;
+            }
+            
+            // Update floating button
+            if (typeof syncFloatingButtonWithCurrentLang === 'function') {
+                syncFloatingButtonWithCurrentLang();
+            }
+            
+            // Dispatch event for other components
+            document.dispatchEvent(new CustomEvent('languageChanged', { 
+                detail: { language: lang } 
+            }));
+        }
+
+        // Modify your existing changeLanguage function to call updateAllLanguageSelectors
+        // Add this at the end of your existing changeLanguage function:
+        function enhancedChangeLanguage(lang) {
+            if (lang === currentLanguage) return;
+            
+            showTranslationLoading();
+            
+            // Simulate translation delay for premium feel
+            setTimeout(() => {
+                currentLanguage = lang;
+                
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        // Add fade out effect
+                        element.style.opacity = '0';
+                        
+                        setTimeout(() => {
+                            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                                element.placeholder = translations[lang][key];
+                            } else if (element.tagName === 'SELECT') {
+                                // Handle select options differently
+                                const options = element.querySelectorAll('option');
+                                options.forEach(opt => {
+                                    const optKey = opt.getAttribute('data-i18n');
+                                    if (optKey && translations[lang][optKey]) {
+                                        opt.textContent = translations[lang][optKey];
+                                    }
+                                });
+                            } else {
+                                element.textContent = translations[lang][key];
+                            }
+                            
+                            // Add fade in effect
+                            element.style.opacity = '1';
+                        }, 50);
+                    }
+                });
+
+                // Handle placeholder translations
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                    const key = element.getAttribute('data-i18n-placeholder');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.placeholder = translations[lang][key];
+                    }
+                });
+
+                // Update all language selectors
+                updateAllLanguageSelectors(lang);
+
+                // Update HTML lang attribute
+                document.documentElement.lang = lang;
+
+                // Save preference to localStorage
+                localStorage.setItem('preferredLanguage', lang);
+                
+                hideTranslationLoading();
+                
+                // Show subtle success notification
+                showTranslationSuccess();
+            }, 800);
+        }
+
+        // Replace original changeLanguage with enhanced version
+        window.changeLanguage = enhancedChangeLanguage;
+    </script>
+
+    <script defer src="https://static.getbutton.io/widget/bundle.js?id=m7p9k"></script>
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/255797331005" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+        <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/>
+        <path fill="#25D366" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/>
+        <path fill="#25D366" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974"/>
+        <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/>
+        <path fill="#25D366" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"/>
+    </svg>
+</a>
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #25D366;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5);
+    z-index: 9999;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    animation: pulse-wa 2.5s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-50%) scale(1.12);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.7);
+    background-color: #20ba5a;
+    animation: none;
+}
+
+@keyframes pulse-wa {
+    0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+</style>
+
+<script
+  src="jamiitek-status.js"
+  data-api-key="THEIR_API_KEY_HERE"
+  data-api-url="https://jamiitek.co.tz/api/site-status/">
+</script>
 </body>
 </html>
