@@ -2099,6 +2099,572 @@
             </div>
         </section>
 
+
+        <!-- Insert this entire section after the existing "includes-excludes" div and before the "booking-section-destination" -->
+<div class="safari-packages-extended">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-i18n="safari.packages.title">Tailor-Made Safari Packages & Day Trips</h2>
+            <p class="section-subtitle" data-i18n="safari.packages.subtitle">Choose from our expertly crafted itineraries or customize your own adventure</p>
+        </div>
+
+        <!-- Premium Filter Tabs -->
+        <div class="package-tabs">
+            <button class="tab-btn active" data-tab="multi-day">Multi-Day Safaris</button>
+            <button class="tab-btn" data-tab="day-trips">Day Trips & Excursions</button>
+        </div>
+
+        <!-- Multi-Day Safaris Grid -->
+        <div class="packages-grid active" id="multi-day-grid">
+            <!-- 2 Days / 1 Night: Tarangire & Ngorongoro -->
+            <div class="premium-package-card">
+                <div class="card-badge">2 Days | 1 Night</div>
+                <div class="card-image">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <h3>Tarangire & Ngorongoro Express</h3>
+                <div class="package-price">USD 1,100 <span>per person</span></div>
+                <div class="package-description-short">
+                    Perfect for a short but immersive safari experience. Explore Tarangire's elephants and the Ngorongoro Crater's wildlife.
+                </div>
+                <div class="package-features">
+                    <span><i class="fas fa-check-circle"></i> Private 4x4 Land Cruiser</span>
+                    <span><i class="fas fa-check-circle"></i> 1 Night Lodge/Camp</span>
+                    <span><i class="fas fa-check-circle"></i> All meals & water</span>
+                    <span><i class="fas fa-check-circle"></i> Park fees included</span>
+                </div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Tarangire & Ngorongoro Express', 1100)">Book This Safari</button>
+            </div>
+
+            <!-- 2 Days / 1 Night: Lake Manyara & Ngorongoro -->
+            <div class="premium-package-card">
+                <div class="card-badge">2 Days | 1 Night</div>
+                <div class="card-image">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3>Lake Manyara & Ngorongoro</h3>
+                <div class="package-price">USD 1,100 <span>per person</span></div>
+                <div class="package-description-short">
+                    Witness tree-climbing lions in Manyara before descending into the world-famous Ngorongoro Crater.
+                </div>
+                <div class="package-features">
+                    <span><i class="fas fa-check-circle"></i> Private 4x4 Land Cruiser</span>
+                    <span><i class="fas fa-check-circle"></i> 1 Night Lodge/Camp</span>
+                    <span><i class="fas fa-check-circle"></i> All meals & water</span>
+                    <span><i class="fas fa-check-circle"></i> Park fees included</span>
+                </div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Lake Manyara & Ngorongoro', 1100)">Book This Safari</button>
+            </div>
+
+            <!-- 3 Days / 2 Nights: Tarangire • Manyara • Ngorongoro -->
+            <div class="premium-package-card">
+                <div class="card-badge">3 Days | 2 Nights</div>
+                <div class="card-image">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <h3>The Northern Circuit Classic</h3>
+                <div class="package-price">USD 1,800 <span>per person</span></div>
+                <div class="package-description-short">
+                    Experience the best of Tanzania's northern parks: Tarangire's baobabs, Manyara's flamingos, and Ngorongoro's Big Five.
+                </div>
+                <div class="package-features">
+                    <span><i class="fas fa-check-circle"></i> Private 4x4 Land Cruiser</span>
+                    <span><i class="fas fa-check-circle"></i> 2 Nights Premium Accommodation</span>
+                    <span><i class="fas fa-check-circle"></i> All meals & water</span>
+                    <span><i class="fas fa-check-circle"></i> All park fees</span>
+                </div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('The Northern Circuit Classic', 1800)">Book This Safari</button>
+            </div>
+
+            <!-- 3 Days / 2 Nights: Serengeti & Ngorongoro -->
+            <div class="premium-package-card featured">
+                <div class="card-badge">3 Days | 2 Nights | Most Popular</div>
+                <div class="card-image">
+                    <i class="fas fa-lion"></i>
+                </div>
+                <h3>Serengeti & Ngorongoro</h3>
+                <div class="package-price">USD 2,180 <span>per person</span></div>
+                <div class="package-description-short">
+                    The ultimate short safari! Witness the Great Migration in Serengeti and explore the Ngorongoro Crater.
+                </div>
+                <div class="package-features">
+                    <span><i class="fas fa-check-circle"></i> Private 4x4 Land Cruiser</span>
+                    <span><i class="fas fa-check-circle"></i> 2 Nights Luxury Tented Camp</span>
+                    <span><i class="fas fa-check-circle"></i> All meals & water</span>
+                    <span><i class="fas fa-check-circle"></i> All park fees</span>
+                </div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Serengeti & Ngorongoro', 2180)">Book This Safari</button>
+            </div>
+        </div>
+
+        <!-- Day Trips & Excursions Grid -->
+        <div class="packages-grid" id="day-trips-grid">
+            <!-- Tarangire National Park -->
+            <div class="premium-package-card day-trip">
+                <div class="card-badge">Full Day</div>
+                <div class="card-image">
+                    <i class="fas fa-elephant"></i>
+                </div>
+                <h3>Tarangire National Park</h3>
+                <div class="package-price">USD 350 <span>per person</span></div>
+                <div class="package-description-short">Home to massive elephant herds and ancient baobab trees. Perfect for a full-day game drive.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Tarangire National Park Day Trip', 350)">Book Day Trip</button>
+            </div>
+
+            <!-- Ngorongoro Crater -->
+            <div class="premium-package-card day-trip featured">
+                <div class="card-badge">Full Day</div>
+                <div class="card-image">
+                    <i class="fas fa-crater"></i>
+                </div>
+                <h3>Ngorongoro Crater</h3>
+                <div class="package-price">USD 680 <span>per person</span></div>
+                <div class="package-description-short">Descend into the world's largest intact caldera for a chance to see the Big Five in one day.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Ngorongoro Crater Day Trip', 680)">Book Day Trip</button>
+            </div>
+
+            <!-- Lake Manyara National Park -->
+            <div class="premium-package-card day-trip">
+                <div class="card-badge">Full Day</div>
+                <div class="card-image">
+                    <i class="fas fa-bird"></i>
+                </div>
+                <h3>Lake Manyara National Park</h3>
+                <div class="package-price">USD 330 <span>per person</span></div>
+                <div class="package-description-short">Famous for tree-climbing lions, flamingos, and stunning ground water forests.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Lake Manyara National Park Day Trip', 330)">Book Day Trip</button>
+            </div>
+
+            <!-- Arusha National Park -->
+            <div class="premium-package-card day-trip">
+                <div class="card-badge">Full Day</div>
+                <div class="card-image">
+                    <i class="fas fa-hiking"></i>
+                </div>
+                <h3>Arusha National Park</h3>
+                <div class="package-price">USD 200 <span>per person</span></div>
+                <div class="package-description-short">Explore Mount Meru, colobus monkeys, and the beautiful Momella Lakes.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Arusha National Park Day Trip', 200)">Book Day Trip</button>
+            </div>
+
+            <!-- Kilimanjaro Marangu Day Hike -->
+            <div class="premium-package-card day-trip">
+                <div class="card-badge">Day Hike</div>
+                <div class="card-image">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <h3>Kilimanjaro Marangu Day Hike</h3>
+                <div class="package-price">USD 350 <span>per person</span></div>
+                <div class="package-description-short">Hike to Mandara Hut on the slopes of Kilimanjaro. Breathtaking views and rainforest experience.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Kilimanjaro Marangu Day Hike', 350)">Book Day Hike</button>
+            </div>
+
+            <!-- Materuni Waterfalls & Coffee Tour -->
+            <div class="premium-package-card day-trip">
+                <div class="card-badge">Half Day</div>
+                <div class="card-image">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3>Materuni Waterfalls & Coffee Tour</h3>
+                <div class="package-price">USD 120 <span>per person</span></div>
+                <div class="package-description-short">Hike to a stunning waterfall and experience authentic Chagga coffee making.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Materuni Waterfalls & Coffee Tour', 120)">Book Tour</button>
+            </div>
+
+            <!-- Chemka Hot Springs -->
+            <div class="premium-package-card day-trip">
+                <div class="card-badge">Half Day</div>
+                <div class="card-image">
+                    <i class="fas fa-hot-tub"></i>
+                </div>
+                <h3>Chemka Hot Springs</h3>
+                <div class="package-price">USD 200 <span>per person</span></div>
+                <div class="package-description-short">Relax in the crystal-clear, turquoise waters of this hidden oasis surrounded by jungle.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Chemka Hot Springs', 200)">Book Experience</button>
+            </div>
+
+            <!-- Maasai Cultural Village -->
+            <div class="premium-package-card day-trip">
+                <div class="card-badge">Cultural Visit</div>
+                <div class="card-image">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Maasai Cultural Village</h3>
+                <div class="package-price">USD 150 <span>per person</span></div>
+                <div class="package-description-short">Immerse yourself in Maasai traditions, dances, and learn about their sustainable lifestyle.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Maasai Cultural Village', 150)">Book Experience</button>
+            </div>
+
+            <!-- Lake Duluti Canoeing -->
+            <div class="premium-package-card day-trip">
+                <div class="card-badge">Half Day</div>
+                <div class="card-image">
+                    <i class="fas fa-canoe"></i>
+                </div>
+                <h3>Lake Duluti Canoeing</h3>
+                <div class="package-price">USD 150 <span>per person</span></div>
+                <div class="package-description-short">Paddle through a volcanic crater lake surrounded by forest. Bird watching paradise.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Lake Duluti Canoeing', 150)">Book Adventure</button>
+            </div>
+
+            <!-- Arusha City Tour -->
+            <div class="premium-package-card day-trip">
+                <div class="card-badge">City Tour</div>
+                <div class="card-image">
+                    <i class="fas fa-city"></i>
+                </div>
+                <h3>Arusha City Tour</h3>
+                <div class="package-price">USD 90 <span>per person</span></div>
+                <div class="package-description-short">Discover the vibrant culture, local markets, and historical sites of Arusha city.</div>
+                <button class="btn-package" onclick="openSafariBookingWithPackage('Arusha City Tour', 90)">Book Tour</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Additional Styles for Extended Safari Packages */
+.safari-packages-extended {
+    background: linear-gradient(135deg, #fef9e6, #fdf4e0);
+    padding: 80px 0;
+    position: relative;
+}
+
+.package-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: white;
+    border: 2px solid var(--safari-orange);
+    color: var(--artistic-brown);
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 5px 20px rgba(249, 168, 37, 0.3);
+}
+
+.tab-btn:hover {
+    transform: translateY(-2px);
+}
+
+.packages-grid {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-bottom: 50px;
+}
+
+.packages-grid.active {
+    display: grid;
+}
+
+.premium-package-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid rgba(139,69,19,0.1);
+}
+
+.premium-package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.15);
+}
+
+.premium-package-card.featured {
+    border: 2px solid var(--premium-gold);
+    transform: scale(1.02);
+}
+
+.premium-package-card.featured:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--safari-orange);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 2;
+    font-family: 'Poppins', sans-serif;
+}
+
+.premium-package-card.featured .card-badge {
+    background: var(--premium-gold);
+    color: #2c1810;
+}
+
+.card-image {
+    background: linear-gradient(135deg, #1a6d38, var(--artistic-brown));
+    padding: 30px;
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.premium-package-card h3 {
+    font-size: 1.5rem;
+    margin: 20px 20px 10px;
+    color: var(--artistic-brown);
+    text-align: center;
+}
+
+.package-price {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--safari-orange);
+    margin: 10px 0;
+}
+
+.package-price span {
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: normal;
+}
+
+.package-description-short {
+    padding: 0 20px;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.package-features {
+    padding: 0 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.package-features span {
+    background: rgba(139,69,19,0.05);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.package-features i {
+    color: var(--safari-orange);
+    font-size: 0.8rem;
+}
+
+.btn-package {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 0 20px 25px;
+    background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Cinzel', serif;
+}
+
+.btn-package:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(249,168,37,0.4);
+}
+
+.premium-package-card.day-trip .card-image {
+    background: linear-gradient(135deg, var(--nature-green), var(--artistic-brown));
+}
+
+.included-highlight {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.included-banner {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(139,69,19,0.1);
+}
+
+.included-banner i {
+    font-size: 2.5rem;
+    color: var(--safari-orange);
+    margin-bottom: 15px;
+}
+
+.included-banner h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--artistic-brown);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.included-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.included-items span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.included-items i {
+    color: #4CAF50;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .premium-package-card.featured {
+        transform: scale(1);
+    }
+    .premium-package-card.featured:hover {
+        transform: translateY(-5px);
+    }
+    .package-tabs {
+        gap: 12px;
+    }
+    .tab-btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    .included-items {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+}
+</style>
+
+<script>
+// JavaScript to handle tab switching and pass package info to booking modal
+document.addEventListener('DOMContentLoaded', function() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const multiDayGrid = document.getElementById('multi-day-grid');
+    const dayTripsGrid = document.getElementById('day-trips-grid');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const tabId = this.getAttribute('data-tab');
+            if (tabId === 'multi-day') {
+                multiDayGrid.classList.add('active');
+                dayTripsGrid.classList.remove('active');
+            } else {
+                dayTripsGrid.classList.add('active');
+                multiDayGrid.classList.remove('active');
+            }
+        });
+    });
+});
+
+// Enhanced booking function that accepts package name and price
+function openSafariBookingWithPackage(packageName, packagePrice) {
+    // Open the modal first
+    openSafariBookingModal();
+    
+    // After modal is open, we need to wait a tiny bit to ensure DOM is ready
+    setTimeout(() => {
+        // Find the appropriate package level based on price
+        let packageLevel = 'local';
+        if (packagePrice >= 1500) packageLevel = 'vvip';
+        else if (packagePrice >= 1000) packageLevel = 'vip';
+        
+        // Simulate click on the matching package level in the modal
+        const targetPackage = document.querySelector(`#safari-premium-modal .package-level[data-level="${packageLevel}"]`);
+        if (targetPackage) targetPackage.click();
+        
+        // For travel style, we default to "couple" for multi-day, "solo" for day trips if under $300?
+        // But we'll just set to couple as it's most common for packages
+        const coupleOption = document.querySelector('#safari-premium-modal .group-option[data-group="double"]');
+        if (coupleOption) coupleOption.click();
+        
+        // Update the price summary to show this custom package
+        safariCurrentBooking.basePrice = packagePrice;
+        safariCurrentBooking.originalPrice = packagePrice;
+        safariCurrentBooking.totalPrice = packagePrice;
+        safariCurrentBooking.discountApplied = false;
+        
+        // Manually update display elements
+        const basePriceEl = document.getElementById('safari-base-price');
+        if (basePriceEl) basePriceEl.textContent = `$${packagePrice}`;
+        
+        const packageLabelEl = document.getElementById('safari-package-type-label');
+        if (packageLabelEl) packageLabelEl.textContent = packageName;
+        
+        const totalPriceEl = document.getElementById('safari-total-price');
+        if (totalPriceEl) totalPriceEl.textContent = `$${packagePrice}`;
+        
+        // Hide discount items since no discount for pre-set packages initially
+        const discountItem = document.getElementById('safari-discount-item');
+        if (discountItem) discountItem.style.display = 'none';
+        const originalPriceDisplay = document.getElementById('safari-original-price');
+        if (originalPriceDisplay) originalPriceDisplay.style.display = 'none';
+        
+        // Show a little notification that package is selected
+        const notification = document.createElement('div');
+        notification.textContent = `✨ ${packageName} selected ✨`;
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--safari-orange);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: bold;
+            z-index: 10001;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            animation: fadeUp 0.5s ease;
+        `;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 2000);
+    }, 150);
+}
+</script>
+
         <!-- Booking Section -->
         <section class="booking-section-destination">
             <div class="container">
