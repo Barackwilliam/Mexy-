@@ -2223,6 +2223,295 @@
             </div>
         </section>
 
+
+    <style>
+    /* Custom Styles for this Section Only to avoid conflicts */
+    .premium-packages {
+        padding: 120px 0;
+        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* Lighter, clean gradient background */
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Background Decoration Elements */
+    .premium-packages::before,
+    .premium-packages::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.4;
+        filter: blur(80px);
+        z-index: 0;
+    }
+
+    .premium-packages::before {
+        width: 400px;
+        height: 400px;
+        background: var(--safari-orange);
+        top: -100px;
+        left: -150px;
+    }
+
+    .premium-packages::after {
+        width: 300px;
+        height: 300px;
+        background: var(--nature-green);
+        bottom: -50px;
+        right: -100px;
+    }
+
+    .premium-packages .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Section Title Decoration Update */
+    .premium-packages .title-decoration {
+        margin-bottom: 60px;
+    }
+
+    /* Modern Package Grid */
+    .package-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px;
+        align-items: stretch;
+    }
+
+    /* Modern Glassmorphism Card Design */
+    .package-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 40px;
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Depth effect on hover */
+    .package-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Modernizing Card Elements */
+    .package-card .card-badge {
+        position: absolute;
+        top: 25px;
+        right: -35px;
+        transform: rotate(45deg);
+        background: var(--nature-green);
+        color: white;
+        padding: 5px 40px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Tier-specific colors */
+    .package-card.tier-vip .card-badge {
+        background: var(--safari-orange);
+    }
+
+    .package-card.tier-vvip .card-badge {
+        background: linear-gradient(135deg, #ffd700, #b8860b);
+        color: #333;
+    }
+
+    /* Icon Header styling */
+    .package-icon-header {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .tier-local .package-icon-header {
+        background: rgba(34, 139, 34, 0.1);
+        color: var(--nature-green);
+    }
+
+    .tier-vip .package-icon-header {
+        background: rgba(255, 140, 0, 0.1);
+        color: var(--safari-orange);
+    }
+
+    .tier-vvip .package-icon-header {
+        background: rgba(255, 215, 0, 0.1);
+        color: #b8860b;
+    }
+
+    /* Glimmer effect on icon */
+    .package-icon-header::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        top: 0;
+        left: 0;
+        box-shadow: 0 0 15px currentColor;
+        opacity: 0.3;
+        animation: icon-pulse 2s infinite;
+    }
+
+    @keyframes icon-pulse {
+        0% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(1.1); opacity: 0.1; }
+        100% { transform: scale(1); opacity: 0.3; }
+    }
+
+    /* Content styling */
+    .package-card h3 {
+        font-size: 1.6rem;
+        color: var(--artistic-brown);
+        margin-bottom: 15px;
+        font-weight: 800;
+    }
+
+    .package-card .package-desc {
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 25px;
+        line-height: 1.7;
+    }
+
+    /* Feature List Styling */
+    .package-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 30px 0;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        padding-top: 25px;
+    }
+
+    .package-features li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .package-features li i {
+        margin-right: 12px;
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    /* Footer / Best For tag */
+    .package-footer {
+        margin-top: auto;
+        border-radius: 15px;
+        padding: 15px 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tier-local .package-footer { background: #f4fbf4; color: var(--nature-green); }
+    .tier-vip .package-footer { background: #fffaf4; color: var(--safari-orange); }
+    .tier-vvip .package-footer { background: #fffdf4; color: #b8860b; }
+
+</style>
+
+<section class="premium-packages" id="our-packages">
+    <div class="container">
+        
+        <div class="section-title" data-aos="fade-up">
+            <h2 class="artistic-title">Our Tour Packages</h2>
+            <div class="title-decoration">
+                <div class="decoration-line"></div>
+                <div class="decoration-icon">❖</div>
+                <div class="decoration-line"></div>
+            </div>
+            <p class="section-subtitle elegante-text" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 15px;">
+                Every traveler deserves an experience tailored to their needs. Explore our distinct tiers designed for different levels of comfort and exclusivity.
+            </p>
+        </div>
+        
+        <div class="package-grid">
+            
+            <div class="package-card tier-local" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-badge">🌿 Authentic</div>
+                <div class="card-content">
+                    <div class="package-icon-header">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Local Package</h3>
+                    <p class="package-desc">Ideal for adventurous souls who want to witness the magic of Tanzania while staying mindful of their budget.</p>
+                    
+                    <ul class="package-features">
+                        <li><i class="fas fa-bus"></i> Shared safari vehicles (Window seat guaranteed)</li>
+                        <li><i class="fas fa-campground"></i> Quality public campsites or cozy local guesthouses</li>
+                        <li><i class="fas fa-utensils"></i> Three fresh, local meals daily by bush chefs</li>
+                    </ul>
+                </div>
+                <div class="package-footer">
+                    <i class="fas fa-users"></i>
+                    <span>Best for: Solo travelers & budget-conscious groups.</span>
+                </div>
+            </div>
+
+            <div class="package-card tier-vip" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-badge">⭐ Comfort</div>
+                <div class="card-content">
+                    <div class="package-icon-header">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>VIP Package</h3>
+                    <p class="package-desc">A step above the ordinary, offering enhanced comfort and a more personalized pace away from the crowds.</p>
+                    
+                    <ul class="package-features">
+                        <li><i class="fas fa-shuttle-van"></i> Private 4x4 Land Cruiser exclusively for your party</li>
+                        <li><i class="fas fa-hotel"></i> Hand-picked 3 to 4-star mid-range lodges/tented camps</li>
+                        <li><i class="fas fa-user-tie"></i> Dedicated professional guide & priority access</li>
+                    </ul>
+                </div>
+                <div class="package-footer">
+                    <i class="fas fa-heart"></i>
+                    <span>Best for: Families, Couples, and Honeymooners.</span>
+                </div>
+            </div>
+
+            <div class="package-card tier-vvip" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-badge">👑 Exclusive</div>
+                <div class="card-content">
+                    <div class="package-icon-header">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>VVIP Package</h3>
+                    <p class="package-desc">The pinnacle of Tanzanian luxury. Every detail is curated to ensure a seamless and prestigious journey.</p>
+                    
+                    <ul class="package-features">
+                        <li><i class="fas fa-plane-departure"></i> Private charter flights between parks & luxury vehicles</li>
+                        <li><i class="fas fa-gem"></i> Ultra-luxury 5-star lodges & exclusive boutique retreats</li>
+                        <li><i class="fas fa-concierge-bell"></i> 24/7 personal concierge, fine dining, & premium drinks</li>
+                    </ul>
+                </div>
+                <div class="package-footer">
+                    <i class="fas fa-award"></i>
+                    <span>Best for: Luxury seekers and high-profile guests.</span>
+                </div>
+            </div>
+            
+        </div> </div> </section>
         <!-- Destinations Section -->
         <section class="destinations" id="destinations">
             <div class="container">
