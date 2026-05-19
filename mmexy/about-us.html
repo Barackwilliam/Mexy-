@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://www.jamiitek.com/api/js/Hc3fuSgmvBdTIR26g7U2L4qwn14w5v1ud960UZkq8yiuNYM-BLTAdoMatQygbIeG/"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MMexy Tanzania Adventures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="translation-loading" id="translationLoading">
+        <div class="loading-spinner"></div>
+        <p data-i18n="translation.loading">Translating content...</p>
+    </div>
+
+    <nav class="premium-navbar" id="premiumNavbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo d-flex align-items-center text-decoration-none">
+                <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img me-2">
+                <span class="logo-text">MMexy</span>
+            </a>
+            <div class="desktop-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a href="about-us.html" class="nav-link active" data-i18n="nav.about"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link" data-i18n="nav.contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+                    <li class="nav-item dropdown-parent">
+                        <a href="#" class="nav-link" data-i18n="nav.destinations"><i class="fas fa-map-marked-alt"></i><span>Destinations</span><i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
+                        <div class="dropdown">
+                            <a href="mountain-climbing.html" class="dropdown-item" data-i18n="nav.mountain_climbing"><i class="fas fa-mountain"></i><span>Mountain Climbing</span></a>
+                            <a href="tanzania-safaris.html" class="dropdown-item" data-i18n="nav.safaris"><i class="fas fa-binoculars"></i><span>Tanzania Safaris</span></a>
+                            <a href="zanzibar-beaches.html" class="dropdown-item" data-i18n="nav.zanzibar"><i class="fas fa-umbrella-beach"></i><span>Zanzibar Beaches</span></a>
+                            <a href="cultural-tourism.html" class="dropdown-item" data-i18n="nav.cultural"><i class="fas fa-music"></i><span>Cultural Tourism</span></a>
+                            <a href="waterfall-tourism.html" class="dropdown-item" data-i18n="nav.waterfalls"><i class="fas fa-water"></i><span>Waterfall Tourism</span></a>
+                            <a href="historical-sites.html" class="dropdown-item" data-i18n="nav.historical"><i class="fas fa-landmark"></i><span>Historical Sites</span></a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="language-selector">
+                    <div style="color: black;" class="current-language"><span class="language-flag">🇺🇸</span><span>English</span><i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></div>
+                    <div class="language-dropdown">
+                        <a href="#" class="language-option active" data-lang="en"><span class="language-flag">🇺🇸</span><span>English</span><i class="fas fa-check"></i></a>
+                        <a href="#" class="language-option" data-lang="sw"><span class="language-flag">🇹🇿</span><span>Kiswahili</span></a>
+                        <a href="#" class="language-option" data-lang="fr"><span class="language-flag">🇫🇷</span><span>Français</span></a>
+                        <a href="#" class="language-option" data-lang="de"><span class="language-flag">🇩🇪</span><span>Deutsch</span></a>
+                        <a href="#" class="language-option" data-lang="es"><span class="language-flag">🇪🇸</span><span>Español</span></a>
+                        <a href="#" class="language-option" data-lang="it"><span class="language-flag">🇮🇹</span><span>Italiano</span></a>
+                        <a href="#" class="language-option" data-lang="pt"><span class="language-flag">🇵🇹</span><span>Português</span></a>
+                        <a href="#" class="language-option" data-lang="ru"><span class="language-flag">🇷🇺</span><span>Русский</span></a>
+                        <a href="#" class="language-option" data-lang="zh"><span class="language-flag">🇨🇳</span><span>中文</span></a>
+                        <a href="#" class="language-option" data-lang="ja"><span class="language-flag">🇯🇵</span><span>日本語</span></a>
+                    </div>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span></button>
+        </div>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="premium-sidebar" id="premiumSidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo"><i class="fas fa-mountain sidebar-logo-icon"></i><span class="sidebar-logo-text">MMexy Tanzania</span></div>
+            <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="sidebar-content">
+            <ul class="sidebar-nav">
+                <li class="sidebar-item"><a href="index.html" class="sidebar-link" data-i18n="nav.home"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li class="sidebar-item"><a href="about-us.html" class="sidebar-link active" data-i18n="nav.about"><i class="fas fa-info-circle"></i><span>About Us</span></a></li>
+                <li class="sidebar-item"><a href="contact.html" class="sidebar-link" data-i18n="nav.contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link sidebar-dropdown-toggle" id="destinationsToggle" data-i18n="nav.destinations"><i class="fas fa-map-marked-alt"></i><span>Destinations</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                    <div class="sidebar-dropdown" id="destinationsDropdown">
+                        <a href="mountain-climbing.html" class="sidebar-link" data-i18n="nav.mountain_climbing"><i class="fas fa-mountain"></i><span>Mountain Climbing</span></a>
+                        <a href="tanzania-safaris.html" class="sidebar-link" data-i18n="nav.safaris"><i class="fas fa-binoculars"></i><span>Tanzania Safaris</span></a>
+                        <a href="zanzibar-beaches.html" class="sidebar-link" data-i18n="nav.zanzibar"><i class="fas fa-umbrella-beach"></i><span>Zanzibar Beaches</span></a>
+                        <a href="cultural-tourism.html" class="sidebar-link" data-i18n="nav.cultural"><i class="fas fa-music"></i><span>Cultural Tourism</span></a>
+                        <a href="waterfall-tourism.html" class="sidebar-link" data-i18n="nav.waterfalls"><i class="fas fa-water"></i><span>Waterfall Tourism</span></a>
+                        <a href="historical-sites.html" class="sidebar-link" data-i18n="nav.historical"><i class="fas fa-landmark"></i><span>Historical Sites</span></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-language-selector">
+                <label for="sidebarLanguage" data-i18n="footer.language">Language:</label>
+                <select style="color: black;" class="sidebar-language" id="sidebarLanguage">
+                    <option value="en">🇺🇸 English</option><option value="sw">🇹🇿 Kiswahili</option><option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option><option value="es">🇪🇸 Español</option><option value="it">🇮🇹 Italiano</option>
+                    <option value="pt">🇵🇹 Português</option><option value="ru">🇷🇺 Русский</option><option value="zh">🇨🇳 中文</option><option value="ja">🇯🇵 日本語</option>
+                </select>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="sidebar-social">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <section class="about-hero" id="about">
+            <div class="about-hero-content">
+                <h1 data-i18n="about.hero_title">About MMexy Tanzania Adventures</h1>
+                <p data-i18n="about.hero_subtitle">A Decade of Excellence in Authentic Tanzanian Experiences</p>
+            </div>
+        </section>
+
+        <section class="detailed-about">
+            <div class="container">
+                <div class="about-section">
+                    <div class="about-section-title">
+                        <h2 data-i18n="about.heritage_title">Our Heritage</h2>
+                        <div class="divider"></div>
+                        <p class="elegant-text" data-i18n="about.heritage_subtitle">A decade of excellence in Tanzanian tourism</p>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h3 data-i18n="about.humble_beginnings_title">From Humble Beginnings</h3>
+                            <p class="elegant-text" data-i18n="about.humble_beginnings_quote">Founded in 2010 by passionate Tanzanian guides, MMexy Tanzania Adventures began as a small family operation with a simple mission: to share the authentic beauty of Tanzania with the world.</p>
+                            <p data-i18n="about.humble_beginnings_para1">What started with just two guides and one vehicle has grown into one of Tanzania's most respected tourism companies, serving thousands of travelers from across the globe.</p>
+                            <p data-i18n="about.humble_beginnings_para2">We believe that every traveler deserves to experience the real Tanzania - not just the popular tourist spots, but the hidden gems and authentic cultural exchanges.</p>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h3 data-i18n="about.growth_title">Growth & Excellence</h3>
+                            <p data-i18n="about.growth_para1">Over the past decade, we've expanded our operations while maintaining our commitment to quality and authenticity. Today, we operate across all major Tanzanian destinations with a team of over 50 experienced professionals.</p>
+                            <p class="elegant-text" data-i18n="about.growth_quote">Our growth has been guided by one principle: exceptional experiences create lifelong memories.</p>
+                            <p data-i18n="about.growth_para2">From the snow-capped peak of Kilimanjaro to the pristine beaches of Zanzibar, we've built relationships with local communities to ensure our operations benefit both travelers and Tanzanians alike.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <div class="about-section-title">
+                        <h2 data-i18n="about.mission_vision_title">Our Mission & Vision</h2>
+                        <div class="divider"></div>
+                        <p class="elegant-text" data-i18n="about.mission_vision_subtitle">Guiding principles that drive our excellence</p>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h3 data-i18n="about.mission_title">Our Mission</h3>
+                            <p class="elegant-text" data-i18n="about.mission_quote">To provide authentic, sustainable, and unforgettable Tanzanian experiences that connect travelers with the rich cultural heritage and breathtaking natural wonders of our country.</p>
+                            <p data-i18n="about.mission_para1">We achieve this through carefully crafted itineraries that balance adventure with cultural immersion, luxury with authenticity, and exploration with conservation.</p>
+                            <div class="ornamental-border">
+                                <p class="calligraphic-text" data-i18n="about.mission_founder_quote">"We don't just show you Tanzania - we help you experience it, understand it, and fall in love with it."</p>
+                            </div>
+                        </div>
+                        <div class="story-text">
+                            <h3 data-i18n="about.vision_title">Our Vision</h3>
+                            <p class="elegant-text" data-i18n="about.vision_quote">To be Tanzania's leading tourism company, recognized globally for our commitment to excellence, sustainability, and creating transformative travel experiences.</p>
+                            <p data-i18n="about.vision_para1">We envision a future where tourism becomes a powerful force for positive change - protecting natural habitats, preserving cultural traditions, and creating sustainable livelihoods.</p>
+                            <p data-i18n="about.vision_para2">Our vision extends beyond business success to creating lasting positive impacts on Tanzania's people, wildlife, and environment for generations to come.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <div class="about-section-title">
+                        <h2 data-i18n="about.values_title">Our Values</h2>
+                        <div class="divider"></div>
+                        <p class="elegant-text" data-i18n="about.values_subtitle">The principles that guide every decision we make</p>
+                    </div>
+                    <div class="values-grid">
+                        <div class="value-card"><div class="value-icon"><i class="fas fa-handshake"></i></div><h3 data-i18n="about.integrity_title">Integrity</h3><p data-i18n="about.integrity_desc">We operate with honesty and transparency in all our dealings, building trust with our clients and partners.</p></div>
+                        <div class="value-card"><div class="value-icon"><i class="fas fa-leaf"></i></div><h3 data-i18n="about.sustainability_title">Sustainability</h3><p data-i18n="about.sustainability_desc">We're committed to eco-friendly practices and supporting conservation efforts across Tanzania.</p></div>
+                        <div class="value-card"><div class="value-icon"><i class="fas fa-users"></i></div><h3 data-i18n="about.community_title">Community</h3><p data-i18n="about.community_desc">We invest in local communities and employ Tanzanian experts to share authentic cultural experiences.</p></div>
+                        <div class="value-card"><div class="value-icon"><i class="fas fa-award"></i></div><h3 data-i18n="about.excellence_title">Excellence</h3><p data-i18n="about.excellence_desc">We strive for the highest standards in service, safety, and customer satisfaction in everything we do.</p></div>
+                        <div class="value-card"><div class="value-icon"><i class="fas fa-heart"></i></div><h3 data-i18n="about.passion_title">Passion</h3><p data-i18n="about.passion_desc">Our team is driven by genuine love for Tanzania and its people.</p></div>
+                        <div class="value-card"><div class="value-icon"><i class="fas fa-shield-alt"></i></div><h3 data-i18n="about.safety_title">Safety</h3><p data-i18n="about.safety_desc">Your wellbeing is our top priority. We maintain the highest safety standards across all our operations.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <div class="about-section-title">
+                    <h2 data-i18n="about.team_title">Meet Our Team</h2>
+                    <div class="divider"></div>
+                    <p class="elegant-text" data-i18n="about.team_subtitle">The passionate experts behind your unforgettable experiences</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member"><img src="assets/images/ceo.jpeg" alt="Founder & CEO"><div class="member-info"><h3 data-i18n="about.team_ceo_name">Mmexy</h3><p class="position" data-i18n="about.team_ceo_position">Founder & CEO</p><p data-i18n="about.team_ceo_desc">With over 15 years in tourism, Mmexy's vision drives our commitment to authentic Tanzanian experiences.</p></div></div>
+                    <div class="team-member"><img src="assets/images/sub2.jpeg" alt="Head of Operations"><div class="member-info"><h3 data-i18n="about.team_operations_name">Asha Hassan</h3><p class="position" data-i18n="about.team_operations_position">Head of Operations</p><p data-i18n="about.team_operations_desc">Asha ensures every detail of your journey is perfectly coordinated for a seamless experience.</p></div></div>
+                    <div class="team-member"><img src="assets/images/sub.jpeg" alt="Senior Safari Guide"><div class="member-info"><h3 data-i18n="about.team_guide_name">Jafari Mohamed</h3><p class="position" data-i18n="about.team_guide_position">Senior Safari Guide</p><p data-i18n="about.team_guide_desc">Jafari's extensive knowledge of wildlife and ecosystems makes every safari an educational adventure.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><div class="back-to-home"><a href="index.html" class="btn"><i class="fas fa-arrow-left"></i><span data-i18n="about.back_to_home">Back to Home</span></a></div></div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section"><h3 data-i18n="footer.company">MMexy Tanzania Adventures</h3><p data-i18n="footer.description">Creating unforgettable experiences in the heart of Tanzania.</p></div>
+                    <div class="footer-section"><h3 data-i18n="footer.quick_links">Quick Links</h3><ul class="footer-links"><li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li><li><a href="about-us.html"><i class="fas fa-info-circle"></i> <span data-i18n="nav.about">About Us</span></a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li></ul></div>
+                    <div class="footer-section"><h3 data-i18n="footer.destinations">Destinations</h3><ul class="footer-links"><li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a></li><li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.safaris">Tanzania Safaris</span></a></li><li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a></li><li><a href="cultural-tourism.html"><i class="fas fa-music"></i> <span data-i18n="nav.cultural">Cultural Tourism</span></a></li><li><a href="waterfall-tourism.html"><i class="fas fa-water"></i> <span data-i18n="nav.waterfalls">Waterfall Tourism</span></a></li><li><a href="historical-sites.html"><i class="fas fa-landmark"></i> <span data-i18n="nav.historical">Historical Sites</span></a></li></ul></div>
+                    <div class="footer-section"><h3 data-i18n="footer.contact_info">Contact Info</h3><ul class="footer-links"><li><a href="#"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Arusha, Tanzania</span></a></li><li><a href="tel:+255714331051"><i class="fas fa-phone"></i> +255 714331051</a></li><li><a href="mailto:info@mmexy.com"><i class="fas fa-envelope"></i> info@mmexy.com</a></li></ul></div>
+                </div>
+                <div class="footer-bottom"><p data-i18n="footer.copyright">&copy; 2026 MMexy Tanzania Adventures. All rights reserved.</p></div>
+            </div>
+        </footer>
+    </div>
+
+    <a href="https://wa.me/255797331005" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+            <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/>
+            <path fill="#25D366" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/>
+            <path fill="#25D366" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974"/>
+            <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/>
+            <path fill="#25D366" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"/>
+        </svg>
+    </a>
+
+    <div id="google_translate_element" style="display: none !important;"></div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="jamiitek-status.js" data-api-key="THEIR_API_KEY_HERE" data-api-url="https://jamiitek.co.tz/api/site-status/"></script>
+    <script>
+        const translations = {
+            en: {
+                "nav.home": "Home", "nav.about": "About", "nav.destinations": "Destinations", "nav.mountain_climbing": "Mountain Climbing",
+                "nav.safaris": "Tanzania Safaris", "nav.zanzibar": "Zanzibar Beaches", "nav.cultural": "Cultural Tourism",
+                "nav.waterfalls": "Waterfall Tourism", "nav.historical": "Historical Sites", "nav.contact": "Contact",
+                "about.hero_title": "About MMexy Tanzania Adventures", "about.hero_subtitle": "A Decade of Excellence in Authentic Tanzanian Experiences",
+                "about.heritage_title": "Our Heritage", "about.heritage_subtitle": "A decade of excellence in Tanzanian tourism",
+                "about.humble_beginnings_title": "From Humble Beginnings",
+                "about.humble_beginnings_quote": "Founded in 2010 by passionate Tanzanian guides, MMexy Tanzania Adventures began as a small family operation with a simple mission: to share the authentic beauty of Tanzania with the world.",
+                "about.humble_beginnings_para1": "What started with just two guides and one vehicle has grown into one of Tanzania's most respected tourism companies, serving thousands of travelers from across the globe.",
+                "about.humble_beginnings_para2": "We believe that every traveler deserves to experience the real Tanzania - not just the popular tourist spots, but the hidden gems and authentic cultural exchanges.",
+                "about.growth_title": "Growth & Excellence",
+                "about.growth_para1": "Over the past decade, we've expanded our operations while maintaining our commitment to quality and authenticity. Today, we operate across all major Tanzanian destinations with a team of over 50 experienced professionals.",
+                "about.growth_quote": "Our growth has been guided by one principle: exceptional experiences create lifelong memories.",
+                "about.growth_para2": "From the snow-capped peak of Kilimanjaro to the pristine beaches of Zanzibar, we've built relationships with local communities to ensure our operations benefit both travelers and Tanzanians alike.",
+                "about.mission_vision_title": "Our Mission & Vision", "about.mission_vision_subtitle": "Guiding principles that drive our excellence",
+                "about.mission_title": "Our Mission", "about.mission_quote": "To provide authentic, sustainable, and unforgettable Tanzanian experiences that connect travelers with the rich cultural heritage and breathtaking natural wonders of our country.",
+                "about.mission_para1": "We achieve this through carefully crafted itineraries that balance adventure with cultural immersion, luxury with authenticity, and exploration with conservation.",
+                "about.mission_founder_quote": "\"We don't just show you Tanzania - we help you experience it, understand it, and fall in love with it.\"",
+                "about.vision_title": "Our Vision", "about.vision_quote": "To be Tanzania's leading tourism company, recognized globally for our commitment to excellence, sustainability, and creating transformative travel experiences.",
+                "about.vision_para1": "We envision a future where tourism becomes a powerful force for positive change - protecting natural habitats, preserving cultural traditions, and creating sustainable livelihoods.",
+                "about.vision_para2": "Our vision extends beyond business success to creating lasting positive impacts on Tanzania's people, wildlife, and environment for generations to come.",
+                "about.values_title": "Our Values", "about.values_subtitle": "The principles that guide every decision we make",
+                "about.integrity_title": "Integrity", "about.integrity_desc": "We operate with honesty and transparency in all our dealings, building trust with our clients and partners.",
+                "about.sustainability_title": "Sustainability", "about.sustainability_desc": "We're committed to eco-friendly practices and supporting conservation efforts across Tanzania.",
+                "about.community_title": "Community", "about.community_desc": "We invest in local communities and employ Tanzanian experts to share authentic cultural experiences.",
+                "about.excellence_title": "Excellence", "about.excellence_desc": "We strive for the highest standards in service, safety, and customer satisfaction in everything we do.",
+                "about.passion_title": "Passion", "about.passion_desc": "Our team is driven by genuine love for Tanzania and its people.",
+                "about.safety_title": "Safety", "about.safety_desc": "Your wellbeing is our top priority. We maintain the highest safety standards across all our operations.",
+                "about.team_title": "Meet Our Team", "about.team_subtitle": "The passionate experts behind your unforgettable experiences",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "Founder & CEO", "about.team_ceo_desc": "With over 15 years in tourism, Mmexy's vision drives our commitment to authentic Tanzanian experiences.",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "Head of Operations", "about.team_operations_desc": "Asha ensures every detail of your journey is perfectly coordinated for a seamless experience.",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "Senior Safari Guide", "about.team_guide_desc": "Jafari's extensive knowledge of wildlife and ecosystems makes every safari an educational adventure.",
+                "about.back_to_home": "Back to Home",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creating unforgettable experiences in the heart of Tanzania.",
+                "footer.quick_links": "Quick Links", "footer.destinations": "Destinations", "footer.contact_info": "Contact Info",
+                "footer.address": "Arusha, Tanzania", "footer.language": "Language:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. All rights reserved.",
+                "translation.loading": "Translating content..."
+            },
+            sw: {
+                "nav.home": "Nyumbani", "nav.about": "Kuhusu Sisi", "nav.destinations": "Sehemu za Kusisimua", "nav.mountain_climbing": "Kupanda Milima",
+                "nav.safaris": "Safari Tanzania", "nav.zanzibar": "Fuoni za Zanzibar", "nav.cultural": "Utalii wa Kitamaduni",
+                "nav.waterfalls": "Utalii wa Maporomoko", "nav.historical": "Maeneo ya Kihistoria", "nav.contact": "Wasiliana Nasi",
+                "about.hero_title": "Kuhusu MMexy Tanzania Adventures", "about.hero_subtitle": "Muongo wa Ubora katika Uzoefu wa Asili wa Kitanzania",
+                "about.heritage_title": "Urithi Wetu", "about.heritage_subtitle": "Muongo wa ubora katika utalii wa Tanzania",
+                "about.humble_beginnings_title": "Kutoka Mwanzo wa Unyenyekevu",
+                "about.humble_beginnings_quote": "Iliyoanzishwa mwaka 2010 na waongozaji wa Kitanzania wenye shauku, MMexy Tanzania Adventures ilianza kama operesheni ndogo ya familia.",
+                "about.humble_beginnings_para1": "Kilichoanza na waongozaji wawili tu na gari moja kimekua na kuwa moja ya makampuni ya utalii ya Tanzania yenye heshima zaidi.",
+                "about.humble_beginnings_para2": "Tunaamini kwamba kila msafiri anastahili kupata uzoefu wa Tanzania ya kweli.",
+                "about.growth_title": "Ukuaji na Ubora", "about.growth_para1": "Katika muongo uliopita, tumepanua shughuli zetu huku tukidumisha ahadi yetu ya ubora na uhalisi.",
+                "about.growth_quote": "Ukuaji wetu umekuwa ukiongozwa na kanuni moja: uzoefu bora huunda kumbukumbu za maisha.",
+                "about.growth_para2": "Kutoka kilele cha Kilimanjaro hadi fuoni safi za Zanzibar, tumejenga uhusiano na jamii za kienyeji.",
+                "about.mission_vision_title": "Misheni na Maono Yetu", "about.mission_vision_subtitle": "Kanuni zinazoongoza ubora wetu",
+                "about.mission_title": "Misheni Yetu", "about.mission_quote": "Kutoa uzoefu wa asili, endelevu, na usiosahaulika wa Kitanzania.",
+                "about.mission_para1": "Tunafanikisha hili kupitia ratiba zilizotengenezwa kwa uangalifu.",
+                "about.mission_founder_quote": "\"Hatukuonyeshi tu Tanzania - tunakusaidia kuipata uzoefu, kuelewa, na kuipenda.\"",
+                "about.vision_title": "Maono Yetu", "about.vision_quote": "Kuwa kampuni ya utalii ya Tanzania inayoongoza, inayotambuliwa kimataifa.",
+                "about.vision_para1": "Tunaona siku zijazo ambapo utalii unakuwa nguvu yenye nguvu ya mabadiliko chanya.",
+                "about.vision_para2": "Maono yetu yanaendelea zaidi ya mafanikio ya biashara hadi kuunda athari chanya za kudumu.",
+                "about.values_title": "Thamani Zetu", "about.values_subtitle": "Kanuni zinazoongoza kila uamuzi tunaufanya",
+                "about.integrity_title": "Uadilifu", "about.integrity_desc": "Tunafanya kazi kwa uaminifu na uwazi katika mambo yetu yote.",
+                "about.sustainability_title": "Uendelevu", "about.sustainability_desc": "Tunajitolea kwa mazoea ya kirafiki na kusaidia juhudi za uhifadhi.",
+                "about.community_title": "Jamii", "about.community_desc": "Tunawekeza katika jamii za kienyeji na kuajiri wataalamu wa Tanzania.",
+                "about.excellence_title": "Ubora", "about.excellence_desc": "Tunajitahidi kwa viwango vya juu zaidi katika huduma, usalama, na kuridhika kwa wateja.",
+                "about.passion_title": "Shauku", "about.passion_desc": "Timu yetu inaongozwa na upendo wa kweli wa Tanzania na watu wake.",
+                "about.safety_title": "Usalama", "about.safety_desc": "Ustawi wako ndio kipaumbele chetu cha juu.",
+                "about.team_title": "Kutana na Timu Yetu", "about.team_subtitle": "Wataalamu wenye shauku nyuma ya uzoefu wako usiosahaulika",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "Mwanzo na Mkurugenzi Mtendaji",
+                "about.team_ceo_desc": "Kwa zaidi ya miaka 15 katika utalii, maono ya Mmexy yanaongoza kujitolea kwetu.",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "Mkuu wa Uendeshaji",
+                "about.team_operations_desc": "Asha anahakikisha kila undani la safari yako inaratibiwa kikamilifu.",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "Mwenyeji Mkuu wa Safari",
+                "about.team_guide_desc": "Ujuzi wa kina wa Jafari wa wanyamapori hufanya kila safari kuwa adventure ya kielimu.",
+                "about.back_to_home": "Rudi Nyumbani",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Tunatengeneza uzoefu usiosahaulika moyoni mwa Tanzania.",
+                "footer.quick_links": "Viungo vya Haraka", "footer.destinations": "Sehemu za Kusisimua", "footer.contact_info": "Maelezo ya Mawasiliano",
+                "footer.address": "Arusha, Tanzania", "footer.language": "Lugha:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Haki zote zimehifadhiwa.",
+                "translation.loading": "Inatafsiri maudhui..."
+            },
+            fr: {
+                "nav.home": "Accueil", "nav.about": "À Propos", "nav.destinations": "Destinations", "nav.mountain_climbing": "Ascension de Montagnes",
+                "nav.safaris": "Safaris Tanzanie", "nav.zanzibar": "Plages de Zanzibar", "nav.cultural": "Tourisme Culturel",
+                "nav.waterfalls": "Tourisme des Cascades", "nav.historical": "Sites Historiques", "nav.contact": "Contact",
+                "about.hero_title": "À Propos de MMexy Tanzania Adventures", "about.hero_subtitle": "Une Décennie d'Excellence dans les Expériences Tanzaniennes Authentiques",
+                "about.heritage_title": "Notre Héritage", "about.heritage_subtitle": "Une décennie d'excellence dans le tourisme tanzanien",
+                "about.humble_beginnings_title": "Des Débuts Humbles", "about.humble_beginnings_quote": "Fondée en 2010 par des guides tanzaniens passionnés, MMexy Tanzania Adventures a commencé comme une petite entreprise familiale.",
+                "about.humble_beginnings_para1": "Ce qui a commencé avec seulement deux guides et un véhicule est devenu l'une des entreprises touristiques les plus respectées de Tanzanie.",
+                "about.humble_beginnings_para2": "Nous croyons que chaque voyageur mérite de vivre la vraie Tanzanie.",
+                "about.growth_title": "Croissance et Excellence", "about.growth_para1": "Au cours de la dernière décennie, nous avons étendu nos opérations tout en maintenant notre engagement envers la qualité.",
+                "about.growth_quote": "Notre croissance a été guidée par un principe : les expériences exceptionnelles créent des souvenirs durables.",
+                "about.growth_para2": "Du sommet enneigé du Kilimandjaro aux plages immaculées de Zanzibar, nous avons établi des relations avec les communautés locales.",
+                "about.mission_vision_title": "Notre Mission et Vision", "about.mission_vision_subtitle": "Principes directeurs qui motivent notre excellence",
+                "about.mission_title": "Notre Mission", "about.mission_quote": "Fournir des expériences tanzaniennes authentiques, durables et inoubliables.",
+                "about.mission_para1": "Nous y parvenons grâce à des itinéraires soigneusement conçus.",
+                "about.mission_founder_quote": "\"Nous ne vous montrons pas seulement la Tanzanie - nous vous aidons à la vivre, à la comprendre et à l'aimer.\"",
+                "about.vision_title": "Notre Vision", "about.vision_quote": "Être l'entreprise touristique leader en Tanzanie, reconnue mondialement.",
+                "about.vision_para1": "Nous envisageons un avenir où le tourisme devient une force puissante pour le changement positif.",
+                "about.vision_para2": "Notre vision va au-delà du succès commercial pour créer des impacts positifs durables.",
+                "about.values_title": "Nos Valeurs", "about.values_subtitle": "Les principes qui guident chaque décision que nous prenons",
+                "about.integrity_title": "Intégrité", "about.integrity_desc": "Nous opérons avec honnêteté et transparence dans toutes nos relations.",
+                "about.sustainability_title": "Durabilité", "about.sustainability_desc": "Nous nous engageons en faveur de pratiques écologiques.",
+                "about.community_title": "Communauté", "about.community_desc": "Nous investissons dans les communautés locales.",
+                "about.excellence_title": "Excellence", "about.excellence_desc": "Nous visons les normes les plus élevées en matière de service, de sécurité et de satisfaction client.",
+                "about.passion_title": "Passion", "about.passion_desc": "Notre équipe est animée par un amour authentique pour la Tanzanie.",
+                "about.safety_title": "Sécurité", "about.safety_desc": "Votre bien-être est notre priorité absolue.",
+                "about.team_title": "Rencontrez Notre Équipe", "about.team_subtitle": "Les experts passionnés derrière vos expériences inoubliables",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "Fondateur et PDG",
+                "about.team_ceo_desc": "Avec plus de 15 ans dans le tourisme, la vision de Mmexy guide notre engagement.",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "Responsable des Opérations",
+                "about.team_operations_desc": "Asha veille à ce que chaque détail de votre voyage soit parfaitement coordonné.",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "Guide de Safari Senior",
+                "about.team_guide_desc": "La connaissance approfondie de Jafari de la faune fait de chaque safari une aventure éducative.",
+                "about.back_to_home": "Retour à l'Accueil",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Création d'expériences inoubliables au cœur de la Tanzanie.",
+                "footer.quick_links": "Liens Rapides", "footer.destinations": "Destinations", "footer.contact_info": "Informations de Contact",
+                "footer.address": "Arusha, Tanzanie", "footer.language": "Langue:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Tous droits réservés.",
+                "translation.loading": "Traduction du contenu..."
+            },
+            de: {
+                "nav.home": "Startseite", "nav.about": "Über Uns", "nav.destinations": "Destinationen", "nav.mountain_climbing": "Bergsteigen",
+                "nav.safaris": "Tansania Safaris", "nav.zanzibar": "Zanzibar Strände", "nav.cultural": "Kulturtourismus",
+                "nav.waterfalls": "Wasserfall-Tourismus", "nav.historical": "Historische Stätten", "nav.contact": "Kontakt",
+                "about.hero_title": "Über MMexy Tanzania Adventures", "about.hero_subtitle": "Ein Jahrzehnt Exzellenz in authentischen tansanischen Erlebnissen",
+                "about.heritage_title": "Unser Erbe", "about.heritage_subtitle": "Ein Jahrzehnt Exzellenz im tansanischen Tourismus",
+                "about.humble_beginnings_title": "Von bescheidenen Anfängen",
+                "about.humble_beginnings_quote": "Gegründet 2010 von leidenschaftlichen tansanischen Guides, begann MMexy Tanzania Adventures als kleiner Familienbetrieb.",
+                "about.humble_beginnings_para1": "Was mit nur zwei Guides und einem Fahrzeug begann, ist zu einem der angesehensten Tourismusunternehmen Tansanias geworden.",
+                "about.humble_beginnings_para2": "Wir glauben, dass jeder Reisende das echte Tansania erleben sollte.",
+                "about.growth_title": "Wachstum und Exzellenz", "about.growth_para1": "Im letzten Jahrzehnt haben wir unsere Aktivitäten erweitert und dabei unser Engagement für Qualität beibehalten.",
+                "about.growth_quote": "Unser Wachstum wurde von einem Prinzip geleitet: außergewöhnliche Erlebnisse schaffen lebenslange Erinnerungen.",
+                "about.growth_para2": "Vom schneebedeckten Gipfel des Kilimandscharo bis zu den unberührten Stränden Sansibars haben wir Beziehungen zu lokalen Gemeinschaften aufgebaut.",
+                "about.mission_vision_title": "Unsere Mission und Vision", "about.mission_vision_subtitle": "Leitprinzipien, die unsere Exzellenz antreiben",
+                "about.mission_title": "Unsere Mission", "about.mission_quote": "Authentische, nachhaltige und unvergessliche tansanische Erlebnisse zu bieten.",
+                "about.mission_para1": "Wir erreichen dies durch sorgfältig gestaltete Routen.",
+                "about.mission_founder_quote": "\"Wir zeigen Ihnen nicht nur Tansania - wir helfen Ihnen, es zu erleben, zu verstehen und zu lieben.\"",
+                "about.vision_title": "Unsere Vision", "about.vision_quote": "Tansanias führendes Tourismusunternehmen zu sein, weltweit anerkannt.",
+                "about.vision_para1": "Wir stellen uns eine Zukunft vor, in der Tourismus eine starke Kraft für positiven Wandel wird.",
+                "about.vision_para2": "Unsere Vision geht über geschäftlichen Erfolg hinaus, um dauerhaft positive Auswirkungen zu schaffen.",
+                "about.values_title": "Unsere Werte", "about.values_subtitle": "Die Prinzipien, die jede Entscheidung leiten",
+                "about.integrity_title": "Integrität", "about.integrity_desc": "Wir handeln mit Ehrlichkeit und Transparenz in all unseren Geschäften.",
+                "about.sustainability_title": "Nachhaltigkeit", "about.sustainability_desc": "Wir sind ökofreundlichen Praktiken verpflichtet.",
+                "about.community_title": "Gemeinschaft", "about.community_desc": "Wir investieren in lokale Gemeinschaften.",
+                "about.excellence_title": "Exzellenz", "about.excellence_desc": "Wir streben nach höchsten Standards in Service, Sicherheit und Kundenzufriedenheit.",
+                "about.passion_title": "Leidenschaft", "about.passion_desc": "Unser Team wird von echter Liebe zu Tansania angetrieben.",
+                "about.safety_title": "Sicherheit", "about.safety_desc": "Ihr Wohlbefinden hat höchste Priorität.",
+                "about.team_title": "Treffen Sie unser Team", "about.team_subtitle": "Die leidenschaftlichen Experten hinter Ihren unvergesslichen Erlebnissen",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "Gründer und CEO",
+                "about.team_ceo_desc": "Mit über 15 Jahren im Tourismus treibt Mmexys Vision unser Engagement an.",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "Leiterin der Abteilung Betrieb",
+                "about.team_operations_desc": "Asha sorgt dafür, dass jedes Detail Ihrer Reise perfekt koordiniert wird.",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "Senior Safari Guide",
+                "about.team_guide_desc": "Jafaris umfangreiches Wissen über Tierwelt macht jede Safari zu einem lehrreichen Abenteuer.",
+                "about.back_to_home": "Zurück zur Startseite",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Schaffung unvergesslicher Erlebnisse im Herzen Tansanias.",
+                "footer.quick_links": "Schnelllinks", "footer.destinations": "Destinationen", "footer.contact_info": "Kontaktinformationen",
+                "footer.address": "Arusha, Tansania", "footer.language": "Sprache:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Alle Rechte vorbehalten.",
+                "translation.loading": "Inhalte werden übersetzt..."
+            },
+            es: {
+                "nav.home": "Inicio", "nav.about": "Acerca de", "nav.destinations": "Destinos", "nav.mountain_climbing": "Escalada de Montañas",
+                "nav.safaris": "Safaris Tanzania", "nav.zanzibar": "Playas de Zanzíbar", "nav.cultural": "Turismo Cultural",
+                "nav.waterfalls": "Turismo de Cascadas", "nav.historical": "Sitios Históricos", "nav.contact": "Contacto",
+                "about.hero_title": "Acerca de MMexy Tanzania Adventures", "about.hero_subtitle": "Una Década de Excelencia en Experiencias Tanzanas Auténticas",
+                "about.heritage_title": "Nuestra Herencia", "about.heritage_subtitle": "Una década de excelencia en turismo tanzano",
+                "about.humble_beginnings_title": "Desde Humildes Comienzos",
+                "about.humble_beginnings_quote": "Fundada en 2010 por apasionados guías tanzanos, MMexy Tanzania Adventures comenzó como una pequeña operación familiar.",
+                "about.humble_beginnings_para1": "Lo que comenzó con solo dos guías y un vehículo se ha convertido en una de las empresas turísticas más respetadas de Tanzania.",
+                "about.humble_beginnings_para2": "Creemos que todo viajero merece experimentar la Tanzania real.",
+                "about.growth_title": "Crecimiento y Excelencia", "about.growth_para1": "Durante la última década, hemos expandido nuestras operaciones manteniendo nuestro compromiso con la calidad.",
+                "about.growth_quote": "Nuestro crecimiento ha sido guiado por un principio: las experiencias excepcionales crean recuerdos para toda la vida.",
+                "about.growth_para2": "Desde la cima nevada del Kilimanjaro hasta las playas prístinas de Zanzíbar, hemos construido relaciones con comunidades locales.",
+                "about.mission_vision_title": "Nuestra Misión y Visión", "about.mission_vision_subtitle": "Principios rectores que impulsan nuestra excelencia",
+                "about.mission_title": "Nuestra Misión", "about.mission_quote": "Proporcionar experiencias tanzanas auténticas, sostenibles e inolvidables.",
+                "about.mission_para1": "Logramos esto a través de itinerarios cuidadosamente elaborados.",
+                "about.mission_founder_quote": "\"No solo te mostramos Tanzania - te ayudamos a experimentarla, entenderla y enamorarte de ella.\"",
+                "about.vision_title": "Nuestra Visión", "about.vision_quote": "Ser la empresa turística líder de Tanzania, reconocida globalmente.",
+                "about.vision_para1": "Visualizamos un futuro donde el turismo se convierta en una fuerza poderosa para el cambio positivo.",
+                "about.vision_para2": "Nuestra visión va más allá del éxito comercial hacia la creación de impactos positivos duraderos.",
+                "about.values_title": "Nuestros Valores", "about.values_subtitle": "Los principios que guían cada decisión que tomamos",
+                "about.integrity_title": "Integridad", "about.integrity_desc": "Operamos con honestidad y transparencia en todos nuestros tratos.",
+                "about.sustainability_title": "Sostenibilidad", "about.sustainability_desc": "Estamos comprometidos con prácticas ecológicas.",
+                "about.community_title": "Comunidad", "about.community_desc": "Invertimos en comunidades locales.",
+                "about.excellence_title": "Excelencia", "about.excellence_desc": "Nos esforzamos por los más altos estándares en servicio, seguridad y satisfacción del cliente.",
+                "about.passion_title": "Pasión", "about.passion_desc": "Nuestro equipo está impulsado por amor genuino por Tanzania.",
+                "about.safety_title": "Seguridad", "about.safety_desc": "Su bienestar es nuestra máxima prioridad.",
+                "about.team_title": "Conoce Nuestro Equipo", "about.team_subtitle": "Los expertos apasionados detrás de tus experiencias inolvidables",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "Fundador y CEO",
+                "about.team_ceo_desc": "Con más de 15 años en turismo, la visión de Mmexy impulsa nuestro compromiso.",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "Jefa de Operaciones",
+                "about.team_operations_desc": "Asha asegura que cada detalle de su viaje esté perfectamente coordinado.",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "Guía de Safari Senior",
+                "about.team_guide_desc": "El extenso conocimiento de Jafari sobre vida silvestre hace que cada safari sea una aventura educativa.",
+                "about.back_to_home": "Volver al Inicio",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creando experiencias inolvidables en el corazón de Tanzania.",
+                "footer.quick_links": "Enlaces Rápidos", "footer.destinations": "Destinos", "footer.contact_info": "Información de Contacto",
+                "footer.address": "Arusha, Tanzania", "footer.language": "Idioma:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Todos los derechos reservados.",
+                "translation.loading": "Traduciendo contenido..."
+            },
+            it: {
+                "nav.home": "Home", "nav.about": "Chi Siamo", "nav.destinations": "Destinazioni", "nav.mountain_climbing": "Arrampicata",
+                "nav.safaris": "Safari Tanzania", "nav.zanzibar": "Spiagge di Zanzibar", "nav.cultural": "Turismo Culturale",
+                "nav.waterfalls": "Turismo delle Cascate", "nav.historical": "Siti Storici", "nav.contact": "Contatto",
+                "about.hero_title": "Chi Siamo MMexy Tanzania Adventures", "about.hero_subtitle": "Un Decennio di Eccellenza in Esperienze Tanzaniane Autentiche",
+                "about.heritage_title": "La Nostra Eredità", "about.heritage_subtitle": "Un decennio di eccellenza nel turismo tanzaniano",
+                "about.humble_beginnings_title": "Dalle Umili Origini",
+                "about.humble_beginnings_quote": "Fondata nel 2010 da guide tanzaniane appassionate, MMexy Tanzania Adventures è iniziata come una piccola operazione familiare.",
+                "about.humble_beginnings_para1": "Quello che è iniziato con solo due guide e un veicolo è cresciuto fino a diventare una delle aziende turistiche più rispettate della Tanzania.",
+                "about.humble_beginnings_para2": "Crediamo che ogni viaggiatore meriti di vivere la vera Tanzania.",
+                "about.growth_title": "Crescita ed Eccellenza", "about.growth_para1": "Nell'ultimo decennio, abbiamo ampliato le nostre operazioni mantenendo il nostro impegno per qualità.",
+                "about.growth_quote": "La nostra crescita è stata guidata da un principio: esperienze eccezionali creano ricordi indelebili.",
+                "about.growth_para2": "Dalla vetta innevata del Kilimangiaro alle spiagge incontaminate di Zanzibar, abbiamo costruito relazioni con comunità locali.",
+                "about.mission_vision_title": "La Nostra Missione e Visione", "about.mission_vision_subtitle": "Principi guida che guidano la nostra eccellenza",
+                "about.mission_title": "La Nostra Missione", "about.mission_quote": "Fornire esperienze tanzaniane autentiche, sostenibili e indimenticabili.",
+                "about.mission_para1": "Raggiungiamo questo obiettivo attraverso itinerari accuratamente elaborati.",
+                "about.mission_founder_quote": "\"Non ti mostriamo solo la Tanzania - ti aiutiamo a viverla, comprenderla e innamorartene.\"",
+                "about.vision_title": "La Nostra Visione", "about.vision_quote": "Essere l'azienda turistica leader in Tanzania, riconosciuta a livello globale.",
+                "about.vision_para1": "Immaginiamo un futuro in cui il turismo diventi una forza potente per il cambiamento positivo.",
+                "about.vision_para2": "La nostra visione va oltre il successo commerciale verso la creazione di impatti positivi duraturi.",
+                "about.values_title": "I Nostri Valori", "about.values_subtitle": "I principi che guidano ogni decisione che prendiamo",
+                "about.integrity_title": "Integrità", "about.integrity_desc": "Operiamo con onestà e trasparenza in tutti i nostri affari.",
+                "about.sustainability_title": "Sostenibilità", "about.sustainability_desc": "Siamo impegnati in pratiche ecologiche.",
+                "about.community_title": "Comunità", "about.community_desc": "Investiamo nelle comunità locali.",
+                "about.excellence_title": "Eccellenza", "about.excellence_desc": "Ci sforziamo per i più alti standard di servizio, sicurezza e soddisfazione del cliente.",
+                "about.passion_title": "Passione", "about.passion_desc": "Il nostro team è guidato dal genuino amore per la Tanzania.",
+                "about.safety_title": "Sicurezza", "about.safety_desc": "Il tuo benessere è la nostra massima priorità.",
+                "about.team_title": "Incontra il Nostro Team", "about.team_subtitle": "Gli esperti appassionati dietro le tue esperienze indimenticabili",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "Fondatore e CEO",
+                "about.team_ceo_desc": "Con oltre 15 anni di esperienza nel turismo, la visione di Mmexy guida il nostro impegno.",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "Responsabile delle Operazioni",
+                "about.team_operations_desc": "Asha assicura che ogni dettaglio del tuo viaggio sia perfettamente coordinato.",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "Guida Safari Senior",
+                "about.team_guide_desc": "L'ampia conoscenza di Jafari della fauna selvatica rende ogni safari un'avventura educativa.",
+                "about.back_to_home": "Torna alla Home",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creando esperienze indimenticabili nel cuore della Tanzania.",
+                "footer.quick_links": "Link Rapidi", "footer.destinations": "Destinazioni", "footer.contact_info": "Informazioni di Contatto",
+                "footer.address": "Arusha, Tanzania", "footer.language": "Lingua:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Tutti i diritti riservati.",
+                "translation.loading": "Traduzione del contenuto..."
+            },
+            pt: {
+                "nav.home": "Início", "nav.about": "Sobre", "nav.destinations": "Destinos", "nav.mountain_climbing": "Escalada de Montanhas",
+                "nav.safaris": "Safaris Tanzânia", "nav.zanzibar": "Praias de Zanzibar", "nav.cultural": "Turismo Cultural",
+                "nav.waterfalls": "Turismo de Cachoeiras", "nav.historical": "Sítios Históricos", "nav.contact": "Contato",
+                "about.hero_title": "Sobre a MMexy Tanzania Adventures", "about.hero_subtitle": "Uma Década de Excelência em Experiências Tanzanianas Autênticas",
+                "about.heritage_title": "Nossa Herança", "about.heritage_subtitle": "Uma década de excelência no turismo tanzaniano",
+                "about.humble_beginnings_title": "De Origens Humildes",
+                "about.humble_beginnings_quote": "Fundada em 2010 por guias tanzanianos apaixonados, a MMexy Tanzania Adventures começou como uma pequena operação familiar.",
+                "about.humble_beginnings_para1": "O que começou com apenas dois guias e um veículo cresceu para se tornar uma das empresas de turismo mais respeitadas da Tanzânia.",
+                "about.humble_beginnings_para2": "Acreditamos que todo viajante merece experimentar a verdadeira Tanzânia.",
+                "about.growth_title": "Crescimento e Excelência", "about.growth_para1": "Na última década, expandimos nossas operações mantendo nosso compromisso com qualidade.",
+                "about.growth_quote": "Nosso crescimento tem sido guiado por um princípio: experiências excepcionais criam memórias duradouras.",
+                "about.growth_para2": "Do pico coberto de neve do Kilimanjaro às praias intocadas de Zanzibar, construímos relacionamentos com comunidades locais.",
+                "about.mission_vision_title": "Nossa Missão e Visão", "about.mission_vision_subtitle": "Princípios orientadores que impulsionam nossa excelência",
+                "about.mission_title": "Nossa Missão", "about.mission_quote": "Fornecer experiências tanzanianas autênticas, sustentáveis e inesquecíveis.",
+                "about.mission_para1": "Alcançamos isso através de itinerários cuidadosamente elaborados.",
+                "about.mission_founder_quote": "\"Não apenas mostramos a Tanzânia - ajudamos você a experimentá-la, entendê-la e apaixonar-se por ela.\"",
+                "about.vision_title": "Nossa Visão", "about.vision_quote": "Ser a principal empresa de turismo da Tanzânia, reconhecida globalmente.",
+                "about.vision_para1": "Visualizamos um futuro onde o turismo se torna uma força poderosa para mudanças positivas.",
+                "about.vision_para2": "Nossa visão vai além do sucesso comercial para criar impactos positivos duradouros.",
+                "about.values_title": "Nossos Valores", "about.values_subtitle": "Os princípios que orientam cada decisão que tomamos",
+                "about.integrity_title": "Integridade", "about.integrity_desc": "Operamos com honestidade e transparência em todos os nossos negócios.",
+                "about.sustainability_title": "Sustentabilidade", "about.sustainability_desc": "Estamos comprometidos com práticas ecológicas.",
+                "about.community_title": "Comunidade", "about.community_desc": "Investimos em comunidades locais.",
+                "about.excellence_title": "Excelência", "about.excellence_desc": "Buscamos os mais altos padrões de serviço, segurança e satisfação do cliente.",
+                "about.passion_title": "Paixão", "about.passion_desc": "Nossa equipe é impulsionada por amor genuíno pela Tanzânia.",
+                "about.safety_title": "Segurança", "about.safety_desc": "Seu bem-estar é nossa principal prioridade.",
+                "about.team_title": "Conheça Nossa Equipe", "about.team_subtitle": "Os especialistas apaixonados por trás de suas experiências inesquecíveis",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "Fundador e CEO",
+                "about.team_ceo_desc": "Com mais de 15 anos no turismo, a visão de Mmexy impulsiona nosso compromisso.",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "Chefe de Operações",
+                "about.team_operations_desc": "Asha garante que cada detalhe de sua jornada seja perfeitamente coordenado.",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "Guia de Safari Sênior",
+                "about.team_guide_desc": "O extenso conhecimento de Jafari sobre vida selvagem faz de cada safari uma aventura educativa.",
+                "about.back_to_home": "Voltar para o Início",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Criando experiências inesquecíveis no coração da Tanzânia.",
+                "footer.quick_links": "Links Rápidos", "footer.destinations": "Destinos", "footer.contact_info": "Informações de Contato",
+                "footer.address": "Arusha, Tanzânia", "footer.language": "Idioma:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Todos os direitos reservados.",
+                "translation.loading": "Traduzindo conteúdo..."
+            },
+            ru: {
+                "nav.home": "Главная", "nav.about": "О Нас", "nav.destinations": "Направления", "nav.mountain_climbing": "Восхождение на Горы",
+                "nav.safaris": "Сафари Танзания", "nav.zanzibar": "Пляжи Занзибара", "nav.cultural": "Культурный Туризм",
+                "nav.waterfalls": "Туризм к Водопадам", "nav.historical": "Исторические Места", "nav.contact": "Контакты",
+                "about.hero_title": "О MMexy Tanzania Adventures", "about.hero_subtitle": "Десятилетие Превосходства в Аутентичных Танзанийских Впечатлениях",
+                "about.heritage_title": "Наше Наследие", "about.heritage_subtitle": "Десятилетие превосходства в танзанийском туризме",
+                "about.humble_beginnings_title": "Скромное Начало",
+                "about.humble_beginnings_quote": "Основанная в 2010 году страстными танзанийскими гидами, MMexy Tanzania Adventures начала свою деятельность как небольшая семейная операция.",
+                "about.humble_beginnings_para1": "То, что началось всего с двух гидов и одного автомобиля, превратилось в одну из самых уважаемых туристических компаний Танзании.",
+                "about.humble_beginnings_para2": "Мы верим, что каждый путешественник заслуживает испытать настоящую Танзанию.",
+                "about.growth_title": "Рост и Превосходство", "about.growth_para1": "За последнее десятилетие мы расширили нашу деятельность, сохраняя приверженность качеству.",
+                "about.growth_quote": "Наш рост руководствовался одним принципом: исключительные впечатления создают пожизненные воспоминания.",
+                "about.growth_para2": "От заснеженной вершины Килиманджаро до нетронутых пляжей Занзибара, мы построили отношения с местными сообществами.",
+                "about.mission_vision_title": "Наша Миссия и Видение", "about.mission_vision_subtitle": "Руководящие принципы, определяющие наше превосходство",
+                "about.mission_title": "Наша Миссия", "about.mission_quote": "Предоставлять аутентичные, устойчивые и незабываемые танзанийские впечатления.",
+                "about.mission_para1": "Мы достигаем этого с помощью тщательно продуманных маршрутов.",
+                "about.mission_founder_quote": "\"Мы не просто показываем вам Танзанию - мы помогаем вам испытать ее, понять и полюбить.\"",
+                "about.vision_title": "Наше Видение", "about.vision_quote": "Быть ведущей туристической компанией Танзании, признанной во всем мире.",
+                "about.vision_para1": "Мы представляем будущее, где туризм становится мощной силой для позитивных изменений.",
+                "about.vision_para2": "Наше видение выходит за рамки коммерческого успеха, чтобы создать долгосрочные положительные воздействия.",
+                "about.values_title": "Наши Ценности", "about.values_subtitle": "Принципы, которые направляют каждое наше решение",
+                "about.integrity_title": "Целостность", "about.integrity_desc": "Мы работаем с честностью и прозрачностью во всех наших делах.",
+                "about.sustainability_title": "Устойчивость", "about.sustainability_desc": "Мы стремимся к экологически чистым практикам.",
+                "about.community_title": "Сообщество", "about.community_desc": "Мы инвестируем в местные сообщества.",
+                "about.excellence_title": "Превосходство", "about.excellence_desc": "Мы стремимся к самым высоким стандартам обслуживания, безопасности и удовлетворенности клиентов.",
+                "about.passion_title": "Страсть", "about.passion_desc": "Наша команда движется искренней любовью к Танзании.",
+                "about.safety_title": "Безопасность", "about.safety_desc": "Ваше благополучие - наш главный приоритет.",
+                "about.team_title": "Познакомьтесь с Нашей Командой", "about.team_subtitle": "Страстные эксперты, стоящие за вашими незабываемыми впечатлениями",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "Основатель и Генеральный Директор",
+                "about.team_ceo_desc": "Имея более 15 лет опыта в туризме, видение Mmexy движет нашим стремлением.",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "Руководитель Операций",
+                "about.team_operations_desc": "Аша гарантирует, что каждая деталь вашего путешествия идеально скоординирована.",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "Старший Гид по Сафари",
+                "about.team_guide_desc": "Обширные знания Джафари о дикой природе делают каждое сафари образовательным приключением.",
+                "about.back_to_home": "Вернуться на Главную",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Создание незабываемых впечатлений в сердце Танзании.",
+                "footer.quick_links": "Быстрые Ссылки", "footer.destinations": "Направления", "footer.contact_info": "Контактная Информация",
+                "footer.address": "Аруша, Танзания", "footer.language": "Язык:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Все права защищены.",
+                "translation.loading": "Перевод содержимого..."
+            },
+            zh: {
+                "nav.home": "首页", "nav.about": "关于我们", "nav.destinations": "目的地", "nav.mountain_climbing": "登山",
+                "nav.safaris": "坦桑尼亚游猎", "nav.zanzibar": "桑给巴尔海滩", "nav.cultural": "文化旅游",
+                "nav.waterfalls": "瀑布旅游", "nav.historical": "历史遗址", "nav.contact": "联系我们",
+                "about.hero_title": "关于MMexy Tanzania Adventures", "about.hero_subtitle": "坦桑尼亚真实体验的十年卓越之旅",
+                "about.heritage_title": "我们的传统", "about.heritage_subtitle": "坦桑尼亚旅游业的十年卓越成就",
+                "about.humble_beginnings_title": "从谦逊开始",
+                "about.humble_beginnings_quote": "MMexy Tanzania Adventures成立于2010年，由充满激情的坦桑尼亚导游创立，最初是一个简单的家族式小企业。",
+                "about.humble_beginnings_para1": "从仅有的两名导游和一辆车开始，现已发展成为坦桑尼亚最受尊敬的旅游公司之一。",
+                "about.humble_beginnings_para2": "我们相信每一位旅行者都应该体验真实的坦桑尼亚。",
+                "about.growth_title": "成长与卓越", "about.growth_para1": "在过去十年中，我们在保持对质量和真实性承诺的同时扩大了业务。",
+                "about.growth_quote": "我们的成长遵循一个原则：非凡的体验创造终生的回忆。",
+                "about.growth_para2": "从白雪皑皑的乞力马扎罗山山顶到原始洁净的桑给巴尔海滩，我们与当地社区和保护区建立了关系。",
+                "about.mission_vision_title": "我们的使命和愿景", "about.mission_vision_subtitle": "驱动我们卓越的指导原则",
+                "about.mission_title": "我们的使命", "about.mission_quote": "提供真实、可持续和难忘的坦桑尼亚体验。",
+                "about.mission_para1": "我们通过精心设计的行程实现这一目标。",
+                "about.mission_founder_quote": "\"我们不仅仅是向您展示坦桑尼亚——我们帮助您体验它、理解它并爱上它。\"",
+                "about.vision_title": "我们的愿景", "about.vision_quote": "成为坦桑尼亚领先的旅游公司，因我们对卓越、可持续性和创造变革性旅行体验的承诺而获得全球认可。",
+                "about.vision_para1": "我们设想一个未来，旅游成为积极变革的强大力量。",
+                "about.vision_para2": "我们的愿景超越了商业成功，旨在为坦桑尼亚的人民、野生动物和环境创造持久积极的影响。",
+                "about.values_title": "我们的价值观", "about.values_subtitle": "指导我们每个决策的原则",
+                "about.integrity_title": "诚信", "about.integrity_desc": "我们在所有业务中以诚实和透明的方式运营。",
+                "about.sustainability_title": "可持续性", "about.sustainability_desc": "我们致力于生态友好实践，支持整个坦桑尼亚的保护工作。",
+                "about.community_title": "社区", "about.community_desc": "我们投资于当地社区，并雇用坦桑尼亚专家分享真实的文化体验。",
+                "about.excellence_title": "卓越", "about.excellence_desc": "在我们所做的一切事情中，我们致力于服务、安全和客户满意度的最高标准。",
+                "about.passion_title": "激情", "about.passion_desc": "我们的团队由对坦桑尼亚及其人民的真诚热爱驱动。",
+                "about.safety_title": "安全", "about.safety_desc": "您的福祉是我们的首要任务。",
+                "about.team_title": "认识我们的团队", "about.team_subtitle": "您难忘体验背后的热情专家",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "创始人兼首席执行官",
+                "about.team_ceo_desc": "在旅游行业拥有超过15年经验的Mmexy，他的愿景推动着我们追求真实的坦桑尼亚体验。",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "运营总监",
+                "about.team_operations_desc": "Asha确保您旅程的每一个细节都完美协调，带来无缝的体验。",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "高级游猎向导",
+                "about.team_guide_desc": "Jafari对野生动物和生态系统的丰富知识使每一次游猎都成为一次教育冒险。",
+                "about.back_to_home": "返回首页",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "在坦桑尼亚中心创造难忘的体验。",
+                "footer.quick_links": "快速链接", "footer.destinations": "目的地", "footer.contact_info": "联系信息",
+                "footer.address": "阿鲁沙, 坦桑尼亚", "footer.language": "语言:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. 保留所有权利。",
+                "translation.loading": "正在翻译内容..."
+            },
+            ja: {
+                "nav.home": "ホーム", "nav.about": "会社概要", "nav.destinations": "目的地", "nav.mountain_climbing": "登山",
+                "nav.safaris": "タンザニアサファリ", "nav.zanzibar": "ザンジバルビーチ", "nav.cultural": "文化観光",
+                "nav.waterfalls": "滝観光", "nav.historical": "歴史的遺跡", "nav.contact": "お問い合わせ",
+                "about.hero_title": "MMexy Tanzania Adventuresについて", "about.hero_subtitle": "本格的なタンザニア体験における10年間の卓越性",
+                "about.heritage_title": "私たちの伝統", "about.heritage_subtitle": "タンザニア観光における10年間の卓越性",
+                "about.humble_beginnings_title": "謙虚な始まりから",
+                "about.humble_beginnings_quote": "情熱的なタンザニアガイドによって2010年に設立されたMMexy Tanzania Adventuresは、小さな家族経営として始まりました。",
+                "about.humble_beginnings_para1": "わずか2人のガイドと1台の車で始まったものが、タンザニアで最も尊敬される観光会社の一つに成長しました。",
+                "about.humble_beginnings_para2": "私たちは、すべての旅行者が本物のタンザニアを体験するに値すると信じています。",
+                "about.growth_title": "成長と卓越性", "about.growth_para1": "過去10年間、私たちは品質と真正性へのコミットメントを維持しながら事業を拡大してきました。",
+                "about.growth_quote": "私たちの成長は一つの原則によって導かれてきました：卓越した体験が生涯の思い出を創り出す。",
+                "about.growth_para2": "雪に覆われたキリマンジャロの山頂からザンジバルの原始的なビーチまで、私たちは地元コミュニティと関係を築いてきました。",
+                "about.mission_vision_title": "私たちのミッションとビジョン", "about.mission_vision_subtitle": "私たちの卓越性を推進する指導原則",
+                "about.mission_title": "私たちのミッション", "about.mission_quote": "本格的で持続可能で忘れられないタンザニア体験を提供すること。",
+                "about.mission_para1": "私たちは、慎重に作られた旅程を通じてこれを達成します。",
+                "about.mission_founder_quote": "\"私たちはただタンザニアを見せるだけでなく、あなたがそれを体験し、理解し、愛するのを助けます。\"",
+                "about.vision_title": "私たちのビジョン", "about.vision_quote": "卓越性、持続可能性、そして変革的な旅行体験の創造に対する私たちのコミットメントで世界的に認められる、タンザニアの主要な観光会社になること。",
+                "about.vision_para1": "私たちは、観光が前向きな変化の強力な力になる未来を思い描いています。",
+                "about.vision_para2": "私たちのビジョンは、ビジネスの成功を超えて、将来の世代のために持続的な前向きな影響を創り出すことです。",
+                "about.values_title": "私たちの価値観", "about.values_subtitle": "私たちが下すすべての決定を導く原則",
+                "about.integrity_title": "誠実さ", "about.integrity_desc": "私たちは、すべての取引において誠実さと透明性を持って行動します。",
+                "about.sustainability_title": "持続可能性", "about.sustainability_desc": "私たちは、エコフレンドリーな実践に取り組んでいます。",
+                "about.community_title": "コミュニティ", "about.community_desc": "私たちは地元コミュニティに投資しています。",
+                "about.excellence_title": "卓越性", "about.excellence_desc": "私たちは、サービス、安全性、顧客満足度の最高基準を追求します。",
+                "about.passion_title": "情熱", "about.passion_desc": "私たちのチームは、タンザニアへの純粋な愛に動かされています。",
+                "about.safety_title": "安全性", "about.safety_desc": "あなたの健康は私たちの最優先事項です。",
+                "about.team_title": "私たちのチームに会う", "about.team_subtitle": "あなたの忘れられない体験の背後にいる情熱的な専門家",
+                "about.team_ceo_name": "Mmexy", "about.team_ceo_position": "創設者兼CEO",
+                "about.team_ceo_desc": "15年以上の観光業界での経験を持つMmexyのビジョンは、本格的なタンザニア体験への私たちのコミットメントを推進しています。",
+                "about.team_operations_name": "Asha Hassan", "about.team_operations_position": "オペレーション責任者",
+                "about.team_operations_desc": "Ashaは、シームレスな体験のためにあなたの旅のすべての詳細が完璧に調整されることを保証します。",
+                "about.team_guide_name": "Jafari Mohamed", "about.team_guide_position": "シニアサファリガイド",
+                "about.team_guide_desc": "Jafariの野生生物に関する豊富な知識は、すべてのサファリを教育的な冒険にします。",
+                "about.back_to_home": "ホームに戻る",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "タンザニアの中心で忘れられない体験を創造。",
+                "footer.quick_links": "クイックリンク", "footer.destinations": "目的地", "footer.contact_info": "連絡先情報",
+                "footer.address": "アルーシャ, タンザニア", "footer.language": "言語:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. 全著作権所有。",
+                "translation.loading": "コンテンツを翻訳中..."
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function showTranslationLoading() { document.getElementById('translationLoading').classList.add('active'); }
+        function hideTranslationLoading() { document.getElementById('translationLoading').classList.remove('active'); }
+        function getFlagForLanguage(lang) { const f = { en:'🇺🇸', sw:'🇹🇿', fr:'🇫🇷', de:'🇩🇪', es:'🇪🇸', it:'🇮🇹', pt:'🇵🇹', ru:'🇷🇺', zh:'🇨🇳', ja:'🇯🇵' }; return f[lang] || '🇺🇸'; }
+        function getLanguageName(lang) { const n = { en:'English', sw:'Kiswahili', fr:'Français', de:'Deutsch', es:'Español', it:'Italiano', pt:'Português', ru:'Русский', zh:'中文', ja:'日本語' }; return n[lang] || 'English'; }
+
+        function changeLanguage(lang) {
+            if (lang === currentLanguage) return;
+            showTranslationLoading();
+            setTimeout(() => {
+                currentLanguage = lang;
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.style.opacity = '0';
+                        setTimeout(() => { el.textContent = translations[lang][key]; el.style.opacity = '1'; }, 50);
+                    }
+                });
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (translations[lang] && translations[lang][key]) el.placeholder = translations[lang][key];
+                });
+                const currentLangElement = document.querySelector('.current-language');
+                currentLangElement.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    currentLangElement.innerHTML = `<span class="language-flag">${getFlagForLanguage(lang)}</span><span>${getLanguageName(lang)}</span><i class="fas fa-chevron-down" style="font-size:0.8rem;"></i>`;
+                    currentLangElement.style.transform = 'scale(1)';
+                }, 150);
+                document.querySelectorAll('.language-option').forEach(opt => { opt.classList.remove('active'); if (opt.getAttribute('data-lang') === lang) opt.classList.add('active'); });
+                document.getElementById('sidebarLanguage').value = lang;
+                document.documentElement.lang = lang;
+                localStorage.setItem('preferredLanguage', lang);
+                hideTranslationLoading();
+                const toast = document.createElement('div');
+                toast.style.cssText = 'position:fixed;bottom:30px;right:20px;background:#228B22;color:#fff;padding:12px 24px;border-radius:30px;z-index:10000;font-family:Poppins;box-shadow:0 4px 15px rgba(0,0,0,0.2);';
+                toast.innerHTML = `🌍 ${getLanguageName(lang)}`;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2500);
+            }, 600);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            if (savedLang !== 'en') changeLanguage(savedLang);
+            const navbar = document.getElementById('premiumNavbar');
+            window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.getElementById('premiumSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const destToggle = document.getElementById('destinationsToggle');
+            const destDropdown = document.getElementById('destinationsDropdown');
+            function closeSidebarFn() { mobileBtn.classList.remove('active'); sidebar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+            mobileBtn.addEventListener('click', () => { mobileBtn.classList.toggle('active'); sidebar.classList.toggle('active'); overlay.classList.toggle('active'); document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : ''; });
+            closeSidebar.addEventListener('click', closeSidebarFn);
+            overlay.addEventListener('click', closeSidebarFn);
+            destToggle.addEventListener('click', (e) => { e.preventDefault(); destToggle.classList.toggle('active'); destDropdown.classList.toggle('active'); });
+            document.querySelectorAll('.language-option').forEach(opt => { opt.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(opt.getAttribute('data-lang')); closeSidebarFn(); }); });
+            document.getElementById('sidebarLanguage').addEventListener('change', function() { changeLanguage(this.value); closeSidebarFn(); });
+            const floatMain = document.getElementById('floatingLanguageMain');
+            const floatDropdown = document.getElementById('floatingLanguageDropdown');
+            if (floatMain && floatDropdown) {
+                floatMain.addEventListener('click', (e) => { e.stopPropagation(); floatMain.classList.toggle('active'); floatDropdown.classList.toggle('active'); });
+                document.addEventListener('click', () => { floatMain.classList.remove('active'); floatDropdown.classList.remove('active'); });
+                document.querySelectorAll('.floating-language-option').forEach(opt => { opt.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(opt.getAttribute('data-lang')); }); });
+            }
+            setTimeout(hideTranslationLoading, 3000);
+        });
+    </script>
+<script defer src="https://static.getbutton.io/widget/bundle.js?id=m7p9k"></script>
+    <script
+  src="jamiitek-status.js"
+  data-api-key="POiHpTCfSquN4Gdm399NZ01ouEidkiiiSGytk5bvT0YJj_JRktD2gfsZmnRNFeIh"
+  data-api-url="https://jamiitek.com/api/site-status/">
+</script>
+</body>
+</html>

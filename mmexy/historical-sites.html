@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://www.jamiitek.com/api/js/Hc3fuSgmvBdTIR26g7U2L4qwn14w5v1ud960UZkq8yiuNYM-BLTAdoMatQygbIeG/"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Sites Tanzania | MMexy Tanzania Adventures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="translation-loading" id="translationLoading">
+        <div class="loading-spinner"></div>
+        <p data-i18n="translation.loading">Translating content...</p>
+    </div>
+
+    <nav class="premium-navbar" id="premiumNavbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo d-flex align-items-center text-decoration-none">
+                <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img me-2">
+                <span class="logo-text">MMexy</span>
+            </a>
+            <div class="desktop-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a href="about-us.html" class="nav-link" data-i18n="nav.about"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link" data-i18n="nav.contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+                    <li class="nav-item dropdown-parent">
+                        <a href="#" class="nav-link active" data-i18n="nav.destinations"><i class="fas fa-map-marked-alt"></i><span>Destinations</span><i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
+                        <div class="dropdown">
+                            <a href="mountain-climbing.html" class="dropdown-item" data-i18n="nav.mountain_climbing"><i class="fas fa-mountain"></i><span>Mountain Climbing</span></a>
+                            <a href="tanzania-safaris.html" class="dropdown-item" data-i18n="nav.safaris"><i class="fas fa-binoculars"></i><span>Tanzania Safaris</span></a>
+                            <a href="zanzibar-beaches.html" class="dropdown-item" data-i18n="nav.zanzibar"><i class="fas fa-umbrella-beach"></i><span>Zanzibar Beaches</span></a>
+                            <a href="cultural-tourism.html" class="dropdown-item" data-i18n="nav.cultural"><i class="fas fa-music"></i><span>Cultural Tourism</span></a>
+                            <a href="waterfall-tourism.html" class="dropdown-item" data-i18n="nav.waterfalls"><i class="fas fa-water"></i><span>Waterfall Tourism</span></a>
+                            <a href="historical-sites.html" class="dropdown-item active" data-i18n="nav.historical"><i class="fas fa-landmark"></i><span>Historical Sites</span></a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="language-selector">
+                    <div style="color:black;" class="current-language"><span class="language-flag">🇺🇸</span><span>English</span><i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></div>
+                    <div class="language-dropdown">
+                        <a href="#" class="language-option active" data-lang="en"><span class="language-flag">🇺🇸</span><span>English</span><i class="fas fa-check"></i></a>
+                        <a href="#" class="language-option" data-lang="sw"><span class="language-flag">🇹🇿</span><span>Kiswahili</span></a>
+                        <a href="#" class="language-option" data-lang="fr"><span class="language-flag">🇫🇷</span><span>Français</span></a>
+                        <a href="#" class="language-option" data-lang="de"><span class="language-flag">🇩🇪</span><span>Deutsch</span></a>
+                        <a href="#" class="language-option" data-lang="es"><span class="language-flag">🇪🇸</span><span>Español</span></a>
+                        <a href="#" class="language-option" data-lang="it"><span class="language-flag">🇮🇹</span><span>Italiano</span></a>
+                        <a href="#" class="language-option" data-lang="pt"><span class="language-flag">🇵🇹</span><span>Português</span></a>
+                        <a href="#" class="language-option" data-lang="ru"><span class="language-flag">🇷🇺</span><span>Русский</span></a>
+                        <a href="#" class="language-option" data-lang="zh"><span class="language-flag">🇨🇳</span><span>中文</span></a>
+                        <a href="#" class="language-option" data-lang="ja"><span class="language-flag">🇯🇵</span><span>日本語</span></a>
+                    </div>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span></button>
+        </div>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="premium-sidebar" id="premiumSidebar">
+        <div class="sidebar-header"><div class="sidebar-logo"><i class="fas fa-mountain sidebar-logo-icon"></i><span class="sidebar-logo-text">MMexy Tanzania</span></div><button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button></div>
+        <div class="sidebar-content">
+            <ul class="sidebar-nav">
+                <li class="sidebar-item"><a href="index.html" class="sidebar-link" data-i18n="nav.home"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li class="sidebar-item"><a href="about-us.html" class="sidebar-link" data-i18n="nav.about"><i class="fas fa-info-circle"></i><span>About Us</span></a></li>
+                <li class="sidebar-item"><a href="contact.html" class="sidebar-link" data-i18n="nav.contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link sidebar-dropdown-toggle active" id="destinationsToggle" data-i18n="nav.destinations"><i class="fas fa-map-marked-alt"></i><span>Destinations</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                    <div class="sidebar-dropdown active" id="destinationsDropdown">
+                        <a href="mountain-climbing.html" class="sidebar-link" data-i18n="nav.mountain_climbing"><i class="fas fa-mountain"></i><span>Mountain Climbing</span></a>
+                        <a href="tanzania-safaris.html" class="sidebar-link" data-i18n="nav.safaris"><i class="fas fa-binoculars"></i><span>Tanzania Safaris</span></a>
+                        <a href="zanzibar-beaches.html" class="sidebar-link" data-i18n="nav.zanzibar"><i class="fas fa-umbrella-beach"></i><span>Zanzibar Beaches</span></a>
+                        <a href="cultural-tourism.html" class="sidebar-link" data-i18n="nav.cultural"><i class="fas fa-music"></i><span>Cultural Tourism</span></a>
+                        <a href="waterfall-tourism.html" class="sidebar-link" data-i18n="nav.waterfalls"><i class="fas fa-water"></i><span>Waterfall Tourism</span></a>
+                        <a href="historical-sites.html" class="sidebar-link active" data-i18n="nav.historical"><i class="fas fa-landmark"></i><span>Historical Sites</span></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-language-selector"><label for="sidebarLanguage" data-i18n="footer.language">Language:</label><select style="color:black;" class="sidebar-language" id="sidebarLanguage">
+                <option value="en">🇺🇸 English</option><option value="sw">🇹🇿 Kiswahili</option><option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option><option value="es">🇪🇸 Español</option><option value="it">🇮🇹 Italiano</option>
+                <option value="pt">🇵🇹 Português</option><option value="ru">🇷🇺 Русский</option><option value="zh">🇨🇳 中文</option><option value="ja">🇯🇵 日本語</option>
+            </select></div>
+        </div>
+        <div class="sidebar-footer"><div class="sidebar-social"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-twitter"></i></a><a href="#" class="social-link"><i class="fab fa-youtube"></i></a></div></div>
+    </div>
+
+    <div class="main-content">
+        <section class="destination-hero">
+            <div class="destination-hero-content">
+                <h1 data-i18n="historical.hero.title">Historical Sites Tanzania</h1>
+                <p data-i18n="historical.hero.subtitle">Explore Ancient Ruins, Colonial Heritage and Archaeological Wonders</p>
+                <button class="btn" onclick="openHistoricalBookingModal()" data-i18n="historical.hero.cta">Book Historical Tour</button>
+            </div>
+            <div class="floating-elements"><div class="floating-element">🏛️</div><div class="floating-element">📜</div><div class="floating-element">🗿</div><div class="floating-element">🏺</div></div>
+        </section>
+
+        <section class="destination-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="historical.content.title">Historical Journey Through Time</h2>
+                    <p class="section-subtitle" data-i18n="historical.content.subtitle">3 Days Exploring Tanzania's Rich Historical Legacy</p>
+                </div>
+                <div class="package-details">
+                    <div class="package-description">
+                        <h3 data-i18n="historical.about.title">About Historical Tourism</h3>
+                        <p class="normal-text" data-i18n="historical.about.description">Step back in time and explore Tanzania's fascinating historical legacy. From ancient Swahili coastal settlements to colonial architecture and archaeological wonders, our historical tours offer deep insights into the events and civilizations that shaped modern Tanzania.</p>
+                        <h4 data-i18n="historical.highlights.title">Historical Highlights</h4>
+                        <ul><li data-i18n="historical.highlights.item1">Ancient Swahili ruins at Kilwa Kisiwani</li><li data-i18n="historical.highlights.item2">German colonial architecture in Bagamoyo</li><li data-i18n="historical.highlights.item3">Olduvai Gorge - Cradle of Mankind</li><li data-i18n="historical.highlights.item4">Stone Town's historic buildings</li><li data-i18n="historical.highlights.item5">Slave trade history and memorials</li></ul>
+                    </div>
+                </div>
+                <div class="site-features">
+                    <h3 class="section-title" data-i18n="historical.sites.title">Tanzania's Historical Treasures</h3>
+                    <div class="site-feature"><h4 data-i18n="historical.sites.kilwa.title">Kilwa Kisiwani - UNESCO World Heritage</h4><p class="normal-text" data-i18n="historical.sites.kilwa.description">Explore the magnificent ruins of this medieval Swahili port city that once controlled Indian Ocean trade.</p><div class="card-features"><div class="feature"><i class="fas fa-mosque"></i><span data-i18n="historical.sites.kilwa.feature1">Great Mosque</span></div><div class="feature"><i class="fas fa-place-of-worship"></i><span data-i18n="historical.sites.kilwa.feature2">Ancient Palaces</span></div><div class="feature"><i class="fas fa-ship"></i><span data-i18n="historical.sites.kilwa.feature3">Trade History</span></div></div></div>
+                    <div class="site-feature"><h4 data-i18n="historical.sites.bagamoyo.title">Bagamoyo - Gateway to Africa</h4><p class="normal-text" data-i18n="historical.sites.bagamoyo.description">Discover the haunting history of this former slave and ivory trading port.</p><div class="card-features"><div class="feature"><i class="fas fa-fort-awesome"></i><span data-i18n="historical.sites.bagamoyo.feature1">Old Fort</span></div><div class="feature"><i class="fas fa-church"></i><span data-i18n="historical.sites.bagamoyo.feature2">Historic Missions</span></div><div class="feature"><i class="fas fa-history"></i><span data-i18n="historical.sites.bagamoyo.feature3">Slave Trade History</span></div></div></div>
+                    <div class="site-feature"><h4 data-i18n="historical.sites.olduvai.title">Olduvai Gorge - Cradle of Mankind</h4><p class="normal-text" data-i18n="historical.sites.olduvai.description">Walk in the footsteps of our earliest ancestors at this world-famous archaeological site.</p><div class="card-features"><div class="feature"><i class="fas fa-bone"></i><span data-i18n="historical.sites.olduvai.feature1">Fossil Sites</span></div><div class="feature"><i class="fas fa-user-friends"></i><span data-i18n="historical.sites.olduvai.feature2">Hominid History</span></div><div class="feature"><i class="fas fa-microscope"></i><span data-i18n="historical.sites.olduvai.feature3">Museum Visit</span></div></div></div>
+                </div>
+                <div class="itinerary"><h3 class="section-title" data-i18n="historical.itinerary.title">3-Day Historical Discovery Itinerary</h3>
+                    <div class="itinerary-day"><div class="day-header"><div class="day-title" data-i18n="historical.itinerary.day1.title">Day 1: Bagamoyo Historical Tour</div><div class="day-duration" data-i18n="historical.itinerary.day1.duration">Coastal History</div></div><div class="day-activities" data-i18n="historical.itinerary.day1.activities">Arrive in Bagamoyo, visit the Caravan Serai Museum, explore the Old Fort (1860), see the Catholic Mission and first church in East Africa, learn about the slave trade history.</div></div>
+                    <div class="itinerary-day"><div class="day-header"><div class="day-title" data-i18n="historical.itinerary.day2.title">Day 2: Kaole Ruins & Colonial Architecture</div><div class="day-duration" data-i18n="historical.itinerary.day2.duration">Ancient & Colonial Era</div></div><div class="day-activities" data-i18n="historical.itinerary.day2.activities">Morning visit to Kaole Ruins with 13th century mosque and tombs, afternoon exploration of German Boma and colonial administration buildings.</div></div>
+                    <div class="itinerary-day"><div class="day-header"><div class="day-title" data-i18n="historical.itinerary.day3.title">Day 3: Zanzibar Stone Town</div><div class="day-duration" data-i18n="historical.itinerary.day3.duration">Swahili Culture</div></div><div class="day-activities" data-i18n="historical.itinerary.day3.activities">Ferry to Zanzibar, guided tour of Stone Town UNESCO World Heritage site, visit House of Wonders, Old Fort, Anglican Cathedral built on former slave market.</div></div>
+                </div>
+                <div class="package-tiers">
+                    <h3 class="section-title" data-i18n="historical.packages.title">Classification based on level and price</h3>
+                    <div class="package-tiers">
+                        <div class="package-tier local-tier"><div class="tier-header"><span class="tier-badge">LOCAL</span><h4 data-i18n="historical.packages.local.title">3-Day Historical Tour</h4><div class="tier-price">$250</div></div><p class="tier-description" data-i18n="historical.packages.local.desc">Perfect for budget-conscious travelers who want to experience Tanzania's rich history.</p>
+                            <div class="tier-features-grid"><div class="tier-feature"><i class="fas fa-car"></i><span data-i18n="historical.packages.local.feature1">Transport Included</span></div><div class="tier-feature"><i class="fas fa-file-invoice-dollar"></i><span data-i18n="historical.packages.local.feature2">All Fees Included</span></div><div class="tier-feature"><i class="fas fa-hotel"></i><span data-i18n="historical.packages.local.feature3">Accommodation</span></div><div class="tier-feature"><i class="fas fa-utensils"></i><span data-i18n="historical.packages.local.feature4">All Meals</span></div></div>
+                            <div class="tier-highlights"><h5 data-i18n="historical.packages.local.highlights">Package Highlights</h5><ul><li data-i18n="historical.packages.local.highlight1">Visit Bagamoyo, Kaole Ruins & Stone Town</li><li data-i18n="historical.packages.local.highlight2">Comprehensive historical coverage</li><li data-i18n="historical.packages.local.highlight3">Knowledgeable local guide</li><li data-i18n="historical.packages.local.highlight4">All entrance fees included</li></ul></div>
+                        </div>
+                        <div class="package-tier vip-tier"><div class="tier-header"><span class="tier-badge">VIP</span><h4 data-i18n="historical.packages.vip.title">3-Day Premium Tour</h4><div class="tier-price">$1,500</div></div><p class="tier-description" data-i18n="historical.packages.vip.desc">Enhanced comfort and exclusive experiences with premium services.</p>
+                            <div class="tier-features-grid"><div class="tier-feature"><i class="fas fa-car-side"></i><span data-i18n="historical.packages.vip.feature1">Premium Transport</span></div><div class="tier-feature"><i class="fas fa-file-invoice-dollar"></i><span data-i18n="historical.packages.vip.feature2">All Fees Included</span></div><div class="tier-feature"><i class="fas fa-utensils"></i><span data-i18n="historical.packages.vip.feature3">All Meals</span></div><div class="tier-feature"><i class="fas fa-user-graduate"></i><span data-i18n="historical.packages.vip.feature4">Expert Historian</span></div></div>
+                            <div class="tier-highlights"><h5 data-i18n="historical.packages.vip.highlights">VIP Benefits</h5><ul><li data-i18n="historical.packages.vip.highlight1">Historian guide with PhD expertise</li><li data-i18n="historical.packages.vip.highlight2">Flexible personalized itinerary</li><li data-i18n="historical.packages.vip.highlight3">Professional photography assistance</li><li data-i18n="historical.packages.vip.highlight4">Fine dining at historical venues</li></ul></div>
+                        </div>
+                        <div class="package-tier vvip-tier"><div class="tier-header"><span class="tier-badge">VVIP</span><h4 data-i18n="historical.packages.vvip.title">3-Day Ultimate Experience</h4><div class="tier-price">$5,000</div></div><p class="tier-description" data-i18n="historical.packages.vvip.desc">The ultimate historical journey with luxury services and exclusive access.</p>
+                            <div class="tier-features-grid"><div class="tier-feature"><i class="fas fa-caravan"></i><span data-i18n="historical.packages.vvip.feature1">Luxury Transport</span></div><div class="tier-feature"><i class="fas fa-file-invoice-dollar"></i><span data-i18n="historical.packages.vvip.feature2">All Fees Included</span></div><div class="tier-feature"><i class="fas fa-utensils"></i><span data-i18n="historical.packages.vvip.feature3">All Meals</span></div><div class="tier-feature"><i class="fas fa-plane"></i><span data-i18n="historical.packages.vvip.feature4">Flight DAR to ZNZ</span></div></div>
+                            <div class="tier-highlights"><h5 data-i18n="historical.packages.vvip.highlights">VVIP Exclusive</h5><ul><li data-i18n="historical.packages.vvip.highlight1">Access to restricted archaeological sites</li><li data-i18n="historical.packages.vvip.highlight2">Domestic flight included</li><li data-i18n="historical.packages.vvip.highlight3">Personal renowned historian</li><li data-i18n="historical.packages.vvip.highlight4">Exclusive publications & materials</li></ul></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-section-destination"><div class="container"><div class="booking-cta"><h2 data-i18n="historical.booking.title">Ready to Explore History?</h2><p class="normal-text" data-i18n="historical.booking.subtitle">Book your historical journey and walk through the pages of Tanzania's rich past.</p><button class="btn" onclick="openHistoricalBookingModal()" data-i18n="historical.booking.cta">Book Historical Tour</button></div></div></section>
+
+        <footer class="footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3 data-i18n="footer.company">MMexy Tanzania Adventures</h3><p data-i18n="footer.description">Creating unforgettable experiences in the heart of Tanzania.</p></div><div class="footer-section"><h3 data-i18n="footer.quick_links">Quick Links</h3><ul class="footer-links"><li><a href="index.html"><i class="fas fa-home"></i><span data-i18n="nav.home">Home</span></a></li><li><a href="about-us.html"><i class="fas fa-info-circle"></i><span data-i18n="nav.about">About Us</span></a></li><li><a href="contact.html"><i class="fas fa-envelope"></i><span data-i18n="nav.contact">Contact</span></a></li></ul></div><div class="footer-section"><h3 data-i18n="footer.destinations">Destinations</h3><ul class="footer-links"><li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i><span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a></li><li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i><span data-i18n="nav.safaris">Tanzania Safaris</span></a></li><li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i><span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a></li><li><a href="cultural-tourism.html"><i class="fas fa-music"></i><span data-i18n="nav.cultural">Cultural Tourism</span></a></li><li><a href="waterfall-tourism.html"><i class="fas fa-water"></i><span data-i18n="nav.waterfalls">Waterfall Tourism</span></a></li><li><a href="historical-sites.html"><i class="fas fa-landmark"></i><span data-i18n="nav.historical">Historical Sites</span></a></li></ul></div><div class="footer-section"><h3 data-i18n="footer.contact_info">Contact Info</h3><ul class="footer-links"><li><a href="#"><i class="fas fa-map-marker-alt"></i><span data-i18n="footer.address">Arusha, Tanzania</span></a></li><li><a href="tel:+255714331051"><i class="fas fa-phone"></i> +255 714331051</a></li><li><a href="mailto:info@mmexy.com"><i class="fas fa-envelope"></i> info@mmexy.com</a></li></ul></div></div><div class="footer-bottom"><p data-i18n="footer.copyright">&copy; 2026 MMexy Tanzania Adventures. All rights reserved.</p></div></div></footer>
+    </div>
+
+    <div class="premium-modal" id="historical-premium-modal"><div class="premium-modal-content"><div class="premium-modal-header"><h2><i class="fas fa-gem"></i><span data-i18n="historical.modal.title">Book Your Historical Experience</span></h2><button class="close-premium-modal" id="close-historical-premium-modal">&times;</button></div><div class="premium-modal-body"><div class="booking-steps"><div class="booking-step active" data-step="1"><div class="step-number">1</div><div class="step-label" data-i18n="historical.modal.step1">Package Type</div></div><div class="booking-step" data-step="2"><div class="step-number">2</div><div class="step-label" data-i18n="historical.modal.step2">Traveler Type</div></div><div class="booking-step" data-step="3"><div class="step-number">3</div><div class="step-label" data-i18n="historical.modal.step3">Select Package</div></div><div class="booking-step" data-step="4"><div class="step-number">4</div><div class="step-label" data-i18n="historical.modal.step4">Booking Details</div></div></div>
+        <div class="booking-section active" id="historical-step-1"><h3 class="step-title" data-i18n="historical.modal.step1_title">Choose Your Experience Level</h3><div class="package-levels"><div class="package-level local" data-level="local"><div class="level-icon"><i class="fas fa-landmark"></i></div><div class="level-name" data-i18n="historical.modal.local.name">LOCAL</div><div class="level-price">From $250</div><ul class="level-features"><li><i class="fas fa-check"></i><span data-i18n="historical.modal.local.feature1">3-Day Historical Tour</span></li><li><i class="fas fa-check"></i><span data-i18n="historical.modal.local.feature2">Group tours</span></li><li><i class="fas fa-check"></i><span data-i18n="historical.modal.local.feature3">Basic transport</span></li><li><i class="fas fa-check"></i><span data-i18n="historical.modal.local.feature4">Shared experiences</span></li></ul></div><div class="package-level vip" data-level="vip"><div class="level-icon"><i class="fas fa-university"></i></div><div class="level-name" data-i18n="historical.modal.vip.name">VIP</div><div class="level-price">From $1,500</div><ul class="level-features"><li><i class="fas fa-check"></i><span data-i18n="historical.modal.vip.feature1">3-Day Historical Tour</span></li><li><i class="fas fa-check"></i><span data-i18n="historical.modal.vip.feature2">Private tours</span></li><li><i class="fas fa-check"></i><span data-i18n="historical.modal.vip.feature3">Expert historian guide</span></li><li><i class="fas fa-check"></i><span data-i18n="historical.modal.vip.feature4">Exclusive access</span></li></ul></div><div class="package-level vvip" data-level="vvip"><div class="level-icon"><i class="fas fa-crown"></i></div><div class="level-name" data-i18n="historical.modal.vvip.name">VVIP</div><div class="level-price">From $5,000</div><ul class="level-features"><li><i class="fas fa-check"></i><span data-i18n="historical.modal.vvip.feature1">3-Day Historical Tour</span></li><li><i class="fas fa-check"></i><span data-i18n="historical.modal.vvip.feature2">Ultimate luxury</span></li><li><i class="fas fa-check"></i><span data-i18n="historical.modal.vvip.feature3">Renowned historian</span></li><li><i class="fas fa-check"></i><span data-i18n="historical.modal.vvip.feature4">Flight included</span></li></ul></div></div><div class="mobile-actions"><button class="mobile-action-btn mobile-next-btn" onclick="historicalNextStep(2)"><span data-i18n="historical.modal.next_step2">Next: Traveler Type</span><i class="fas fa-arrow-right"></i></button></div><div class="modal-actions"><button class="modal-btn btn-secondary" onclick="closeHistoricalPremiumModal()" data-i18n="historical.modal.cancel">Cancel</button><button class="modal-btn btn-primary desktop-only" onclick="historicalNextStep(2)" data-i18n="historical.modal.next_step2">Next: Traveler Type</button></div></div>
+        <div class="booking-section" id="historical-step-2"><h3 class="step-title" data-i18n="historical.modal.step2_title">Who is traveling?</h3><div class="traveler-type-selection"><div class="traveler-options"><div class="traveler-option" data-type="single"><div class="traveler-icon"><i class="fas fa-user"></i></div><div class="traveler-name" data-i18n="historical.modal.travel.single">Single Traveler</div><div class="traveler-description" data-i18n="historical.modal.travel.single_desc">Traveling alone</div></div><div class="traveler-option" data-type="couple"><div class="traveler-icon"><i class="fas fa-heart"></i></div><div class="traveler-name" data-i18n="historical.modal.travel.couple">Couple</div><div class="traveler-description" data-i18n="historical.modal.travel.couple_desc">Two people traveling together</div></div><div class="traveler-option" data-type="family"><div class="traveler-icon"><i class="fas fa-users"></i></div><div class="traveler-name" data-i18n="historical.modal.travel.family">Family</div><div class="traveler-description" data-i18n="historical.modal.travel.family_desc">Family with children</div></div><div class="traveler-option" data-type="group"><div class="traveler-icon"><i class="fas fa-user-friends"></i></div><div class="traveler-name" data-i18n="historical.modal.travel.group">Group</div><div class="traveler-description" data-i18n="historical.modal.travel.group_desc">Friends or group travel</div></div></div><div class="people-counter" id="historical-people-counter" style="display:none;"><div class="counter-label" data-i18n="historical.modal.group_size">Number of People:</div><button class="counter-btn" onclick="historicalChangePeopleCount(-1)">-</button><div class="people-count" id="historical-people-count">1</div><button class="counter-btn" onclick="historicalChangePeopleCount(1)">+</button></div></div><div class="mobile-actions"><button class="mobile-action-btn mobile-back-btn" onclick="historicalPrevStep(1)"><i class="fas fa-arrow-left"></i><span data-i18n="historical.modal.back">Back</span></button><button class="mobile-action-btn mobile-next-btn" onclick="historicalNextStep(3)"><span data-i18n="historical.modal.next_step3">Next: Select Package</span><i class="fas fa-arrow-right"></i></button></div><div class="modal-actions"><button class="modal-btn btn-secondary" onclick="historicalPrevStep(1)" data-i18n="historical.modal.back">Back</button><button class="modal-btn btn-primary desktop-only" onclick="historicalNextStep(3)" data-i18n="historical.modal.next_step3">Next: Select Package</button></div></div>
+        <div class="booking-section" id="historical-step-3"><h3 class="step-title" id="historical-package-selection-title" data-i18n="historical.modal.step3_title">Select Your Package</h3><div class="traveler-type-selection"><div class="traveler-options" id="historical-package-options"></div></div><div class="price-summary"><div class="price-breakdown"><div class="price-item"><span class="price-label" data-i18n="historical.modal.package_type_label">Package Type:</span><span class="price-value" id="historical-package-type-value">Local</span></div><div class="price-item"><span class="price-label" data-i18n="historical.modal.traveler_type_label">Traveler Type:</span><span class="price-value" id="historical-traveler-type-value">Single</span></div><div class="price-item" id="historical-people-count-item"><span class="price-label" data-i18n="historical.modal.people_label">Number of People:</span><span class="price-value" id="historical-people-count-value">1</span></div><div class="price-item"><span class="price-label" data-i18n="historical.modal.package_label">Selected Package:</span><span class="price-value" id="historical-package-name-value">Not Selected</span></div><div class="price-item"><span class="price-label" data-i18n="historical.modal.base_price_label">Base Price:</span><span class="price-value" id="historical-base-price">$0</span></div><div class="price-item" id="historical-multiplier-item" style="display:none;"><span class="price-label" data-i18n="historical.modal.multiplier_label">People Multiplier:</span><span class="price-value" id="historical-multiplier-value">x1</span></div></div><div class="total-price"><span class="total-label" data-i18n="historical.modal.total_label">Total Price:</span><span class="total-value" id="historical-total-price">$0</span></div></div><div class="mobile-actions"><button class="mobile-action-btn mobile-back-btn" onclick="historicalPrevStep(2)"><i class="fas fa-arrow-left"></i><span data-i18n="historical.modal.back">Back</span></button><button class="mobile-action-btn mobile-next-btn" onclick="historicalNextStep(4)"><span data-i18n="historical.modal.next_step4">Next: Book Now</span><i class="fas fa-arrow-right"></i></button></div><div class="modal-actions"><button class="modal-btn btn-secondary" onclick="historicalPrevStep(2)" data-i18n="historical.modal.back">Back</button><button class="modal-btn btn-primary desktop-only" onclick="historicalNextStep(4)" data-i18n="historical.modal.next_step4">Next: Book Now</button></div></div>
+        <div class="booking-section" id="historical-step-4"><h3 class="step-title" data-i18n="historical.modal.step4_title">Confirm Your Booking</h3><div class="price-summary"><h4 class="summary-title" data-i18n="historical.modal.summary_title">Booking Summary</h4><div class="price-breakdown"><div class="price-item"><span class="price-label" data-i18n="historical.modal.destination_label">Destination:</span><span class="price-value">Historical Sites</span></div><div class="price-item"><span class="price-label" data-i18n="historical.modal.package_type_label">Package Type:</span><span class="price-value" id="historical-summary-type">Local</span></div><div class="price-item"><span class="price-label" data-i18n="historical.modal.traveler_type_label">Traveler Type:</span><span class="price-value" id="historical-summary-traveler">Single</span></div><div class="price-item"><span class="price-label" data-i18n="historical.modal.people_label">Number of People:</span><span class="price-value" id="historical-summary-people">1</span></div><div class="price-item"><span class="price-label" data-i18n="historical.modal.package_label">Package:</span><span class="price-value" id="historical-summary-package">Not Selected</span></div><div class="price-item"><span class="price-label" data-i18n="historical.modal.price_label">Price:</span><span class="price-value" id="historical-summary-price">$0</span></div></div><div class="total-price"><span class="total-label" data-i18n="historical.modal.total_amount_label">Total Amount:</span><span class="total-value" id="historical-summary-total">$0</span></div></div><div class="contact-form"><h4 class="summary-title"><i class="fas fa-user-circle"></i><span data-i18n="historical.modal.contact_title">Contact Information</span></h4><div class="form-grid"><input type="text" id="historical-firstName" placeholder="First Name" class="form-input" data-i18n-placeholder="historical.modal.first_name" required><input type="text" id="historical-lastName" placeholder="Last Name" class="form-input" data-i18n-placeholder="historical.modal.last_name" required><input type="email" id="historical-email" placeholder="Email Address" class="form-input full-width" data-i18n-placeholder="historical.modal.email" required><input type="tel" id="historical-phone" placeholder="Phone Number" class="form-input full-width" data-i18n-placeholder="historical.modal.phone" required><input type="text" id="historical-country" placeholder="Country" class="form-input" data-i18n-placeholder="historical.modal.country" required><div class="date-inputs full-width"><label data-i18n="historical.modal.arrival_date">Arrival date</label><input type="text" id="historical-arrival-date" placeholder="Arrival Date" class="date-input" required><label data-i18n="historical.modal.departure_date">Departure date</label><input type="text" id="historical-departure-date" placeholder="Departure Date" class="date-input" required></div></div></div><div class="mobile-actions"><button class="mobile-action-btn mobile-back-btn" onclick="historicalPrevStep(3)"><i class="fas fa-arrow-left"></i><span data-i18n="historical.modal.back">Back</span></button><button class="mobile-complete-btn" onclick="historicalCompleteBooking()"><i class="fas fa-credit-card"></i><span data-i18n="historical.modal.complete">Complete Booking</span></button></div><div class="modal-actions"><button class="modal-btn btn-secondary" onclick="historicalPrevStep(3)" data-i18n="historical.modal.back">Back</button><button class="modal-btn btn-primary desktop-only" onclick="historicalCompleteBooking()"><i class="fas fa-credit-card"></i><span data-i18n="historical.modal.complete">Complete Booking</span></button></div></div></div></div></div>
+
+    <a href="https://wa.me/255797331005" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/><path fill="#25D366" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/><path fill="#25D366" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974"/><path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/><path fill="#25D366" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"/></svg></a>
+
+    <div id="google_translate_element" style="display: none !important;"></div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="jamiitek-status.js" data-api-key="THEIR_API_KEY_HERE" data-api-url="https://jamiitek.co.tz/api/site-status/"></script>
+    <script>
+        const translations = {
+  en: {
+    "nav.home": "Home", "nav.about": "About", "nav.destinations": "Destinations", "nav.mountain_climbing": "Mountain Climbing",
+    "nav.safaris": "Tanzania Safaris", "nav.zanzibar": "Zanzibar Beaches", "nav.cultural": "Cultural Tourism",
+    "nav.waterfalls": "Waterfall Tourism", "nav.historical": "Historical Sites", "nav.contact": "Contact",
+    "historical.hero.title": "Historical Sites Tanzania", "historical.hero.subtitle": "Explore Ancient Ruins, Colonial Heritage and Archaeological Wonders", "historical.hero.cta": "Book Historical Tour",
+    "historical.content.title": "Historical Journey Through Time", "historical.content.subtitle": "3 Days Exploring Tanzania's Rich Historical Legacy",
+    "historical.about.title": "About Historical Tourism", "historical.about.description": "Step back in time and explore Tanzania's fascinating historical legacy.",
+    "historical.highlights.title": "Historical Highlights",
+    "historical.highlights.item1": "Ancient Swahili ruins at Kilwa Kisiwani", "historical.highlights.item2": "German colonial architecture in Bagamoyo",
+    "historical.highlights.item3": "Olduvai Gorge - Cradle of Mankind", "historical.highlights.item4": "Stone Town's historic buildings", "historical.highlights.item5": "Slave trade history and memorials",
+    "historical.sites.title": "Tanzania's Historical Treasures",
+    "historical.sites.kilwa.title": "Kilwa Kisiwani - UNESCO World Heritage", "historical.sites.kilwa.description": "Explore the magnificent ruins of this medieval Swahili port city.",
+    "historical.sites.kilwa.feature1": "Great Mosque", "historical.sites.kilwa.feature2": "Ancient Palaces", "historical.sites.kilwa.feature3": "Trade History",
+    "historical.sites.bagamoyo.title": "Bagamoyo - Gateway to Africa", "historical.sites.bagamoyo.description": "Discover the haunting history of this former slave and ivory trading port.",
+    "historical.sites.bagamoyo.feature1": "Old Fort", "historical.sites.bagamoyo.feature2": "Historic Missions", "historical.sites.bagamoyo.feature3": "Slave Trade History",
+    "historical.sites.olduvai.title": "Olduvai Gorge - Cradle of Mankind", "historical.sites.olduvai.description": "Walk in the footsteps of our earliest ancestors.",
+    "historical.sites.olduvai.feature1": "Fossil Sites", "historical.sites.olduvai.feature2": "Hominid History", "historical.sites.olduvai.feature3": "Museum Visit",
+    "historical.itinerary.title": "3-Day Historical Discovery Itinerary",
+    "historical.itinerary.day1.title": "Day 1: Bagamoyo Historical Tour", "historical.itinerary.day1.duration": "Coastal History", "historical.itinerary.day1.activities": "Arrive in Bagamoyo, visit the Caravan Serai Museum, explore the Old Fort, see the Catholic Mission.",
+    "historical.itinerary.day2.title": "Day 2: Kaole Ruins & Colonial Architecture", "historical.itinerary.day2.duration": "Ancient & Colonial Era", "historical.itinerary.day2.activities": "Morning visit to Kaole Ruins with 13th century mosque and tombs, afternoon exploration of German Boma.",
+    "historical.itinerary.day3.title": "Day 3: Zanzibar Stone Town", "historical.itinerary.day3.duration": "Swahili Culture", "historical.itinerary.day3.activities": "Ferry to Zanzibar, guided tour of Stone Town UNESCO World Heritage site.",
+    "historical.packages.title": "Classification based on level and price",
+    "historical.packages.local.title": "3-Day Historical Tour", "historical.packages.local.desc": "Perfect for budget-conscious travelers.",
+    "historical.packages.local.feature1": "Transport Included", "historical.packages.local.feature2": "All Fees Included", "historical.packages.local.feature3": "Accommodation", "historical.packages.local.feature4": "All Meals",
+    "historical.packages.local.highlights": "Package Highlights", "historical.packages.local.highlight1": "Visit Bagamoyo, Kaole Ruins & Stone Town", "historical.packages.local.highlight2": "Comprehensive historical coverage", "historical.packages.local.highlight3": "Knowledgeable local guide", "historical.packages.local.highlight4": "All entrance fees included",
+    "historical.packages.vip.title": "3-Day Premium Tour", "historical.packages.vip.desc": "Enhanced comfort and exclusive experiences.",
+    "historical.packages.vip.feature1": "Premium Transport", "historical.packages.vip.feature2": "All Fees Included", "historical.packages.vip.feature3": "All Meals", "historical.packages.vip.feature4": "Expert Historian",
+    "historical.packages.vip.highlights": "VIP Benefits", "historical.packages.vip.highlight1": "Historian guide with PhD expertise", "historical.packages.vip.highlight2": "Flexible personalized itinerary", "historical.packages.vip.highlight3": "Professional photography assistance", "historical.packages.vip.highlight4": "Fine dining at historical venues",
+    "historical.packages.vvip.title": "3-Day Ultimate Experience", "historical.packages.vvip.desc": "The ultimate historical journey with luxury services.",
+    "historical.packages.vvip.feature1": "Luxury Transport", "historical.packages.vvip.feature2": "All Fees Included", "historical.packages.vvip.feature3": "All Meals", "historical.packages.vvip.feature4": "Flight DAR to ZNZ",
+    "historical.packages.vvip.highlights": "VVIP Exclusive", "historical.packages.vvip.highlight1": "Access to restricted archaeological sites", "historical.packages.vvip.highlight2": "Domestic flight included", "historical.packages.vvip.highlight3": "Personal renowned historian", "historical.packages.vvip.highlight4": "Exclusive publications & materials",
+    "historical.booking.title": "Ready to Explore History?", "historical.booking.subtitle": "Book your historical journey and walk through the pages of Tanzania's rich past.", "historical.booking.cta": "Book Historical Tour",
+    "historical.modal.title": "Book Your Historical Experience", "historical.modal.step1": "Package Type", "historical.modal.step2": "Traveler Type", "historical.modal.step3": "Select Package", "historical.modal.step4": "Booking Details",
+    "historical.modal.step1_title": "Choose Your Experience Level", "historical.modal.local.name": "LOCAL", "historical.modal.local.feature1": "3-Day Historical Tour", "historical.modal.local.feature2": "Group tours", "historical.modal.local.feature3": "Basic transport", "historical.modal.local.feature4": "Shared experiences",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "3-Day Historical Tour", "historical.modal.vip.feature2": "Private tours", "historical.modal.vip.feature3": "Expert historian guide", "historical.modal.vip.feature4": "Exclusive access",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "3-Day Historical Tour", "historical.modal.vvip.feature2": "Ultimate luxury", "historical.modal.vvip.feature3": "Renowned historian", "historical.modal.vvip.feature4": "Flight included",
+    "historical.modal.next_step2": "Next: Traveler Type", "historical.modal.cancel": "Cancel", "historical.modal.step2_title": "Who is traveling?",
+    "historical.modal.travel.single": "Single Traveler", "historical.modal.travel.single_desc": "Traveling alone", "historical.modal.travel.couple": "Couple", "historical.modal.travel.couple_desc": "Two people traveling together",
+    "historical.modal.travel.family": "Family", "historical.modal.travel.family_desc": "Family with children", "historical.modal.travel.group": "Group", "historical.modal.travel.group_desc": "Friends or group travel",
+    "historical.modal.group_size": "Number of People:", "historical.modal.back": "Back", "historical.modal.next_step3": "Next: Select Package",
+    "historical.modal.step3_title": "Select Your Package", "historical.modal.package_type_label": "Package Type:", "historical.modal.traveler_type_label": "Traveler Type:",
+    "historical.modal.people_label": "Number of People:", "historical.modal.package_label": "Selected Package:", "historical.modal.base_price_label": "Base Price:",
+    "historical.modal.multiplier_label": "People Multiplier:", "historical.modal.total_label": "Total Price:", "historical.modal.next_step4": "Next: Book Now",
+    "historical.modal.step4_title": "Confirm Your Booking", "historical.modal.summary_title": "Booking Summary", "historical.modal.destination_label": "Destination:",
+    "historical.modal.price_label": "Price:", "historical.modal.total_amount_label": "Total Amount:", "historical.modal.contact_title": "Contact Information",
+    "historical.modal.first_name": "First Name", "historical.modal.last_name": "Last Name", "historical.modal.email": "Email Address",
+    "historical.modal.phone": "Phone Number", "historical.modal.country": "Country", "historical.modal.arrival_date": "Arrival date", "historical.modal.departure_date": "Departure date",
+    "historical.modal.complete": "Complete Booking",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creating unforgettable experiences in the heart of Tanzania.",
+    "footer.quick_links": "Quick Links", "footer.destinations": "Destinations", "footer.contact_info": "Contact Info",
+    "footer.address": "Arusha, Tanzania", "footer.language": "Language:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. All rights reserved.",
+    "translation.loading": "Translating content..."
+  },
+  sw: {
+    "nav.home": "Nyumbani", "nav.about": "Kuhusu Sisi", "nav.destinations": "Sehemu za Kusisimua", "nav.mountain_climbing": "Kupanda Milima",
+    "nav.safaris": "Safari Tanzania", "nav.zanzibar": "Fuoni za Zanzibar", "nav.cultural": "Utalii wa Kitamaduni",
+    "nav.waterfalls": "Utalii wa Maporomoko", "nav.historical": "Maeneo ya Kihistoria", "nav.contact": "Wasiliana Nasi",
+    "historical.hero.title": "Maeneo ya Kihistoria Tanzania", "historical.hero.subtitle": "Chunguza Maghofu ya Kale, Urithi wa Kikoloni na Maajabu ya Kiakiolojia", "historical.hero.cta": "Weka Bukti ya Ziara ya Kihistoria",
+    "historical.content.title": "Safari ya Kihistoria Kupitia Wakati", "historical.content.subtitle": "Siku 3 za Kuchunguza Urithi wa Kihistoria wa Tanzania",
+    "historical.about.title": "Kuhusu Utalii wa Kihistoria", "historical.about.description": "Rudi nyuma kwa wakati na uchunguze urithi wa kuvutia wa kihistoria wa Tanzania.",
+    "historical.highlights.title": "Vivutio vya Kihistoria",
+    "historical.highlights.item1": "Maghofu ya kale ya Waswahili huko Kilwa Kisiwani", "historical.highlights.item2": "Usanifu wa kikoloni wa Kijerumani huko Bagamoyo",
+    "historical.highlights.item3": "Olduvai Gorge - Eneo la Asili ya Mwanadamu", "historical.highlights.item4": "Majengo ya kihistoria ya Stone Town", "historical.highlights.item5": "Historia ya biashara ya utumwa na makumbusho",
+    "historical.sites.title": "Hazina za Kihistoria za Tanzania",
+    "historical.sites.kilwa.title": "Kilwa Kisiwani - Urithi wa Dunia UNESCO", "historical.sites.kilwa.description": "Chunguza maghofu mazuri ya mji huu wa bandari wa Kiswahili wa zama za kati.",
+    "historical.sites.kilwa.feature1": "Msikiti Mkuu", "historical.sites.kilwa.feature2": "Majumba ya Kale", "historical.sites.kilwa.feature3": "Historia ya Biashara",
+    "historical.sites.bagamoyo.title": "Bagamoyo - Lango la Afrika", "historical.sites.bagamoyo.description": "Gundua historia ya kusisimua ya bandari hii ya zamani ya biashara ya utumwa na pembe za ndovu.",
+    "historical.sites.bagamoyo.feature1": "Ngome ya Kale", "historical.sites.bagamoyo.feature2": "Misioni za Kihistoria", "historical.sites.bagamoyo.feature3": "Historia ya Biashara ya Utumwa",
+    "historical.sites.olduvai.title": "Olduvai Gorge - Eneo la Asili ya Mwanadamu", "historical.sites.olduvai.description": "Tembea katika nyayo za babu zetu wa kwanza.",
+    "historical.sites.olduvai.feature1": "Maeneo ya Visukuku", "historical.sites.olduvai.feature2": "Historia ya Hominidi", "historical.sites.olduvai.feature3": "Ziara ya Makumbusho",
+    "historical.itinerary.title": "Ratiba ya Siku 3 ya Ugunduzi wa Kihistoria",
+    "historical.itinerary.day1.title": "Siku 1: Ziara ya Kihistoria Bagamoyo", "historical.itinerary.day1.duration": "Historia ya Pwani", "historical.itinerary.day1.activities": "Fika Bagamoyo, tembelea Makumbusho ya Caravan Serai, chunguza Ngome ya Kale, uone Misheni ya Kikatoliki.",
+    "historical.itinerary.day2.title": "Siku 2: Maghofu ya Kaole na Usanifu wa Kikoloni", "historical.itinerary.day2.duration": "Eneo la Kale na Kikoloni", "historical.itinerary.day2.activities": "Ziara ya asubuhi ya Maghofu ya Kaole yenye msikiti na makaburi ya karne ya 13, uchunguzi wa mchana wa Boma la Kijerumani.",
+    "historical.itinerary.day3.title": "Siku 3: Jiji la Mawe la Zanzibar", "historical.itinerary.day3.duration": "Utamaduni wa Kiswahili", "historical.itinerary.day3.activities": "Ferry kwenda Zanzibar, ziara ya kuongozwa ya Jiji la Mawe la Zanzibar - tovuti ya Urithi wa Dunia UNESCO.",
+    "historical.packages.title": "Uainishaji kulingana na kiwango na bei",
+    "historical.packages.local.title": "Ziara ya Siku 3 ya Kihistoria", "historical.packages.local.desc": "Inafaa kwa wasafiri wanaozingatia bajeti.",
+    "historical.packages.local.feature1": "Usafiri Umejumuishwa", "historical.packages.local.feature2": "Ada Zote Zimejumuishwa", "historical.packages.local.feature3": "Malazi", "historical.packages.local.feature4": "Chakula Chote",
+    "historical.packages.local.highlights": "Vivutio vya Kifurushi", "historical.packages.local.highlight1": "Tembelea Bagamoyo, Maghofu ya Kaole na Jiji la Mawe", "historical.packages.local.highlight2": "Ufikiaji kamili wa kihistoria", "historical.packages.local.highlight3": "Mwongozaji mwenye ujuzi wa kienyeji", "historical.packages.local.highlight4": "Ada zote za kuingia zimejumuishwa",
+    "historical.packages.vip.title": "Ziara ya Siku 3 ya Kipremia", "historical.packages.vip.desc": "Urahisi ulioimarishwa na uzoefu wa kipekee.",
+    "historical.packages.vip.feature1": "Usafiri wa Kipremia", "historical.packages.vip.feature2": "Ada Zote Zimejumuishwa", "historical.packages.vip.feature3": "Chakula Chote", "historical.packages.vip.feature4": "Mwanahistoria Mtaalamu",
+    "historical.packages.vip.highlights": "Manufaa ya VIP", "historical.packages.vip.highlight1": "Mwongozaji mwanahistoria aliye na shahada ya PhD", "historical.packages.vip.highlight2": "Ratiba inayobadilika kulingana na wewe", "historical.packages.vip.highlight3": "Usaidizi wa upigaji picha wa kitaalamu", "historical.packages.vip.highlight4": "Kula vyakula vyema kwenye kumbi za kihistoria",
+    "historical.packages.vvip.title": "Uzoefu wa Siku 3 wa Kipekee Kabisa", "historical.packages.vvip.desc": "Safari ya mwisho ya kihistoria yenye huduma za kifahari.",
+    "historical.packages.vvip.feature1": "Usafiri wa Kifahari", "historical.packages.vvip.feature2": "Ada Zote Zimejumuishwa", "historical.packages.vvip.feature3": "Chakula Chote", "historical.packages.vvip.feature4": "Ndege DAR hadi ZNZ",
+    "historical.packages.vvip.highlights": "Kipekee cha VVIP", "historical.packages.vvip.highlight1": "Ufikiaji wa maeneo ya kiakiolojia yaliyozuiliwa", "historical.packages.vvip.highlight2": "Ndege ya ndani imejumuishwa", "historical.packages.vvip.highlight3": "Mwanahistoria maarufu wa kibinafsi", "historical.packages.vvip.highlight4": "Machapisho na nyenzo za kipekee",
+    "historical.booking.title": "Uko Tayari Kuchunguza Historia?", "historical.booking.subtitle": "Weka bukti ya safari yako ya kihistoria na utembee kupitia kurasa za historia tajiri ya Tanzania.", "historical.booking.cta": "Weka Bukti ya Ziara ya Kihistoria",
+    "historical.modal.title": "Weka Bukti ya Uzoefu Wako wa Kihistoria", "historical.modal.step1": "Aina ya Kifurushi", "historical.modal.step2": "Aina ya Msafiri", "historical.modal.step3": "Chagua Kifurushi", "historical.modal.step4": "Maelezo ya Uwekaji Bukti",
+    "historical.modal.step1_title": "Chagua Kiwango Chako cha Uzoefu", "historical.modal.local.name": "NDANI", "historical.modal.local.feature1": "Ziara ya Siku 3 ya Kihistoria", "historical.modal.local.feature2": "Safari za kikundi", "historical.modal.local.feature3": "Usafiri wa kawaida", "historical.modal.local.feature4": "Uzoefu wa pamoja",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "Ziara ya Siku 3 ya Kihistoria", "historical.modal.vip.feature2": "Safari za kibinafsi", "historical.modal.vip.feature3": "Mwongozaji mwanahistoria mtaalamu", "historical.modal.vip.feature4": "Ufikiaji wa kipekee",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "Ziara ya Siku 3 ya Kihistoria", "historical.modal.vvip.feature2": "Kifahari cha mwisho", "historical.modal.vvip.feature3": "Mwanahistoria maarufu", "historical.modal.vvip.feature4": "Ndege imejumuishwa",
+    "historical.modal.next_step2": "Inayofuata: Aina ya Msafiri", "historical.modal.cancel": "Ghairi", "historical.modal.step2_title": "Nani anasafiri?",
+    "historical.modal.travel.single": "Msafiri Peke Yake", "historical.modal.travel.single_desc": "Kusafiri peke yako", "historical.modal.travel.couple": "Wanandoa", "historical.modal.travel.couple_desc": "Watu wawili wakisafiri pamoja", "historical.modal.travel.family": "Familia", "historical.modal.travel.family_desc": "Familia yenye watoto", "historical.modal.travel.group": "Kikundi", "historical.modal.travel.group_desc": "Marafiki au safari ya kikundi",
+    "historical.modal.group_size": "Idadi ya Watu:", "historical.modal.back": "Nyuma", "historical.modal.next_step3": "Inayofuata: Chagua Kifurushi",
+    "historical.modal.step3_title": "Chagua Kifurushi Chako", "historical.modal.package_type_label": "Aina ya Kifurushi:", "historical.modal.traveler_type_label": "Aina ya Msafiri:",
+    "historical.modal.people_label": "Idadi ya Watu:", "historical.modal.package_label": "Kifurushi Kilichochaguliwa:", "historical.modal.base_price_label": "Bei ya Msingi:",
+    "historical.modal.multiplier_label": "Kizidishi cha Idadi:", "historical.modal.total_label": "Bei Jumla:", "historical.modal.next_step4": "Inayofuata: Weka Bukti Sasa",
+    "historical.modal.step4_title": "Thibitisha Uwekaji Bukti Wako", "historical.modal.summary_title": "Muhtasari wa Uwekaji Bukti", "historical.modal.destination_label": "Mahali:",
+    "historical.modal.price_label": "Bei:", "historical.modal.total_amount_label": "Kiasi Jumla:", "historical.modal.contact_title": "Maelezo ya Mawasiliano",
+    "historical.modal.first_name": "Jina la Kwanza", "historical.modal.last_name": "Jina la Mwisho", "historical.modal.email": "Barua pepe",
+    "historical.modal.phone": "Nambari ya Simu", "historical.modal.country": "Nchi", "historical.modal.arrival_date": "Tarehe ya Kuwasili", "historical.modal.departure_date": "Tarehe ya Kuondoka",
+    "historical.modal.complete": "Kamilisha Uwekaji Bukti",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Tunatengeneza uzoefu usiosahaulika moyoni mwa Tanzania.",
+    "footer.quick_links": "Viungo vya Haraka", "footer.destinations": "Sehemu za Kusisimua", "footer.contact_info": "Maelezo ya Mawasiliano",
+    "footer.address": "Arusha, Tanzania", "footer.language": "Lugha:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Haki zote zimehifadhiwa.",
+    "translation.loading": "Inatafsiri maudhui..."
+  },
+  fr: {
+    "nav.home": "Accueil", "nav.about": "À Propos", "nav.destinations": "Destinations", "nav.mountain_climbing": "Ascension de Montagnes",
+    "nav.safaris": "Safaris Tanzanie", "nav.zanzibar": "Plages de Zanzibar", "nav.cultural": "Tourisme Culturel",
+    "nav.waterfalls": "Tourisme des Cascades", "nav.historical": "Sites Historiques", "nav.contact": "Contact",
+    "historical.hero.title": "Sites Historiques Tanzanie", "historical.hero.subtitle": "Explorez les Ruines Antiques, le Patrimoine Colonial et les Merveilles Archéologiques", "historical.hero.cta": "Réservez une Visite Historique",
+    "historical.content.title": "Voyage Historique à Travers le Temps", "historical.content.subtitle": "3 Jours pour Explorer le Riche Héritage Historique de la Tanzanie",
+    "historical.about.title": "À Propos du Tourisme Historique", "historical.about.description": "Remontez le temps et explorez l'héritage historique fascinant de la Tanzanie.",
+    "historical.highlights.title": "Points Forts Historiques",
+    "historical.highlights.item1": "Ruines antiques swahilies à Kilwa Kisiwani", "historical.highlights.item2": "Architecture coloniale allemande à Bagamoyo",
+    "historical.highlights.item3": "Gorges d'Olduvai - Berceau de l'Humanité", "historical.highlights.item4": "Bâtiments historiques de Stone Town", "historical.highlights.item5": "Histoire et mémoriaux de la traite des esclaves",
+    "historical.sites.title": "Trésors Historiques de la Tanzanie",
+    "historical.sites.kilwa.title": "Kilwa Kisiwani - Patrimoine Mondial de l'UNESCO", "historical.sites.kilwa.description": "Explorez les magnifiques ruines de cette cité portuaire swahilie médiévale.",
+    "historical.sites.kilwa.feature1": "Grande Mosquée", "historical.sites.kilwa.feature2": "Palais Antiques", "historical.sites.kilwa.feature3": "Histoire du Commerce",
+    "historical.sites.bagamoyo.title": "Bagamoyo - Porte de l'Afrique", "historical.sites.bagamoyo.description": "Découvrez l'histoire obsédante de cet ancien port de traite des esclaves et de l'ivoire.",
+    "historical.sites.bagamoyo.feature1": "Vieux Fort", "historical.sites.bagamoyo.feature2": "Missions Historiques", "historical.sites.bagamoyo.feature3": "Histoire de la Traite des Esclaves",
+    "historical.sites.olduvai.title": "Gorges d'Olduvai - Berceau de l'Humanité", "historical.sites.olduvai.description": "Marchez sur les traces de nos plus anciens ancêtres.",
+    "historical.sites.olduvai.feature1": "Sites Fossiles", "historical.sites.olduvai.feature2": "Histoire des Hominidés", "historical.sites.olduvai.feature3": "Visite du Musée",
+    "historical.itinerary.title": "Itinéraire de Découverte Historique de 3 Jours",
+    "historical.itinerary.day1.title": "Jour 1: Visite Historique de Bagamoyo", "historical.itinerary.day1.duration": "Histoire Côtière", "historical.itinerary.day1.activities": "Arrivée à Bagamoyo, visite du Musée Caravan Serai, exploration du Vieux Fort, visite de la Mission Catholique.",
+    "historical.itinerary.day2.title": "Jour 2: Ruines de Kaole et Architecture Coloniale", "historical.itinerary.day2.duration": "Époque Ancienne et Coloniale", "historical.itinerary.day2.activities": "Visite matinale des Ruines de Kaole avec mosquée et tombes du 13ème siècle, exploration l'après-midi du Boma allemand.",
+    "historical.itinerary.day3.title": "Jour 3: Stone Town de Zanzibar", "historical.itinerary.day3.duration": "Culture Swahilie", "historical.itinerary.day3.activities": "Traversier vers Zanzibar, visite guidée du site du patrimoine mondial de l'UNESCO Stone Town.",
+    "historical.packages.title": "Classification basée sur le niveau et le prix",
+    "historical.packages.local.title": "Visite Historique de 3 Jours", "historical.packages.local.desc": "Parfait pour les voyageurs soucieux de leur budget.",
+    "historical.packages.local.feature1": "Transport Inclus", "historical.packages.local.feature2": "Tous les Frais Inclus", "historical.packages.local.feature3": "Hébergement", "historical.packages.local.feature4": "Tous les Repas",
+    "historical.packages.local.highlights": "Points Forts du Forfait", "historical.packages.local.highlight1": "Visite de Bagamoyo, Ruines de Kaole et Stone Town", "historical.packages.local.highlight2": "Couverture historique complète", "historical.packages.local.highlight3": "Guide local compétent", "historical.packages.local.highlight4": "Tous les frais d'entrée inclus",
+    "historical.packages.vip.title": "Visite Premium de 3 Jours", "historical.packages.vip.desc": "Confort amélioré et expériences exclusives.",
+    "historical.packages.vip.feature1": "Transport Premium", "historical.packages.vip.feature2": "Tous les Frais Inclus", "historical.packages.vip.feature3": "Tous les Repas", "historical.packages.vip.feature4": "Historien Expert",
+    "historical.packages.vip.highlights": "Avantages VIP", "historical.packages.vip.highlight1": "Guide historien avec expertise de doctorat", "historical.packages.vip.highlight2": "Itinéraire personnalisé flexible", "historical.packages.vip.highlight3": "Assistance photographique professionnelle", "historical.packages.vip.highlight4": "Repas gastronomiques dans des lieux historiques",
+    "historical.packages.vvip.title": "Expérience Ultime de 3 Jours", "historical.packages.vvip.desc": "Le voyage historique ultime avec des services de luxe.",
+    "historical.packages.vvip.feature1": "Transport de Luxe", "historical.packages.vvip.feature2": "Tous les Frais Inclus", "historical.packages.vvip.feature3": "Tous les Repas", "historical.packages.vvip.feature4": "Vol DAR vers ZNZ",
+    "historical.packages.vvip.highlights": "Exclusivité VVIP", "historical.packages.vvip.highlight1": "Accès aux sites archéologiques restreints", "historical.packages.vvip.highlight2": "Vol domestique inclus", "historical.packages.vvip.highlight3": "Historien renommé personnel", "historical.packages.vvip.highlight4": "Publications et matériaux exclusifs",
+    "historical.booking.title": "Prêt à Explorer l'Histoire?", "historical.booking.subtitle": "Réservez votre voyage historique et parcourez les pages du riche passé de la Tanzanie.", "historical.booking.cta": "Réservez une Visite Historique",
+    "historical.modal.title": "Réservez Votre Expérience Historique", "historical.modal.step1": "Type de Forfait", "historical.modal.step2": "Type de Voyageur", "historical.modal.step3": "Sélectionner un Forfait", "historical.modal.step4": "Détails de Réservation",
+    "historical.modal.step1_title": "Choisissez Votre Niveau d'Expérience", "historical.modal.local.name": "LOCAL", "historical.modal.local.feature1": "Visite Historique de 3 Jours", "historical.modal.local.feature2": "Visites de groupe", "historical.modal.local.feature3": "Transport de base", "historical.modal.local.feature4": "Expériences partagées",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "Visite Historique de 3 Jours", "historical.modal.vip.feature2": "Visites privées", "historical.modal.vip.feature3": "Guide historien expert", "historical.modal.vip.feature4": "Accès exclusif",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "Visite Historique de 3 Jours", "historical.modal.vvip.feature2": "Luxe ultime", "historical.modal.vvip.feature3": "Historien renommé", "historical.modal.vvip.feature4": "Vol inclus",
+    "historical.modal.next_step2": "Suivant: Type de Voyageur", "historical.modal.cancel": "Annuler", "historical.modal.step2_title": "Qui voyage?",
+    "historical.modal.travel.single": "Voyageur Solo", "historical.modal.travel.single_desc": "Voyager seul", "historical.modal.travel.couple": "Couple", "historical.modal.travel.couple_desc": "Deux personnes voyageant ensemble", "historical.modal.travel.family": "Famille", "historical.modal.travel.family_desc": "Famille avec enfants", "historical.modal.travel.group": "Groupe", "historical.modal.travel.group_desc": "Amis ou voyage en groupe",
+    "historical.modal.group_size": "Nombre de Personnes:", "historical.modal.back": "Retour", "historical.modal.next_step3": "Suivant: Sélectionner un Forfait",
+    "historical.modal.step3_title": "Sélectionnez Votre Forfait", "historical.modal.package_type_label": "Type de Forfait:", "historical.modal.traveler_type_label": "Type de Voyageur:",
+    "historical.modal.people_label": "Nombre de Personnes:", "historical.modal.package_label": "Forfait Sélectionné:", "historical.modal.base_price_label": "Prix de Base:",
+    "historical.modal.multiplier_label": "Multiplicateur de Personnes:", "historical.modal.total_label": "Prix Total:", "historical.modal.next_step4": "Suivant: Réserver Maintenant",
+    "historical.modal.step4_title": "Confirmez Votre Réservation", "historical.modal.summary_title": "Résumé de la Réservation", "historical.modal.destination_label": "Destination:",
+    "historical.modal.price_label": "Prix:", "historical.modal.total_amount_label": "Montant Total:", "historical.modal.contact_title": "Coordonnées",
+    "historical.modal.first_name": "Prénom", "historical.modal.last_name": "Nom", "historical.modal.email": "Adresse E-mail",
+    "historical.modal.phone": "Numéro de Téléphone", "historical.modal.country": "Pays", "historical.modal.arrival_date": "Date d'Arrivée", "historical.modal.departure_date": "Date de Départ",
+    "historical.modal.complete": "Finaliser la Réservation",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Création d'expériences inoubliables au cœur de la Tanzanie.",
+    "footer.quick_links": "Liens Rapides", "footer.destinations": "Destinations", "footer.contact_info": "Informations de Contact",
+    "footer.address": "Arusha, Tanzanie", "footer.language": "Langue:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Tous droits réservés.",
+    "translation.loading": "Traduction du contenu..."
+  },
+  de: {
+    "nav.home": "Startseite", "nav.about": "Über Uns", "nav.destinations": "Destinationen", "nav.mountain_climbing": "Bergsteigen",
+    "nav.safaris": "Tansania Safaris", "nav.zanzibar": "Zanzibar Strände", "nav.cultural": "Kulturtourismus",
+    "nav.waterfalls": "Wasserfall-Tourismus", "nav.historical": "Historische Stätten", "nav.contact": "Kontakt",
+    "historical.hero.title": "Historische Stätten Tansania", "historical.hero.subtitle": "Entdecken Sie antike Ruinen, Kolonialerbe und archäologische Wunder", "historical.hero.cta": "Historische Tour Buchen",
+    "historical.content.title": "Historische Reise Durch die Zeit", "historical.content.subtitle": "3 Tage Erkundung des reichen historischen Erbes Tansanias",
+    "historical.about.title": "Über Historischen Tourismus", "historical.about.description": "Reisen Sie zurück in die Zeit und erkunden Sie das faszinierende historische Erbe Tansanias.",
+    "historical.highlights.title": "Historische Höhepunkte",
+    "historical.highlights.item1": "Antike Suaheli-Ruinen in Kilwa Kisiwani", "historical.highlights.item2": "Deutsche Kolonialarchitektur in Bagamoyo",
+    "historical.highlights.item3": "Olduvai-Schlucht - Wiege der Menschheit", "historical.highlights.item4": "Historische Gebäude von Stone Town", "historical.highlights.item5": "Geschichte und Denkmäler des Sklavenhandels",
+    "historical.sites.title": "Historische Schätze Tansanias",
+    "historical.sites.kilwa.title": "Kilwa Kisiwani - UNESCO-Welterbe", "historical.sites.kilwa.description": "Erkunden Sie die prächtigen Ruinen dieser mittelalterlichen Suaheli-Hafenstadt.",
+    "historical.sites.kilwa.feature1": "Große Moschee", "historical.sites.kilwa.feature2": "Antike Paläste", "historical.sites.kilwa.feature3": "Handelsgeschichte",
+    "historical.sites.bagamoyo.title": "Bagamoyo - Tor zu Afrika", "historical.sites.bagamoyo.description": "Entdecken Sie die eindringliche Geschichte dieses ehemaligen Sklaven- und Elfenbeinhandelshafens.",
+    "historical.sites.bagamoyo.feature1": "Alte Festung", "historical.sites.bagamoyo.feature2": "Historische Missionen", "historical.sites.bagamoyo.feature3": "Geschichte des Sklavenhandels",
+    "historical.sites.olduvai.title": "Olduvai-Schlucht - Wiege der Menschheit", "historical.sites.olduvai.description": "Gehen Sie in den Fußstapfen unserer frühesten Vorfahren.",
+    "historical.sites.olduvai.feature1": "Fossilienstätten", "historical.sites.olduvai.feature2": "Geschichte der Hominiden", "historical.sites.olduvai.feature3": "Museumsbesuch",
+    "historical.itinerary.title": "3-tägige Reiseroute zur Historischen Entdeckung",
+    "historical.itinerary.day1.title": "Tag 1: Historische Tour durch Bagamoyo", "historical.itinerary.day1.duration": "Küstengeschichte", "historical.itinerary.day1.activities": "Ankunft in Bagamoyo, Besuch des Caravan Serai Museums, Erkundung der Alten Festung, Besichtigung der Katholischen Mission.",
+    "historical.itinerary.day2.title": "Tag 2: Kaole-Ruinen und Kolonialarchitektur", "historical.itinerary.day2.duration": "Antike und Kolonialzeit", "historical.itinerary.day2.activities": "Morgenbesuch der Kaole-Ruinen mit Moschee und Gräbern aus dem 13. Jahrhundert, Nachmittagserkundung des Deutschen Boma.",
+    "historical.itinerary.day3.title": "Tag 3: Stone Town in Zanzibar", "historical.itinerary.day3.duration": "Suaheli-Kultur", "historical.itinerary.day3.activities": "Fähre nach Zansibar, geführte Tour durch die Stone Town UNESCO-Welterbestätte.",
+    "historical.packages.title": "Klassifizierung nach Niveau und Preis",
+    "historical.packages.local.title": "3-tägige Historische Tour", "historical.packages.local.desc": "Perfekt für preisbewusste Reisende.",
+    "historical.packages.local.feature1": "Transport Inklusive", "historical.packages.local.feature2": "Alle Gebühren Inklusive", "historical.packages.local.feature3": "Unterkunft", "historical.packages.local.feature4": "Alle Mahlzeiten",
+    "historical.packages.local.highlights": "Paket-Highlights", "historical.packages.local.highlight1": "Besuch von Bagamoyo, Kaole-Ruinen und Stone Town", "historical.packages.local.highlight2": "Umfassende historische Abdeckung", "historical.packages.local.highlight3": "Kundiger lokaler Führer", "historical.packages.local.highlight4": "Alle Eintrittsgebühren inklusive",
+    "historical.packages.vip.title": "3-tägige Premium-Tour", "historical.packages.vip.desc": "Verbesserter Komfort und exklusive Erlebnisse.",
+    "historical.packages.vip.feature1": "Premium-Transport", "historical.packages.vip.feature2": "Alle Gebühren Inklusive", "historical.packages.vip.feature3": "Alle Mahlzeiten", "historical.packages.vip.feature4": "Experten-Historiker",
+    "historical.packages.vip.highlights": "VIP-Vorteile", "historical.packages.vip.highlight1": "Historikerführer mit PhD-Expertise", "historical.packages.vip.highlight2": "Flexibler personalisierter Reiseplan", "historical.packages.vip.highlight3": "Professionelle Fotografie-Unterstützung", "historical.packages.vip.highlight4": "Feinschmeckeressen an historischen Orten",
+    "historical.packages.vvip.title": "3-tägiges Ultimatives Erlebnis", "historical.packages.vvip.desc": "Die ultimative historische Reise mit Luxusdienstleistungen.",
+    "historical.packages.vvip.feature1": "Luxustransport", "historical.packages.vvip.feature2": "Alle Gebühren Inklusive", "historical.packages.vvip.feature3": "Alle Mahlzeiten", "historical.packages.vvip.feature4": "Flug DAR nach ZNZ",
+    "historical.packages.vvip.highlights": "VVIP-Exklusiv", "historical.packages.vvip.highlight1": "Zugang zu eingeschränkten archäologischen Stätten", "historical.packages.vvip.highlight2": "Inlandsflug inklusive", "historical.packages.vvip.highlight3": "Persönlicher renommierter Historiker", "historical.packages.vvip.highlight4": "Exklusive Publikationen und Materialien",
+    "historical.booking.title": "Bereit, Geschichte zu entdecken?", "historical.booking.subtitle": "Buchen Sie Ihre historische Reise und wandeln Sie durch die Seiten der reichen Vergangenheit Tansanias.", "historical.booking.cta": "Historische Tour Buchen",
+    "historical.modal.title": "Buchen Sie Ihr Historisches Erlebnis", "historical.modal.step1": "Pakettyp", "historical.modal.step2": "Reisetyp", "historical.modal.step3": "Paket auswählen", "historical.modal.step4": "Buchungsdetails",
+    "historical.modal.step1_title": "Wählen Sie Ihre Erfahrungsstufe", "historical.modal.local.name": "LOKAL", "historical.modal.local.feature1": "3-tägige Historische Tour", "historical.modal.local.feature2": "Gruppenreisen", "historical.modal.local.feature3": "Basistransport", "historical.modal.local.feature4": "Geteilte Erlebnisse",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "3-tägige Historische Tour", "historical.modal.vip.feature2": "Private Touren", "historical.modal.vip.feature3": "Experten-Historikerführer", "historical.modal.vip.feature4": "Exklusiver Zugang",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "3-tägige Historische Tour", "historical.modal.vvip.feature2": "Ultimativer Luxus", "historical.modal.vvip.feature3": "Renommierter Historiker", "historical.modal.vvip.feature4": "Flug inklusive",
+    "historical.modal.next_step2": "Weiter: Reisetyp", "historical.modal.cancel": "Abbrechen", "historical.modal.step2_title": "Wer reist?",
+    "historical.modal.travel.single": "Alleinreisender", "historical.modal.travel.single_desc": "Alleine reisen", "historical.modal.travel.couple": "Paar", "historical.modal.travel.couple_desc": "Zwei Personen reisen zusammen", "historical.modal.travel.family": "Familie", "historical.modal.travel.family_desc": "Familie mit Kindern", "historical.modal.travel.group": "Gruppe", "historical.modal.travel.group_desc": "Freunde oder Gruppenreise",
+    "historical.modal.group_size": "Anzahl der Personen:", "historical.modal.back": "Zurück", "historical.modal.next_step3": "Weiter: Paket auswählen",
+    "historical.modal.step3_title": "Wählen Sie Ihr Paket", "historical.modal.package_type_label": "Pakettyp:", "historical.modal.traveler_type_label": "Reisetyp:",
+    "historical.modal.people_label": "Anzahl der Personen:", "historical.modal.package_label": "Ausgewähltes Paket:", "historical.modal.base_price_label": "Basispreis:",
+    "historical.modal.multiplier_label": "Personen-Multiplikator:", "historical.modal.total_label": "Gesamtpreis:", "historical.modal.next_step4": "Weiter: Jetzt Buchen",
+    "historical.modal.step4_title": "Bestätigen Sie Ihre Buchung", "historical.modal.summary_title": "Buchungszusammenfassung", "historical.modal.destination_label": "Reiseziel:",
+    "historical.modal.price_label": "Preis:", "historical.modal.total_amount_label": "Gesamtbetrag:", "historical.modal.contact_title": "Kontaktinformationen",
+    "historical.modal.first_name": "Vorname", "historical.modal.last_name": "Nachname", "historical.modal.email": "E-Mail-Adresse",
+    "historical.modal.phone": "Telefonnummer", "historical.modal.country": "Land", "historical.modal.arrival_date": "Anreisedatum", "historical.modal.departure_date": "Abreisedatum",
+    "historical.modal.complete": "Buchung abschließen",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Schaffung unvergesslicher Erlebnisse im Herzen Tansanias.",
+    "footer.quick_links": "Schnelllinks", "footer.destinations": "Destinationen", "footer.contact_info": "Kontaktinformationen",
+    "footer.address": "Arusha, Tansania", "footer.language": "Sprache:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Alle Rechte vorbehalten.",
+    "translation.loading": "Inhalte werden übersetzt..."
+  },
+  es: {
+    "nav.home": "Inicio", "nav.about": "Acerca de", "nav.destinations": "Destinos", "nav.mountain_climbing": "Escalada de Montañas",
+    "nav.safaris": "Safaris Tanzania", "nav.zanzibar": "Playas de Zanzíbar", "nav.cultural": "Turismo Cultural",
+    "nav.waterfalls": "Turismo de Cascadas", "nav.historical": "Sitios Históricos", "nav.contact": "Contacto",
+    "historical.hero.title": "Sitios Históricos Tanzania", "historical.hero.subtitle": "Explore Ruinas Antiguas, Patrimonio Colonial y Maravillas Arqueológicas", "historical.hero.cta": "Reserve Tour Histórico",
+    "historical.content.title": "Viaje Histórico a Través del Tiempo", "historical.content.subtitle": "3 Días Explorando el Rico Legado Histórico de Tanzania",
+    "historical.about.title": "Acerca del Turismo Histórico", "historical.about.description": "Retroceda en el tiempo y explore el fascinante legado histórico de Tanzania.",
+    "historical.highlights.title": "Aspectos Históricos Destacados",
+    "historical.highlights.item1": "Ruinas swahili antiguas en Kilwa Kisiwani", "historical.highlights.item2": "Arquitectura colonial alemana en Bagamoyo",
+    "historical.highlights.item3": "Garganta de Olduvai - Cuna de la Humanidad", "historical.highlights.item4": "Edificios históricos de Stone Town", "historical.highlights.item5": "Historia y memoriales de la trata de esclavos",
+    "historical.sites.title": "Tesoros Históricos de Tanzania",
+    "historical.sites.kilwa.title": "Kilwa Kisiwani - Patrimonio de la Humanidad UNESCO", "historical.sites.kilwa.description": "Explore las magníficas ruinas de esta ciudad portuaria swahili medieval.",
+    "historical.sites.kilwa.feature1": "Gran Mezquita", "historical.sites.kilwa.feature2": "Palacios Antiguos", "historical.sites.kilwa.feature3": "Historia del Comercio",
+    "historical.sites.bagamoyo.title": "Bagamoyo - Puerta de Entrada a África", "historical.sites.bagamoyo.description": "Descubra la inquietante historia de este antiguo puerto de trata de esclavos y marfil.",
+    "historical.sites.bagamoyo.feature1": "Fuerte Viejo", "historical.sites.bagamoyo.feature2": "Misiones Históricas", "historical.sites.bagamoyo.feature3": "Historia de la Trata de Esclavos",
+    "historical.sites.olduvai.title": "Garganta de Olduvai - Cuna de la Humanidad", "historical.sites.olduvai.description": "Camine sobre las huellas de nuestros primeros antepasados.",
+    "historical.sites.olduvai.feature1": "Yacimientos de Fósiles", "historical.sites.olduvai.feature2": "Historia de los Homínidos", "historical.sites.olduvai.feature3": "Visita al Museo",
+    "historical.itinerary.title": "Itinerario de Descubrimiento Histórico de 3 Días",
+    "historical.itinerary.day1.title": "Día 1: Tour Histórico de Bagamoyo", "historical.itinerary.day1.duration": "Historia Costera", "historical.itinerary.day1.activities": "Llegada a Bagamoyo, visite el Museo Caravan Serai, explore el Fuerte Viejo, vea la Misión Católica.",
+    "historical.itinerary.day2.title": "Día 2: Ruinas de Kaole y Arquitectura Colonial", "historical.itinerary.day2.duration": "Era Antigua y Colonial", "historical.itinerary.day2.activities": "Visita matutina a las Ruinas de Kaole con mezquita y tumbas del siglo XIII, exploración por la tarde del Boma alemán.",
+    "historical.itinerary.day3.title": "Día 3: Stone Town de Zanzíbar", "historical.itinerary.day3.duration": "Cultura Swahili", "historical.itinerary.day3.activities": "Ferry a Zanzíbar, recorrido guiado por el sitio del Patrimonio Mundial de la UNESCO Stone Town.",
+    "historical.packages.title": "Clasificación según nivel y precio",
+    "historical.packages.local.title": "Tour Histórico de 3 Días", "historical.packages.local.desc": "Perfecto para viajeros con presupuesto ajustado.",
+    "historical.packages.local.feature1": "Transporte Incluido", "historical.packages.local.feature2": "Todas las Tarifas Incluidas", "historical.packages.local.feature3": "Alojamiento", "historical.packages.local.feature4": "Todas las Comidas",
+    "historical.packages.local.highlights": "Aspectos Destacados del Paquete", "historical.packages.local.highlight1": "Visite Bagamoyo, Ruinas de Kaole y Stone Town", "historical.packages.local.highlight2": "Cobertura histórica completa", "historical.packages.local.highlight3": "Guía local con conocimientos", "historical.packages.local.highlight4": "Todas las tarifas de entrada incluidas",
+    "historical.packages.vip.title": "Tour Premium de 3 Días", "historical.packages.vip.desc": "Comodidad mejorada y experiencias exclusivas.",
+    "historical.packages.vip.feature1": "Transporte Premium", "historical.packages.vip.feature2": "Todas las Tarifas Incluidas", "historical.packages.vip.feature3": "Todas las Comidas", "historical.packages.vip.feature4": "Historiador Experto",
+    "historical.packages.vip.highlights": "Beneficios VIP", "historical.packages.vip.highlight1": "Guía historiador con experiencia de doctorado", "historical.packages.vip.highlight2": "Itinerario personalizado flexible", "historical.packages.vip.highlight3": "Asistencia profesional de fotografía", "historical.packages.vip.highlight4": "Cena fina en lugares históricos",
+    "historical.packages.vvip.title": "Experiencia Última de 3 Días", "historical.packages.vvip.desc": "El viaje histórico definitivo con servicios de lujo.",
+    "historical.packages.vvip.feature1": "Transporte de Lujo", "historical.packages.vvip.feature2": "Todas las Tarifas Incluidas", "historical.packages.vvip.feature3": "Todas las Comidas", "historical.packages.vvip.feature4": "Vuelo DAR a ZNZ",
+    "historical.packages.vvip.highlights": "Exclusivo VVIP", "historical.packages.vvip.highlight1": "Acceso a sitios arqueológicos restringidos", "historical.packages.vvip.highlight2": "Vuelo doméstico incluido", "historical.packages.vvip.highlight3": "Historiador personal de renombre", "historical.packages.vvip.highlight4": "Publicaciones y materiales exclusivos",
+    "historical.booking.title": "¿Listo para Explorar la Historia?", "historical.booking.subtitle": "Reserve su viaje histórico y recorra las páginas del rico pasado de Tanzania.", "historical.booking.cta": "Reserve Tour Histórico",
+    "historical.modal.title": "Reserve Su Experiencia Histórica", "historical.modal.step1": "Tipo de Paquete", "historical.modal.step2": "Tipo de Viajero", "historical.modal.step3": "Seleccionar Paquete", "historical.modal.step4": "Detalles de la Reserva",
+    "historical.modal.step1_title": "Elija Su Nivel de Experiencia", "historical.modal.local.name": "LOCAL", "historical.modal.local.feature1": "Tour Histórico de 3 Días", "historical.modal.local.feature2": "Visitas en grupo", "historical.modal.local.feature3": "Transporte básico", "historical.modal.local.feature4": "Experiencias compartidas",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "Tour Histórico de 3 Días", "historical.modal.vip.feature2": "Visitas privadas", "historical.modal.vip.feature3": "Guía historiador experto", "historical.modal.vip.feature4": "Acceso exclusivo",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "Tour Histórico de 3 Días", "historical.modal.vvip.feature2": "Lujo definitivo", "historical.modal.vvip.feature3": "Historiador de renombre", "historical.modal.vvip.feature4": "Vuelo incluido",
+    "historical.modal.next_step2": "Siguiente: Tipo de Viajero", "historical.modal.cancel": "Cancelar", "historical.modal.step2_title": "¿Quién viaja?",
+    "historical.modal.travel.single": "Viajero Individual", "historical.modal.travel.single_desc": "Viajar solo", "historical.modal.travel.couple": "Pareja", "historical.modal.travel.couple_desc": "Dos personas viajando juntas", "historical.modal.travel.family": "Familia", "historical.modal.travel.family_desc": "Familia con niños", "historical.modal.travel.group": "Grupo", "historical.modal.travel.group_desc": "Amigos o viaje en grupo",
+    "historical.modal.group_size": "Número de Personas:", "historical.modal.back": "Atrás", "historical.modal.next_step3": "Siguiente: Seleccionar Paquete",
+    "historical.modal.step3_title": "Seleccione Su Paquete", "historical.modal.package_type_label": "Tipo de Paquete:", "historical.modal.traveler_type_label": "Tipo de Viajero:",
+    "historical.modal.people_label": "Número de Personas:", "historical.modal.package_label": "Paquete Seleccionado:", "historical.modal.base_price_label": "Precio Base:",
+    "historical.modal.multiplier_label": "Multiplicador de Personas:", "historical.modal.total_label": "Precio Total:", "historical.modal.next_step4": "Siguiente: Reservar Ahora",
+    "historical.modal.step4_title": "Confirme Su Reserva", "historical.modal.summary_title": "Resumen de la Reserva", "historical.modal.destination_label": "Destino:",
+    "historical.modal.price_label": "Precio:", "historical.modal.total_amount_label": "Monto Total:", "historical.modal.contact_title": "Información de Contacto",
+    "historical.modal.first_name": "Nombre", "historical.modal.last_name": "Apellido", "historical.modal.email": "Correo Electrónico",
+    "historical.modal.phone": "Número de Teléfono", "historical.modal.country": "País", "historical.modal.arrival_date": "Fecha de Llegada", "historical.modal.departure_date": "Fecha de Salida",
+    "historical.modal.complete": "Completar Reserva",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creando experiencias inolvidables en el corazón de Tanzania.",
+    "footer.quick_links": "Enlaces Rápidos", "footer.destinations": "Destinos", "footer.contact_info": "Información de Contacto",
+    "footer.address": "Arusha, Tanzania", "footer.language": "Idioma:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Todos los derechos reservados.",
+    "translation.loading": "Traduciendo contenido..."
+  },
+  it: {
+    "nav.home": "Home", "nav.about": "Chi Siamo", "nav.destinations": "Destinazioni", "nav.mountain_climbing": "Arrampicata",
+    "nav.safaris": "Safari Tanzania", "nav.zanzibar": "Spiagge di Zanzibar", "nav.cultural": "Turismo Culturale",
+    "nav.waterfalls": "Turismo delle Cascate", "nav.historical": "Siti Storici", "nav.contact": "Contatto",
+    "historical.hero.title": "Siti Storici Tanzania", "historical.hero.subtitle": "Esplora antiche rovine, patrimonio coloniale e meraviglie archeologiche", "historical.hero.cta": "Prenota Tour Storico",
+    "historical.content.title": "Viaggio Storico Attraverso il Tempo", "historical.content.subtitle": "3 Giorni per Esplorare il Ricco Eredità Storica della Tanzania",
+    "historical.about.title": "Informazioni sul Turismo Storico", "historical.about.description": "Fai un salto indietro nel tempo ed esplora l'affascinante eredità storica della Tanzania.",
+    "historical.highlights.title": "Punti Salienti Storici",
+    "historical.highlights.item1": "Antiche rovine swahili a Kilwa Kisiwani", "historical.highlights.item2": "Architettura coloniale tedesca a Bagamoyo",
+    "historical.highlights.item3": "Gola di Olduvai - Culla dell'Umanità", "historical.highlights.item4": "Edifici storici di Stone Town", "historical.highlights.item5": "Storia e memoriali della tratta degli schiavi",
+    "historical.sites.title": "Tesori Storici della Tanzania",
+    "historical.sites.kilwa.title": "Kilwa Kisiwani - Patrimonio Mondiale UNESCO", "historical.sites.kilwa.description": "Esplora le magnifiche rovine di questa città portuale swahili medievale.",
+    "historical.sites.kilwa.feature1": "Grande Moschea", "historical.sites.kilwa.feature2": "Palazzi Antichi", "historical.sites.kilwa.feature3": "Storia del Commercio",
+    "historical.sites.bagamoyo.title": "Bagamoyo - Porta d'Accesso all'Africa", "historical.sites.bagamoyo.description": "Scopri la storia inquietante di questo ex porto di schiavi e avorio.",
+    "historical.sites.bagamoyo.feature1": "Forte Vecchio", "historical.sites.bagamoyo.feature2": "Missioni Storiche", "historical.sites.bagamoyo.feature3": "Storia della Tratta degli Schiavi",
+    "historical.sites.olduvai.title": "Gola di Olduvai - Culla dell'Umanità", "historical.sites.olduvai.description": "Cammina sulle orme dei nostri primi antenati.",
+    "historical.sites.olduvai.feature1": "Siti Fossili", "historical.sites.olduvai.feature2": "Storia degli Ominidi", "historical.sites.olduvai.feature3": "Visita al Museo",
+    "historical.itinerary.title": "Itinerario di Scoperta Storica di 3 Giorni",
+    "historical.itinerary.day1.title": "Giorno 1: Tour Storico di Bagamoyo", "historical.itinerary.day1.duration": "Storia Costiera", "historical.itinerary.day1.activities": "Arrivo a Bagamoyo, visita al Museo Caravan Serai, esplorazione del Forte Vecchio, visita alla Missione Cattolica.",
+    "historical.itinerary.day2.title": "Giorno 2: Rovine di Kaole e Architettura Coloniale", "historical.itinerary.day2.duration": "Era Antica e Coloniale", "historical.itinerary.day2.activities": "Visita mattutina alle Rovine di Kaole con moschea e tombe del XIII secolo, esplorazione pomeridiana del Boma tedesco.",
+    "historical.itinerary.day3.title": "Giorno 3: Stone Town di Zanzibar", "historical.itinerary.day3.duration": "Cultura Swahili", "historical.itinerary.day3.activities": "Traghetto per Zanzibar, visita guidata del sito Patrimonio Mondiale UNESCO di Stone Town.",
+    "historical.packages.title": "Classificazione basata su livello e prezzo",
+    "historical.packages.local.title": "Tour Storico di 3 Giorni", "historical.packages.local.desc": "Perfetto per i viaggiatori attenti al budget.",
+    "historical.packages.local.feature1": "Trasporto Incluso", "historical.packages.local.feature2": "Tutte le Tasse Incluse", "historical.packages.local.feature3": "Alloggio", "historical.packages.local.feature4": "Tutti i Pasti",
+    "historical.packages.local.highlights": "Punti Salienti del Pacchetto", "historical.packages.local.highlight1": "Visita Bagamoyo, Rovine di Kaole e Stone Town", "historical.packages.local.highlight2": "Copertura storica completa", "historical.packages.local.highlight3": "Guida locale competente", "historical.packages.local.highlight4": "Tutte le tasse d'ingresso incluse",
+    "historical.packages.vip.title": "Tour Premium di 3 Giorni", "historical.packages.vip.desc": "Comfort migliorato ed esperienze esclusive.",
+    "historical.packages.vip.feature1": "Trasporto Premium", "historical.packages.vip.feature2": "Tutte le Tasse Incluse", "historical.packages.vip.feature3": "Tutti i Pasti", "historical.packages.vip.feature4": "Storico Esperto",
+    "historical.packages.vip.highlights": "Benefici VIP", "historical.packages.vip.highlight1": "Guida storica con competenza di dottorato", "historical.packages.vip.highlight2": "Itinerario personalizzato flessibile", "historical.packages.vip.highlight3": "Assistenza fotografica professionale", "historical.packages.vip.highlight4": "Cena raffinata in luoghi storici",
+    "historical.packages.vvip.title": "Esperienza Ultima di 3 Giorni", "historical.packages.vvip.desc": "Il viaggio storico definitivo con servizi di lusso.",
+    "historical.packages.vvip.feature1": "Trasporto di Lusso", "historical.packages.vvip.feature2": "Tutte le Tasse Incluse", "historical.packages.vvip.feature3": "Tutti i Pasti", "historical.packages.vvip.feature4": "Volo DAR per ZNZ",
+    "historical.packages.vvip.highlights": "Esclusiva VVIP", "historical.packages.vvip.highlight1": "Accesso a siti archeologici riservati", "historical.packages.vvip.highlight2": "Volo domestico incluso", "historical.packages.vvip.highlight3": "Storico rinomato personale", "historical.packages.vvip.highlight4": "Pubblicazioni e materiali esclusivi",
+    "historical.booking.title": "Pronto per Esplorare la Storia?", "historical.booking.subtitle": "Prenota il tuo viaggio storico e cammina attraverso le pagine del ricco passato della Tanzania.", "historical.booking.cta": "Prenota Tour Storico",
+    "historical.modal.title": "Prenota la Tua Esperienza Storica", "historical.modal.step1": "Tipo di Pacchetto", "historical.modal.step2": "Tipo di Viaggiatore", "historical.modal.step3": "Seleziona Pacchetto", "historical.modal.step4": "Dettagli di Prenotazione",
+    "historical.modal.step1_title": "Scegli il Tuo Livello di Esperienza", "historical.modal.local.name": "LOCALE", "historical.modal.local.feature1": "Tour Storico di 3 Giorni", "historical.modal.local.feature2": "Tour di gruppo", "historical.modal.local.feature3": "Trasporto base", "historical.modal.local.feature4": "Esperienze condivise",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "Tour Storico di 3 Giorni", "historical.modal.vip.feature2": "Tour privati", "historical.modal.vip.feature3": "Guida storica esperta", "historical.modal.vip.feature4": "Accesso esclusivo",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "Tour Storico di 3 Giorni", "historical.modal.vvip.feature2": "Lusso definitivo", "historical.modal.vvip.feature3": "Storico rinomato", "historical.modal.vvip.feature4": "Volo incluso",
+    "historical.modal.next_step2": "Avanti: Tipo di Viaggiatore", "historical.modal.cancel": "Annulla", "historical.modal.step2_title": "Chi viaggia?",
+    "historical.modal.travel.single": "Viaggiatore Singolo", "historical.modal.travel.single_desc": "Viaggiare da soli", "historical.modal.travel.couple": "Coppia", "historical.modal.travel.couple_desc": "Due persone che viaggiano insieme", "historical.modal.travel.family": "Famiglia", "historical.modal.travel.family_desc": "Famiglia con bambini", "historical.modal.travel.group": "Gruppo", "historical.modal.travel.group_desc": "Amici o viaggio di gruppo",
+    "historical.modal.group_size": "Numero di Persone:", "historical.modal.back": "Indietro", "historical.modal.next_step3": "Avanti: Seleziona Pacchetto",
+    "historical.modal.step3_title": "Seleziona il Tuo Pacchetto", "historical.modal.package_type_label": "Tipo di Pacchetto:", "historical.modal.traveler_type_label": "Tipo di Viaggiatore:",
+    "historical.modal.people_label": "Numero di Persone:", "historical.modal.package_label": "Pacchetto Selezionato:", "historical.modal.base_price_label": "Prezzo Base:",
+    "historical.modal.multiplier_label": "Moltiplicatore Persone:", "historical.modal.total_label": "Prezzo Totale:", "historical.modal.next_step4": "Avanti: Prenota Ora",
+    "historical.modal.step4_title": "Conferma la Tua Prenotazione", "historical.modal.summary_title": "Riepilogo Prenotazione", "historical.modal.destination_label": "Destinazione:",
+    "historical.modal.price_label": "Prezzo:", "historical.modal.total_amount_label": "Importo Totale:", "historical.modal.contact_title": "Informazioni di Contatto",
+    "historical.modal.first_name": "Nome", "historical.modal.last_name": "Cognome", "historical.modal.email": "Indirizzo Email",
+    "historical.modal.phone": "Numero di Telefono", "historical.modal.country": "Paese", "historical.modal.arrival_date": "Data di Arrivo", "historical.modal.departure_date": "Data di Partenza",
+    "historical.modal.complete": "Completa Prenotazione",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creando esperienze indimenticabili nel cuore della Tanzania.",
+    "footer.quick_links": "Link Rapidi", "footer.destinations": "Destinazioni", "footer.contact_info": "Informazioni di Contatto",
+    "footer.address": "Arusha, Tanzania", "footer.language": "Lingua:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Tutti i diritti riservati.",
+    "translation.loading": "Traduzione del contenuto..."
+  },
+  pt: {
+    "nav.home": "Início", "nav.about": "Sobre", "nav.destinations": "Destinos", "nav.mountain_climbing": "Escalada de Montanhas",
+    "nav.safaris": "Safaris Tanzânia", "nav.zanzibar": "Praias de Zanzibar", "nav.cultural": "Turismo Cultural",
+    "nav.waterfalls": "Turismo de Cachoeiras", "nav.historical": "Sítios Históricos", "nav.contact": "Contato",
+    "historical.hero.title": "Sítios Históricos Tanzânia", "historical.hero.subtitle": "Explore Ruínas Antigas, Patrimônio Colonial e Maravilhas Arqueológicas", "historical.hero.cta": "Reserve Tour Histórico",
+    "historical.content.title": "Jornada Histórica Através do Tempo", "historical.content.subtitle": "3 Dias Explorando o Rico Legado Histórico da Tanzânia",
+    "historical.about.title": "Sobre o Turismo Histórico", "historical.about.description": "Volte no tempo e explore o fascinante legado histórico da Tanzânia.",
+    "historical.highlights.title": "Destaques Históricos",
+    "historical.highlights.item1": "Antigas ruínas swahili em Kilwa Kisiwani", "historical.highlights.item2": "Arquitetura colonial alemã em Bagamoyo",
+    "historical.highlights.item3": "Garganta de Olduvai - Berço da Humanidade", "historical.highlights.item4": "Edifícios históricos de Stone Town", "historical.highlights.item5": "História e memoriais do tráfico de escravos",
+    "historical.sites.title": "Tesouros Históricos da Tanzânia",
+    "historical.sites.kilwa.title": "Kilwa Kisiwani - Patrimônio Mundial da UNESCO", "historical.sites.kilwa.description": "Explore as magníficas ruínas desta cidade portuária swahili medieval.",
+    "historical.sites.kilwa.feature1": "Grande Mesquita", "historical.sites.kilwa.feature2": "Palácios Antigos", "historical.sites.kilwa.feature3": "História do Comércio",
+    "historical.sites.bagamoyo.title": "Bagamoyo - Portal para a África", "historical.sites.bagamoyo.description": "Descubra a história assombrosa deste antigo porto de escravos e marfim.",
+    "historical.sites.bagamoyo.feature1": "Forte Velho", "historical.sites.bagamoyo.feature2": "Missões Históricas", "historical.sites.bagamoyo.feature3": "História do Tráfico de Escravos",
+    "historical.sites.olduvai.title": "Garganta de Olduvai - Berço da Humanidade", "historical.sites.olduvai.description": "Caminhe nas pegadas dos nossos primeiros ancestrais.",
+    "historical.sites.olduvai.feature1": "Sítios de Fósseis", "historical.sites.olduvai.feature2": "História dos Hominídeos", "historical.sites.olduvai.feature3": "Visita ao Museu",
+    "historical.itinerary.title": "Roteiro de Descoberta Histórica de 3 Dias",
+    "historical.itinerary.day1.title": "Dia 1: Tour Histórico de Bagamoyo", "historical.itinerary.day1.duration": "História Costeira", "historical.itinerary.day1.activities": "Chegada a Bagamoyo, visite o Museu Caravan Serai, explore o Forte Velho, veja a Missão Católica.",
+    "historical.itinerary.day2.title": "Dia 2: Ruínas de Kaole e Arquitetura Colonial", "historical.itinerary.day2.duration": "Era Antiga e Colonial", "historical.itinerary.day2.activities": "Visita matinal às Ruínas de Kaole com mesquita e túmulos do século XIII, exploração à tarde do Boma alemão.",
+    "historical.itinerary.day3.title": "Dia 3: Stone Town de Zanzibar", "historical.itinerary.day3.duration": "Cultura Swahili", "historical.itinerary.day3.activities": "Balsa para Zanzibar, visita guiada ao local do Patrimônio Mundial da UNESCO Stone Town.",
+    "historical.packages.title": "Classificação baseada em nível e preço",
+    "historical.packages.local.title": "Tour Histórico de 3 Dias", "historical.packages.local.desc": "Perfeito para viajantes com orçamento limitado.",
+    "historical.packages.local.feature1": "Transporte Incluído", "historical.packages.local.feature2": "Todas as Taxas Incluídas", "historical.packages.local.feature3": "Acomodação", "historical.packages.local.feature4": "Todas as Refeições",
+    "historical.packages.local.highlights": "Destaques do Pacote", "historical.packages.local.highlight1": "Visite Bagamoyo, Ruínas de Kaole e Stone Town", "historical.packages.local.highlight2": "Cobertura histórica abrangente", "historical.packages.local.highlight3": "Guia local experiente", "historical.packages.local.highlight4": "Todas as taxas de entrada incluídas",
+    "historical.packages.vip.title": "Tour Premium de 3 Dias", "historical.packages.vip.desc": "Conforto aprimorado e experiências exclusivas.",
+    "historical.packages.vip.feature1": "Transporte Premium", "historical.packages.vip.feature2": "Todas as Taxas Incluídas", "historical.packages.vip.feature3": "Todas as Refeições", "historical.packages.vip.feature4": "Historiador Especialista",
+    "historical.packages.vip.highlights": "Benefícios VIP", "historical.packages.vip.highlight1": "Guia historiador com experiência de doutorado", "historical.packages.vip.highlight2": "Itinerário personalizado flexível", "historical.packages.vip.highlight3": "Assistência fotográfica profissional", "historical.packages.vip.highlight4": "Jantar fino em locais históricos",
+    "historical.packages.vvip.title": "Experiência Última de 3 Dias", "historical.packages.vvip.desc": "A jornada histórica definitiva com serviços de luxo.",
+    "historical.packages.vvip.feature1": "Transporte de Luxo", "historical.packages.vvip.feature2": "Todas as Taxas Incluídas", "historical.packages.vvip.feature3": "Todas as Refeições", "historical.packages.vvip.feature4": "Voo DAR para ZNZ",
+    "historical.packages.vvip.highlights": "Exclusivo VVIP", "historical.packages.vvip.highlight1": "Acesso a sítios arqueológicos restritos", "historical.packages.vvip.highlight2": "Voo doméstico incluído", "historical.packages.vvip.highlight3": "Historiador renomado pessoal", "historical.packages.vvip.highlight4": "Publicações e materiais exclusivos",
+    "historical.booking.title": "Pronto para Explorar a História?", "historical.booking.subtitle": "Reserve sua jornada histórica e caminhe pelas páginas do rico passado da Tanzânia.", "historical.booking.cta": "Reserve Tour Histórico",
+    "historical.modal.title": "Reserve Sua Experiência Histórica", "historical.modal.step1": "Tipo de Pacote", "historical.modal.step2": "Tipo de Viajante", "historical.modal.step3": "Selecionar Pacote", "historical.modal.step4": "Detalhes da Reserva",
+    "historical.modal.step1_title": "Escolha Seu Nível de Experiência", "historical.modal.local.name": "LOCAL", "historical.modal.local.feature1": "Tour Histórico de 3 Dias", "historical.modal.local.feature2": "Passeios em grupo", "historical.modal.local.feature3": "Transporte básico", "historical.modal.local.feature4": "Experiências compartilhadas",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "Tour Histórico de 3 Dias", "historical.modal.vip.feature2": "Passeios privados", "historical.modal.vip.feature3": "Guia historiador especialista", "historical.modal.vip.feature4": "Acesso exclusivo",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "Tour Histórico de 3 Dias", "historical.modal.vvip.feature2": "Luxo definitivo", "historical.modal.vvip.feature3": "Historiador renomado", "historical.modal.vvip.feature4": "Voo incluído",
+    "historical.modal.next_step2": "Próximo: Tipo de Viajante", "historical.modal.cancel": "Cancelar", "historical.modal.step2_title": "Quem está viajando?",
+    "historical.modal.travel.single": "Viajante Individual", "historical.modal.travel.single_desc": "Viajando sozinho", "historical.modal.travel.couple": "Casal", "historical.modal.travel.couple_desc": "Duas pessoas viajando juntas", "historical.modal.travel.family": "Família", "historical.modal.travel.family_desc": "Família com crianças", "historical.modal.travel.group": "Grupo", "historical.modal.travel.group_desc": "Amigos ou viagem em grupo",
+    "historical.modal.group_size": "Número de Pessoas:", "historical.modal.back": "Voltar", "historical.modal.next_step3": "Próximo: Selecionar Pacote",
+    "historical.modal.step3_title": "Selecione Seu Pacote", "historical.modal.package_type_label": "Tipo de Pacote:", "historical.modal.traveler_type_label": "Tipo de Viajante:",
+    "historical.modal.people_label": "Número de Pessoas:", "historical.modal.package_label": "Pacote Selecionado:", "historical.modal.base_price_label": "Preço Base:",
+    "historical.modal.multiplier_label": "Multiplicador de Pessoas:", "historical.modal.total_label": "Preço Total:", "historical.modal.next_step4": "Próximo: Reservar Agora",
+    "historical.modal.step4_title": "Confirme Sua Reserva", "historical.modal.summary_title": "Resumo da Reserva", "historical.modal.destination_label": "Destino:",
+    "historical.modal.price_label": "Preço:", "historical.modal.total_amount_label": "Valor Total:", "historical.modal.contact_title": "Informações de Contato",
+    "historical.modal.first_name": "Nome", "historical.modal.last_name": "Sobrenome", "historical.modal.email": "Endereço de E-mail",
+    "historical.modal.phone": "Número de Telefone", "historical.modal.country": "País", "historical.modal.arrival_date": "Data de Chegada", "historical.modal.departure_date": "Data de Partida",
+    "historical.modal.complete": "Concluir Reserva",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Criando experiências inesquecíveis no coração da Tanzânia.",
+    "footer.quick_links": "Links Rápidos", "footer.destinations": "Destinos", "footer.contact_info": "Informações de Contato",
+    "footer.address": "Arusha, Tanzânia", "footer.language": "Idioma:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Todos os direitos reservados.",
+    "translation.loading": "Traduzindo conteúdo..."
+  },
+  ru: {
+    "nav.home": "Главная", "nav.about": "О Нас", "nav.destinations": "Направления", "nav.mountain_climbing": "Восхождение на Горы",
+    "nav.safaris": "Сафари Танзания", "nav.zanzibar": "Пляжи Занзибара", "nav.cultural": "Культурный Туризм",
+    "nav.waterfalls": "Туризм к Водопадам", "nav.historical": "Исторические Места", "nav.contact": "Контакты",
+    "historical.hero.title": "Исторические Места Танзании", "historical.hero.subtitle": "Исследуйте Древние Руины, Колониальное Наследие и Археологические Чудеса", "historical.hero.cta": "Забронировать Исторический Тур",
+    "historical.content.title": "Историческое Путешествие Сквозь Время", "historical.content.subtitle": "3 Дня Исследования Богатого Исторического Наследия Танзании",
+    "historical.about.title": "О Историческом Туризме", "historical.about.description": "Вернитесь в прошлое и исследуйте увлекательное историческое наследие Танзании.",
+    "historical.highlights.title": "Исторические Особенности",
+    "historical.highlights.item1": "Древние руины суахили в Кильва-Кисивани", "historical.highlights.item2": "Немецкая колониальная архитектура в Багамойо",
+    "historical.highlights.item3": "Ущелье Олдувай - Колыбель Человечества", "historical.highlights.item4": "Исторические здания Стоун-Тауна", "historical.highlights.item5": "История и мемориалы работорговли",
+    "historical.sites.title": "Исторические Сокровища Танзании",
+    "historical.sites.kilwa.title": "Кильва-Кисивани - Всемирное наследие ЮНЕСКО", "historical.sites.kilwa.description": "Исследуйте величественные руины этого средневекового портового города суахили.",
+    "historical.sites.kilwa.feature1": "Великая Мечеть", "historical.sites.kilwa.feature2": "Древние Дворцы", "historical.sites.kilwa.feature3": "История Торговли",
+    "historical.sites.bagamoyo.title": "Багамойо - Ворота в Африку", "historical.sites.bagamoyo.description": "Откройте для себя захватывающую историю этого бывшего порта работорговли и слоновой кости.",
+    "historical.sites.bagamoyo.feature1": "Старый Форт", "historical.sites.bagamoyo.feature2": "Исторические Миссии", "historical.sites.bagamoyo.feature3": "История Работорговли",
+    "historical.sites.olduvai.title": "Ущелье Олдувай - Колыбель Человечества", "historical.sites.olduvai.description": "Пройдите по стопам наших самых ранних предков.",
+    "historical.sites.olduvai.feature1": "Места Ископаемых", "historical.sites.olduvai.feature2": "История Гоминидов", "historical.sites.olduvai.feature3": "Посещение Музея",
+    "historical.itinerary.title": "Маршрут Исторических Открытий на 3 Дня",
+    "historical.itinerary.day1.title": "День 1: Исторический Тур по Багамойо", "historical.itinerary.day1.duration": "Прибрежная История", "historical.itinerary.day1.activities": "Прибытие в Багамойо, посещение Музея Караван-Серай, осмотр Старого Форта, посещение Католической Миссии.",
+    "historical.itinerary.day2.title": "День 2: Руины Каоле и Колониальная Архитектура", "historical.itinerary.day2.duration": "Древняя и Колониальная Эпоха", "historical.itinerary.day2.activities": "Утреннее посещение Руин Каоле с мечетью и гробницами 13 века, послеобеденное исследование Немецкого Бома.",
+    "historical.itinerary.day3.title": "День 3: Стоун-Таун Занзибара", "historical.itinerary.day3.duration": "Культура Суахили", "historical.itinerary.day3.activities": "Паром на Занзибар, экскурсия по объекту Всемирного наследия ЮНЕСКО Стоун-Таун.",
+    "historical.packages.title": "Классификация на основе уровня и цены",
+    "historical.packages.local.title": "3-дневный Исторический Тур", "historical.packages.local.desc": "Идеально для путешественников с ограниченным бюджетом.",
+    "historical.packages.local.feature1": "Транспорт Включен", "historical.packages.local.feature2": "Все Сборы Включены", "historical.packages.local.feature3": "Проживание", "historical.packages.local.feature4": "Все Питание",
+    "historical.packages.local.highlights": "Особенности Пакета", "historical.packages.local.highlight1": "Посещение Багамойо, Руин Каоле и Стоун-Тауна", "historical.packages.local.highlight2": "Всестороннее историческое освещение", "historical.packages.local.highlight3": "Знающий местный гид", "historical.packages.local.highlight4": "Все входные сборы включены",
+    "historical.packages.vip.title": "3-дневный Премиум Тур", "historical.packages.vip.desc": "Повышенный комфорт и эксклюзивные впечатления.",
+    "historical.packages.vip.feature1": "Премиум Транспорт", "historical.packages.vip.feature2": "Все Сборы Включены", "historical.packages.vip.feature3": "Все Питание", "historical.packages.vip.feature4": "Эксперт-Историк",
+    "historical.packages.vip.highlights": "VIP-Преимущества", "historical.packages.vip.highlight1": "Гид-историк с докторской степенью", "historical.packages.vip.highlight2": "Гибкий персонализированный маршрут", "historical.packages.vip.highlight3": "Профессиональная помощь в фотографии", "historical.packages.vip.highlight4": "Изысканные обеды в исторических местах",
+    "historical.packages.vvip.title": "3-дневный Абсолютный Опыт", "historical.packages.vvip.desc": "Абсолютное историческое путешествие с услугами класса люкс.",
+    "historical.packages.vvip.feature1": "Люкс Транспорт", "historical.packages.vvip.feature2": "Все Сборы Включены", "historical.packages.vvip.feature3": "Все Питание", "historical.packages.vvip.feature4": "Рейс DAR в ZNZ",
+    "historical.packages.vvip.highlights": "VVIP Эксклюзив", "historical.packages.vvip.highlight1": "Доступ к закрытым археологическим объектам", "historical.packages.vvip.highlight2": "Внутренний авиаперелет включен", "historical.packages.vvip.highlight3": "Личный известный историк", "historical.packages.vvip.highlight4": "Эксклюзивные публикации и материалы",
+    "historical.booking.title": "Готовы Исследовать Историю?", "historical.booking.subtitle": "Забронируйте свое историческое путешествие и пройдите по страницам богатого прошлого Танзании.", "historical.booking.cta": "Забронировать Исторический Тур",
+    "historical.modal.title": "Забронируйте Ваш Исторический Опыт", "historical.modal.step1": "Тип Пакета", "historical.modal.step2": "Тип Путешественника", "historical.modal.step3": "Выберите Пакет", "historical.modal.step4": "Детали Бронирования",
+    "historical.modal.step1_title": "Выберите Ваш Уровень Опыта", "historical.modal.local.name": "МЕСТНЫЙ", "historical.modal.local.feature1": "3-дневный Исторический Тур", "historical.modal.local.feature2": "Групповые туры", "historical.modal.local.feature3": "Базовый транспорт", "historical.modal.local.feature4": "Общий опыт",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "3-дневный Исторический Тур", "historical.modal.vip.feature2": "Частные туры", "historical.modal.vip.feature3": "Гид-историк эксперт", "historical.modal.vip.feature4": "Эксклюзивный доступ",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "3-дневный Исторический Тур", "historical.modal.vvip.feature2": "Абсолютная роскошь", "historical.modal.vvip.feature3": "Известный историк", "historical.modal.vvip.feature4": "Авиаперелет включен",
+    "historical.modal.next_step2": "Далее: Тип Путешественника", "historical.modal.cancel": "Отмена", "historical.modal.step2_title": "Кто путешествует?",
+    "historical.modal.travel.single": "Одиночный Путешественник", "historical.modal.travel.single_desc": "Путешествие в одиночку", "historical.modal.travel.couple": "Пара", "historical.modal.travel.couple_desc": "Два человека путешествуют вместе", "historical.modal.travel.family": "Семья", "historical.modal.travel.family_desc": "Семья с детьми", "historical.modal.travel.group": "Группа", "historical.modal.travel.group_desc": "Друзья или групповая поездка",
+    "historical.modal.group_size": "Количество Людей:", "historical.modal.back": "Назад", "historical.modal.next_step3": "Далее: Выберите Пакет",
+    "historical.modal.step3_title": "Выберите Ваш Пакет", "historical.modal.package_type_label": "Тип Пакета:", "historical.modal.traveler_type_label": "Тип Путешественника:",
+    "historical.modal.people_label": "Количество Людей:", "historical.modal.package_label": "Выбранный Пакет:", "historical.modal.base_price_label": "Базовая Цена:",
+    "historical.modal.multiplier_label": "Множитель Людей:", "historical.modal.total_label": "Общая Цена:", "historical.modal.next_step4": "Далее: Забронировать Сейчас",
+    "historical.modal.step4_title": "Подтвердите Ваше Бронирование", "historical.modal.summary_title": "Сводка Бронирования", "historical.modal.destination_label": "Направление:",
+    "historical.modal.price_label": "Цена:", "historical.modal.total_amount_label": "Общая Сумма:", "historical.modal.contact_title": "Контактная Информация",
+    "historical.modal.first_name": "Имя", "historical.modal.last_name": "Фамилия", "historical.modal.email": "Адрес Электронной Почты",
+    "historical.modal.phone": "Номер Телефона", "historical.modal.country": "Страна", "historical.modal.arrival_date": "Дата Прибытия", "historical.modal.departure_date": "Дата Отъезда",
+    "historical.modal.complete": "Завершить Бронирование",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Создание незабываемых впечатлений в сердце Танзании.",
+    "footer.quick_links": "Быстрые Ссылки", "footer.destinations": "Направления", "footer.contact_info": "Контактная Информация",
+    "footer.address": "Аруша, Танзания", "footer.language": "Язык:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Все права защищены.",
+    "translation.loading": "Перевод содержимого..."
+  },
+  zh: {
+    "nav.home": "首页", "nav.about": "关于我们", "nav.destinations": "目的地", "nav.mountain_climbing": "登山",
+    "nav.safaris": "坦桑尼亚游猎", "nav.zanzibar": "桑给巴尔海滩", "nav.cultural": "文化旅游",
+    "nav.waterfalls": "瀑布旅游", "nav.historical": "历史遗址", "nav.contact": "联系我们",
+    "historical.hero.title": "坦桑尼亚历史遗址", "historical.hero.subtitle": "探索古代遗址、殖民遗产和考古奇观", "historical.hero.cta": "预订历史之旅",
+    "historical.content.title": "穿越时空的历史之旅", "historical.content.subtitle": "3天探索坦桑尼亚丰富的历史遗产",
+    "historical.about.title": "关于历史旅游", "historical.about.description": "时光倒流，探索坦桑尼亚迷人的历史遗产。",
+    "historical.highlights.title": "历史亮点",
+    "historical.highlights.item1": "基尔瓦基西瓦尼的古代斯瓦希里遗址", "historical.highlights.item2": "巴加莫约的德国殖民建筑",
+    "historical.highlights.item3": "奥杜瓦伊峡谷 - 人类的摇篮", "historical.highlights.item4": "石头城的历史建筑", "historical.highlights.item5": "奴隶贸易历史和纪念馆",
+    "historical.sites.title": "坦桑尼亚的历史宝藏",
+    "historical.sites.kilwa.title": "基尔瓦基西瓦尼 - 联合国教科文组织世界遗产", "historical.sites.kilwa.description": "探索这座中世纪斯瓦希里港口城市的宏伟遗址。",
+    "historical.sites.kilwa.feature1": "大清真寺", "historical.sites.kilwa.feature2": "古代宫殿", "historical.sites.kilwa.feature3": "贸易历史",
+    "historical.sites.bagamoyo.title": "巴加莫约 - 通往非洲的门户", "historical.sites.bagamoyo.description": "发现这个前奴隶和象牙贸易港口的令人难忘的历史。",
+    "historical.sites.bagamoyo.feature1": "古堡", "historical.sites.bagamoyo.feature2": "历史传教站", "historical.sites.bagamoyo.feature3": "奴隶贸易历史",
+    "historical.sites.olduvai.title": "奥杜瓦伊峡谷 - 人类的摇篮", "historical.sites.olduvai.description": "追随我们最早祖先的脚步。",
+    "historical.sites.olduvai.feature1": "化石遗址", "historical.sites.olduvai.feature2": "原始人历史", "historical.sites.olduvai.feature3": "参观博物馆",
+    "historical.itinerary.title": "3天历史发现行程",
+    "historical.itinerary.day1.title": "第1天：巴加莫约历史之旅", "historical.itinerary.day1.duration": "海岸历史", "historical.itinerary.day1.activities": "抵达巴加莫约，参观商队旅馆博物馆，探索古堡，参观天主教传教站。",
+    "historical.itinerary.day2.title": "第2天：卡奥莱遗址与殖民建筑", "historical.itinerary.day2.duration": "古代与殖民时代", "historical.itinerary.day2.activities": "早上参观卡奥莱遗址，包括13世纪的清真寺和墓葬，下午探索德国博马。",
+    "historical.itinerary.day3.title": "第3天：桑给巴尔石头城", "historical.itinerary.day3.duration": "斯瓦希里文化", "historical.itinerary.day3.activities": "乘坐渡轮前往桑给巴尔，在导游的带领下参观联合国教科文组织世界遗产石头城。",
+    "historical.packages.title": "根据级别和价格的分类",
+    "historical.packages.local.title": "3天历史之旅", "historical.packages.local.desc": "适合预算有限的旅行者。",
+    "historical.packages.local.feature1": "包含交通", "historical.packages.local.feature2": "包含所有费用", "historical.packages.local.feature3": "住宿", "historical.packages.local.feature4": "所有餐食",
+    "historical.packages.local.highlights": "套餐亮点", "historical.packages.local.highlight1": "参观巴加莫约、卡奥莱遗址和石头城", "historical.packages.local.highlight2": "全面的历史覆盖", "historical.packages.local.highlight3": "知识渊博的当地导游", "historical.packages.local.highlight4": "包含所有入场费",
+    "historical.packages.vip.title": "3天高级之旅", "historical.packages.vip.desc": "增强的舒适度和独家体验。",
+    "historical.packages.vip.feature1": "高级交通", "historical.packages.vip.feature2": "包含所有费用", "historical.packages.vip.feature3": "所有餐食", "historical.packages.vip.feature4": "历史专家",
+    "historical.packages.vip.highlights": "VIP福利", "historical.packages.vip.highlight1": "拥有博士学位的历史学家导游", "historical.packages.vip.highlight2": "灵活的个性化行程", "historical.packages.vip.highlight3": "专业摄影协助", "historical.packages.vip.highlight4": "在历史场所享用精致餐饮",
+    "historical.packages.vvip.title": "3天终极体验", "historical.packages.vvip.desc": "终极历史之旅，配备豪华服务。",
+    "historical.packages.vvip.feature1": "豪华交通", "historical.packages.vvip.feature2": "包含所有费用", "historical.packages.vvip.feature3": "所有餐食", "historical.packages.vvip.feature4": "DAR至ZNZ的航班",
+    "historical.packages.vvip.highlights": "VVIP专属", "historical.packages.vvip.highlight1": "进入限制性考古遗址", "historical.packages.vvip.highlight2": "包含国内航班", "historical.packages.vvip.highlight3": "个人知名历史学家", "historical.packages.vvip.highlight4": "独家出版物和资料",
+    "historical.booking.title": "准备好探索历史了吗？", "historical.booking.subtitle": "预订您的历史之旅，走进坦桑尼亚丰富历史的篇章。", "historical.booking.cta": "预订历史之旅",
+    "historical.modal.title": "预订您的历史体验", "historical.modal.step1": "套餐类型", "historical.modal.step2": "旅行者类型", "historical.modal.step3": "选择套餐", "historical.modal.step4": "预订详情",
+    "historical.modal.step1_title": "选择您的体验级别", "historical.modal.local.name": "当地", "historical.modal.local.feature1": "3天历史之旅", "historical.modal.local.feature2": "团体旅游", "historical.modal.local.feature3": "基础交通", "historical.modal.local.feature4": "共享体验",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "3天历史之旅", "historical.modal.vip.feature2": "私人旅游", "historical.modal.vip.feature3": "历史专家导游", "historical.modal.vip.feature4": "独家访问",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "3天历史之旅", "historical.modal.vvip.feature2": "终极奢华", "historical.modal.vvip.feature3": "知名历史学家", "historical.modal.vvip.feature4": "包含航班",
+    "historical.modal.next_step2": "下一步：旅行者类型", "historical.modal.cancel": "取消", "historical.modal.step2_title": "谁在旅行？",
+    "historical.modal.travel.single": "独自旅行者", "historical.modal.travel.single_desc": "独自旅行", "historical.modal.travel.couple": "情侣", "historical.modal.travel.couple_desc": "两人一起旅行", "historical.modal.travel.family": "家庭", "historical.modal.travel.family_desc": "有孩子的家庭", "historical.modal.travel.group": "团体", "historical.modal.travel.group_desc": "朋友或团体旅行",
+    "historical.modal.group_size": "人数：", "historical.modal.back": "返回", "historical.modal.next_step3": "下一步：选择套餐",
+    "historical.modal.step3_title": "选择您的套餐", "historical.modal.package_type_label": "套餐类型：", "historical.modal.traveler_type_label": "旅行者类型：",
+    "historical.modal.people_label": "人数：", "historical.modal.package_label": "所选套餐：", "historical.modal.base_price_label": "基础价格：",
+    "historical.modal.multiplier_label": "人数乘数：", "historical.modal.total_label": "总价：", "historical.modal.next_step4": "下一步：立即预订",
+    "historical.modal.step4_title": "确认您的预订", "historical.modal.summary_title": "预订摘要", "historical.modal.destination_label": "目的地：",
+    "historical.modal.price_label": "价格：", "historical.modal.total_amount_label": "总金额：", "historical.modal.contact_title": "联系信息",
+    "historical.modal.first_name": "名", "historical.modal.last_name": "姓", "historical.modal.email": "电子邮箱地址",
+    "historical.modal.phone": "电话号码", "historical.modal.country": "国家", "historical.modal.arrival_date": "抵达日期", "historical.modal.departure_date": "离境日期",
+    "historical.modal.complete": "完成预订",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "在坦桑尼亚中心创造难忘的体验。",
+    "footer.quick_links": "快速链接", "footer.destinations": "目的地", "footer.contact_info": "联系信息",
+    "footer.address": "阿鲁沙，坦桑尼亚", "footer.language": "语言：", "footer.copyright": "© 2026 MMexy Tanzania Adventures. 保留所有权利。",
+    "translation.loading": "正在翻译内容..."
+  },
+  ja: {
+    "nav.home": "ホーム", "nav.about": "会社概要", "nav.destinations": "目的地", "nav.mountain_climbing": "登山",
+    "nav.safaris": "タンザニアサファリ", "nav.zanzibar": "ザンジバルビーチ", "nav.cultural": "文化観光",
+    "nav.waterfalls": "滝観光", "nav.historical": "歴史的遺跡", "nav.contact": "お問い合わせ",
+    "historical.hero.title": "タンザニアの歴史的遺跡", "historical.hero.subtitle": "古代遺跡、植民地時代の遺産、考古学的驚異を探検", "historical.hero.cta": "歴史ツアーを予約",
+    "historical.content.title": "時を超えた歴史の旅", "historical.content.subtitle": "タンザニアの豊かな歴史的遺産を探訪する3日間",
+    "historical.about.title": "歴史観光について", "historical.about.description": "時を遡り、タンザニアの魅力的な歴史的遺産を探検しましょう。",
+    "historical.highlights.title": "歴史的ハイライト",
+    "historical.highlights.item1": "キルワ・キシワニの古代スワヒリ遺跡", "historical.highlights.item2": "バガモヨのドイツ植民地建築",
+    "historical.highlights.item3": "オルドゥヴァイ峡谷 - 人類の発祥地", "historical.highlights.item4": "ストーンタウンの歴史的建造物", "historical.highlights.item5": "奴隷貿易の歴史と記念碑",
+    "historical.sites.title": "タンザニアの歴史的宝物",
+    "historical.sites.kilwa.title": "キルワ・キシワニ - ユネスコ世界遺産", "historical.sites.kilwa.description": "この中世のスワヒリ港町の壮大な遺跡を探検する。",
+    "historical.sites.kilwa.feature1": "大モスク", "historical.sites.kilwa.feature2": "古代の宮殿", "historical.sites.kilwa.feature3": "貿易の歴史",
+    "historical.sites.bagamoyo.title": "バガモヨ - アフリカへの玄関口", "historical.sites.bagamoyo.description": "かつて奴隷と象牙の貿易港であったこの場所の忘れがたい歴史を発見する。",
+    "historical.sites.bagamoyo.feature1": "旧要塞", "historical.sites.bagamoyo.feature2": "歴史的ミッション", "historical.sites.bagamoyo.feature3": "奴隷貿易の歴史",
+    "historical.sites.olduvai.title": "オルドゥヴァイ峡谷 - 人類の発祥地", "historical.sites.olduvai.description": "私たちの最古の祖先の足跡を辿る。",
+    "historical.sites.olduvai.feature1": "化石遺跡", "historical.sites.olduvai.feature2": "人類の歴史", "historical.sites.olduvai.feature3": "博物館見学",
+    "historical.itinerary.title": "3日間歴史発見の旅",
+    "historical.itinerary.day1.title": "1日目：バガモヨ歴史ツアー", "historical.itinerary.day1.duration": "沿岸の歴史", "historical.itinerary.day1.activities": "バガモヨに到着、キャラバンセライ博物館を訪れ、旧要塞を探検し、カトリックミッションを見学。",
+    "historical.itinerary.day2.title": "2日目：カオレ遺跡と植民地建築", "historical.itinerary.day2.duration": "古代・植民地時代", "historical.itinerary.day2.activities": "午前中に13世紀のモスクと墓があるカオレ遺跡を訪問、午後にドイツのボマを探検。",
+    "historical.itinerary.day3.title": "3日目：ザンジバル・ストーンタウン", "historical.itinerary.day3.duration": "スワヒリ文化", "historical.itinerary.day3.activities": "フェリーでザンジバルへ、ユネスコ世界遺産ストーンタウンのガイドツアー。",
+    "historical.packages.title": "レベルと価格に基づく分類",
+    "historical.packages.local.title": "3日間歴史ツアー", "historical.packages.local.desc": "予算重視の旅行者に最適。",
+    "historical.packages.local.feature1": "交通費含む", "historical.packages.local.feature2": "全ての料金含む", "historical.packages.local.feature3": "宿泊", "historical.packages.local.feature4": "全ての食事",
+    "historical.packages.local.highlights": "パッケージのハイライト", "historical.packages.local.highlight1": "バガモヨ、カオレ遺跡、ストーンタウンを訪問", "historical.packages.local.highlight2": "包括的な歴史的カバレッジ", "historical.packages.local.highlight3": "知識豊富な地元ガイド", "historical.packages.local.highlight4": "全ての入場料含む",
+    "historical.packages.vip.title": "3日間プレミアムツアー", "historical.packages.vip.desc": "強化された快適さと特別な体験。",
+    "historical.packages.vip.feature1": "プレミアム交通", "historical.packages.vip.feature2": "全ての料金含む", "historical.packages.vip.feature3": "全ての食事", "historical.packages.vip.feature4": "専門歴史家",
+    "historical.packages.vip.highlights": "VIP特典", "historical.packages.vip.highlight1": "博士号を持つ歴史家ガイド", "historical.packages.vip.highlight2": "柔軟なパーソナライズ旅程", "historical.packages.vip.highlight3": "プロフェッショナルな写真撮影サポート", "historical.packages.vip.highlight4": "歴史的会場でのファインダイニング",
+    "historical.packages.vvip.title": "3日間究極の体験", "historical.packages.vvip.desc": "ラグジュアリーサービスによる究極の歴史の旅。",
+    "historical.packages.vvip.feature1": "ラグジュアリー交通", "historical.packages.vvip.feature2": "全ての料金含む", "historical.packages.vvip.feature3": "全ての食事", "historical.packages.vvip.feature4": "DARからZNZへのフライト",
+    "historical.packages.vvip.highlights": "VVIP限定", "historical.packages.vvip.highlight1": "制限された考古学遺跡へのアクセス", "historical.packages.vvip.highlight2": "国内線航空券含む", "historical.packages.vvip.highlight3": "個人の有名歴史家", "historical.packages.vvip.highlight4": "限定出版物と資料",
+    "historical.booking.title": "歴史探検の準備はできましたか？", "historical.booking.subtitle": "歴史の旅を予約して、タンザニアの豊かな過去のページを歩きましょう。", "historical.booking.cta": "歴史ツアーを予約",
+    "historical.modal.title": "歴史体験を予約する", "historical.modal.step1": "パッケージタイプ", "historical.modal.step2": "旅行者タイプ", "historical.modal.step3": "パッケージを選択", "historical.modal.step4": "予約詳細",
+    "historical.modal.step1_title": "体験レベルを選択", "historical.modal.local.name": "ローカル", "historical.modal.local.feature1": "3日間歴史ツアー", "historical.modal.local.feature2": "グループツアー", "historical.modal.local.feature3": "基本的な交通", "historical.modal.local.feature4": "共有体験",
+    "historical.modal.vip.name": "VIP", "historical.modal.vip.feature1": "3日間歴史ツアー", "historical.modal.vip.feature2": "プライベートツアー", "historical.modal.vip.feature3": "専門歴史家ガイド", "historical.modal.vip.feature4": "特別なアクセス",
+    "historical.modal.vvip.name": "VVIP", "historical.modal.vvip.feature1": "3日間歴史ツアー", "historical.modal.vvip.feature2": "究極の贅沢", "historical.modal.vvip.feature3": "有名な歴史家", "historical.modal.vvip.feature4": "航空券含む",
+    "historical.modal.next_step2": "次へ：旅行者タイプ", "historical.modal.cancel": "キャンセル", "historical.modal.step2_title": "誰が旅行しますか？",
+    "historical.modal.travel.single": "ソロ旅行者", "historical.modal.travel.single_desc": "一人旅", "historical.modal.travel.couple": "カップル", "historical.modal.travel.couple_desc": "二人で一緒に旅行", "historical.modal.travel.family": "家族", "historical.modal.travel.family_desc": "子供連れの家族", "historical.modal.travel.group": "グループ", "historical.modal.travel.group_desc": "友達またはグループ旅行",
+    "historical.modal.group_size": "人数：", "historical.modal.back": "戻る", "historical.modal.next_step3": "次へ：パッケージを選択",
+    "historical.modal.step3_title": "パッケージを選択", "historical.modal.package_type_label": "パッケージタイプ：", "historical.modal.traveler_type_label": "旅行者タイプ：",
+    "historical.modal.people_label": "人数：", "historical.modal.package_label": "選択されたパッケージ：", "historical.modal.base_price_label": "基本価格：",
+    "historical.modal.multiplier_label": "人数倍率：", "historical.modal.total_label": "合計価格：", "historical.modal.next_step4": "次へ：今すぐ予約",
+    "historical.modal.step4_title": "予約を確認する", "historical.modal.summary_title": "予約サマリー", "historical.modal.destination_label": "目的地：",
+    "historical.modal.price_label": "価格：", "historical.modal.total_amount_label": "合計金額：", "historical.modal.contact_title": "連絡先情報",
+    "historical.modal.first_name": "名", "historical.modal.last_name": "姓", "historical.modal.email": "メールアドレス",
+    "historical.modal.phone": "電話番号", "historical.modal.country": "国", "historical.modal.arrival_date": "到着日", "historical.modal.departure_date": "出発日",
+    "historical.modal.complete": "予約を完了する",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "タンザニアの中心で忘れられない体験を創造。",
+    "footer.quick_links": "クイックリンク", "footer.destinations": "目的地", "footer.contact_info": "連絡先情報",
+    "footer.address": "アルーシャ, タンザニア", "footer.language": "言語：", "footer.copyright": "© 2026 MMexy Tanzania Adventures. 全著作権所有。",
+    "translation.loading": "コンテンツを翻訳中..."
+  }
+};
+
+        let currentLanguage='en';
+        function showTranslationLoading(){document.getElementById('translationLoading').classList.add('active');}
+        function hideTranslationLoading(){document.getElementById('translationLoading').classList.remove('active');}
+        function getFlagForLanguage(lang){const f={en:'🇺🇸',sw:'🇹🇿',fr:'🇫🇷',de:'🇩🇪',es:'🇪🇸',it:'🇮🇹',pt:'🇵🇹',ru:'🇷🇺',zh:'🇨🇳',ja:'🇯🇵'};return f[lang]||'🇺🇸';}
+        function getLanguageName(lang){const n={en:'English',sw:'Kiswahili',fr:'Français',de:'Deutsch',es:'Español',it:'Italiano',pt:'Português',ru:'Русский',zh:'中文',ja:'日本語'};return n[lang]||'English';}
+        function changeLanguage(lang){
+            if(lang===currentLanguage)return;
+            showTranslationLoading();
+            setTimeout(()=>{
+                currentLanguage=lang;
+                document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.getAttribute('data-i18n');if(translations[lang]&&translations[lang][key]){el.style.opacity='0';setTimeout(()=>{el.textContent=translations[lang][key];el.style.opacity='1';},50);}});
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const key=el.getAttribute('data-i18n-placeholder');if(translations[lang]&&translations[lang][key])el.placeholder=translations[lang][key];});
+                const currentLangElement=document.querySelector('.current-language');
+                currentLangElement.style.transform='scale(0.95)';
+                setTimeout(()=>{currentLangElement.innerHTML=`<span class="language-flag">${getFlagForLanguage(lang)}</span><span>${getLanguageName(lang)}</span><i class="fas fa-chevron-down" style="font-size:0.8rem;"></i>`;currentLangElement.style.transform='scale(1)';},150);
+                document.querySelectorAll('.language-option').forEach(opt=>{opt.classList.remove('active');if(opt.getAttribute('data-lang')===lang)opt.classList.add('active');});
+                document.getElementById('sidebarLanguage').value=lang;
+                document.documentElement.lang=lang;
+                localStorage.setItem('preferredLanguage',lang);
+                hideTranslationLoading();
+                const toast=document.createElement('div');
+                toast.style.cssText='position:fixed;bottom:30px;right:20px;background:#228B22;color:#fff;padding:12px 24px;border-radius:30px;z-index:10000;font-family:Poppins;box-shadow:0 4px 15px rgba(0,0,0,0.2);';
+                toast.innerHTML=`🌍 ${getLanguageName(lang)}`;
+                document.body.appendChild(toast);
+                setTimeout(()=>toast.remove(),2500);
+            },600);
+        }
+
+        document.addEventListener('DOMContentLoaded',function(){
+            AOS.init({duration:800,easing:'ease-in-out',once:true});
+            const savedLang=localStorage.getItem('preferredLanguage')||'en';
+            if(savedLang!=='en')changeLanguage(savedLang);
+            const navbar=document.getElementById('premiumNavbar');
+            window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>50));
+            const mobileBtn=document.getElementById('mobileMenuBtn');
+            const sidebar=document.getElementById('premiumSidebar');
+            const overlay=document.getElementById('sidebarOverlay');
+            const closeSidebar=document.getElementById('closeSidebar');
+            const destToggle=document.getElementById('destinationsToggle');
+            const destDropdown=document.getElementById('destinationsDropdown');
+            function closeSidebarFn(){mobileBtn.classList.remove('active');sidebar.classList.remove('active');overlay.classList.remove('active');document.body.style.overflow='';}
+            mobileBtn.addEventListener('click',()=>{mobileBtn.classList.toggle('active');sidebar.classList.toggle('active');overlay.classList.toggle('active');document.body.style.overflow=sidebar.classList.contains('active')?'hidden':'';});
+            closeSidebar.addEventListener('click',closeSidebarFn);
+            overlay.addEventListener('click',closeSidebarFn);
+            destToggle.addEventListener('click',(e)=>{e.preventDefault();destToggle.classList.toggle('active');destDropdown.classList.toggle('active');});
+            document.querySelectorAll('.language-option').forEach(opt=>{opt.addEventListener('click',(e)=>{e.preventDefault();changeLanguage(opt.getAttribute('data-lang'));closeSidebarFn();});});
+            document.getElementById('sidebarLanguage').addEventListener('change',function(){changeLanguage(this.value);closeSidebarFn();});
+            setTimeout(hideTranslationLoading,3000);
+        });
+
+        const historicalPackages={local:[{name:"3-Day Historical Tour",price:250,days:3,description:"Bagamoyo + Kaole Ruins + Stone Town | 3 Days"},{name:"Bagamoyo Historical Tour",price:80,days:1,description:"Caravan Serai + Old Fort + Catholic Mission | 1 Day"},{name:"Kaole Ruins Tour",price:60,days:1,description:"13th Century Mosque & Tombs | 1 Day"},{name:"Stone Town Historical Tour",price:90,days:1,description:"UNESCO World Heritage Site | 1 Day"}],vip:[{name:"3-Day Historical Tour",price:1500,days:3,description:"VIP Private Historical Experience | 3 Days"},{name:"Bagamoyo VIP Tour",price:300,days:1,description:"Exclusive Private Historical Experience | 1 Day"},{name:"Kaole Ruins VIP Tour",price:250,days:1,description:"Exclusive Archaeological Experience | 1 Day"},{name:"Stone Town VIP Tour",price:350,days:1,description:"Exclusive UNESCO Heritage Experience | 1 Day"}],vvip:[{name:"3-Day Historical Tour",price:5000,days:3,description:"Ultimate Luxury Historical Experience | 3 Days"},{name:"Bagamoyo VVIP Tour",price:1500,days:1,description:"Ultimate Luxury Historical Experience | 1 Day"},{name:"Kaole Ruins VVIP Tour",price:1200,days:1,description:"Ultimate Archaeological Luxury Experience | 1 Day"},{name:"Stone Town VVIP Tour",price:2000,days:1,description:"Ultimate UNESCO Heritage Luxury Experience | 1 Day"}]};
+        let historicalCurrentBooking={packageType:'local',travelerType:'single',peopleCount:1,selectedPackage:null,totalPrice:0,contactInfo:{firstName:'',lastName:'',email:'',phone:'',country:'',arrivalDate:'',departureDate:''}};
+        function historicalShowStep(stepNumber){document.querySelectorAll('.booking-section').forEach(s=>s.classList.remove('active'));document.getElementById(`historical-step-${stepNumber}`).classList.add('active');document.querySelectorAll('.booking-step').forEach(step=>{step.classList.remove('active');if(parseInt(step.dataset.step)<=stepNumber)step.classList.add('active');});if(stepNumber===3)historicalLoadPackages();else if(stepNumber===4)historicalUpdateBookingSummary();if(window.innerWidth<=768){document.querySelector('.premium-modal-body').scrollTop=0;}}
+        function historicalNextStep(step){if(step===2&&!historicalCurrentBooking.packageType){alert('Please select a package type first');return;}if(step===3&&!historicalCurrentBooking.travelerType){alert('Please select traveler type first');return;}if(step===4&&!historicalCurrentBooking.selectedPackage){alert('Please select a package first');return;}historicalShowStep(step);}
+        function historicalPrevStep(step){historicalShowStep(step);}
+        document.querySelectorAll('#historical-premium-modal .package-level').forEach(level=>{level.addEventListener('click',function(){document.querySelectorAll('#historical-premium-modal .package-level').forEach(l=>l.classList.remove('selected'));this.classList.add('selected');historicalCurrentBooking.packageType=this.dataset.level;historicalCurrentBooking.selectedPackage=null;document.getElementById('historical-package-type-value').textContent=this.dataset.level.toUpperCase();document.getElementById('historical-summary-type').textContent=this.dataset.level.toUpperCase();historicalUpdatePrice();});});
+        document.querySelectorAll('#historical-premium-modal .traveler-option').forEach(option=>{option.addEventListener('click',function(){document.querySelectorAll('#historical-premium-modal .traveler-option').forEach(opt=>opt.classList.remove('selected'));this.classList.add('selected');historicalCurrentBooking.travelerType=this.dataset.type;const peopleCounter=document.getElementById('historical-people-counter');const peopleCountItem=document.getElementById('historical-people-count-item');const multiplierItem=document.getElementById('historical-multiplier-item');if(this.dataset.type==='group'){peopleCounter.style.display='flex';peopleCountItem.style.display='flex';multiplierItem.style.display='flex';}else if(this.dataset.type==='couple'){historicalCurrentBooking.peopleCount=2;peopleCounter.style.display='none';peopleCountItem.style.display='flex';multiplierItem.style.display='flex';}else if(this.dataset.type==='family'){historicalCurrentBooking.peopleCount=4;peopleCounter.style.display='none';peopleCountItem.style.display='flex';multiplierItem.style.display='flex';}else{historicalCurrentBooking.peopleCount=1;peopleCounter.style.display='none';peopleCountItem.style.display='flex';multiplierItem.style.display='none';}document.getElementById('historical-traveler-type-value').textContent=this.dataset.type.charAt(0).toUpperCase()+this.dataset.type.slice(1);document.getElementById('historical-summary-traveler').textContent=this.dataset.type.charAt(0).toUpperCase()+this.dataset.type.slice(1);document.getElementById('historical-people-count-value').textContent=historicalCurrentBooking.peopleCount;document.getElementById('historical-summary-people').textContent=historicalCurrentBooking.peopleCount;historicalUpdatePrice();});});
+        function historicalChangePeopleCount(change){let newCount=historicalCurrentBooking.peopleCount+change;if(newCount<1)newCount=1;if(newCount>20)newCount=20;historicalCurrentBooking.peopleCount=newCount;document.getElementById('historical-people-count').textContent=newCount;document.getElementById('historical-people-count-value').textContent=newCount;document.getElementById('historical-summary-people').textContent=newCount;historicalUpdatePrice();}
+        function historicalLoadPackages(){const packages=historicalPackages[historicalCurrentBooking.packageType]||[];const container=document.getElementById('historical-package-options');container.innerHTML='';const title=document.getElementById('historical-package-selection-title');title.textContent=`Select Your ${historicalCurrentBooking.packageType.toUpperCase()} Package`;packages.forEach((pkg,index)=>{const option=document.createElement('div');option.className='traveler-option';option.dataset.index=index;option.innerHTML=`<div class="traveler-icon"><i class="fas fa-${historicalCurrentBooking.packageType==='local'?'landmark':historicalCurrentBooking.packageType==='vip'?'university':'crown'}"></i></div><div class="traveler-name">${pkg.name}</div><div class="traveler-description">${pkg.description}</div><div style="margin-top:10px;font-weight:bold;color:var(--premium-gold);">$${pkg.price} USD | ${pkg.days} ${pkg.days>1?'Days':'Day'}</div>`;option.addEventListener('click',function(){document.querySelectorAll('#historical-premium-modal .traveler-option').forEach(opt=>opt.classList.remove('selected'));this.classList.add('selected');historicalCurrentBooking.selectedPackage=pkg;historicalUpdatePrice();});container.appendChild(option);});}
+        function historicalUpdatePrice(){if(historicalCurrentBooking.selectedPackage){let basePrice=historicalCurrentBooking.selectedPackage.price;let multiplier=1;if(historicalCurrentBooking.travelerType==='couple'){multiplier=2;}else if(historicalCurrentBooking.travelerType==='family'){multiplier=4;}else if(historicalCurrentBooking.travelerType==='group'){multiplier=historicalCurrentBooking.peopleCount;}historicalCurrentBooking.totalPrice=basePrice*multiplier;document.getElementById('historical-base-price').textContent=`$${basePrice}`;document.getElementById('historical-package-name-value').textContent=historicalCurrentBooking.selectedPackage.name;document.getElementById('historical-multiplier-value').textContent=`x${multiplier}`;document.getElementById('historical-total-price').textContent=`$${historicalCurrentBooking.totalPrice}`;}else{document.getElementById('historical-base-price').textContent='$0';document.getElementById('historical-package-name-value').textContent='Not Selected';document.getElementById('historical-total-price').textContent='$0';}}
+        function historicalUpdateBookingSummary(){if(historicalCurrentBooking.selectedPackage){document.getElementById('historical-summary-package').textContent=historicalCurrentBooking.selectedPackage.name;document.getElementById('historical-summary-price').textContent=`$${historicalCurrentBooking.selectedPackage.price}`;document.getElementById('historical-summary-total').textContent=`$${historicalCurrentBooking.totalPrice}`;}}
+        function historicalCollectContactInfo(){historicalCurrentBooking.contactInfo={firstName:document.getElementById('historical-firstName').value,lastName:document.getElementById('historical-lastName').value,email:document.getElementById('historical-email').value,phone:document.getElementById('historical-phone').value,country:document.getElementById('historical-country').value,arrivalDate:document.getElementById('historical-arrival-date').value,departureDate:document.getElementById('historical-departure-date').value};}
+        function historicalSendBooking(){historicalCollectContactInfo();const packageType=historicalCurrentBooking.packageType.toUpperCase();const travelerType=historicalCurrentBooking.travelerType.charAt(0).toUpperCase()+historicalCurrentBooking.travelerType.slice(1);const packageName=historicalCurrentBooking.selectedPackage.name;const packagePrice=historicalCurrentBooking.selectedPackage.price;const totalPrice=historicalCurrentBooking.totalPrice;const duration=historicalCurrentBooking.selectedPackage.days+(historicalCurrentBooking.selectedPackage.days>1?' Days':' Day');const summary=`🏛️ *NEW HISTORICAL SITES BOOKING* 📜\n\n*Package Type:* ${packageType}\n*Traveler Type:* ${travelerType}\n*Number of People:* ${historicalCurrentBooking.peopleCount}\n*Selected Package:* ${packageName}\n*Duration:* ${duration}\n*Package Price:* $${packagePrice} USD\n*Total Amount:* $${totalPrice} USD\n\n*Contact Information:*\n*Name:* ${historicalCurrentBooking.contactInfo.firstName} ${historicalCurrentBooking.contactInfo.lastName}\n*Email:* ${historicalCurrentBooking.contactInfo.email}\n*Phone:* ${historicalCurrentBooking.contactInfo.phone}\n*Country:* ${historicalCurrentBooking.contactInfo.country}\n*Arrival Date:* ${historicalCurrentBooking.contactInfo.arrivalDate}\n*Departure Date:* ${historicalCurrentBooking.contactInfo.departureDate}\n\n*Booking Time:* ${new Date().toLocaleString()}`.trim();const whatsappUrl=`https://wa.me/255797331005?text=${encodeURIComponent(summary)}`;const emailUrl=`mailto:barackwilliam12@gmail.com?subject=${encodeURIComponent(`New Historical Sites ${packageType} Booking - ${travelerType}`)}&body=${encodeURIComponent(summary)}`;window.open(whatsappUrl,'_blank');setTimeout(()=>{window.open(emailUrl,'_blank');},1000);}
+        function historicalCompleteBooking(){historicalCollectContactInfo();const requiredFields=['firstName','lastName','email','phone','country','arrivalDate','departureDate'];for(const field of requiredFields){if(!historicalCurrentBooking.contactInfo[field]){alert(`Please fill in ${field.replace(/([A-Z])/g,' $1').toLowerCase()}`);return;}}if(!historicalCurrentBooking.selectedPackage){alert('Please select a package');return;}const arrivalDate=new Date(historicalCurrentBooking.contactInfo.arrivalDate);const departureDate=new Date(historicalCurrentBooking.contactInfo.departureDate);if(departureDate<=arrivalDate){alert('Departure date must be after arrival date');return;}historicalSendBooking();alert(`Historical Sites Booking Information Sent!\n\nWe have sent your booking details to our team via WhatsApp and email. We will contact you shortly to confirm your booking!`);closeHistoricalPremiumModal();}
+        function openHistoricalBookingModal(){historicalShowStep(1);historicalCurrentBooking={packageType:'local',travelerType:'single',peopleCount:1,selectedPackage:null,totalPrice:0,contactInfo:{firstName:'',lastName:'',email:'',phone:'',country:'',arrivalDate:'',departureDate:''}};document.querySelector('#historical-premium-modal .package-level.local').click();document.querySelector('#historical-step-2 .traveler-option[data-type="single"]').click();document.getElementById('historical-firstName').value='';document.getElementById('historical-lastName').value='';document.getElementById('historical-email').value='';document.getElementById('historical-phone').value='';document.getElementById('historical-country').value='';const today=new Date().toISOString().split('T')[0];const tomorrow=new Date();tomorrow.setDate(tomorrow.getDate()+1);const tomorrowStr=tomorrow.toISOString().split('T')[0];document.getElementById('historical-arrival-date').value=today;document.getElementById('historical-arrival-date').min=today;document.getElementById('historical-departure-date').value=tomorrowStr;document.getElementById('historical-departure-date').min=tomorrowStr;document.getElementById('historical-premium-modal').style.display='block';document.body.style.overflow='hidden';}
+        function closeHistoricalPremiumModal(){document.getElementById('historical-premium-modal').style.display='none';document.body.style.overflow='auto';}
+        document.getElementById('close-historical-premium-modal').addEventListener('click',closeHistoricalPremiumModal);window.addEventListener('click',function(e){if(e.target===document.getElementById('historical-premium-modal')){closeHistoricalPremiumModal();}});
+    </script>
+<script defer src="https://static.getbutton.io/widget/bundle.js?id=m7p9k"></script>
+    <script
+  src="jamiitek-status.js"
+  data-api-key="POiHpTCfSquN4Gdm399NZ01ouEidkiiiSGytk5bvT0YJj_JRktD2gfsZmnRNFeIh"
+  data-api-url="https://jamiitek.com/api/site-status/">
+</script>
+</body>
+</html>
