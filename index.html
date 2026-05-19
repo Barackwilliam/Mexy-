@@ -1,377 +1,1005 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Suspended</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --red:    #ff2244;
-    --red2:   #ff6680;
-    --dark:   #060810;
-    --dark2:  #0d1020;
-    --card:   rgba(255,255,255,0.04);
-    --border: rgba(255,34,68,0.15);
-    --text:   #f0f2ff;
-    --muted:  rgba(240,242,255,0.45);
-    --mono:   'DM Mono', monospace;
-    --head:   'Bebas Neue', cursive;
-    --body:   'Outfit', sans-serif;
-  }
-
-  html, body {
-    min-height: 100vh;
-    background: var(--dark);
-    font-family: var(--body);
-    color: var(--text);
-    overflow-x: hidden;
-  }
-
-  /* ── BACKGROUND ─────────────────────────────── */
-  .bg-layer {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  }
-
-  /* Grid lines */
-  .bg-grid {
-    background-image:
-      linear-gradient(rgba(255,34,68,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,34,68,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: grid-drift 20s linear infinite;
-  }
-  @keyframes grid-drift {
-    from { background-position: 0 0; }
-    to   { background-position: 60px 60px; }
-  }
-
-  /* Red glow top */
-  .bg-glow {
-    background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255,34,68,0.18) 0%, transparent 70%);
-  }
-
-  /* Scanlines */
-  .bg-scan {
-    background: repeating-linear-gradient(
-      0deg, transparent, transparent 3px,
-      rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px
-    );
-    animation: scanlines 8s linear infinite;
-  }
-  @keyframes scanlines {
-    from { background-position: 0 0; }
-    to   { background-position: 0 100px; }
-  }
-
-  /* ── LAYOUT ──────────────────────────────────── */
-  .page {
-    position: relative; z-index: 1;
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 40px 20px;
-  }
-
-  /* ── LOCK ICON ───────────────────────────────── */
-  .lock-wrap {
-    position: relative; margin-bottom: 32px;
-  }
-  .lock-ring {
-    width: 100px; height: 100px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,34,68,0.3);
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    animation: pulse-ring 2.5s ease-in-out infinite;
-  }
-  .lock-ring::before, .lock-ring::after {
-    content: '';
-    position: absolute; border-radius: 50%;
-    border: 1px solid rgba(255,34,68,0.15);
-    animation: expand-ring 2.5s ease-out infinite;
-  }
-  .lock-ring::before { width: 130px; height: 130px; animation-delay: 0.4s; }
-  .lock-ring::after  { width: 160px; height: 160px; animation-delay: 0.8s; }
-
-  @keyframes pulse-ring {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255,34,68,0.3), inset 0 0 20px rgba(255,34,68,0.05); }
-    50%       { box-shadow: 0 0 20px 4px rgba(255,34,68,0.25), inset 0 0 30px rgba(255,34,68,0.1); }
-  }
-  @keyframes expand-ring {
-    0%   { opacity: 0.6; transform: scale(1); }
-    100% { opacity: 0;   transform: scale(1.15); }
-  }
-
-  .lock-icon {
-    font-size: 40px; line-height: 1;
-    filter: drop-shadow(0 0 12px rgba(255,34,68,0.8));
-    animation: icon-pulse 2.5s ease-in-out infinite;
-  }
-  @keyframes icon-pulse {
-    0%, 100% { filter: drop-shadow(0 0 12px rgba(255,34,68,0.8)); }
-    50%       { filter: drop-shadow(0 0 24px rgba(255,34,68,1.0)) drop-shadow(0 0 40px rgba(255,34,68,0.4)); }
-  }
-
-  /* ── STATUS CHIP ─────────────────────────────── */
-  .status-chip {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,34,68,0.08);
-    border: 1px solid rgba(255,34,68,0.3);
-    border-radius: 100px;
-    padding: 6px 16px;
-    font-family: var(--mono); font-size: 11px; font-weight: 500;
-    color: var(--red2); letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  .status-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--red);
-    box-shadow: 0 0 8px var(--red);
-    animation: blink 1.2s ease-in-out infinite;
-  }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
-
-  /* ── HEADING ─────────────────────────────────── */
-  .heading {
-    font-family: var(--head);
-    font-size: clamp(56px, 12vw, 96px);
-    line-height: 0.9;
-    letter-spacing: 2px;
-    text-align: center;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-  .heading .accent {
-    color: var(--red);
-    filter: drop-shadow(0 0 20px rgba(255,34,68,0.6));
-  }
-
-  .subheading {
-    font-family: var(--head);
-    font-size: clamp(18px, 4vw, 28px);
-    color: var(--muted); letter-spacing: 4px;
-    text-align: center; margin-bottom: 36px;
-  }
-
-  /* ── CARD ────────────────────────────────────── */
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 28px 32px;
-    max-width: 520px; width: 100%;
-    margin-bottom: 28px;
-    backdrop-filter: blur(10px);
-    position: relative; overflow: hidden;
-  }
-  .card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,34,68,0.4), transparent);
-  }
-
-  .card-label {
-    font-family: var(--mono); font-size: 10px;
-    color: var(--red2); letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
-  }
-  .card-label::before {
-    content: ''; width: 16px; height: 1px; background: var(--red);
-  }
-
-  .card-message {
-    font-size: 15px; color: rgba(240,242,255,0.75);
-    line-height: 1.7; margin: 0;
-  }
-  .card-message strong { color: var(--text); font-weight: 600; }
-
-  /* ── INFO ROWS ───────────────────────────────── */
-  .info-section {
-    max-width: 520px; width: 100%;
-    display: flex; flex-direction: column; gap: 10px;
-    margin-bottom: 32px;
-  }
-  .info-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 12px 16px;
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 10px;
-  }
-  .info-key {
-    font-family: var(--mono); font-size: 11px;
-    color: var(--muted); text-transform: uppercase; letter-spacing: 1px;
-  }
-  .info-val {
-    font-size: 13px; font-weight: 600; color: var(--text);
-    font-family: var(--mono);
-  }
-  .info-val.red { color: var(--red); }
-
-  /* ── PAYMENT CARD ────────────────────────────── */
-  .pay-card {
-    background: linear-gradient(135deg, rgba(255,34,68,0.06), rgba(255,100,120,0.04));
-    border: 1px solid rgba(255,34,68,0.2);
-    border-radius: 16px; padding: 24px 28px;
-    max-width: 520px; width: 100%;
-    margin-bottom: 28px;
-  }
-  .pay-title {
-    font-family: var(--mono); font-size: 11px;
-    color: var(--red2); letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
-  }
-  .pay-rows { display: flex; flex-direction: column; gap: 8px; }
-  .pay-row {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 13px;
-  }
-  .pay-row-key { color: var(--muted); }
-  .pay-row-val { font-family: var(--mono); color: var(--text); font-weight: 600; }
-
-  /* ── BUTTON ──────────────────────────────────── */
-  .cta-wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
-
-  .btn {
-    display: inline-flex; align-items: center; gap: 9px;
-    padding: 14px 28px; border-radius: 12px;
-    font-family: var(--body); font-size: 14px; font-weight: 600;
-    text-decoration: none; cursor: pointer;
-    transition: all 0.25s ease;
-  }
-  .btn-primary {
-    background: var(--red);
-    color: #ffffff;
-    box-shadow: 0 4px 20px rgba(255,34,68,0.35);
-  }
-  .btn-primary:hover {
-    background: #ff3355;
-    box-shadow: 0 6px 30px rgba(255,34,68,0.55);
-    transform: translateY(-2px);
-  }
-  .btn-ghost {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: var(--muted);
-  }
-  .btn-ghost:hover {
-    background: rgba(255,255,255,0.08);
-    color: var(--text);
-    transform: translateY(-1px);
-  }
-
-  /* ── FOOTER ──────────────────────────────────── */
-  .footer {
-    text-align: center; max-width: 440px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 28px;
-  }
-  .footer-brand {
-    font-family: var(--head); font-size: 20px; letter-spacing: 2px;
-    color: var(--text); margin-bottom: 6px;
-  }
-  .footer-brand span { color: var(--red); }
-  .footer-tagline {
-    font-family: var(--mono); font-size: 10px;
-    color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-  .footer-links a {
-    font-size: 12px; color: var(--muted); text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--text); }
-
-  /* ── RESPONSIVE ──────────────────────────────── */
-  @media (max-width: 480px) {
-    .card, .pay-card { padding: 20px 18px; }
-    .info-row { flex-direction: column; align-items: flex-start; gap: 4px; }
-    .cta-wrap { flex-direction: column; align-items: stretch; }
-    .btn { justify-content: center; }
-    .footer-links { flex-direction: column; gap: 10px; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <script src="https://www.jamiitek.com/api/js/Hc3fuSgmvBdTIR26g7U2L4qwn14w5v1ud960UZkq8yiuNYM-BLTAdoMatQygbIeG/"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMexy Tanzania Adventures | Unique Tourism Experiences in Tanzania</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-
-<!-- Background layers -->
-<div class="bg-layer bg-grid"></div>
-<div class="bg-layer bg-glow"></div>
-<div class="bg-layer bg-scan"></div>
-
-<div class="page">
-
-  <!-- Lock icon -->
-  <div class="lock-wrap">
-    <div class="lock-ring">
-      <div class="lock-icon">🔒</div>
+    <!-- Premium Translation Loading -->
+    <div class="translation-loading" id="translationLoading">
+        <div class="loading-spinner"></div>
+        <p data-i18n="translation.loading">Translating content...</p>
     </div>
-  </div>
 
-  <!-- Status chip -->
-  <div class="status-chip">
-    <div class="status-dot"></div>
-    Service Suspended
-  </div>
+    <!-- Premium Navigation Bar -->
+    <nav class="premium-navbar" id="premiumNavbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo d-flex align-items-center text-decoration-none">
+                <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img me-2">
+                <span class="logo-text">MMexy</span>
+            </a>
 
-  <!-- Heading -->
-  <h1 class="heading">WEBSITE<br><span class="accent">SUSPENDED</span></h1>
-  <p class="subheading">Access Temporarily Restricted</p>
+            <div class="desktop-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active" data-i18n="nav.home">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about-us.html" class="nav-link" data-i18n="nav.about">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link" data-i18n="nav.contact">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown-parent">
+                        <a href="#" class="nav-link" data-i18n="nav.destinations">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Destinations</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </a>
+                        <div class="dropdown">
+                            <a href="mountain-climbing.html" class="dropdown-item" data-i18n="nav.mountain_climbing">
+                                <i class="fas fa-mountain"></i>
+                                <span>Mountain Climbing</span>
+                            </a>
+                            <a href="tanzania-safaris.html" class="dropdown-item" data-i18n="nav.safaris">
+                                <i class="fas fa-binoculars"></i>
+                                <span>Tanzania Safaris</span>
+                            </a>
+                            <a href="zanzibar-beaches.html" class="dropdown-item" data-i18n="nav.zanzibar">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span>Zanzibar Beaches</span>
+                            </a>
+                            <a href="cultural-tourism.html" class="dropdown-item" data-i18n="nav.cultural">
+                                <i class="fas fa-music"></i>
+                                <span>Cultural Tourism</span>
+                            </a>
+                            <a href="waterfall-tourism.html" class="dropdown-item" data-i18n="nav.waterfalls">
+                                <i class="fas fa-water"></i>
+                                <span>Waterfall Tourism</span>
+                            </a>
+                            <a href="historical-sites.html" class="dropdown-item" data-i18n="nav.historical">
+                                <i class="fas fa-landmark"></i>
+                                <span>Historical Sites</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
 
-  <!-- Message card -->
-  <div class="card">
-    <div class="card-label">Notice</div>
-    <p class="card-message">
-      This website has been <strong>temporarily suspended</strong> due to an outstanding hosting payment.
-      To restore access immediately, please contact <strong>JamiiTek Technologies</strong> and settle
-      your pending balance.
-    </p>
-  </div>
+                <div class="language-selector">
+                    <div style="color: black;" class="current-language">
+                        <span class="language-flag">🇺🇸</span>
+                        <span>English</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                    </div>
+                    <div class="language-dropdown">
+                        <a href="#" class="language-option active" data-lang="en"><span class="language-flag">🇺🇸</span><span>English</span><i class="fas fa-check"></i></a>
+                        <a href="#" class="language-option" data-lang="sw"><span class="language-flag">🇹🇿</span><span>Kiswahili</span></a>
+                        <a href="#" class="language-option" data-lang="fr"><span class="language-flag">🇫🇷</span><span>Français</span></a>
+                        <a href="#" class="language-option" data-lang="de"><span class="language-flag">🇩🇪</span><span>Deutsch</span></a>
+                        <a href="#" class="language-option" data-lang="es"><span class="language-flag">🇪🇸</span><span>Español</span></a>
+                        <a href="#" class="language-option" data-lang="it"><span class="language-flag">🇮🇹</span><span>Italiano</span></a>
+                        <a href="#" class="language-option" data-lang="pt"><span class="language-flag">🇵🇹</span><span>Português</span></a>
+                        <a href="#" class="language-option" data-lang="ru"><span class="language-flag">🇷🇺</span><span>Русский</span></a>
+                        <a href="#" class="language-option" data-lang="zh"><span class="language-flag">🇨🇳</span><span>中文</span></a>
+                        <a href="#" class="language-option" data-lang="ja"><span class="language-flag">🇯🇵</span><span>日本語</span></a>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Info rows -->
-  <div class="info-section">
-    <div class="info-row">
-      <span class="info-key">Status</span>
-      <span class="info-val red">● Suspended</span>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="premium-sidebar" id="premiumSidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-mountain sidebar-logo-icon"></i>
+                <span class="sidebar-logo-text">MMexy Tanzania</span>
+            </div>
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="index.html" class="sidebar-link active" data-i18n="nav.home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="about-us.html" class="sidebar-link" data-i18n="nav.about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="contact.html" class="sidebar-link" data-i18n="nav.contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link sidebar-dropdown-toggle" id="destinationsToggle" data-i18n="nav.destinations">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Destinations</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="sidebar-dropdown" id="destinationsDropdown">
+                        <a href="mountain-climbing.html" class="sidebar-link" data-i18n="nav.mountain_climbing">
+                            <i class="fas fa-mountain"></i>
+                            <span>Mountain Climbing</span>
+                        </a>
+                        <a href="tanzania-safaris.html" class="sidebar-link" data-i18n="nav.safaris">
+                            <i class="fas fa-binoculars"></i>
+                            <span>Tanzania Safaris</span>
+                        </a>
+                        <a href="zanzibar-beaches.html" class="sidebar-link" data-i18n="nav.zanzibar">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Zanzibar Beaches</span>
+                        </a>
+                        <a href="cultural-tourism.html" class="sidebar-link" data-i18n="nav.cultural">
+                            <i class="fas fa-music"></i>
+                            <span>Cultural Tourism</span>
+                        </a>
+                        <a href="waterfall-tourism.html" class="sidebar-link" data-i18n="nav.waterfalls">
+                            <i class="fas fa-water"></i>
+                            <span>Waterfall Tourism</span>
+                        </a>
+                        <a href="historical-sites.html" class="sidebar-link" data-i18n="nav.historical">
+                            <i class="fas fa-landmark"></i>
+                            <span>Historical Sites</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mobile-language-selector">
+                <label for="sidebarLanguage" data-i18n="footer.language">Language:</label>
+                <select style="color: black;" class="sidebar-language" id="sidebarLanguage">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="sw">🇹🇿 Kiswahili</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                </select>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="sidebar-social">
+                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
     </div>
-    <div class="info-row">
-      <span class="info-key">Reason</span>
-      <span class="info-val">Hosting Payment Overdue</span>
+
+    <div class="floating-language-btn" id="floatingLanguageBtn">
+        <div class="floating-language-dropdown" id="floatingLanguageDropdown">
+            <a href="#" class="floating-language-option active" data-lang="en"><span class="floating-language-flag">🇺🇸</span><span>English</span><i class="fas fa-check"></i></a>
+            <a href="#" class="floating-language-option" data-lang="sw"><span class="floating-language-flag">🇹🇿</span><span>Kiswahili</span></a>
+            <a href="#" class="floating-language-option" data-lang="fr"><span class="floating-language-flag">🇫🇷</span><span>Français</span></a>
+            <a href="#" class="floating-language-option" data-lang="de"><span class="floating-language-flag">🇩🇪</span><span>Deutsch</span></a>
+            <a href="#" class="floating-language-option" data-lang="es"><span class="floating-language-flag">🇪🇸</span><span>Español</span></a>
+            <a href="#" class="floating-language-option" data-lang="it"><span class="floating-language-flag">🇮🇹</span><span>Italiano</span></a>
+            <a href="#" class="floating-language-option" data-lang="pt"><span class="floating-language-flag">🇵🇹</span><span>Português</span></a>
+            <a href="#" class="floating-language-option" data-lang="ru"><span class="floating-language-flag">🇷🇺</span><span>Русский</span></a>
+            <a href="#" class="floating-language-option" data-lang="zh"><span class="floating-language-flag">🇨🇳</span><span>中文</span></a>
+            <a href="#" class="floating-language-option" data-lang="ja"><span class="floating-language-flag">🇯🇵</span><span>日本語</span></a>
+        </div>
+        <button class="floating-language-main" id="floatingLanguageMain">
+            <i class="fas fa-language"></i>
+            <span class="floating-button-text">Change Language</span>
+        </button>
     </div>
-    <div class="info-row">
-      <span class="info-key">Restore Time</span>
-      <span class="info-val">Immediate upon payment</span>
+
+    <div class="main-content">
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1 data-i18n="hero.title">Welcome to MMexy Tanzania Adventures</h1>
+                <p data-i18n="hero.subtitle">Land of Kilimanjaro and Zanzibar - Where Adventure Meets Serenity</p>
+                <a href="#destinations" class="btn" data-i18n="hero.cta">Discover Our Destinations</a>
+            </div>
+            <div class="hero-slides"></div>
+            <div class="floating-elements">
+                <div class="floating-element">⛰️</div>
+                <div class="floating-element">🦁</div>
+                <div class="floating-element">🏝️</div>
+                <div class="floating-element">🌴</div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="about.title">About Us</h2>
+                    <p class="section-subtitle" data-i18n="about.subtitle">Crafting Unforgettable Safari Experiences Since 2010</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p data-i18n="about.description1">MMexy Tanzania Adventures is a premier tourism company specializing in authentic Tanzanian experiences. With over a decade of excellence, we guide discerning travelers to discover the true beauty of Tanzania.</p>
+                        <div class="highlight">
+                            <p data-i18n="about.highlight">We provide exceptional services to our guests, offering them a unique and immersive experience of Tanzania's rich cultural heritage and natural wonders.</p>
+                        </div>
+                        <a href="about-us.html" class="btn">
+                            <span data-i18n="about.read_more">Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="premium-packages" id="our-packages">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2 class="artistic-title" data-i18n="packages.title">Our Tour Packages</h2>
+                    <div class="title-decoration">
+                        <div class="decoration-line"></div>
+                        <div class="decoration-icon">❖</div>
+                        <div class="decoration-line"></div>
+                    </div>
+                    <p class="section-subtitle elegante-text" data-i18n="packages.subtitle">Every traveler deserves an experience tailored to their needs. Explore our distinct tiers designed for different levels of comfort and exclusivity.</p>
+                </div>
+                <div class="package-grid">
+                    <div class="package-card tier-local" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-badge">🌿 <span data-i18n="packages.local.badge">Authentic</span></div>
+                        <div class="card-content">
+                            <div class="package-icon-header"><i class="fas fa-leaf"></i></div>
+                            <h3 data-i18n="packages.local.title">Local Package</h3>
+                            <p class="package-desc" data-i18n="packages.local.desc">Ideal for adventurous souls who want to witness the magic of Tanzania while staying mindful of their budget.</p>
+                            <ul class="package-features">
+                                <li><i class="fas fa-bus"></i> <span data-i18n="packages.local.feature1">Shared safari vehicles (Window seat guaranteed)</span></li>
+                                <li><i class="fas fa-campground"></i> <span data-i18n="packages.local.feature2">Quality public campsites or cozy local guesthouses</span></li>
+                                <li><i class="fas fa-utensils"></i> <span data-i18n="packages.local.feature3">Three fresh, local meals daily by bush chefs</span></li>
+                            </ul>
+                        </div>
+                        <div class="package-footer">
+                            <i class="fas fa-users"></i>
+                            <span data-i18n="packages.local.best">Best for: Solo travelers & budget-conscious groups.</span>
+                        </div>
+                    </div>
+
+                    <div class="package-card tier-vip" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-badge">⭐ <span data-i18n="packages.vip.badge">Comfort</span></div>
+                        <div class="card-content">
+                            <div class="package-icon-header"><i class="fas fa-star"></i></div>
+                            <h3 data-i18n="packages.vip.title">VIP Package</h3>
+                            <p class="package-desc" data-i18n="packages.vip.desc">A step above the ordinary, offering enhanced comfort and a more personalized pace away from the crowds.</p>
+                            <ul class="package-features">
+                                <li><i class="fas fa-shuttle-van"></i> <span data-i18n="packages.vip.feature1">Private 4x4 Land Cruiser exclusively for your party</span></li>
+                                <li><i class="fas fa-hotel"></i> <span data-i18n="packages.vip.feature2">Hand-picked 3 to 4-star mid-range lodges/tented camps</span></li>
+                                <li><i class="fas fa-user-tie"></i> <span data-i18n="packages.vip.feature3">Dedicated professional guide & priority access</span></li>
+                            </ul>
+                        </div>
+                        <div class="package-footer">
+                            <i class="fas fa-heart"></i>
+                            <span data-i18n="packages.vip.best">Best for: Families, Couples, and Honeymooners.</span>
+                        </div>
+                    </div>
+
+                    <div class="package-card tier-vvip" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-badge">👑 <span data-i18n="packages.vvip.badge">Exclusive</span></div>
+                        <div class="card-content">
+                            <div class="package-icon-header"><i class="fas fa-crown"></i></div>
+                            <h3 data-i18n="packages.vvip.title">VVIP Package</h3>
+                            <p class="package-desc" data-i18n="packages.vvip.desc">The pinnacle of Tanzanian luxury. Every detail is curated to ensure a seamless and prestigious journey.</p>
+                            <ul class="package-features">
+                                <li><i class="fas fa-plane-departure"></i> <span data-i18n="packages.vvip.feature1">Private charter flights between parks & luxury vehicles</span></li>
+                                <li><i class="fas fa-gem"></i> <span data-i18n="packages.vvip.feature2">Ultra-luxury 5-star lodges & exclusive boutique retreats</span></li>
+                                <li><i class="fas fa-concierge-bell"></i> <span data-i18n="packages.vvip.feature3">24/7 personal concierge, fine dining, & premium drinks</span></li>
+                            </ul>
+                        </div>
+                        <div class="package-footer">
+                            <i class="fas fa-award"></i>
+                            <span data-i18n="packages.vvip.best">Best for: Luxury seekers and high-profile guests.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="destinations" id="destinations">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="destinations.title">Our Destinations</h2>
+                    <p class="section-subtitle" data-i18n="destinations.subtitle">Discover Tanzania's Most Iconic Landscapes and Cultural Treasures</p>
+                    <div class="title-decoration">
+                        <div class="decoration-line"></div>
+                        <div class="decoration-icon">✻</div>
+                        <div class="decoration-line"></div>
+                    </div>
+                </div>
+                <div class="destinations-grid">
+                    <div class="destination-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-badge adventure" data-i18n="destinations.badge_adventure">Adventure</div>
+                        <div class="card-image">
+                            <img src="https://www.easytravel.co.tz/wp-content/uploads/2022/02/Silhouette-of-climbers-climbing-Mount-Kilimanjaro-during-a-golden-hour-morning.jpg" alt="Mountain Climbing" data-i18n="destinations.mountain.image_alt">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <span class="overlay-text" data-i18n="destinations.mountain.overlay">Conquer Peaks</span>
+                                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>5.0/5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3><i class="fas fa-mountain"></i> <span data-i18n="destinations.mountain.title">Mountain Climbing</span></h3>
+                                <div class="duration"><i class="far fa-clock"></i> <span data-i18n="destinations.mountain.duration">5-9 Days</span></div>
+                            </div>
+                            <p data-i18n="destinations.mountain.description">Conquer Africa's rooftop with our expert-guided climbs. Scale the majestic Kilimanjaro or explore the scenic trails of Mount Meru.</p>
+                            <div class="difficulty-meter">
+                                <span class="difficulty-label" data-i18n="destinations.difficulty">Difficulty:</span>
+                                <div class="meter"><div class="meter-fill" style="width: 85%"></div></div>
+                                <span class="difficulty-text" data-i18n="destinations.challenging">Challenging</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-range"><span class="from" data-i18n="destinations.from">From</span><span class="price">$1,200</span></div>
+                                <a href="mountain-climbing.html" class="explore-btn"><span data-i18n="destinations.mountain.cta">Begin Ascent</span><i class="fas fa-arrow-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="destination-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-badge safari" data-i18n="destinations.badge_wildlife">Wildlife</div>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tanzania Safaris" data-i18n="destinations.safari.image_alt">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <span class="overlay-text" data-i18n="destinations.safari.overlay">Wildlife Adventure</span>
+                                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>5.0/5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3><i class="fas fa-binoculars"></i> <span data-i18n="destinations.safari.title">Tanzania Safaris</span></h3>
+                                <div class="duration"><i class="far fa-clock"></i> <span data-i18n="destinations.safari.duration">3-10 Days</span></div>
+                            </div>
+                            <p data-i18n="destinations.safari.description">Embark on the ultimate wildlife adventure through Tanzania's legendary national parks. Witness the Great Migration in Serengeti.</p>
+                            <div class="experience-tags">
+                                <span class="tag" data-i18n="destinations.safari.tag1">Great Migration</span>
+                                <span class="tag" data-i18n="destinations.safari.tag2">Luxury Camps</span>
+                                <span class="tag" data-i18n="destinations.safari.tag3">Expert Guides</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-range"><span class="from" data-i18n="destinations.from">From</span><span class="price">$800</span></div>
+                                <a href="tanzania-safaris.html" class="explore-btn"><span data-i18n="destinations.safari.cta">Start Safari</span><i class="fas fa-paw"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="destination-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-badge luxury" data-i18n="destinations.badge_luxury">Luxury</div>
+                        <div class="card-image">
+                            <img src="https://africaadventurevacations.com/wp-content/uploads/2022/06/What-to-do-in-Zanzibar-Tanzania.png" alt="Zanzibar Beaches" data-i18n="destinations.zanzibar.image_alt">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <span class="overlay-text" data-i18n="destinations.zanzibar.overlay">Tropical Paradise</span>
+                                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><span>4.6/5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3><i class="fas fa-umbrella-beach"></i> <span data-i18n="destinations.zanzibar.title">Zanzibar Beaches</span></h3>
+                                <div class="duration"><i class="far fa-clock"></i> <span data-i18n="destinations.zanzibar.duration">3-7 Days</span></div>
+                            </div>
+                            <p data-i18n="destinations.zanzibar.description">Indulge in tropical paradise on Zanzibar's pristine shores. White sand beaches meet turquoise waters.</p>
+                            <div class="experience-tags">
+                                <span class="tag" data-i18n="destinations.zanzibar.tag1">Snorkeling</span>
+                                <span class="tag" data-i18n="destinations.zanzibar.tag2">Spa</span>
+                                <span class="tag" data-i18n="destinations.zanzibar.tag3">Cultural Tours</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-range"><span class="from" data-i18n="destinations.from">From</span><span class="price">$139</span></div>
+                                <a href="zanzibar-beaches.html" class="explore-btn"><span data-i18n="destinations.zanzibar.cta">Discover Paradise</span><i class="fas fa-sun"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="destination-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-badge cultural" data-i18n="destinations.badge_cultural">Cultural</div>
+                        <div class="card-image">
+                            <img src="https://www.ngorongorocratertanzania.org/wp-content/uploads/2023/12/shutterstock-188971328.jpg" alt="Cultural Tourism" data-i18n="destinations.cultural.image_alt">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <span class="overlay-text" data-i18n="destinations.cultural.overlay">Immerse in Traditions</span>
+                                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>4.7/5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3><i class="fas fa-music"></i> <span data-i18n="destinations.cultural.title">Cultural Tourism</span></h3>
+                                <div class="duration"><i class="far fa-clock"></i> <span data-i18n="destinations.cultural.duration">2-5 Days</span></div>
+                            </div>
+                            <p data-i18n="destinations.cultural.description">Experience the vibrant cultures of Tanzania's diverse ethnic groups. Participate in traditional ceremonies.</p>
+                            <div class="experience-tags">
+                                <span class="tag" data-i18n="destinations.cultural.tag1">Maasai Culture</span>
+                                <span class="tag" data-i18n="destinations.cultural.tag2">Traditional Dance</span>
+                                <span class="tag" data-i18n="destinations.cultural.tag3">Local Crafts</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-range"><span class="from" data-i18n="destinations.from">From</span><span class="price">$1200</span></div>
+                                <a href="cultural-tourism.html" class="explore-btn"><span data-i18n="destinations.cultural.cta">Experience Culture</span><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="destination-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card-badge waterfall" data-i18n="destinations.badge_waterfall">Waterfall</div>
+                        <div class="card-image">
+                            <img src="https://africaadventurevacations.com/wp-content/uploads/2022/03/Waterfalls-in-Tanzania.jpg" alt="Waterfalls" data-i18n="destinations.waterfall.image_alt">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <span class="overlay-text" data-i18n="destinations.waterfall.overlay">Discover Nature's Power</span>
+                                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>4.9/5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3><i class="fas fa-water"></i> <span data-i18n="destinations.waterfall.title">Waterfall Adventures</span></h3>
+                                <div class="duration"><i class="far fa-clock"></i> <span data-i18n="destinations.waterfall.duration">1-3 Days</span></div>
+                            </div>
+                            <p data-i18n="destinations.waterfall.description">Witness the breathtaking beauty of Tanzania's majestic waterfalls. Feel the mist on your face.</p>
+                            <div class="experience-tags">
+                                <span class="tag" data-i18n="destinations.waterfall.tag1">Natural Swimming</span>
+                                <span class="tag" data-i18n="destinations.waterfall.tag2">Rainforest Hikes</span>
+                                <span class="tag" data-i18n="destinations.waterfall.tag3">Photography</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-range"><span class="from" data-i18n="destinations.from">From</span><span class="price">$300</span></div>
+                                <a href="waterfall-tourism.html" class="explore-btn"><span data-i18n="destinations.waterfall.cta">Explore Waterfalls</span><i class="fas fa-water"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="destination-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="card-badge" data-i18n="destinations.badge_popular">Most Popular</div>
+                        <div class="card-image">
+                            <img src="https://www.the-backpacking-site.com/wp-content/uploads/2023/01/1024px-Gereza_at_Kilwa_Kisiwani.jpg" alt="Historical Sites" data-i18n="destinations.historical.image_alt">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <span class="overlay-text" data-i18n="destinations.historical.overlay">Explore Ancient Wonders</span>
+                                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>4.8/5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3><i class="fas fa-landmark"></i> <span data-i18n="destinations.historical.title">Historical Sites</span></h3>
+                                <div class="duration"><i class="far fa-clock"></i> <span data-i18n="destinations.historical.duration">1-3 Days</span></div>
+                            </div>
+                            <p data-i18n="destinations.historical.description">Journey through time as you explore Tanzania's rich historical tapestry.</p>
+                            <div class="card-footer">
+                                <div class="price-range"><span class="from" data-i18n="destinations.from">From</span><span class="price">$250</span></div>
+                                <a href="historical-sites.html" class="explore-btn"><span data-i18n="destinations.historical.cta">Explore Heritage</span><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="background-decoration">
+                <div class="decoration-circle circle-1"></div>
+                <div class="decoration-circle circle-2"></div>
+                <div class="decoration-circle circle-3"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.company">MMexy Tanzania Adventures</h3>
+                        <p data-i18n="footer.description">Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.quick_links">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+                            <li><a href="about-us.html"><i class="fas fa-info-circle"></i> <span data-i18n="nav.about">About Us</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.destinations">Destinations</h3>
+                        <ul class="footer-links">
+                            <li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a></li>
+                            <li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.safaris">Tanzania Safaris</span></a></li>
+                            <li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a></li>
+                            <li><a href="cultural-tourism.html"><i class="fas fa-music"></i> <span data-i18n="nav.cultural">Cultural Tourism</span></a></li>
+                            <li><a href="waterfall-tourism.html"><i class="fas fa-water"></i> <span data-i18n="nav.waterfalls">Waterfall Tourism</span></a></li>
+                            <li><a href="historical-sites.html"><i class="fas fa-landmark"></i> <span data-i18n="nav.historical">Historical Sites</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-i18n="footer.contact_info">Contact Info</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Arusha, Tanzania</span></a></li>
+                            <li><a href="tel:+255714331051"><i class="fas fa-phone"></i> +255 714331051</a></li>
+                            <li><a href="mailto:info@mmexy.com"><i class="fas fa-envelope"></i> info@mmexy.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p data-i18n="footer.copyright">&copy; 2026 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism</p>
+                </div>
+            </div>
+        </footer>
     </div>
-  </div>
 
-
-
-  <!-- CTA buttons -->
-  <div class="cta-wrap">
-    <a href="https://wa.me/255750910158?text=Habari,%20nataka%20kulipa%20hosting%20yangu" class="btn btn-primary" target="_blank">
-      💬 Contact via WhatsApp
+    <a href="https://wa.me/255797331005" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+            <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/>
+            <path fill="#25D366" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/>
+            <path fill="#25D366" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974"/>
+            <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/>
+            <path fill="#25D366" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"/>
+        </svg>
     </a>
-    <a href="mailto:info@jamiitek.co.tz?subject=Hosting%20Payment" class="btn btn-ghost">
-      ✉ Send Email
-    </a>
-  </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    <div class="footer-brand">Jamii<span>Tek</span></div>
-    <div class="footer-tagline">Digital Solutions · Tanzania</div>
-    <div class="footer-links">
-      <a href="https://jamiitek.com">jamiitek.com</a>
-      <a href="mailto:info@jamiitek.com">info@jamiitek.com</a>
-    </div>
-  </div>
+    <div id="google_translate_element" style="display: none !important;"></div>
 
-</div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="jamiitek-status.js" data-api-key="THEIR_API_KEY_HERE" data-api-url="https://jamiitek.co.tz/api/site-status/"></script>
+    <script>
+        // TRANSLATION DICTIONARY - LUGHA ZOTE 10
+        const translations = {
+            en: {
+                "nav.home": "Home", "nav.about": "About", "nav.destinations": "Destinations", "nav.mountain_climbing": "Mountain Climbing",
+                "nav.safaris": "Tanzania Safaris", "nav.zanzibar": "Zanzibar Beaches", "nav.cultural": "Cultural Tourism",
+                "nav.waterfalls": "Waterfall Tourism", "nav.historical": "Historical Sites", "nav.contact": "Contact",
+                "hero.title": "Welcome to MMexy Tanzania Adventures", "hero.subtitle": "Land of Kilimanjaro and Zanzibar - Where Adventure Meets Serenity", "hero.cta": "Discover Our Destinations",
+                "about.title": "About Us", "about.subtitle": "Crafting Unforgettable Safari Experiences Since 2010", "about.description1": "MMexy Tanzania Adventures is a premier tourism company specializing in authentic Tanzanian experiences.",
+                "about.highlight": "We provide exceptional services to our guests, offering them a unique and immersive experience of Tanzania's rich cultural heritage and natural wonders.",
+                "about.read_more": "Read More",
+                "packages.title": "Our Tour Packages", "packages.subtitle": "Every traveler deserves an experience tailored to their needs.",
+                "packages.local.title": "Local Package", "packages.local.desc": "Ideal for adventurous souls who want to witness the magic of Tanzania while staying mindful of their budget.",
+                "packages.local.feature1": "Shared safari vehicles", "packages.local.feature2": "Quality public campsites", "packages.local.feature3": "Three fresh, local meals daily",
+                "packages.local.best": "Best for: Solo travelers & budget-conscious groups",
+                "packages.vip.title": "VIP Package", "packages.vip.desc": "A step above the ordinary, offering enhanced comfort and a more personalized pace.",
+                "packages.vip.feature1": "Private 4x4 Land Cruiser", "packages.vip.feature2": "Hand-picked 3-4 star lodges", "packages.vip.feature3": "Dedicated professional guide",
+                "packages.vip.best": "Best for: Families, Couples, and Honeymooners",
+                "packages.vvip.title": "VVIP Package", "packages.vvip.desc": "The pinnacle of Tanzanian luxury. Every detail is curated for a seamless journey.",
+                "packages.vvip.feature1": "Private charter flights", "packages.vvip.feature2": "Ultra-luxury 5-star lodges", "packages.vvip.feature3": "24/7 personal concierge",
+                "packages.vvip.best": "Best for: Luxury seekers and high-profile guests",
+                "destinations.title": "Our Destinations", "destinations.subtitle": "Discover Tanzania's Most Iconic Landscapes and Cultural Treasures",
+                "destinations.badge_adventure": "Adventure", "destinations.badge_wildlife": "Wildlife", "destinations.badge_luxury": "Luxury",
+                "destinations.badge_cultural": "Cultural", "destinations.badge_waterfall": "Waterfall", "destinations.badge_popular": "Most Popular",
+                "destinations.from": "From", "destinations.difficulty": "Difficulty:", "destinations.challenging": "Challenging",
+                "destinations.mountain.title": "Mountain Climbing", "destinations.mountain.duration": "5-9 Days", "destinations.mountain.overlay": "Conquer Peaks",
+                "destinations.mountain.description": "Conquer Africa's rooftop with our expert-guided climbs.", "destinations.mountain.cta": "Begin Ascent",
+                "destinations.safari.title": "Tanzania Safaris", "destinations.safari.duration": "3-10 Days", "destinations.safari.overlay": "Wildlife Adventure",
+                "destinations.safari.description": "Embark on the ultimate wildlife adventure.", "destinations.safari.tag1": "Great Migration", "destinations.safari.tag2": "Luxury Camps", "destinations.safari.tag3": "Expert Guides",
+                "destinations.safari.cta": "Start Safari",
+                "destinations.zanzibar.title": "Zanzibar Beaches", "destinations.zanzibar.duration": "3-7 Days", "destinations.zanzibar.overlay": "Tropical Paradise",
+                "destinations.zanzibar.description": "Indulge in tropical paradise on Zanzibar's pristine shores.", "destinations.zanzibar.tag1": "Snorkeling", "destinations.zanzibar.tag2": "Spa", "destinations.zanzibar.tag3": "Cultural Tours",
+                "destinations.zanzibar.cta": "Discover Paradise",
+                "destinations.cultural.title": "Cultural Tourism", "destinations.cultural.duration": "2-5 Days", "destinations.cultural.overlay": "Immerse in Traditions",
+                "destinations.cultural.description": "Experience the vibrant cultures of Tanzania's diverse ethnic groups.", "destinations.cultural.tag1": "Maasai Culture", "destinations.cultural.tag2": "Traditional Dance", "destinations.cultural.tag3": "Local Crafts",
+                "destinations.cultural.cta": "Experience Culture",
+                "destinations.waterfall.title": "Waterfall Adventures", "destinations.waterfall.duration": "1-3 Days", "destinations.waterfall.overlay": "Discover Nature's Power",
+                "destinations.waterfall.description": "Witness the breathtaking beauty of Tanzania's majestic waterfalls.", "destinations.waterfall.tag1": "Natural Swimming", "destinations.waterfall.tag2": "Rainforest Hikes", "destinations.waterfall.tag3": "Photography",
+                "destinations.waterfall.cta": "Explore Waterfalls",
+                "destinations.historical.title": "Historical Sites", "destinations.historical.duration": "1-3 Days", "destinations.historical.overlay": "Explore Ancient Wonders",
+                "destinations.historical.description": "Journey through time as you explore Tanzania's rich historical tapestry.", "destinations.historical.cta": "Explore Heritage",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creating unforgettable experiences in the heart of Tanzania.",
+                "footer.quick_links": "Quick Links", "footer.destinations": "Destinations", "footer.contact_info": "Contact Info",
+                "footer.address": "Arusha, Tanzania", "footer.language": "Language:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. All rights reserved.",
+                "translation.loading": "Translating content..."
+            },
+            sw: {
+                "nav.home": "Nyumbani", "nav.about": "Kuhusu Sisi", "nav.destinations": "Sehemu za Kusisimua", "nav.mountain_climbing": "Kupanda Milima",
+                "nav.safaris": "Safari Tanzania", "nav.zanzibar": "Fuoni za Zanzibar", "nav.cultural": "Utalii wa Kitamaduni",
+                "nav.waterfalls": "Utalii wa Maporomoko", "nav.historical": "Maeneo ya Kihistoria", "nav.contact": "Wasiliana Nasi",
+                "hero.title": "Karibu MMexy Tanzania Adventures", "hero.subtitle": "Nchi ya Kilimanjaro na Zanzibar - Mahali Uvumbuzi Unakutana na Utulivu", "hero.cta": "Gundua Sehemu Zetu",
+                "about.title": "Kuhusu Sisi", "about.subtitle": "Tunatengeneza Uzoefu wa Safari Usiosahaulika Tangu 2010",
+                "about.description1": "MMexy Tanzania Adventures ni kampuni ya utalii ya kipekee inayojishughulisha na uzoefu wa asili wa Kitanzania.",
+                "about.highlight": "Tunatoa huduma bora kwa wageni wetu, tukiwapa uzoefu wa kipekee wa urithi wa kitamaduni na maajabu ya asili ya Tanzania.",
+                "about.read_more": "Soma Zaidi",
+                "packages.title": "Vifurushi Vyetu", "packages.subtitle": "Kila msafiri anastahili uzoefu unaolingana na mahitaji yake.",
+                "packages.local.title": "Kifurushi cha Kienyeji", "packages.local.desc": "Inafaa kwa watafuta mikakati wanaotaka kuushuhudia uchawi wa Tanzania.",
+                "packages.local.feature1": "Magari ya safari ya pamoja", "packages.local.feature2": "Kambi za umma", "packages.local.feature3": "Vyakula vitatu vya kienyeji kila siku",
+                "packages.local.best": "Inafaa kwa: Wasafiri peke yao na vikundi vya bajeti",
+                "packages.vip.title": "Kifurushi cha VIP", "packages.vip.desc": "Hatua ya juu zaidi, inayotoa faraja zaidi na mwendo wa kibinafsi.",
+                "packages.vip.feature1": "Gari la kibinafsi la 4x4", "packages.vip.feature2": "Nyota 3-4 za kulala", "packages.vip.feature3": "Mwongozaji wa kitaalamu",
+                "packages.vip.best": "Inafaa kwa: Familia, Wanandoa",
+                "packages.vvip.title": "Kifurushi cha VVIP", "packages.vvip.desc": "Kiwango cha juu kabisa cha anasa ya Kitanzania.",
+                "packages.vvip.feature1": "Ndege za kibinafsi", "packages.vvip.feature2": "Nyota 5 za anasa", "packages.vvip.feature3": "Concierge wa kibinafsi 24/7",
+                "packages.vvip.best": "Inafaa kwa: Watafuta anasa",
+                "destinations.title": "Sehemu Zetu", "destinations.subtitle": "Gundua Mandhari na Hazina za Kitamaduni za Tanzania",
+                "destinations.badge_adventure": "Mikakati", "destinations.badge_wildlife": "Wanyamapori", "destinations.badge_luxury": "Anasa",
+                "destinations.badge_cultural": "Kitamaduni", "destinations.badge_waterfall": "Maporomoko", "destinations.badge_popular": "Maarufu Zaidi",
+                "destinations.from": "Kuanzia", "destinations.difficulty": "Ugumu:", "destinations.challenging": "Changamoto",
+                "destinations.mountain.title": "Kupanda Milima", "destinations.mountain.duration": "Siku 5-9", "destinations.mountain.overlay": "Shinda Vilele",
+                "destinations.mountain.description": "Shinda paa la Afrika kwa kupanda kwa uongozi wa wataalamu wetu.", "destinations.mountain.cta": "Anza Kupanda",
+                "destinations.safari.title": "Safari Tanzania", "destinations.safari.duration": "Siku 3-10", "destinations.safari.overlay": "Mikakati ya Wanyamapori",
+                "destinations.safari.description": "Anza safari ya mwisho ya wanyamapori.", "destinations.safari.tag1": "Uhamiaji Mkuu", "destinations.safari.tag2": "Kambi za Anasa", "destinations.safari.tag3": "Waongozaji Wataalamu",
+                "destinations.safari.cta": "Anza Safari",
+                "destinations.zanzibar.title": "Fuoni za Zanzibar", "destinations.zanzibar.duration": "Siku 3-7", "destinations.zanzibar.overlay": "Paradiso ya Kitropiki",
+                "destinations.zanzibar.description": "Jistareheshe kwenye paradiso ya kitropiki kwenye fuoni safi za Zanzibar.", "destinations.zanzibar.tag1": "Snorkeling", "destinations.zanzibar.tag2": "Spa", "destinations.zanzibar.tag3": "Ziara za Kitamaduni",
+                "destinations.zanzibar.cta": "Gundua Paradiso",
+                "destinations.cultural.title": "Utalii wa Kitamaduni", "destinations.cultural.duration": "Siku 2-5", "destinations.cultural.overlay": "Zama Katika Mila",
+                "destinations.cultural.description": "Pata uzoefu wa tamaduni zenye nguvu za makabila mbalimbali ya Tanzania.", "destinations.cultural.tag1": "Tamaduni za Wamaasai", "destinations.cultural.tag2": "Ngoma za Kitamaduni", "destinations.cultural.tag3": "Ufundi wa Kienyeji",
+                "destinations.cultural.cta": "Pata Uzoefu wa Kitamaduni",
+                "destinations.waterfall.title": "Mikakati ya Maporomoko", "destinations.waterfall.duration": "Siku 1-3", "destinations.waterfall.overlay": "Gundua Nguvu ya Asili",
+                "destinations.waterfall.description": "Shuhudia uzuri wa kusisimua wa maporomoko makuu ya Tanzania.", "destinations.waterfall.tag1": "Kuogelea Asili", "destinations.waterfall.tag2": "Tembea Misitu", "destinations.waterfall.tag3": "Upigaji Picha",
+                "destinations.waterfall.cta": "Chunguza Maporomoko",
+                "destinations.historical.title": "Maeneo ya Kihistoria", "destinations.historical.duration": "Siku 1-3", "destinations.historical.overlay": "Chunguza Maajabu ya Kale",
+                "destinations.historical.description": "Safiri kupitia wakati unapochunguza utando wa kihistoria wa Tanzania.", "destinations.historical.cta": "Chunguza Urithi",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Tunatengeneza uzoefu usiosahaulika moyoni mwa Tanzania.",
+                "footer.quick_links": "Viungo vya Haraka", "footer.destinations": "Sehemu za Kusisimua", "footer.contact_info": "Maelezo ya Mawasiliano",
+                "footer.address": "Arusha, Tanzania", "footer.language": "Lugha:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Haki zote zimehifadhiwa.",
+                "translation.loading": "Inatafsiri maudhui..."
+            },
+            fr: {
+                "nav.home": "Accueil", "nav.about": "À Propos", "nav.destinations": "Destinations", "nav.mountain_climbing": "Ascension de Montagnes",
+                "nav.safaris": "Safaris Tanzanie", "nav.zanzibar": "Plages de Zanzibar", "nav.cultural": "Tourisme Culturel",
+                "nav.waterfalls": "Tourisme des Cascades", "nav.historical": "Sites Historiques", "nav.contact": "Contact",
+                "hero.title": "Bienvenue à MMexy Tanzania Adventures", "hero.subtitle": "Terre du Kilimandjaro et de Zanzibar - Où l'Aventure Rencontre la Sérénité", "hero.cta": "Découvrez Nos Destinations",
+                "about.title": "À Propos de Nous", "about.subtitle": "Création d'Expériences de Safari Inoubliables Depuis 2010",
+                "about.description1": "MMexy Tanzania Adventures est une entreprise touristique de premier plan spécialisée dans les expériences tanzaniennes authentiques.",
+                "about.highlight": "Nous fournissons des services exceptionnels à nos invités, leur offrant une expérience unique du riche patrimoine culturel de la Tanzanie.",
+                "about.read_more": "Lire Plus",
+                "packages.title": "Nos Forfaits Touristiques", "packages.subtitle": "Chaque voyageur mérite une expérience adaptée à ses besoins.",
+                "packages.local.title": "Forfait Local", "packages.local.desc": "Idéal pour les aventuriers qui souhaitent découvrir la magie de la Tanzanie.",
+                "packages.local.feature1": "Véhicules safari partagés", "packages.local.feature2": "Camps publics de qualité", "packages.local.feature3": "Trois repas locaux frais par jour",
+                "packages.local.best": "Idéal pour: Voyageurs solo et groupes à petit budget",
+                "packages.vip.title": "Forfait VIP", "packages.vip.desc": "Un cran au-dessus de l'ordinaire, offrant un confort amélioré.",
+                "packages.vip.feature1": "4x4 Land Cruiser privé", "packages.vip.feature2": "Lodges 3-4 étoiles", "packages.vip.feature3": "Guide professionnel dédié",
+                "packages.vip.best": "Idéal pour: Familles, Couples",
+                "packages.vvip.title": "Forfait VVIP", "packages.vvip.desc": "Le summum du luxe tanzanien.",
+                "packages.vvip.feature1": "Vols charters privés", "packages.vvip.feature2": "Lodges ultra-luxe 5 étoiles", "packages.vvip.feature3": "Concierge personnel 24/7",
+                "packages.vvip.best": "Idéal pour: Chercheurs de luxe",
+                "destinations.title": "Nos Destinations", "destinations.subtitle": "Découvrez les Paysages et Trésors Culturels de Tanzanie",
+                "destinations.badge_adventure": "Aventure", "destinations.badge_wildlife": "Faune", "destinations.badge_luxury": "Luxe",
+                "destinations.badge_cultural": "Culturel", "destinations.badge_waterfall": "Cascade", "destinations.badge_popular": "Plus Populaire",
+                "destinations.from": "À partir de", "destinations.difficulty": "Difficulté:", "destinations.challenging": "Difficile",
+                "destinations.mountain.title": "Ascension de Montagnes", "destinations.mountain.duration": "5-9 Jours", "destinations.mountain.overlay": "Vaincre les Sommets",
+                "destinations.mountain.description": "Vainquez le toit de l'Afrique avec nos ascensions guidées.", "destinations.mountain.cta": "Commencer l'Ascension",
+                "destinations.safari.title": "Safaris Tanzanie", "destinations.safari.duration": "3-10 Jours", "destinations.safari.overlay": "Aventure Faunique",
+                "destinations.safari.description": "Embarquez pour l'aventure faunique ultime.", "destinations.safari.tag1": "Grande Migration", "destinations.safari.tag2": "Camps de Luxe", "destinations.safari.tag3": "Guides Experts",
+                "destinations.safari.cta": "Commencer le Safari",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Création d'expériences inoubliables au cœur de la Tanzanie.",
+                "footer.quick_links": "Liens Rapides", "footer.destinations": "Destinations", "footer.contact_info": "Informations de Contact",
+                "footer.address": "Arusha, Tanzanie", "footer.language": "Langue:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Tous droits réservés.",
+                "translation.loading": "Traduction du contenu..."
+            },
+            de: {
+                "nav.home": "Startseite", "nav.about": "Über Uns", "nav.destinations": "Destinationen", "nav.mountain_climbing": "Bergsteigen",
+                "nav.safaris": "Tansania Safaris", "nav.zanzibar": "Zanzibar Strände", "nav.cultural": "Kulturtourismus",
+                "nav.waterfalls": "Wasserfall-Tourismus", "nav.historical": "Historische Stätten", "nav.contact": "Kontakt",
+                "hero.title": "Willkommen bei MMexy Tanzania Adventures", "hero.subtitle": "Land des Kilimandscharo und Sansibar - Wo Abenteuer auf Gelassenheit trifft", "hero.cta": "Entdecken Sie Unsere Destinationen",
+                "about.title": "Über Uns", "about.subtitle": "Gestaltung Unvergesslicher Safari-Erlebnisse Seit 2010",
+                "about.description1": "MMexy Tanzania Adventures ist ein erstklassiges Tourismusunternehmen für authentische tansanische Erlebnisse.",
+                "about.highlight": "Wir bieten unseren Gästen außergewöhnliche Dienstleistungen und ein einzigartiges Erlebnis des reichen kulturellen Erbes Tansanias.",
+                "about.read_more": "Weiterlesen",
+                "packages.title": "Unsere Reisepakete", "packages.subtitle": "Jeder Reisende verdient ein auf seine Bedürfnisse zugeschnittenes Erlebnis.",
+                "packages.local.title": "Lokales Paket", "packages.local.desc": "Ideal für Abenteurer, die die Magie Tansanias erleben möchten.",
+                "packages.local.feature1": "Geteilte Safari-Fahrzeuge", "packages.local.feature2": "Qualitativ hochwertige öffentliche Campingplätze", "packages.local.feature3": "Drei frische, lokale Mahlzeiten täglich",
+                "packages.local.best": "Am besten für: Alleinreisende & preisbewusste Gruppen",
+                "packages.vip.title": "VIP Paket", "packages.vip.desc": "Eine Stufe über dem Gewöhnlichen mit verbessertem Komfort.",
+                "packages.vip.feature1": "Privater 4x4 Land Cruiser", "packages.vip.feature2": "Ausgewählte 3-4 Sterne Lodges", "packages.vip.feature3": "Engagierter Profi-Guide",
+                "packages.vip.best": "Am besten für: Familien, Paare",
+                "packages.vvip.title": "VVIP Paket", "packages.vvip.desc": "Der Gipfel des tansanischen Luxus.",
+                "packages.vvip.feature1": "Private Charterflüge", "packages.vvip.feature2": "Ultra-Luxus 5-Sterne Lodges", "packages.vvip.feature3": "24/7 persönlicher Concierge",
+                "packages.vvip.best": "Am besten für: Luxussuchende",
+                "destinations.title": "Unsere Destinationen", "destinations.subtitle": "Entdecken Sie Tansanias ikonischste Landschaften",
+                "destinations.badge_adventure": "Abenteuer", "destinations.badge_wildlife": "Wildtiere", "destinations.badge_luxury": "Luxus",
+                "destinations.badge_cultural": "Kulturell", "destinations.badge_waterfall": "Wasserfall", "destinations.badge_popular": "Am Beliebtesten",
+                "destinations.from": "Ab", "destinations.difficulty": "Schwierigkeit:", "destinations.challenging": "Herausfordernd",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Schaffung unvergesslicher Erlebnisse im Herzen Tansanias.",
+                "footer.quick_links": "Schnelllinks", "footer.destinations": "Destinationen", "footer.contact_info": "Kontaktinformationen",
+                "footer.address": "Arusha, Tansania", "footer.language": "Sprache:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Alle Rechte vorbehalten.",
+                "translation.loading": "Inhalte werden übersetzt..."
+            },
+            es: {
+                "nav.home": "Inicio", "nav.about": "Acerca de", "nav.destinations": "Destinos", "nav.mountain_climbing": "Escalada de Montañas",
+                "nav.safaris": "Safaris Tanzania", "nav.zanzibar": "Playas de Zanzíbar", "nav.cultural": "Turismo Cultural",
+                "nav.waterfalls": "Turismo de Cascadas", "nav.historical": "Sitios Históricos", "nav.contact": "Contacto",
+                "hero.title": "Bienvenido a MMexy Tanzania Adventures", "hero.subtitle": "Tierra del Kilimanjaro y Zanzíbar - Donde la Aventura se Encuentra con la Serenidad", "hero.cta": "Descubre Nuestros Destinos",
+                "about.title": "Acerca de Nosotros", "about.subtitle": "Creando Experiencias de Safari Inolvidables Desde 2010",
+                "about.description1": "MMexy Tanzania Adventures es una empresa turística premium especializada en experiencias auténticas de Tanzania.",
+                "about.highlight": "Brindamos servicios excepcionales a nuestros huéspedes, ofreciéndoles una experiencia única del rico patrimonio cultural de Tanzania.",
+                "about.read_more": "Leer Más",
+                "packages.title": "Nuestros Paquetes Turísticos", "packages.subtitle": "Cada viajero merece una experiencia adaptada a sus necesidades.",
+                "packages.local.title": "Paquete Local", "packages.local.desc": "Ideal para almas aventureras que quieren presenciar la magia de Tanzania.",
+                "packages.local.feature1": "Vehículos de safari compartidos", "packages.local.feature2": "Campaamentos públicos de calidad", "packages.local.feature3": "Tres comidas locales frescas al día",
+                "packages.local.best": "Ideal para: Viajeros solos y grupos con presupuesto ajustado",
+                "packages.vip.title": "Paquete VIP", "packages.vip.desc": "Un paso por encima de lo ordinario, ofreciendo mayor comodidad.",
+                "packages.vip.feature1": "4x4 Land Cruiser privado", "packages.vip.feature2": "Lodges 3-4 estrellas seleccionados", "packages.vip.feature3": "Guía profesional dedicado",
+                "packages.vip.best": "Ideal para: Familias, Parejas",
+                "packages.vvip.title": "Paquete VVIP", "packages.vvip.desc": "La cima del lujo tanzano.",
+                "packages.vvip.feature1": "Vuelos chárter privados", "packages.vvip.feature2": "Lodges de ultra lujo 5 estrellas", "packages.vvip.feature3": "Concierge personal 24/7",
+                "packages.vvip.best": "Ideal para: Buscadores de lujo",
+                "destinations.title": "Nuestros Destinos", "destinations.subtitle": "Descubre los Paisajes y Tesoros Culturales de Tanzania",
+                "destinations.badge_adventure": "Aventura", "destinations.badge_wildlife": "Vida Silvestre", "destinations.badge_luxury": "Lujo",
+                "destinations.badge_cultural": "Cultural", "destinations.badge_waterfall": "Cascada", "destinations.badge_popular": "Más Popular",
+                "destinations.from": "Desde", "destinations.difficulty": "Dificultad:", "destinations.challenging": "Desafiante",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creando experiencias inolvidables en el corazón de Tanzania.",
+                "footer.quick_links": "Enlaces Rápidos", "footer.destinations": "Destinos", "footer.contact_info": "Información de Contacto",
+                "footer.address": "Arusha, Tanzania", "footer.language": "Idioma:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Todos los derechos reservados.",
+                "translation.loading": "Traduciendo contenido..."
+            },
+            it: {
+                "nav.home": "Home", "nav.about": "Chi Siamo", "nav.destinations": "Destinazioni", "nav.mountain_climbing": "Arrampicata",
+                "nav.safaris": "Safari Tanzania", "nav.zanzibar": "Spiagge di Zanzibar", "nav.cultural": "Turismo Culturale",
+                "nav.waterfalls": "Turismo delle Cascate", "nav.historical": "Siti Storici", "nav.contact": "Contatto",
+                "hero.title": "Benvenuti a MMexy Tanzania Adventures", "hero.subtitle": "Terra del Kilimanjaro e Zanzibar - Dove l'Avventura Incontra la Serenità", "hero.cta": "Scopri le Nostre Destinazioni",
+                "about.title": "Chi Siamo", "about.subtitle": "Creando Esperienze Safari Indimenticabili Dal 2010",
+                "about.description1": "MMexy Tanzania Adventures è un'azienda turistica di primo piano specializzata in esperienze autentiche della Tanzania.",
+                "about.highlight": "Forniamo servizi eccezionali ai nostri ospiti, offrendo loro un'esperienza unica del ricco patrimonio culturale della Tanzania.",
+                "about.read_more": "Leggi di Più",
+                "packages.title": "I Nostri Pacchetti Turistici", "packages.subtitle": "Ogni viaggiatore merita un'esperienza su misura per le sue esigenze.",
+                "packages.local.title": "Pacchetto Locale", "packages.local.desc": "Ideale per anime avventurose che vogliono assistere alla magia della Tanzania.",
+                "packages.local.feature1": "Veicoli safari condivisi", "packages.local.feature2": "Campeggi pubblici di qualità", "packages.local.feature3": "Tre pasti locali freschi al giorno",
+                "packages.local.best": "Ideale per: Viaggiatori singoli e gruppi con budget limitato",
+                "packages.vip.title": "Pacchetto VIP", "packages.vip.desc": "Un passo sopra l'ordinario, offrendo comfort migliorato.",
+                "packages.vip.feature1": "4x4 Land Cruiser privato", "packages.vip.feature2": "Lodge 3-4 stelle selezionati", "packages.vip.feature3": "Guida professionale dedicata",
+                "packages.vip.best": "Ideale per: Famiglie, Coppie",
+                "packages.vvip.title": "Pacchetto VVIP", "packages.vvip.desc": "Il massimo del lusso tanzaniano.",
+                "packages.vvip.feature1": "Voli charter privati", "packages.vvip.feature2": "Lodge di ultra lusso 5 stelle", "packages.vvip.feature3": "Concierge personale 24/7",
+                "packages.vvip.best": "Ideale per: Cercatori di lusso",
+                "destinations.title": "Le Nostre Destinazioni", "destinations.subtitle": "Scopri i Paesaggi e Tesori Culturali della Tanzania",
+                "destinations.badge_adventure": "Avventura", "destinations.badge_wildlife": "Fauna Selvatica", "destinations.badge_luxury": "Lusso",
+                "destinations.badge_cultural": "Culturale", "destinations.badge_waterfall": "Cascata", "destinations.badge_popular": "Più Popolare",
+                "destinations.from": "Da", "destinations.difficulty": "Difficoltà:", "destinations.challenging": "Impegnativo",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creando esperienze indimenticabili nel cuore della Tanzania.",
+                "footer.quick_links": "Link Rapidi", "footer.destinations": "Destinazioni", "footer.contact_info": "Informazioni di Contatto",
+                "footer.address": "Arusha, Tanzania", "footer.language": "Lingua:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Tutti i diritti riservati.",
+                "translation.loading": "Traduzione del contenuto..."
+            },
+            pt: {
+                "nav.home": "Início", "nav.about": "Sobre", "nav.destinations": "Destinos", "nav.mountain_climbing": "Escalada de Montanhas",
+                "nav.safaris": "Safaris Tanzânia", "nav.zanzibar": "Praias de Zanzibar", "nav.cultural": "Turismo Cultural",
+                "nav.waterfalls": "Turismo de Cachoeiras", "nav.historical": "Sítios Históricos", "nav.contact": "Contato",
+                "hero.title": "Bem-vindo à MMexy Tanzania Adventures", "hero.subtitle": "Terra do Kilimanjaro e Zanzibar - Onde a Aventura Encontra a Serenidade", "hero.cta": "Descubra Nossos Destinos",
+                "about.title": "Sobre Nós", "about.subtitle": "Criando Experiências de Safari Inesquecíveis Desde 2010",
+                "about.description1": "MMexy Tanzania Adventures é uma empresa de turismo premium especializada em experiências autênticas da Tanzânia.",
+                "about.highlight": "Fornecemos serviços excepcionais aos nossos hóspedes, oferecendo-lhes uma experiência única do rico patrimônio cultural da Tanzânia.",
+                "about.read_more": "Leia Mais",
+                "packages.title": "Nossos Pacotes Turísticos", "packages.subtitle": "Cada viajante merece uma experiência adaptada às suas necessidades.",
+                "packages.local.title": "Pacote Local", "packages.local.desc": "Ideal para almas aventureiras que querem testemunhar a magia da Tanzânia.",
+                "packages.local.feature1": "Veículos de safari compartilhados", "packages.local.feature2": "Acampamentos públicos de qualidade", "packages.local.feature3": "Três refeições locais frescas por dia",
+                "packages.local.best": "Ideal para: Viajantes individuais e grupos com orçamento limitado",
+                "packages.vip.title": "Pacote VIP", "packages.vip.desc": "Um passo acima do comum, oferecendo conforto aprimorado.",
+                "packages.vip.feature1": "4x4 Land Cruiser privado", "packages.vip.feature2": "Lodges 3-4 estrelas selecionados", "packages.vip.feature3": "Guia profissional dedicado",
+                "packages.vip.best": "Ideal para: Famílias, Casais",
+                "packages.vvip.title": "Pacote VVIP", "packages.vvip.desc": "O auge do luxo tanzaniano.",
+                "packages.vvip.feature1": "Voos charter privados", "packages.vvip.feature2": "Lodges de ultra luxo 5 estrelas", "packages.vvip.feature3": "Concierge pessoal 24/7",
+                "packages.vvip.best": "Ideal para: Buscadores de luxo",
+                "destinations.title": "Nossos Destinos", "destinations.subtitle": "Descubra as Paisagens e Tesouros Culturais da Tanzânia",
+                "destinations.badge_adventure": "Aventura", "destinations.badge_wildlife": "Vida Selvagem", "destinations.badge_luxury": "Luxo",
+                "destinations.badge_cultural": "Cultural", "destinations.badge_waterfall": "Cachoeira", "destinations.badge_popular": "Mais Popular",
+                "destinations.from": "A partir de", "destinations.difficulty": "Dificuldade:", "destinations.challenging": "Desafiador",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Criando experiências inesquecíveis no coração da Tanzânia.",
+                "footer.quick_links": "Links Rápidos", "footer.destinations": "Destinos", "footer.contact_info": "Informações de Contato",
+                "footer.address": "Arusha, Tanzânia", "footer.language": "Idioma:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Todos os direitos reservados.",
+                "translation.loading": "Traduzindo conteúdo..."
+            },
+            ru: {
+                "nav.home": "Главная", "nav.about": "О Нас", "nav.destinations": "Направления", "nav.mountain_climbing": "Восхождение на Горы",
+                "nav.safaris": "Сафари Танзания", "nav.zanzibar": "Пляжи Занзибара", "nav.cultural": "Культурный Туризм",
+                "nav.waterfalls": "Туризм к Водопадам", "nav.historical": "Исторические Места", "nav.contact": "Контакты",
+                "hero.title": "Добро пожаловать в MMexy Tanzania Adventures", "hero.subtitle": "Земля Килиманджаро и Занзибара - Где Приключения Встречаются с Безмятежностью", "hero.cta": "Откройте Наши Направления",
+                "about.title": "О Нас", "about.subtitle": "Создание Незабываемых Сафари-Впечатлений с 2010 года",
+                "about.description1": "MMexy Tanzania Adventures - это премиальная туристическая компания, специализирующаяся на аутентичных танзанийских впечатлениях.",
+                "about.highlight": "Мы предоставляем исключительные услуги нашим гостям, предлагая им уникальный опыт богатого культурного наследия Танзании.",
+                "about.read_more": "Читать Далее",
+                "packages.title": "Наши Туристические Пакеты", "packages.subtitle": "Каждый путешественник заслуживает опыт, адаптированный к его потребностям.",
+                "packages.local.title": "Местный Пакет", "packages.local.desc": "Идеально для искателей приключений, желающих увидеть магию Танзании.",
+                "packages.local.feature1": "Совместные сафари-автомобили", "packages.local.feature2": "Качественные общественные кемпинги", "packages.local.feature3": "Три свежих местных блюда ежедневно",
+                "packages.local.best": "Идеально для: Одиночных путешественников и групп с ограниченным бюджетом",
+                "packages.vip.title": "VIP Пакет", "packages.vip.desc": "На ступень выше обычного, предлагая повышенный комфорт.",
+                "packages.vip.feature1": "Частный 4x4 Land Cruiser", "packages.vip.feature2": "Отобранные лоджи 3-4 звезды", "packages.vip.feature3": "Выделенный профессиональный гид",
+                "packages.vip.best": "Идеально для: Семей, Пар",
+                "packages.vvip.title": "VVIP Пакет", "packages.vvip.desc": "Вершина танзанийской роскоши.",
+                "packages.vvip.feature1": "Частные чартерные рейсы", "packages.vvip.feature2": "Ультра-роскошные 5-звездочные лоджи", "packages.vvip.feature3": "Личный консьерж 24/7",
+                "packages.vvip.best": "Идеально для: Искателей роскоши",
+                "destinations.title": "Наши Направления", "destinations.subtitle": "Откройте Самые Знаковые Пейзажи и Культурные Сокровища Танзании",
+                "destinations.badge_adventure": "Приключение", "destinations.badge_wildlife": "Дикая Природа", "destinations.badge_luxury": "Роскошь",
+                "destinations.badge_cultural": "Культурный", "destinations.badge_waterfall": "Водопад", "destinations.badge_popular": "Самый Популярный",
+                "destinations.from": "От", "destinations.difficulty": "Сложность:", "destinations.challenging": "Сложный",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "Создание незабываемых впечатлений в сердце Танзании.",
+                "footer.quick_links": "Быстрые Ссылки", "footer.destinations": "Направления", "footer.contact_info": "Контактная Информация",
+                "footer.address": "Аруша, Танзания", "footer.language": "Язык:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Все права защищены.",
+                "translation.loading": "Перевод содержимого..."
+            },
+            zh: {
+                "nav.home": "首页", "nav.about": "关于我们", "nav.destinations": "目的地", "nav.mountain_climbing": "登山",
+                "nav.safaris": "坦桑尼亚游猎", "nav.zanzibar": "桑给巴尔海滩", "nav.cultural": "文化旅游",
+                "nav.waterfalls": "瀑布旅游", "nav.historical": "历史遗址", "nav.contact": "联系我们",
+                "hero.title": "欢迎来到MMexy Tanzania Adventures", "hero.subtitle": "乞力马扎罗和桑给巴尔之地 - 冒险与宁静相遇的地方", "hero.cta": "探索我们的目的地",
+                "about.title": "关于我们", "about.subtitle": "自2010年以来打造难忘的游猎体验",
+                "about.description1": "MMexy Tanzania Adventures是一家专注于坦桑尼亚真实体验的优质旅游公司。",
+                "about.highlight": "我们为客人提供卓越的服务，为他们提供坦桑尼亚丰富文化遗产的独特沉浸式体验。",
+                "about.read_more": "阅读更多",
+                "packages.title": "我们的旅游套餐", "packages.subtitle": "每位旅行者都值得拥有适合自己需求的体验。",
+                "packages.local.title": "本地套餐", "packages.local.desc": "适合想要体验坦桑尼亚魔力的冒险灵魂。",
+                "packages.local.feature1": "共享游猎车辆", "packages.local.feature2": "优质公共露营地", "packages.local.feature3": "每日三餐新鲜当地美食",
+                "packages.local.best": "最适合：单独旅行者和预算有限的团体",
+                "packages.vip.title": "VIP套餐", "packages.vip.desc": "超越平凡，提供更舒适的体验。",
+                "packages.vip.feature1": "私人4x4越野车", "packages.vip.feature2": "精选3-4星级小屋", "packages.vip.feature3": "专业导游",
+                "packages.vip.best": "最适合：家庭、情侣",
+                "packages.vvip.title": "VVIP套餐", "packages.vvip.desc": "坦桑尼亚奢华的巅峰。",
+                "packages.vvip.feature1": "私人包机", "packages.vvip.feature2": "超豪华5星级小屋", "packages.vvip.feature3": "24/7个人礼宾服务",
+                "packages.vvip.best": "最适合：奢华追求者",
+                "destinations.title": "我们的目的地", "destinations.subtitle": "发现坦桑尼亚最具标志性的景观和文化宝藏",
+                "destinations.badge_adventure": "冒险", "destinations.badge_wildlife": "野生动物", "destinations.badge_luxury": "豪华",
+                "destinations.badge_cultural": "文化", "destinations.badge_waterfall": "瀑布", "destinations.badge_popular": "最受欢迎",
+                "destinations.from": "起价", "destinations.difficulty": "难度:", "destinations.challenging": "具有挑战性",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "在坦桑尼亚中心创造难忘的体验。",
+                "footer.quick_links": "快速链接", "footer.destinations": "目的地", "footer.contact_info": "联系信息",
+                "footer.address": "阿鲁沙, 坦桑尼亚", "footer.language": "语言:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. 保留所有权利。",
+                "translation.loading": "正在翻译内容..."
+            },
+            ja: {
+                "nav.home": "ホーム", "nav.about": "会社概要", "nav.destinations": "目的地", "nav.mountain_climbing": "登山",
+                "nav.safaris": "タンザニアサファリ", "nav.zanzibar": "ザンジバルビーチ", "nav.cultural": "文化観光",
+                "nav.waterfalls": "滝観光", "nav.historical": "歴史的遺跡", "nav.contact": "お問い合わせ",
+                "hero.title": "MMexy Tanzania Adventuresへようこそ", "hero.subtitle": "キリマンジャロとザンジバルの地 - 冒険と静寂が出会う場所", "hero.cta": "目的地を発見",
+                "about.title": "会社概要", "about.subtitle": "2010年から忘れられないサファリ体験を創造",
+                "about.description1": "MMexy Tanzania Adventuresは、本格的なタンザニア体験に特化したプレミアム旅行会社です。",
+                "about.highlight": "私たちはゲストに卓越したサービスを提供し、タンザニアの豊かな文化遺産のユニークな体験を提供します。",
+                "about.read_more": "続きを読む",
+                "packages.title": "ツアーパッケージ", "packages.subtitle": "すべての旅行者は自分のニーズに合わせた体験を受ける権利があります。",
+                "packages.local.title": "ローカルパッケージ", "packages.local.desc": "タンザニアの魔法を体験したい冒険好きな魂に最適。",
+                "packages.local.feature1": "共有サファリ車両", "packages.local.feature2": "高品質な公共キャンプ場", "packages.local.feature3": "毎日3食の新鮮な地元料理",
+                "packages.local.best": "最適：一人旅と予算重視のグループ",
+                "packages.vip.title": "VIPパッケージ", "packages.vip.desc": "普通を超えた、快適さを強化。",
+                "packages.vip.feature1": "プライベート4x4ランドクルーザー", "packages.vip.feature2": "厳選された3-4つ星ロッジ", "packages.vip.feature3": "専属プロガイド",
+                "packages.vip.best": "最適：家族、カップル",
+                "packages.vvip.title": "VVIPパッケージ", "packages.vvip.desc": "タンザニアの贅沢の頂点。",
+                "packages.vvip.feature1": "プライベートチャーター便", "packages.vvip.feature2": "超豪華5つ星ロッジ", "packages.vvip.feature3": "24時間パーソナルコンシェルジュ",
+                "packages.vvip.best": "最適：贅沢を求める人",
+                "destinations.title": "私たちの目的地", "destinations.subtitle": "タンザニアの最も象徴的な景観と文化的宝物を発見",
+                "destinations.badge_adventure": "アドベンチャー", "destinations.badge_wildlife": "野生生物", "destinations.badge_luxury": "ラグジュアリー",
+                "destinations.badge_cultural": "文化的", "destinations.badge_waterfall": "滝", "destinations.badge_popular": "最も人気",
+                "destinations.from": "から", "destinations.difficulty": "難易度:", "destinations.challenging": "挑戦的",
+                "footer.company": "MMexy Tanzania Adventures", "footer.description": "タンザニアの中心で忘れられない体験を創造。",
+                "footer.quick_links": "クイックリンク", "footer.destinations": "目的地", "footer.contact_info": "連絡先情報",
+                "footer.address": "アルーシャ, タンザニア", "footer.language": "言語:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. 全著作権所有。",
+                "translation.loading": "コンテンツを翻訳中..."
+            }
+        };
 
+        let currentLanguage = 'en';
+
+        function showTranslationLoading() {
+            document.getElementById('translationLoading').classList.add('active');
+        }
+        function hideTranslationLoading() {
+            document.getElementById('translationLoading').classList.remove('active');
+        }
+        function getFlagForLanguage(lang) {
+            const flags = { en: '🇺🇸', sw: '🇹🇿', fr: '🇫🇷', de: '🇩🇪', es: '🇪🇸', it: '🇮🇹', pt: '🇵🇹', ru: '🇷🇺', zh: '🇨🇳', ja: '🇯🇵' };
+            return flags[lang] || '🇺🇸';
+        }
+        function getLanguageName(lang) {
+            const names = { en: 'English', sw: 'Kiswahili', fr: 'Français', de: 'Deutsch', es: 'Español', it: 'Italiano', pt: 'Português', ru: 'Русский', zh: '中文', ja: '日本語' };
+            return names[lang] || 'English';
+        }
+
+        function changeLanguage(lang) {
+            if (lang === currentLanguage) return;
+            showTranslationLoading();
+            setTimeout(() => {
+                currentLanguage = lang;
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.style.opacity = '0';
+                        setTimeout(() => {
+                            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = translations[lang][key];
+                            else el.textContent = translations[lang][key];
+                            el.style.opacity = '1';
+                        }, 50);
+                    }
+                });
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (translations[lang] && translations[lang][key]) el.placeholder = translations[lang][key];
+                });
+                const currentLangElement = document.querySelector('.current-language');
+                currentLangElement.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    currentLangElement.innerHTML = `<span class="language-flag">${getFlagForLanguage(lang)}</span><span>${getLanguageName(lang)}</span><i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>`;
+                    currentLangElement.style.transform = 'scale(1)';
+                }, 150);
+                document.querySelectorAll('.language-option').forEach(opt => {
+                    opt.classList.remove('active');
+                    if (opt.getAttribute('data-lang') === lang) opt.classList.add('active');
+                });
+                document.getElementById('sidebarLanguage').value = lang;
+                document.documentElement.lang = lang;
+                localStorage.setItem('preferredLanguage', lang);
+                hideTranslationLoading();
+                const toast = document.createElement('div');
+                toast.style.cssText = 'position:fixed;bottom:30px;right:20px;background:#228B22;color:#fff;padding:12px 24px;border-radius:30px;z-index:10000;font-family:Poppins;box-shadow:0 4px 15px rgba(0,0,0,0.2);';
+                toast.innerHTML = `🌍 ${getLanguageName(lang)}`;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2500);
+            }, 600);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            if (savedLang !== 'en') changeLanguage(savedLang);
+            const navbar = document.getElementById('premiumNavbar');
+            window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.getElementById('premiumSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const destToggle = document.getElementById('destinationsToggle');
+            const destDropdown = document.getElementById('destinationsDropdown');
+            function closeSidebarFn() {
+                mobileBtn.classList.remove('active'); sidebar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = '';
+            }
+            mobileBtn.addEventListener('click', () => {
+                mobileBtn.classList.toggle('active'); sidebar.classList.toggle('active'); overlay.classList.toggle('active');
+                document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+            });
+            closeSidebar.addEventListener('click', closeSidebarFn);
+            overlay.addEventListener('click', closeSidebarFn);
+            destToggle.addEventListener('click', (e) => { e.preventDefault(); destToggle.classList.toggle('active'); destDropdown.classList.toggle('active'); });
+            document.querySelectorAll('.language-option').forEach(opt => {
+                opt.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(opt.getAttribute('data-lang')); closeSidebarFn(); });
+            });
+            document.getElementById('sidebarLanguage').addEventListener('change', function() { changeLanguage(this.value); closeSidebarFn(); });
+            // Floating language button
+            const floatMain = document.getElementById('floatingLanguageMain');
+            const floatDropdown = document.getElementById('floatingLanguageDropdown');
+            if (floatMain && floatDropdown) {
+                floatMain.addEventListener('click', (e) => { e.stopPropagation(); floatMain.classList.toggle('active'); floatDropdown.classList.toggle('active'); });
+                document.addEventListener('click', () => { floatMain.classList.remove('active'); floatDropdown.classList.remove('active'); });
+                document.querySelectorAll('.floating-language-option').forEach(opt => {
+                    opt.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(opt.getAttribute('data-lang')); });
+                });
+            }
+            setTimeout(hideTranslationLoading, 3000);
+        });
+    </script>
+<script defer src="https://static.getbutton.io/widget/bundle.js?id=m7p9k"></script>
+    <script
+  src="jamiitek-status.js"
+  data-api-key="POiHpTCfSquN4Gdm399NZ01ouEidkiiiSGytk5bvT0YJj_JRktD2gfsZmnRNFeIh"
+  data-api-url="https://jamiitek.com/api/site-status/">
+</script>
 </body>
 </html>
