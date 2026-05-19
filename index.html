@@ -262,74 +262,568 @@
             </div>
         </section>
 
-        <section class="premium-packages" id="our-packages">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2 class="artistic-title" data-i18n="packages.title">Our Tour Packages</h2>
-                    <div class="title-decoration">
-                        <div class="decoration-line"></div>
-                        <div class="decoration-icon">❖</div>
-                        <div class="decoration-line"></div>
-                    </div>
-                    <p class="section-subtitle elegante-text" data-i18n="packages.subtitle">Every traveler deserves an experience tailored to their needs. Explore our distinct tiers designed for different levels of comfort and exclusivity.</p>
+<style>
+    /* Import elegant fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+    /* Premium Packages Section - White Background */
+    .premium-packages {
+        padding: 120px 0;
+        background: #ffffff;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Subtle geometric background pattern */
+    .premium-packages::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+    }
+
+    /* Floating gold dust particles */
+    .premium-packages::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 40%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
+                    radial-gradient(circle at 40% 90%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 30px;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Section Title Styles - Dark Text */
+    .section-title {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .artistic-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 56px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #c9a84c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .artistic-title::before {
+        content: '✦';
+        position: absolute;
+        left: -45px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 28px;
+        color: #c9a84c;
+        opacity: 0.7;
+        font-family: serif;
+        text-shadow: 0 0 5px rgba(201, 168, 76, 0.5);
+    }
+
+    .artistic-title::after {
+        content: '✦';
+        position: absolute;
+        right: -45px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 28px;
+        color: #c9a84c;
+        opacity: 0.7;
+        font-family: serif;
+        text-shadow: 0 0 5px rgba(201, 168, 76, 0.5);
+    }
+
+    .title-decoration {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    .decoration-line {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #c9a84c, #e8d5a3, #c9a84c, transparent);
+    }
+
+    .decoration-icon {
+        font-size: 22px;
+        color: #c9a84c;
+        animation: pulseGold 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseGold {
+        0%, 100% { opacity: 0.6; transform: scale(1); text-shadow: 0 0 0px rgba(201, 168, 76, 0); }
+        50% { opacity: 1; transform: scale(1.2); text-shadow: 0 0 10px rgba(201, 168, 76, 0.5); }
+    }
+
+    .section-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #555555;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
+        letter-spacing: 0.5px;
+    }
+
+    /* Package Grid */
+    .package-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 35px;
+        margin-top: 20px;
+    }
+
+    /* Package Card Base - White with shadow */
+    .package-card {
+        position: relative;
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 40px 30px;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        cursor: pointer;
+        overflow: hidden;
+        border: 1px solid #e8e8e8;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Gold border on hover */
+    .package-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        background: linear-gradient(135deg, #c9a84c, #e8d5a3, #c9a84c);
+        transition: height 0.4s ease;
+        z-index: 0;
+    }
+
+    .package-card:hover::after {
+        height: 4px;
+    }
+
+    /* Glow effect on hover */
+    .package-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(201, 168, 76, 0.08) 0%, 
+                    transparent 60%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .package-card:hover::before {
+        opacity: 1;
+    }
+
+    .package-card:hover {
+        transform: translateY(-15px);
+        border-color: rgba(201, 168, 76, 0.3);
+        box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(201, 168, 76, 0.1);
+    }
+
+    /* Card Content z-index */
+    .card-content, .card-badge, .package-footer {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Tier-specific hover shadows */
+    .tier-local:hover { box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(205, 127, 50, 0.15); }
+    .tier-vip:hover { box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(192, 192, 192, 0.15); }
+    .tier-vvip:hover { box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(255, 215, 0, 0.2); }
+
+    /* Card Badge */
+    .card-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #f8f8f8;
+        padding: 8px 18px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .tier-local .card-badge {
+        border: 1px solid #cd7f32;
+        color: #cd7f32;
+        background: linear-gradient(135deg, #fff, #fdf5e6);
+    }
+    .tier-vip .card-badge {
+        border: 1px solid #c0c0c0;
+        color: #7a7a7a;
+        background: linear-gradient(135deg, #fff, #f5f5f5);
+    }
+    .tier-vvip .card-badge {
+        border: 1px solid #ffd700;
+        color: #b8860b;
+        background: linear-gradient(135deg, #fff, #fff8e7);
+    }
+
+    .package-card:hover .card-badge {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Icon Header */
+    .package-icon-header {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #fafafa, #f5f5f5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        transition: all 0.4s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .tier-local .package-icon-header { border: 1px solid rgba(205, 127, 50, 0.3); }
+    .tier-vip .package-icon-header { border: 1px solid rgba(192, 192, 192, 0.3); }
+    .tier-vvip .package-icon-header { border: 1px solid rgba(255, 215, 0, 0.4); }
+
+    .package-icon-header i {
+        font-size: 40px;
+        transition: all 0.4s ease;
+    }
+
+    .tier-local .package-icon-header i { color: #cd7f32; }
+    .tier-vip .package-icon-header i { color: #9a9a9a; }
+    .tier-vvip .package-icon-header i { color: #ffd700; }
+
+    .package-card:hover .package-icon-header {
+        transform: scale(1.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .tier-local:hover .package-icon-header { border-color: #cd7f32; }
+    .tier-vip:hover .package-icon-header { border-color: #c0c0c0; }
+    .tier-vvip:hover .package-icon-header { border-color: #ffd700; box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2); }
+
+    /* Card Content - Dark Text */
+    .package-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        transition: all 0.3s ease;
+    }
+
+    .tier-local h3 { color: #2c1810; }
+    .tier-vip h3 { color: #1a1a2e; }
+    .tier-vvip h3 { color: #1a1a1a; }
+
+    .package-card:hover h3 {
+        background: linear-gradient(135deg, #1a1a1a, #c9a84c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .package-desc {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #666666;
+        margin-bottom: 25px;
+    }
+
+    /* Package Features List */
+    .package-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 30px 0;
+    }
+
+    .package-features li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        color: #444444;
+        border-bottom: 1px solid #f0f0f0;
+        transition: all 0.3s ease;
+    }
+
+    .package-features li:hover {
+        transform: translateX(8px);
+        color: #1a1a1a;
+    }
+
+    .package-features li i {
+        width: 24px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .tier-local .package-features li i { color: #cd7f32; }
+    .tier-vip .package-features li i { color: #c0c0c0; }
+    .tier-vvip .package-features li i { color: #ffd700; }
+
+    .package-features li:hover i {
+        transform: scale(1.2);
+    }
+
+    /* Package Footer */
+    .package-footer {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #f0f0f0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: #888888;
+        transition: all 0.3s ease;
+    }
+
+    .package-footer i {
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+
+    .package-card:hover .package-footer {
+        color: #333333;
+    }
+
+    .tier-local:hover .package-footer i { color: #cd7f32; }
+    .tier-vip:hover .package-footer i { color: #c0c0c0; }
+    .tier-vvip:hover .package-footer i { color: #ffd700; }
+
+    /* Gold Button Style - Additional CTA if needed */
+    .gold-button {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 28px;
+        background: linear-gradient(135deg, #c9a84c, #b8962e);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+        text-align: center;
+    }
+
+    .gold-button:hover {
+        transform: translateY(-2px);
+        background: linear-gradient(135deg, #d4b85c, #c9a84c);
+        box-shadow: 0 6px 18px rgba(201, 168, 76, 0.4);
+    }
+
+    /* Animation for cards on scroll */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .package-card {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+    }
+
+    .package-card:nth-child(1) { animation-delay: 0.1s; }
+    .package-card:nth-child(2) { animation-delay: 0.2s; }
+    .package-card:nth-child(3) { animation-delay: 0.3s; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .premium-packages {
+            padding: 80px 0;
+        }
+        
+        .artistic-title {
+            font-size: 40px;
+        }
+        
+        .artistic-title::before,
+        .artistic-title::after {
+            display: none;
+        }
+        
+        .package-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        .package-card {
+            padding: 30px 20px;
+        }
+        
+        .package-card h3 {
+            font-size: 28px;
+        }
+        
+        .section-title {
+            margin-bottom: 50px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .artistic-title {
+            font-size: 32px;
+        }
+        
+        .section-subtitle {
+            font-size: 15px;
+        }
+        
+        .package-icon-header {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .package-icon-header i {
+            font-size: 30px;
+        }
+        
+        .card-badge {
+            font-size: 11px;
+            padding: 5px 12px;
+        }
+    }
+</style>
+
+<script>
+    // Mouse move effect for cards (radiant glow)
+    document.querySelectorAll('.package-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+</script>
+<!-- 
+<section class="premium-packages" id="our-packages">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2 class="artistic-title" data-i18n="packages.title">Our Tour Packages</h2>
+            <div class="title-decoration">
+                <div class="decoration-line"></div>
+                <div class="decoration-icon">❖</div>
+                <div class="decoration-line"></div>
+            </div>
+            <p class="section-subtitle elegante-text" data-i18n="packages.subtitle">Every traveler deserves an experience tailored to their needs. Explore our distinct tiers designed for different levels of comfort and exclusivity.</p>
+        </div>
+        <div class="package-grid">
+            <div class="package-card tier-local" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-badge">🌿 <span data-i18n="packages.local.badge">Authentic</span></div>
+                <div class="card-content">
+                    <div class="package-icon-header"><i class="fas fa-leaf"></i></div>
+                    <h3 data-i18n="packages.local.title">Local Experience Package</h3>
+                    <p class="package-desc" data-i18n="packages.local.desc">Ideal for adventurous souls who want to witness the magic of Tanzania while staying mindful of their budget.</p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-bus"></i> <span data-i18n="packages.local.feature1">Shared safari vehicles (Window seat guaranteed)</span></li>
+                        <li><i class="fas fa-campground"></i> <span data-i18n="packages.local.feature2">Quality public campsites or cozy local guesthouses</span></li>
+                        <li><i class="fas fa-utensils"></i> <span data-i18n="packages.local.feature3">Three fresh, local meals daily by bush chefs</span></li>
+                    </ul>
                 </div>
-                <div class="package-grid">
-                    <div class="package-card tier-local" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-badge">🌿 <span data-i18n="packages.local.badge">Authentic</span></div>
-                        <div class="card-content">
-                            <div class="package-icon-header"><i class="fas fa-leaf"></i></div>
-                            <h3 data-i18n="packages.local.title">Local Package</h3>
-                            <p class="package-desc" data-i18n="packages.local.desc">Ideal for adventurous souls who want to witness the magic of Tanzania while staying mindful of their budget.</p>
-                            <ul class="package-features">
-                                <li><i class="fas fa-bus"></i> <span data-i18n="packages.local.feature1">Shared safari vehicles (Window seat guaranteed)</span></li>
-                                <li><i class="fas fa-campground"></i> <span data-i18n="packages.local.feature2">Quality public campsites or cozy local guesthouses</span></li>
-                                <li><i class="fas fa-utensils"></i> <span data-i18n="packages.local.feature3">Three fresh, local meals daily by bush chefs</span></li>
-                            </ul>
-                        </div>
-                        <div class="package-footer">
-                            <i class="fas fa-users"></i>
-                            <span data-i18n="packages.local.best">Best for: Solo travelers & budget-conscious groups.</span>
-                        </div>
-                    </div>
+                <div class="package-footer">
+                    <i class="fas fa-users"></i>
+                    <span data-i18n="packages.local.best">Best for: Solo travelers & budget-conscious groups.</span>
+                </div>
+              
+            </div>
 
-                    <div class="package-card tier-vip" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-badge">⭐ <span data-i18n="packages.vip.badge">Comfort</span></div>
-                        <div class="card-content">
-                            <div class="package-icon-header"><i class="fas fa-star"></i></div>
-                            <h3 data-i18n="packages.vip.title">VIP Package</h3>
-                            <p class="package-desc" data-i18n="packages.vip.desc">A step above the ordinary, offering enhanced comfort and a more personalized pace away from the crowds.</p>
-                            <ul class="package-features">
-                                <li><i class="fas fa-shuttle-van"></i> <span data-i18n="packages.vip.feature1">Private 4x4 Land Cruiser exclusively for your party</span></li>
-                                <li><i class="fas fa-hotel"></i> <span data-i18n="packages.vip.feature2">Hand-picked 3 to 4-star mid-range lodges/tented camps</span></li>
-                                <li><i class="fas fa-user-tie"></i> <span data-i18n="packages.vip.feature3">Dedicated professional guide & priority access</span></li>
-                            </ul>
-                        </div>
-                        <div class="package-footer">
-                            <i class="fas fa-heart"></i>
-                            <span data-i18n="packages.vip.best">Best for: Families, Couples, and Honeymooners.</span>
-                        </div>
-                    </div>
-
-                    <div class="package-card tier-vvip" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-badge">👑 <span data-i18n="packages.vvip.badge">Exclusive</span></div>
-                        <div class="card-content">
-                            <div class="package-icon-header"><i class="fas fa-crown"></i></div>
-                            <h3 data-i18n="packages.vvip.title">VVIP Package</h3>
-                            <p class="package-desc" data-i18n="packages.vvip.desc">The pinnacle of Tanzanian luxury. Every detail is curated to ensure a seamless and prestigious journey.</p>
-                            <ul class="package-features">
-                                <li><i class="fas fa-plane-departure"></i> <span data-i18n="packages.vvip.feature1">Private charter flights between parks & luxury vehicles</span></li>
-                                <li><i class="fas fa-gem"></i> <span data-i18n="packages.vvip.feature2">Ultra-luxury 5-star lodges & exclusive boutique retreats</span></li>
-                                <li><i class="fas fa-concierge-bell"></i> <span data-i18n="packages.vvip.feature3">24/7 personal concierge, fine dining, & premium drinks</span></li>
-                            </ul>
-                        </div>
-                        <div class="package-footer">
-                            <i class="fas fa-award"></i>
-                            <span data-i18n="packages.vvip.best">Best for: Luxury seekers and high-profile guests.</span>
-                        </div>
-                    </div>
+            <div class="package-card tier-vip" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-badge">⭐ <span data-i18n="packages.vip.badge">Comfort</span></div>
+                <div class="card-content">
+                    <div class="package-icon-header"><i class="fas fa-star"></i></div>
+                    <h3 data-i18n="packages.vip.title">VIP Package</h3>
+                    <p class="package-desc" data-i18n="packages.vip.desc">A step above the ordinary, offering enhanced comfort and a more personalized pace away from the crowds.</p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-shuttle-van"></i> <span data-i18n="packages.vip.feature1">Private 4x4 Land Cruiser exclusively for your party</span></li>
+                        <li><i class="fas fa-hotel"></i> <span data-i18n="packages.vip.feature2">Hand-picked 3 to 4-star mid-range lodges/tented camps</span></li>
+                        <li><i class="fas fa-user-tie"></i> <span data-i18n="packages.vip.feature3">Dedicated professional guide & priority access</span></li>
+                    </ul>
+                </div>
+                <div class="package-footer">
+                    <i class="fas fa-heart"></i>
+                    <span data-i18n="packages.vip.best">Best for: Families, Couples, and Honeymooners.</span>
                 </div>
             </div>
-        </section>
+
+            <div class="package-card tier-vvip" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-badge">👑 <span data-i18n="packages.vvip.badge">Exclusive</span></div>
+                <div class="card-content">
+                    <div class="package-icon-header"><i class="fas fa-crown"></i></div>
+                    <h3 data-i18n="packages.vvip.title">VVIP Package</h3>
+                    <p class="package-desc" data-i18n="packages.vvip.desc">The pinnacle of Tanzanian luxury. Every detail is curated to ensure a seamless and prestigious journey.</p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-plane-departure"></i> <span data-i18n="packages.vvip.feature1">Private charter flights between parks & luxury vehicles</span></li>
+                        <li><i class="fas fa-gem"></i> <span data-i18n="packages.vvip.feature2">Ultra-luxury 5-star lodges & exclusive boutique retreats</span></li>
+                        <li><i class="fas fa-concierge-bell"></i> <span data-i18n="packages.vvip.feature3">24/7 personal concierge, fine dining, & premium drinks</span></li>
+                    </ul>
+                </div>
+                <div class="package-footer">
+                    <i class="fas fa-award"></i>
+                    <span data-i18n="packages.vvip.best">Best for: Luxury seekers and high-profile guests.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
 
         <section class="destinations" id="destinations">
             <div class="container">
