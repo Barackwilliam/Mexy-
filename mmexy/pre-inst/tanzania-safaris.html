@@ -8,15 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239292560"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18239292560');
-</script>
     <style>
         :root {
             --primary: #1a6d38;
@@ -1663,8 +1654,277 @@
     </style>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
-    <script src="navbar-loader.js"></script>
+    <!-- Premium Translation Loading -->
+    <div class="translation-loading" id="translationLoading">
+        <div class="loading-spinner"></div>
+        <p data-i18n="translation.loading">Translating content...</p>
+    </div>
+
+    <!-- Premium Navigation Bar -->
+    <nav class="premium-navbar" id="premiumNavbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <!-- <a href="index.html" class="nav-logo">
+                <i class="fas fa-mountain logo-icon"></i>
+                <span class="logo-text">MMexy Tanzania</span>
+            </a> -->
+
+            
+            <a href="index.html" class="nav-logo d-flex align-items-center text-decoration-none">
+    <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img me-2">
+            <span class="logo-text">MMexy</span>
+        </a>
+        <style>
+            .logo-img{
+    height: 90px;      /* unaweza kuongeza hadi 50px */
+    width: auto;
+}
+.logo-text{
+    font-weight: 800;
+    font-size: 1.9rem;
+    color: #8B4513;
+}
+
+        </style>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link" data-i18n="nav.home">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about-us.html" class="nav-link" data-i18n="nav.about">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link" data-i18n="nav.about">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Contact Us</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown-parent">
+                        <a href="#" class="nav-link active" data-i18n="nav.destinations">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Destinations</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </a>
+                        <div class="dropdown">
+                            <a href="mountain-climbing.html" class="dropdown-item" data-i18n="nav.mountain_climbing">
+                                <i class="fas fa-mountain"></i>
+                                <span>Mountain Climbing</span>
+                            </a>
+                            <a href="tanzania-safaris.html" class="dropdown-item" data-i18n="nav.safaris">
+                                <i class="fas fa-binoculars"></i>
+                                <span>Tanzania Safaris</span>
+                            </a>
+                            <a href="zanzibar-beaches.html" class="dropdown-item" data-i18n="nav.zanzibar">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span>Zanzibar Beaches</span>
+                            </a>
+                            <a href="cultural-tourism.html" class="dropdown-item" data-i18n="nav.cultural">
+                                <i class="fas fa-music"></i>
+                                <span>Cultural Tourism</span>
+                            </a>
+                            <a href="waterfall-tourism.html" class="dropdown-item" data-i18n="nav.waterfalls">
+                                <i class="fas fa-water"></i>
+                                <span>Waterfall Tourism</span>
+                            </a>
+                            <a href="historical-sites.html" class="dropdown-item" data-i18n="nav.historical">
+                                <i class="fas fa-landmark"></i>
+                                <span>Historical Sites</span>
+                            </a>
+                        </div>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a href="contact.html" class="nav-link" data-i18n="nav.contact">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li> -->
+                </ul>
+
+                <!-- Premium Language Selector -->
+                <div class="language-selector">
+                    <div style="color: black;" class="current-language">
+                        <span class="language-flag">🇺🇸</span>
+                        <span>English</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                    </div>
+                    <div class="language-dropdown">
+                        <a href="#" class="language-option active" data-lang="en">
+                            <span class="language-flag">🇺🇸</span>
+                            <span>English</span>
+                            <i class="fas fa-check"></i>
+                        </a>
+                        <a href="#" class="language-option" data-lang="sw">
+                            <span class="language-flag">🇹🇿</span>
+                            <span>Kiswahili</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="fr">
+                            <span class="language-flag">🇫🇷</span>
+                            <span>Français</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="de">
+                            <span class="language-flag">🇩🇪</span>
+                            <span>Deutsch</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="es">
+                            <span class="language-flag">🇪🇸</span>
+                            <span>Español</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="it">
+                            <span class="language-flag">🇮🇹</span>
+                            <span>Italiano</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="pt">
+                            <span class="language-flag">🇵🇹</span>
+                            <span>Português</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="ru">
+                            <span class="language-flag">🇷🇺</span>
+                            <span>Русский</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="zh">
+                            <span class="language-flag">🇨🇳</span>
+                            <span>中文</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="ja">
+                            <span class="language-flag">🇯🇵</span>
+                            <span>日本語</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Premium Sidebar -->
+    <div class="premium-sidebar" id="premiumSidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-mountain sidebar-logo-icon"></i>
+                <span class="sidebar-logo-text">MMexy Tanzania</span>
+            </div>
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar Content -->
+        <div class="sidebar-content">
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="index.html" class="sidebar-link" data-i18n="nav.home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="about-us.html" class="sidebar-link" data-i18n="nav.about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="contact.html" class="sidebar-link active" data-i18n="nav.about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link sidebar-dropdown-toggle active" id="destinationsToggle" data-i18n="nav.destinations">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Destinations</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="sidebar-dropdown" id="destinationsDropdown">
+                        <a href="mountain-climbing.html" class="sidebar-link" data-i18n="nav.mountain_climbing">
+                            <i class="fas fa-mountain"></i>
+                            <span>Mountain Climbing</span>
+                        </a>
+                        <a href="tanzania-safaris.html" class="sidebar-link active" data-i18n="nav.safaris">
+                            <i class="fas fa-binoculars"></i>
+                            <span>Tanzania Safaris</span>
+                        </a>
+                        <a href="zanzibar-beaches.html" class="sidebar-link" data-i18n="nav.zanzibar">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Zanzibar Beaches</span>
+                        </a>
+                        <a href="cultural-tourism.html" class="sidebar-link" data-i18n="nav.cultural">
+                            <i class="fas fa-music"></i>
+                            <span>Cultural Tourism</span>
+                        </a>
+                        <a href="waterfall-tourism.html" class="sidebar-link" data-i18n="nav.waterfalls">
+                            <i class="fas fa-water"></i>
+                            <span>Waterfall Tourism</span>
+                        </a>
+                        <a href="historical-sites.html" class="sidebar-link" data-i18n="nav.historical">
+                            <i class="fas fa-landmark"></i>
+                            <span>Historical Sites</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="sidebar-item">
+                    <a href="contact.html" class="sidebar-link" data-i18n="nav.contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Mobile Language Selector -->
+            <div class="mobile-language-selector">
+                <label for="sidebarLanguage" data-i18n="footer.language">Language:</label>
+                <select style="color: black;" class="sidebar-language" id="sidebarLanguage">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="sw">🇹🇿 Kiswahili</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <div class="sidebar-social">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="main-content">

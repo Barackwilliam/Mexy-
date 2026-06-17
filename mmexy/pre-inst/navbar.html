@@ -1,0 +1,1076 @@
+<!--
+=============================================================
+  MMexy Tanzania Adventures — NAVBAR COMPONENT
+  Jinsi ya kutumia kwenye page yoyote:
+
+  1. Weka hii ndani ya <head> yako:
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+  2. Weka hii mwishoni mwa <body>, KABLA ya </body>:
+       <script src="navbar.js"></script>
+       (au copy script kutoka navbar.js ndani ya <script> tag yako)
+
+  3. Weka hii ndani ya <body> yako, mwanzoni:
+       <div id="navbar-placeholder"></div>
+       <script>
+         fetch('navbar.html')
+           .then(r => r.text())
+           .then(html => {
+             document.getElementById('navbar-placeholder').innerHTML = html;
+             // Mark active page:
+             // document.querySelector('a[href="about-us.html"]')?.classList.add('active');
+           });
+       </script>
+
+  MUHIMU: Badilisha href kwenye nav-link ya page unayoitumia
+  iwe na class="nav-link active" badala ya nav-link tu.
+=============================================================
+-->
+
+<!-- ===== CSS YA NAVBAR ===== -->
+<style>
+    :root {
+        --primary: #1a6d38;
+        --secondary: #f9a825;
+        --accent: #1565c0;
+        --light: #f5f5f5;
+        --dark: #333333;
+        --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        --premium-gold: #ffd700;
+        --artistic-brown: #8B4513;
+        --safari-orange: #FF8C00;
+        --nature-green: #228B22;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ===== PREMIUM TRANSLATION LOADING ===== */
+    .translation-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        gap: 20px;
+    }
+
+    .translation-loading.active {
+        display: flex;
+    }
+
+    .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(139, 69, 19, 0.2);
+        border-top-color: var(--safari-orange);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* ===== PREMIUM NAVIGATION BAR ===== */
+    .premium-navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 1000;
+        padding: 15px 0;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+    }
+
+    .premium-navbar.scrolled {
+        padding: 10px 0;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--artistic-brown);
+        font-weight: 700;
+        font-size: 1.5rem;
+        font-family: 'Cinzel', serif;
+        transition: var(--transition);
+    }
+
+    .nav-logo:hover {
+        transform: scale(1.05);
+        color: var(--safari-orange);
+    }
+
+    .logo-img {
+        height: 90px;
+        width: auto;
+    }
+
+    .logo-text {
+        font-weight: 800;
+        font-size: 1.9rem;
+        color: #8B4513;
+    }
+
+    .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        padding: 10px 15px;
+        border-radius: 25px;
+        transition: var(--transition);
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(249, 168, 37, 0.3);
+    }
+
+    .dropdown-parent {
+        position: relative;
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 15px;
+        padding: 15px;
+        min-width: 250px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition: var(--transition);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(139, 69, 19, 0.1);
+    }
+
+    .dropdown-parent:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(5px);
+    }
+
+    .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 15px;
+        text-decoration: none;
+        color: var(--dark);
+        border-radius: 10px;
+        transition: var(--transition);
+        margin-bottom: 5px;
+    }
+
+    .dropdown-item:hover {
+        background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+        color: white;
+        transform: translateX(5px);
+    }
+
+    .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+    }
+
+    .menu-line {
+        width: 25px;
+        height: 3px;
+        background: var(--artistic-brown);
+        border-radius: 2px;
+        transition: var(--transition);
+    }
+
+    .mobile-menu-btn.active .menu-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .mobile-menu-btn.active .menu-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-btn.active .menu-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* ===== PREMIUM SIDEBAR ===== */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 1999;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .premium-sidebar {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 350px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 2000;
+        transition: var(--transition);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .premium-sidebar.active {
+        right: 0;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px;
+        border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+    }
+
+    .sidebar-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--artistic-brown);
+        font-weight: 700;
+        font-size: 1.3rem;
+        font-family: 'Cinzel', serif;
+    }
+
+    .sidebar-logo-icon {
+        font-size: 1.8rem;
+        color: var(--safari-orange);
+    }
+
+    .close-sidebar {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--artistic-brown);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .close-sidebar:hover {
+        color: var(--safari-orange);
+        transform: rotate(90deg);
+    }
+
+    .sidebar-content {
+        flex: 1;
+        padding: 25px;
+        overflow-y: auto;
+    }
+
+    .sidebar-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar-item {
+        margin-bottom: 10px;
+    }
+
+    .sidebar-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px 20px;
+        text-decoration: none;
+        color: var(--dark);
+        border-radius: 12px;
+        transition: var(--transition);
+        font-weight: 500;
+    }
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
+        background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+        color: white;
+        transform: translateX(5px);
+    }
+
+    .sidebar-dropdown-toggle {
+        justify-content: space-between;
+    }
+
+    .dropdown-arrow {
+        transition: var(--transition);
+    }
+
+    .sidebar-dropdown-toggle.active .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+
+    .sidebar-dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: var(--transition);
+        margin-left: 20px;
+    }
+
+    .sidebar-dropdown.active {
+        max-height: 500px;
+    }
+
+    .sidebar-footer {
+        padding: 25px;
+        border-top: 1px solid rgba(139, 69, 19, 0.1);
+    }
+
+    .sidebar-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .social-link:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 8px 20px rgba(249, 168, 37, 0.3);
+    }
+
+    /* ===== MOBILE LANGUAGE SELECTOR (SIDEBAR) ===== */
+    .mobile-language-selector {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(139, 69, 19, 0.1);
+    }
+
+    .mobile-language-selector label {
+        display: block;
+        font-weight: 600;
+        color: var(--artistic-brown);
+        margin-bottom: 8px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .sidebar-language {
+        width: 100%;
+        padding: 10px 15px;
+        border: 1px solid rgba(139, 69, 19, 0.2);
+        border-radius: 10px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.95rem;
+        background: white;
+        color: black;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .sidebar-language:focus {
+        outline: none;
+        border-color: var(--safari-orange);
+        box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+    }
+
+    /* ===== MOBILE FLOATING LANGUAGE BUTTON ===== */
+    .floating-language-btn {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 999;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    @media (max-width: 1024px) {
+        .floating-language-btn {
+            display: flex;
+        }
+
+        .desktop-nav .language-selector {
+            display: none;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .floating-language-btn {
+            display: none !important;
+        }
+    }
+
+    .floating-language-main {
+        width: auto;
+        height: 60px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, var(--nature-green), var(--primary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        transition: var(--transition);
+        border: 3px solid white;
+        color: white;
+        font-size: 1rem;
+        padding: 0 20px;
+        gap: 10px;
+    }
+
+    .floating-language-main:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, var(--primary), var(--nature-green));
+    }
+
+    .floating-language-main.active {
+        transform: rotate(180deg);
+        background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+    }
+
+    .floating-language-dropdown {
+        position: absolute;
+        bottom: 70px;
+        left: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 15px;
+        padding: 15px;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: var(--transition);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(139, 69, 19, 0.1);
+    }
+
+    .floating-language-dropdown.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .floating-language-dropdown::before {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 20px;
+        width: 16px;
+        height: 16px;
+        background: rgba(255, 255, 255, 0.95);
+        transform: rotate(45deg);
+        border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        border-right: 1px solid rgba(139, 69, 19, 0.1);
+    }
+
+    .floating-language-option {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 15px;
+        text-decoration: none;
+        color: var(--dark);
+        border-radius: 10px;
+        transition: var(--transition);
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+
+    .floating-language-option:hover {
+        background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+        color: white;
+        transform: translateX(5px);
+    }
+
+    .floating-language-option.active {
+        background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+        color: white;
+        font-weight: 600;
+    }
+
+    .floating-language-flag {
+        font-size: 1.2rem;
+        min-width: 24px;
+    }
+
+    .floating-button-text {
+        font-size: 0.9rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    /* ===== LANGUAGE SELECTOR (DESKTOP) ===== */
+    .language-selector {
+        position: relative;
+        margin-left: 15px;
+    }
+
+    .current-language {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 15px;
+        background: rgba(139, 69, 19, 0.07);
+        border: 1px solid rgba(139, 69, 19, 0.2);
+        border-radius: 20px;
+        color: var(--dark);
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+
+    .current-language:hover {
+        background: rgba(255, 140, 0, 0.1);
+        border-color: var(--safari-orange);
+    }
+
+    .language-flag {
+        font-size: 1.2rem;
+    }
+
+    .language-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 15px;
+        padding: 15px;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition: var(--transition);
+        border: 1px solid rgba(139, 69, 19, 0.15);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        z-index: 1001;
+    }
+
+    .language-selector:hover .language-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(5px);
+    }
+
+    .language-dropdown::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        right: 20px;
+        width: 16px;
+        height: 16px;
+        background: rgba(255, 255, 255, 0.98);
+        transform: rotate(45deg);
+        border-top: 1px solid rgba(139, 69, 19, 0.15);
+        border-left: 1px solid rgba(139, 69, 19, 0.15);
+    }
+
+    .language-option {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 15px;
+        color: var(--dark);
+        text-decoration: none;
+        border-radius: 10px;
+        transition: var(--transition);
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+
+    .language-option:hover {
+        background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+        color: white;
+        transform: translateX(5px);
+    }
+
+    .language-option.active {
+        background: linear-gradient(135deg, var(--safari-orange), var(--secondary));
+        color: white;
+        font-weight: 600;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+        .desktop-nav {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .premium-sidebar {
+            width: 300px;
+        }
+    }
+</style>
+
+<!-- ===== TRANSLATION LOADING OVERLAY ===== -->
+<div class="translation-loading" id="translationLoading">
+    <div class="loading-spinner"></div>
+    <p data-i18n="translation.loading">Translating content...</p>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="premium-navbar" id="premiumNavbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo">
+            <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img">
+            <span class="logo-text">MMexy</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="desktop-nav">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-i18n="nav.home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about-us.html" class="nav-link" data-i18n="nav.about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-i18n="nav.contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown-parent">
+                    <a href="#" class="nav-link" data-i18n="nav.destinations">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Destinations</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="mountain-climbing.html" class="dropdown-item" data-i18n="nav.mountain_climbing">
+                            <i class="fas fa-mountain"></i>
+                            <span>Mountain Climbing</span>
+                        </a>
+                        <a href="tanzania-safaris.html" class="dropdown-item" data-i18n="nav.safaris">
+                            <i class="fas fa-binoculars"></i>
+                            <span>Tanzania Safaris</span>
+                        </a>
+                        <a href="zanzibar-beaches.html" class="dropdown-item" data-i18n="nav.zanzibar">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Zanzibar Beaches</span>
+                        </a>
+                        <a href="cultural-tourism.html" class="dropdown-item" data-i18n="nav.cultural">
+                            <i class="fas fa-music"></i>
+                            <span>Cultural Tourism</span>
+                        </a>
+                        <a href="waterfall-tourism.html" class="dropdown-item" data-i18n="nav.waterfalls">
+                            <i class="fas fa-water"></i>
+                            <span>Waterfall Tourism</span>
+                        </a>
+                        <a href="historical-sites.html" class="dropdown-item" data-i18n="nav.historical">
+                            <i class="fas fa-landmark"></i>
+                            <span>Historical Sites</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Desktop Language Selector -->
+            <div class="language-selector">
+                <div class="current-language">
+                    <span class="language-flag">🇺🇸</span>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                </div>
+                <div class="language-dropdown">
+                    <a href="#" class="language-option active" data-lang="en">
+                        <span class="language-flag">🇺🇸</span>
+                        <span>English</span>
+                        <i class="fas fa-check"></i>
+                    </a>
+                    <a href="#" class="language-option" data-lang="sw">
+                        <span class="language-flag">🇹🇿</span>
+                        <span>Kiswahili</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang="fr">
+                        <span class="language-flag">🇫🇷</span>
+                        <span>Français</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang="de">
+                        <span class="language-flag">🇩🇪</span>
+                        <span>Deutsch</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang="es">
+                        <span class="language-flag">🇪🇸</span>
+                        <span>Español</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang="it">
+                        <span class="language-flag">🇮🇹</span>
+                        <span>Italiano</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang="pt">
+                        <span class="language-flag">🇵🇹</span>
+                        <span>Português</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang="ru">
+                        <span class="language-flag">🇷🇺</span>
+                        <span>Русский</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang="zh">
+                        <span class="language-flag">🇨🇳</span>
+                        <span>中文</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang="ja">
+                        <span class="language-flag">🇯🇵</span>
+                        <span>日本語</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ===== SIDEBAR OVERLAY ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ===== PREMIUM SIDEBAR ===== -->
+<div class="premium-sidebar" id="premiumSidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-logo">
+            <i class="fas fa-mountain sidebar-logo-icon"></i>
+            <span class="sidebar-logo-text">MMexy Tanzania</span>
+        </div>
+        <button class="close-sidebar" id="closeSidebar">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="sidebar-content">
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a href="index.html" class="sidebar-link" data-i18n="nav.home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="about-us.html" class="sidebar-link" data-i18n="nav.about">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About Us</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="contact.html" class="sidebar-link" data-i18n="nav.contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact Us</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link sidebar-dropdown-toggle" id="destinationsToggle" data-i18n="nav.destinations">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Destinations</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <div class="sidebar-dropdown" id="destinationsDropdown">
+                    <a href="mountain-climbing.html" class="sidebar-link" data-i18n="nav.mountain_climbing">
+                        <i class="fas fa-mountain"></i>
+                        <span>Mountain Climbing</span>
+                    </a>
+                    <a href="tanzania-safaris.html" class="sidebar-link" data-i18n="nav.safaris">
+                        <i class="fas fa-binoculars"></i>
+                        <span>Tanzania Safaris</span>
+                    </a>
+                    <a href="zanzibar-beaches.html" class="sidebar-link" data-i18n="nav.zanzibar">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <span>Zanzibar Beaches</span>
+                    </a>
+                    <a href="cultural-tourism.html" class="sidebar-link" data-i18n="nav.cultural">
+                        <i class="fas fa-music"></i>
+                        <span>Cultural Tourism</span>
+                    </a>
+                    <a href="waterfall-tourism.html" class="sidebar-link" data-i18n="nav.waterfalls">
+                        <i class="fas fa-water"></i>
+                        <span>Waterfall Tourism</span>
+                    </a>
+                    <a href="historical-sites.html" class="sidebar-link" data-i18n="nav.historical">
+                        <i class="fas fa-landmark"></i>
+                        <span>Historical Sites</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Sidebar Language Selector -->
+        <div class="mobile-language-selector">
+            <label for="sidebarLanguage" data-i18n="footer.language">Language:</label>
+            <select class="sidebar-language" id="sidebarLanguage">
+                <option value="en">🇺🇸 English</option>
+                <option value="sw">🇹🇿 Kiswahili</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="zh">🇨🇳 中文</option>
+                <option value="ja">🇯🇵 日本語</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="sidebar-footer">
+        <div class="sidebar-social">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== MOBILE FLOATING LANGUAGE BUTTON ===== -->
+<div class="floating-language-btn" id="floatingLanguageBtn">
+    <div class="floating-language-dropdown" id="floatingLanguageDropdown">
+        <a href="#" class="floating-language-option active" data-lang="en">
+            <span class="floating-language-flag">🇺🇸</span>
+            <span>English</span>
+            <i class="fas fa-check"></i>
+        </a>
+        <a href="#" class="floating-language-option" data-lang="sw">
+            <span class="floating-language-flag">🇹🇿</span>
+            <span>Kiswahili</span>
+        </a>
+        <a href="#" class="floating-language-option" data-lang="fr">
+            <span class="floating-language-flag">🇫🇷</span>
+            <span>Français</span>
+        </a>
+        <a href="#" class="floating-language-option" data-lang="de">
+            <span class="floating-language-flag">🇩🇪</span>
+            <span>Deutsch</span>
+        </a>
+        <a href="#" class="floating-language-option" data-lang="es">
+            <span class="floating-language-flag">🇪🇸</span>
+            <span>Español</span>
+        </a>
+        <a href="#" class="floating-language-option" data-lang="it">
+            <span class="floating-language-flag">🇮🇹</span>
+            <span>Italiano</span>
+        </a>
+        <a href="#" class="floating-language-option" data-lang="pt">
+            <span class="floating-language-flag">🇵🇹</span>
+            <span>Português</span>
+        </a>
+        <a href="#" class="floating-language-option" data-lang="ru">
+            <span class="floating-language-flag">🇷🇺</span>
+            <span>Русский</span>
+        </a>
+        <a href="#" class="floating-language-option" data-lang="zh">
+            <span class="floating-language-flag">🇨🇳</span>
+            <span>中文</span>
+        </a>
+        <a href="#" class="floating-language-option" data-lang="ja">
+            <span class="floating-language-flag">🇯🇵</span>
+            <span>日本語</span>
+        </a>
+    </div>
+    <button class="floating-language-main" id="floatingLanguageMain">
+        <i class="fas fa-language"></i>
+        <span class="floating-button-text">Change Language</span>
+    </button>
+</div>
+
+<!-- ===== NAVBAR JAVASCRIPT ===== -->
+<script>
+(function() {
+    // ---- Navbar scroll effect ----
+    window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('premiumNavbar');
+        if (navbar) {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        }
+    });
+
+    // ---- Sidebar open/close ----
+    function closeSidebarFunction() {
+        document.getElementById('mobileMenuBtn')?.classList.remove('active');
+        document.getElementById('premiumSidebar')?.classList.remove('active');
+        document.getElementById('sidebarOverlay')?.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('mobileMenuBtn')?.addEventListener('click', function () {
+        this.classList.toggle('active');
+        document.getElementById('premiumSidebar')?.classList.toggle('active');
+        document.getElementById('sidebarOverlay')?.classList.toggle('active');
+        const isOpen = document.getElementById('premiumSidebar')?.classList.contains('active');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.getElementById('closeSidebar')?.addEventListener('click', closeSidebarFunction);
+    document.getElementById('sidebarOverlay')?.addEventListener('click', closeSidebarFunction);
+
+    // ---- Destinations dropdown in sidebar ----
+    document.getElementById('destinationsToggle')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        this.classList.toggle('active');
+        document.getElementById('destinationsDropdown')?.classList.toggle('active');
+    });
+
+    // ---- Keyboard ESC closes sidebar ----
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeSidebarFunction();
+    });
+
+    // ---- Auto-mark active link by current filename ----
+    (function markActivePage() {
+        const page = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link, .sidebar-link').forEach(function (link) {
+            const href = link.getAttribute('href');
+            if (href && href !== '#' && page === href.split('/').pop()) {
+                link.classList.add('active');
+            }
+        });
+    })();
+
+    // ---- Floating Language Button ----
+    const floatingMain = document.getElementById('floatingLanguageMain');
+    const floatingDropdown = document.getElementById('floatingLanguageDropdown');
+
+    if (floatingMain && floatingDropdown) {
+        floatingMain.addEventListener('click', function (e) {
+            e.stopPropagation();
+            floatingMain.classList.toggle('active');
+            floatingDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!floatingMain.contains(e.target) && !floatingDropdown.contains(e.target)) {
+                floatingMain.classList.remove('active');
+                floatingDropdown.classList.remove('active');
+            }
+        });
+
+        floatingDropdown.querySelectorAll('.floating-language-option').forEach(function (option) {
+            option.addEventListener('click', function (e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                if (typeof window.changeLanguage === 'function') {
+                    window.changeLanguage(lang);
+                }
+                floatingMain.classList.remove('active');
+                floatingDropdown.classList.remove('active');
+            });
+        });
+    }
+
+    // ---- Desktop language options ----
+    document.querySelectorAll('.language-option').forEach(function (option) {
+        option.addEventListener('click', function (e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            if (typeof window.changeLanguage === 'function') {
+                window.changeLanguage(lang);
+            }
+        });
+    });
+
+    // ---- Sidebar language select ----
+    document.getElementById('sidebarLanguage')?.addEventListener('change', function () {
+        if (typeof window.changeLanguage === 'function') {
+            window.changeLanguage(this.value);
+        }
+        closeSidebarFunction();
+    });
+})();
+</script>

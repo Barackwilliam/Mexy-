@@ -8,15 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239292560"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'AW-18239292560');
-    </script>
     <style>
         :root {
             --primary: #1a6d38;
@@ -358,9 +349,108 @@
 </head>
 <body>
 
-    <div id="navbar-placeholder"></div>
-    <script src="navbar-loader.js"></script>
+<!-- Translation Loading Overlay -->
+<div class="translation-loading" id="translationLoading">
+    <div class="loading-spinner"></div>
+    <p data-i18n="translation.loading">Translating content...</p>
+</div>
 
+<!-- ===== NAVBAR ===== -->
+<nav class="premium-navbar" id="premiumNavbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/images/logo.png" alt="MMexy Tanzania Logo" class="logo-img" onerror="this.style.display='none'">
+            <span class="logo-text">MMexy</span>
+        </a>
+        <div class="desktop-nav">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link"><i class="fas fa-home"></i><span data-i18n="nav.home">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="about-us.html" class="nav-link"><i class="fas fa-info-circle"></i><span data-i18n="nav.about">About</span></a>
+                </li>
+                <li class="nav-item dropdown-parent">
+                    <a href="#" class="nav-link"><i class="fas fa-map-marked-alt"></i><span data-i18n="nav.destinations">Destinations</span><i class="fas fa-chevron-down" style="font-size:0.75rem;"></i></a>
+                    <div class="dropdown">
+                        <a href="mountain-climbing.html" class="dropdown-item"><i class="fas fa-mountain"></i><span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a>
+                        <a href="tanzania-safaris.html" class="dropdown-item"><i class="fas fa-binoculars"></i><span data-i18n="nav.safaris">Tanzania Safaris</span></a>
+                        <a href="zanzibar-beaches.html" class="dropdown-item"><i class="fas fa-umbrella-beach"></i><span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a>
+                        <a href="cultural-tourism.html" class="dropdown-item"><i class="fas fa-music"></i><span data-i18n="nav.cultural">Cultural Tourism</span></a>
+                        <a href="waterfall-tourism.html" class="dropdown-item"><i class="fas fa-water"></i><span data-i18n="nav.waterfalls">Waterfall Tourism</span></a>
+                        <a href="historical-sites.html" class="dropdown-item"><i class="fas fa-landmark"></i><span data-i18n="nav.historical">Historical Sites</span></a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i><span data-i18n="nav.contact">Contact</span></a>
+                </li>
+            </ul>
+            <!-- Language Selector — 3 languages only -->
+            <div class="language-selector">
+                <div class="current-language" id="currentLangDisplay">
+                    <span class="language-flag">🇺🇸</span>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down" style="font-size:0.75rem;"></i>
+                </div>
+                <div class="language-dropdown">
+                    <a href="#" class="language-option active" data-lang="en"><span class="language-flag">🇺🇸</span><span>English</span></a>
+                    <a href="#" class="language-option" data-lang="sw"><span class="language-flag">🇹🇿</span><span>Kiswahili</span></a>
+                    <a href="#" class="language-option" data-lang="fr"><span class="language-flag">🇫🇷</span><span>Français</span></a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Sidebar Overlay + Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="premium-sidebar" id="premiumSidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-logo"><i class="fas fa-mountain sidebar-logo-icon"></i><span>MMexy Tanzania</span></div>
+        <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-content">
+        <ul class="sidebar-nav">
+            <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i class="fas fa-home"></i><span data-i18n="nav.home">Home</span></a></li>
+            <li class="sidebar-item"><a href="about-us.html" class="sidebar-link"><i class="fas fa-info-circle"></i><span data-i18n="nav.about">About Us</span></a></li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link sidebar-dropdown-toggle" id="destinationsToggle">
+                    <i class="fas fa-map-marked-alt"></i><span data-i18n="nav.destinations">Destinations</span><i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <div class="sidebar-dropdown" id="destinationsDropdown">
+                    <a href="mountain-climbing.html" class="sidebar-link"><i class="fas fa-mountain"></i><span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a>
+                    <a href="tanzania-safaris.html" class="sidebar-link"><i class="fas fa-binoculars"></i><span data-i18n="nav.safaris">Tanzania Safaris</span></a>
+                    <a href="zanzibar-beaches.html" class="sidebar-link"><i class="fas fa-umbrella-beach"></i><span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a>
+                    <a href="cultural-tourism.html" class="sidebar-link"><i class="fas fa-music"></i><span data-i18n="nav.cultural">Cultural Tourism</span></a>
+                    <a href="waterfall-tourism.html" class="sidebar-link"><i class="fas fa-water"></i><span data-i18n="nav.waterfalls">Waterfall Tourism</span></a>
+                    <a href="historical-sites.html" class="sidebar-link"><i class="fas fa-landmark"></i><span data-i18n="nav.historical">Historical Sites</span></a>
+                </div>
+            </li>
+            <li class="sidebar-item"><a href="contact.html" class="sidebar-link active"><i class="fas fa-envelope"></i><span data-i18n="nav.contact">Contact</span></a></li>
+        </ul>
+        <div class="mobile-language-selector">
+            <label for="sidebarLanguage" data-i18n="footer.language">Language:</label>
+            <select class="sidebar-language" id="sidebarLanguage" style="color:#333;">
+                <option value="en">🇺🇸 English</option>
+                <option value="sw">🇹🇿 Kiswahili</option>
+                <option value="fr">🇫🇷 Français</option>
+            </select>
+        </div>
+    </div>
+    <div class="sidebar-footer">
+        <div class="sidebar-social">
+            <a href="https://wa.me/255797331005" target="_blank" class="social-link" style="background:#25D366;"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:info@mmexy.com" class="social-link"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
 <div class="main-content">
 
     <!-- HERO -->

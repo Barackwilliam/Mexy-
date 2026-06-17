@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239292560"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18239292560');
+    </script>
     <style>
         :root {
             --primary: #1a6d38;
@@ -273,120 +282,18 @@
     </style>
 </head>
 <body>
-    <div class="translation-loading" id="translationLoading">
-        <div class="loading-spinner"></div>
-        <p>Translating content...</p>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="premium-navbar" id="premiumNavbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <i class="fas fa-mountain logo-icon"></i>
-                <span class="logo-text">MMexy Tanzania</span>
-            </a>
-            <div class="desktop-nav">
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
-                    <li class="nav-item"><a href="about-us.html" class="nav-link"><i class="fas fa-info-circle"></i><span>About</span></a></li>
-                     <!-- <li class="nav-item">
-                        <a href="contact.html" class="nav-link" data-i18n="nav.about">
-                            <i class="fas fa-info-circle"></i>
-                            <span>Contact Us</span>
-                        </a>
-                    </li> -->
-                    <li class="nav-item dropdown-parent">
-                        <a href="#" class="nav-link active"><i class="fas fa-map-marked-alt"></i><span>Destinations</span><i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
-                        <div class="dropdown">
-                            <a href="mountain-climbing.html" class="dropdown-item"><i class="fas fa-mountain"></i><span>Mountain Climbing</span></a>
-                            <a href="tanzania-safaris.html" class="dropdown-item"><i class="fas fa-binoculars"></i><span>Tanzania Safaris</span></a>
-                            <a href="zanzibar-beaches.html" class="dropdown-item"><i class="fas fa-umbrella-beach"></i><span>Zanzibar Beaches</span></a>
-                            <a href="cultural-tourism.html" class="dropdown-item active"><i class="fas fa-music"></i><span>Cultural Tourism</span></a>
-                            <a href="waterfall-tourism.html" class="dropdown-item"><i class="fas fa-water"></i><span>Waterfall Tourism</span></a>
-                            <a href="historical-sites.html" class="dropdown-item"><i class="fas fa-landmark"></i><span>Historical Sites</span></a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
-                </ul>
-                <div class="language-selector">
-                    <div style="color:black;" class="current-language">
-                        <span class="language-flag">🇺🇸</span><span>English</span><i class="fas fa-chevron-down" style="font-size:0.8rem;"></i>
-                    </div>
-                    <div class="language-dropdown">
-                        <a href="#" class="language-option active" data-lang="en"><span class="language-flag">🇺🇸</span><span>English</span></a>
-                        <a href="#" class="language-option" data-lang="sw"><span class="language-flag">🇹🇿</span><span>Kiswahili</span></a>
-                        <a href="#" class="language-option" data-lang="fr"><span class="language-flag">🇫🇷</span><span>Français</span></a>
-                        <a href="#" class="language-option" data-lang="de"><span class="language-flag">🇩🇪</span><span>Deutsch</span></a>
-                        <a href="#" class="language-option" data-lang="es"><span class="language-flag">🇪🇸</span><span>Español</span></a>
-                    </div>
-                </div>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span>
-            </button>
-        </div>
-    </nav>
-
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-    <div class="premium-sidebar" id="premiumSidebar">
-        <div class="sidebar-header">
-            <div class="sidebar-logo"><i class="fas fa-mountain sidebar-logo-icon"></i><span>MMexy Tanzania</span></div>
-            <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="sidebar-content">
-            <ul class="sidebar-nav">
-                <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i class="fas fa-home"></i><span>Home</span></a></li>
-                <li class="sidebar-item"><a href="about-us.html" class="sidebar-link"><i class="fas fa-info-circle"></i><span>About Us</span></a></li>
-                <li class="sidebar-item">
-                    <a href="contact.html" class="sidebar-link active" data-i18n="nav.about">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Contact</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link sidebar-dropdown-toggle active" id="destinationsToggle">
-                        <i class="fas fa-map-marked-alt"></i><span>Destinations</span><i class="fas fa-chevron-down dropdown-arrow"></i>
-                    </a>
-                    <div class="sidebar-dropdown active" id="destinationsDropdown">
-                        <a href="mountain-climbing.html" class="sidebar-link"><i class="fas fa-mountain"></i><span>Mountain Climbing</span></a>
-                        <a href="tanzania-safaris.html" class="sidebar-link"><i class="fas fa-binoculars"></i><span>Tanzania Safaris</span></a>
-                        <a href="zanzibar-beaches.html" class="sidebar-link"><i class="fas fa-umbrella-beach"></i><span>Zanzibar Beaches</span></a>
-                        <a href="cultural-tourism.html" class="sidebar-link active"><i class="fas fa-music"></i><span>Cultural Tourism</span></a>
-                        <a href="waterfall-tourism.html" class="sidebar-link"><i class="fas fa-water"></i><span>Waterfall Tourism</span></a>
-                        <a href="historical-sites.html" class="sidebar-link"><i class="fas fa-landmark"></i><span>Historical Sites</span></a>
-                    </div>
-                </li>
-                <li class="sidebar-item"><a href="contact.html" class="sidebar-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
-            </ul>
-            <div class="mobile-language-selector">
-                <label for="sidebarLanguage">Language:</label>
-                <select style="color:black;" class="sidebar-language" id="sidebarLanguage">
-                    <option value="en">🇺🇸 English</option>
-                    <option value="sw">🇹🇿 Kiswahili</option>
-                    <option value="fr">🇫🇷 Français</option>
-                    <option value="de">🇩🇪 Deutsch</option>
-                    <option value="es">🇪🇸 Español</option>
-                </select>
-            </div>
-        </div>
-        <div class="sidebar-footer">
-            <div class="sidebar-social">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </div>
+    <!-- NAVBAR -->
+    <div id="navbar-placeholder"></div>
+    <script src="navbar-loader.js"></script>
 
     <!-- Main Content -->
     <div class="main-content">
         <!-- Hero -->
         <section class="destination-hero">
             <div class="destination-hero-content">
-                <h1>Cultural Tourism Tanzania</h1>
-                <p>Experience Authentic Tribal Traditions and Local Communities</p>
-                <button class="btn" onclick="openCulturalBookingModal()">Book Cultural Experience</button>
+                <h1 data-i18n="cultural.hero.title">Cultural Tourism Tanzania</h1>
+                <p data-i18n="cultural.hero.subtitle">Experience Authentic Tribal Traditions and Local Communities</p>
+                <button class="btn" onclick="openCulturalBookingModal()" data-i18n="cultural.hero.cta">Book Cultural Experience</button>
             </div>
             <div class="floating-elements">
                 <div class="floating-element">👑</div>
@@ -400,109 +307,100 @@
         <section class="destination-content">
             <div class="container">
                 <div class="section-title">
-                    <h2>Cultural Immersion Journey</h2>
-                    <p class="section-subtitle">3 Days of Authentic Tribal Experiences and Community Visits</p>
+                    <h2 data-i18n="cultural.content.title">Cultural Immersion Journey</h2>
+                    <p class="section-subtitle" data-i18n="cultural.content.subtitle">3 Days of Authentic Tribal Experiences and Community Visits</p>
                 </div>
 
                 <div class="package-details">
-                    <h3>About Cultural Tourism</h3>
-                    <p class="normal-text">Immerse yourself in the rich cultural tapestry of Tanzania's diverse ethnic groups. Our cultural tourism packages offer authentic interactions with local communities, traditional ceremonies, and hands-on experiences that preserve ancient traditions while supporting sustainable community development.</p>
-                    <h4>Cultural Highlights</h4>
+                    <h3 data-i18n="cultural.about.title">About Cultural Tourism</h3>
+                    <p class="normal-text" data-i18n="cultural.about.description">Immerse yourself in the rich cultural tapestry of Tanzania's diverse ethnic groups. Our cultural tourism packages offer authentic interactions with local communities, traditional ceremonies, and hands-on experiences that preserve ancient traditions while supporting sustainable community development.</p>
+                    <h4 data-i18n="cultural.highlights.title">Cultural Highlights</h4>
                     <ul>
-                        <li>Maasai village homestays & Boma experience</li>
-                        <li>Hadzabe hunter-gatherer day trip</li>
-                        <li>Chagga agricultural traditions & coffee tour</li>
-                        <li>Traditional dance performances</li>
-                        <li>Local craft workshops</li>
-                        <li>Community development projects</li>
+                        <li data-i18n="cultural.highlights.item1">Maasai village homestays & Boma experience</li>
+                        <li data-i18n="cultural.highlights.item2">Hadzabe hunter-gatherer day trip</li>
+                        <li data-i18n="cultural.highlights.item3">Chagga agricultural traditions & coffee tour</li>
+                        <li data-i18n="cultural.highlights.item4">Traditional dance performances</li>
+                        <li data-i18n="cultural.highlights.item5">Local craft workshops</li>
+                        <li data-i18n="cultural.highlights.item6">Community development projects</li>
                     </ul>
                 </div>
 
                 <!-- Tribes -->
                 <div class="tribe-features">
-                    <h3 class="section-title" style="font-size:2rem;color:var(--artistic-brown);font-family:'Cinzel',serif;">Meet Tanzania's Ethnic Groups</h3>
+                    <h3 class="section-title" style="font-size:2rem;color:var(--artistic-brown);font-family:'Cinzel',serif;" data-i18n="cultural.tribes.title">Meet Tanzania's Ethnic Groups</h3>
                     <div class="tribe-feature">
-                        <h4>Maasai Boma Day Trip — USD 230 (local package)</h4>
-                        <p class="normal-text">A full day experiencing the iconic Maasai people at their Boma. Learn about their pastoral traditions, participate in jumping dances (Adumu), try beadwork, and share in their daily life. A half-day option is also available.</p>
+                        <h4 data-i18n="cultural.tribes.maasai.title">Maasai Boma Day Trip — USD 230 (local experience package)</h4>
+                        <p class="normal-text" data-i18n="cultural.tribes.maasai.description">A full day experiencing the iconic Maasai people at their Boma. Learn about their pastoral traditions, participate in jumping dances (Adumu), try beadwork, and share in their daily life. A half-day option is also available.</p>
                         <div class="card-features">
-                            <div class="feature"><i class="fas fa-campground"></i><span>Manyatta Stay</span></div>
-                            <div class="feature"><i class="fas fa-drum"></i><span>Warrior Training</span></div>
-                            <div class="feature"><i class="fas fa-vest"></i><span>Beadwork Workshop</span></div>
+                            <div class="feature"><i class="fas fa-campground"></i><span data-i18n="cultural.tribes.maasai.feature1">Manyatta Stay</span></div>
+                            <div class="feature"><i class="fas fa-drum"></i><span data-i18n="cultural.tribes.maasai.feature2">Warrior Training</span></div>
+                            <div class="feature"><i class="fas fa-vest"></i><span data-i18n="cultural.tribes.maasai.feature3">Beadwork Workshop</span></div>
                         </div>
                     </div>
-                    <!-- <div class="tribe-feature">
-                        <h4>Chagga Cultural Immersion — Part of 3-Day Tour</h4>
-                        <p class="normal-text">Explore the agricultural traditions of the Chagga people around Mount Kilimanjaro, visit coffee plantations, and learn about their innovative traditional irrigation systems (Ndiva).</p>
-                        <div class="card-features">
-                            <div class="feature"><i class="fas fa-coffee"></i><span>Coffee Processing</span></div>
-                            <div class="feature"><i class="fas fa-seedling"></i><span>Banana Farm Tour</span></div>
-                            <div class="feature"><i class="fas fa-water"></i><span>Traditional Canals</span></div>
-                        </div>
-                    </div> -->
                     <div class="tribe-feature">
-                        <h4>Hadzabe Hunter-Gatherer Day Trip — USD 500 (local package)</h4>
-                        <p class="normal-text">Spend a full day with the Hadzabe, one of the last hunter-gatherer tribes in Africa, learning ancient survival skills, traditional hunting techniques, and their unique click language.</p>
+                        <h4 data-i18n="cultural.tribes.hadzabe.title">Hadzabe Hunter-Gatherer Day Trip — USD 500 (local experience package)</h4>
+                        <p class="normal-text" data-i18n="cultural.tribes.hadzabe.description">Spend a full day with the Hadzabe, one of the last hunter-gatherer tribes in Africa, learning ancient survival skills, traditional hunting techniques, and their unique click language.</p>
                         <div class="card-features">
-                            <div class="feature"><i class="fas fa-crosshairs"></i><span>Traditional Hunting</span></div>
-                            <div class="feature"><i class="fas fa-leaf"></i><span>Foraging Skills</span></div>
-                            <div class="feature"><i class="fas fa-fire"></i><span>Fire Making</span></div>
+                            <div class="feature"><i class="fas fa-crosshairs"></i><span data-i18n="cultural.tribes.hadzabe.feature1">Traditional Hunting</span></div>
+                            <div class="feature"><i class="fas fa-leaf"></i><span data-i18n="cultural.tribes.hadzabe.feature2">Foraging Skills</span></div>
+                            <div class="feature"><i class="fas fa-fire"></i><span data-i18n="cultural.tribes.hadzabe.feature3">Fire Making</span></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Itinerary -->
                 <div class="itinerary">
-                    <h3 style="text-align:center;color:var(--artistic-brown);font-family:'Cinzel',serif;font-size:1.8rem;margin-bottom:30px;">3-Day Cultural Immersion Itinerary - USD 1200 (local package)</h3>
+                    <h3 style="text-align:center;color:var(--artistic-brown);font-family:'Cinzel',serif;font-size:1.8rem;margin-bottom:30px;" data-i18n="cultural.itinerary.title">3-Day Cultural Immersion Itinerary - USD 1200 (local experience package)</h3>
                     <div class="itinerary-day">
                         <div class="day-header">
-                            <div class="day-title">Day 1: Arrival & Maasai Village Welcome</div>
-                            <div class="day-duration">Maasai Community</div>
+                            <div class="day-title" data-i18n="cultural.itinerary.day1.title">Day 1: Arrival & Maasai Village Welcome</div>
+                            <div class="day-duration" data-i18n="cultural.itinerary.day1.duration">Maasai Community</div>
                         </div>
-                        <div class="day-activities">Arrive at Maasai village and be welcomed with a traditional ceremony by elders. Settle into your homestay accommodations within the Boma. Evening storytelling around the campfire about Maasai history, traditions, and their deep bond with nature and livestock.</div>
+                        <div class="day-activities" data-i18n="cultural.itinerary.day1.activities">Arrive at Maasai village and be welcomed with a traditional ceremony by elders. Settle into your homestay accommodations within the Boma. Evening storytelling around the campfire about Maasai history, traditions, and their deep bond with nature and livestock.</div>
                     </div>
                     <div class="itinerary-day">
                         <div class="day-header">
-                            <div class="day-title">Day 2: Full Day Inside Maasai Village</div>
-                            <div class="day-duration">Full Cultural Immersion</div>
+                            <div class="day-title" data-i18n="cultural.itinerary.day2.title">Day 2: Full Day Inside Maasai Village</div>
+                            <div class="day-duration" data-i18n="cultural.itinerary.day2.duration">Full Cultural Immersion</div>
                         </div>
-                        <div class="day-activities">Morning livestock herding experience with Maasai warriors. Traditional beadwork workshop with women. Participate in preparing a traditional lunch. Afternoon warrior training and Adumu (jumping dance) practice. Visit the local market and understand the Maasai trade system. Evening cultural performance with drums and song.</div>
+                        <div class="day-activities" data-i18n="cultural.itinerary.day2.activities">Morning livestock herding experience with Maasai warriors. Traditional beadwork workshop with women. Participate in preparing a traditional lunch. Afternoon warrior training and Adumu (jumping dance) practice. Visit the local market and understand the Maasai trade system. Evening cultural performance with drums and song.</div>
                     </div>
                     <div class="itinerary-day">
                         <div class="day-header">
-                            <div class="day-title">Day 3: Hadzabe Hunter-Gatherer Experience & Departure</div>
-                            <div class="day-duration">Hadzabe Day Trip</div>
+                            <div class="day-title" data-i18n="cultural.itinerary.day3.title">Day 3: Hadzabe Hunter-Gatherer Experience & Departure</div>
+                            <div class="day-duration" data-i18n="cultural.itinerary.day3.duration">Hadzabe Day Trip</div>
                         </div>
-                        <div class="day-activities">Transfer to the Hadzabe community — one of the last hunter-gatherer tribes in Africa. Learn traditional hunting with bows and arrows, foraging skills, and ancient fire-making techniques. Experience their unique click language. After lunch, a farewell ceremony with traditional blessings and gift exchange before transfer to the airport with unforgettable memories of Tanzanian culture.</div>
+                        <div class="day-activities" data-i18n="cultural.itinerary.day3.activities">Transfer to the Hadzabe community — one of the last hunter-gatherer tribes in Africa. Learn traditional hunting with bows and arrows, foraging skills, and ancient fire-making techniques. Experience their unique click language. After lunch, a farewell ceremony with traditional blessings and gift exchange before transfer to the airport with unforgettable memories of Tanzanian culture.</div>
                     </div>
                 </div>
 
                 <!-- Includes -->
                 <div class="includes-excludes">
                     <div class="includes-box">
-                        <h3><i class="fas fa-check-circle"></i> What's Included</h3>
+                        <h3><i class="fas fa-check-circle"></i> <span data-i18n="cultural.includes.title">What's Included</span></h3>
                         <ul>
-                            <li>Community homestay accommodation (2 nights)</li>
-                            <li>All traditional meals during the tour</li>
-                            <li>Professional local guide services</li>
-                            <li>Cultural performance fees</li>
-                            <li>Craft workshop materials</li>
-                            <li>Community development contribution</li>
-                            <li>Transportation between communities</li>
-                            <li>Cultural orientation session</li>
-                            <li>Hadzabe day experience (in 3-day package)</li>
+                            <li data-i18n="cultural.includes.item1">Community homestay accommodation (2 nights)</li>
+                            <li data-i18n="cultural.includes.item2">All traditional meals during the tour</li>
+                            <li data-i18n="cultural.includes.item3">Professional local guide services</li>
+                            <li data-i18n="cultural.includes.item4">Cultural performance fees</li>
+                            <li data-i18n="cultural.includes.item5">Craft workshop materials</li>
+                            <li data-i18n="cultural.includes.item6">Community development contribution</li>
+                            <li data-i18n="cultural.includes.item7">Transportation between communities</li>
+                            <li data-i18n="cultural.includes.item8">Cultural orientation session</li>
+                            <li data-i18n="cultural.includes.item9">Hadzabe day experience (in 3-day package)</li>
                         </ul>
                     </div>
                     <div class="excludes-box">
-                        <h3><i class="fas fa-times-circle"></i> What's Excluded</h3>
+                        <h3><i class="fas fa-times-circle"></i> <span data-i18n="cultural.excludes.title">What's Excluded</span></h3>
                         <ul>
-                            <li>International flights</li>
-                            <li>Tanzania visa fees</li>
-                            <li>Travel insurance</li>
-                            <li>Alcoholic beverages</li>
-                            <li>Personal shopping</li>
-                            <li>Optional extra activities</li>
-                            <li>Tips for guides and hosts</li>
-                            <li>Personal expenses</li>
+                            <li data-i18n="cultural.excludes.item1">International flights</li>
+                            <li data-i18n="cultural.excludes.item2">Tanzania visa fees</li>
+                            <li data-i18n="cultural.excludes.item3">Travel insurance</li>
+                            <li data-i18n="cultural.excludes.item4">Alcoholic beverages</li>
+                            <li data-i18n="cultural.excludes.item5">Personal shopping</li>
+                            <li data-i18n="cultural.excludes.item6">Optional extra activities</li>
+                            <li data-i18n="cultural.excludes.item7">Tips for guides and hosts</li>
+                            <li data-i18n="cultural.excludes.item8">Personal expenses</li>
                         </ul>
                     </div>
                 </div>
@@ -513,9 +411,9 @@
         <section class="booking-section-destination">
             <div class="container">
                 <div class="booking-cta">
-                    <h2>Ready for Cultural Immersion?</h2>
-                    <p class="normal-text">Book your authentic cultural experience and connect with Tanzania's living traditions.</p>
-                    <button class="btn" onclick="openCulturalBookingModal()">Book Cultural Experience</button>
+                    <h2 data-i18n="cultural.booking.title">Ready for Cultural Immersion?</h2>
+                    <p class="normal-text" data-i18n="cultural.booking.subtitle">Book your authentic cultural experience and connect with Tanzania's living traditions.</p>
+                    <button class="btn" onclick="openCulturalBookingModal()" data-i18n="cultural.booking.cta">Book Cultural Experience</button>
                 </div>
             </div>
         </section>
@@ -525,39 +423,39 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h3>MMexy Tanzania Adventures</h3>
-                        <p>Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.</p>
+                        <h3 data-i18n="footer.company">MMexy Tanzania Adventures</h3>
+                        <p data-i18n="footer.description">Creating unforgettable experiences in the heart of Tanzania. Discover the magic of Africa with our expert guides and premium safari adventures.</p>
                     </div>
                     <div class="footer-section">
-                        <h3>Quick Links</h3>
+                        <h3 data-i18n="footer.quick_links">Quick Links</h3>
                         <ul class="footer-links">
-                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                            <li><a href="about-us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-                            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+                            <li><a href="about-us.html"><i class="fas fa-info-circle"></i> <span data-i18n="nav.about">About Us</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
-                        <h3>Destinations</h3>
+                        <h3 data-i18n="footer.destinations">Destinations</h3>
                         <ul class="footer-links">
                             <li><a href="mountain-climbing.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.mountain_climbing">Mountain Climbing</span></a></li>
                             <li><a href="tanzania-safaris.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.safaris">Tanzania Safaris</span></a></li>
                             <li><a href="zanzibar-beaches.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">Zanzibar Beaches</span></a></li>
-                            <li><a href="cultural-tourism.html"><i class="fas fa-binoculars"></i> <span data-i18n="nav.zanzibar">Cultural tourism</span></a></li>
-                            <li><a href="waterfall-tourism.html"><i class="fas fa-mountain"></i> <span data-i18n="nav.zanzibar">waterfall tourism</span></a></li>
-                            <li><a href="historical-sites.html"><i class="fas fa-umbrella-beach"></i> <span data-i18n="nav.zanzibar">historical sites</span></a></li>
+                            <li><a href="cultural-tourism.html"><i class="fas fa-music"></i> <span data-i18n="nav.cultural">Cultural Tourism</span></a></li>
+                            <li><a href="waterfall-tourism.html"><i class="fas fa-water"></i> <span data-i18n="nav.waterfalls">Waterfall Tourism</span></a></li>
+                            <li><a href="historical-sites.html"><i class="fas fa-landmark"></i> <span data-i18n="nav.historical">Historical Sites</span></a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
-                        <h3>Contact Info</h3>
+                        <h3 data-i18n="footer.contact_info">Contact Info</h3>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Arusha, Tanzania</a></li>
+                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Arusha, Tanzania</span></a></li>
                             <li><a href="tel:+255714331051"><i class="fas fa-phone"></i> +255 714331051</a></li>
                             <li><a href="mailto:info@mmexy.com"><i class="fas fa-envelope"></i> info@mmexy.com</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism</p>
+                    <p data-i18n="footer.copyright">&copy; 2026 MMexy Tanzania Adventures. All rights reserved. | Designed with ❤️ for Tanzania Tourism</p>
                 </div>
             </div>
         </footer>
@@ -567,7 +465,7 @@
     <div class="premium-modal" id="cultural-premium-modal">
         <div class="premium-modal-content">
             <div class="premium-modal-header">
-                <h2>Book Your Cultural Experience</h2>
+                <h2 data-i18n="cultural.modal.title">Book Your Cultural Experience</h2>
                 <button class="close-premium-modal" id="close-cultural-premium-modal">&times;</button>
             </div>
             <div class="premium-modal-body">
@@ -575,132 +473,131 @@
                 <div class="booking-steps">
                     <div class="booking-step active" data-step="1">
                         <div class="step-number">1</div>
-                        <div class="step-label">Package Level</div>
+                        <div class="step-label" data-i18n="cultural.modal.step1">Package Level</div>
                     </div>
                     <div class="booking-step" data-step="2">
                         <div class="step-number">2</div>
-                        <div class="step-label">Travel Style</div>
+                        <div class="step-label" data-i18n="cultural.modal.step2">Travel Style</div>
                     </div>
                     <div class="booking-step" data-step="3">
                         <div class="step-number">3</div>
-                        <div class="step-label">Booking Details</div>
+                        <div class="step-label" data-i18n="cultural.modal.step3">Booking Details</div>
                     </div>
                 </div>
 
                 <!-- STEP 1: Package Selection -->
                 <div class="booking-section active" id="cultural-step-1">
-                    <h3 class="step-title" style="color:var(--premium-gold);font-family:'Cinzel',serif;margin-bottom:20px;">Choose Your Cultural Experience</h3>
+                    <h3 class="step-title" style="color:var(--premium-gold);font-family:'Cinzel',serif;margin-bottom:20px;" data-i18n="cultural.modal.step1_title">Choose Your Cultural Experience</h3>
                     <div class="package-levels">
-                        <!-- LOCAL: 3-Day Full Tour -->
+                        <!-- LOCAL EXPERIENCE (changed from LOCAL) -->
                         <div class="package-level local" data-level="local" data-price="1200">
                             <div class="level-icon"><i class="fas fa-hands-helping"></i></div>
-                            <div class="level-name">LOCAL</div>
+                            <div class="level-name" data-i18n="cultural.modal.package.local.name">LOCAL EXPERIENCE</div>
                             <div class="level-price">$1,200</div>
-                            <div class="level-price-note">3 Days Full Cultural Tour</div>
+                            <div class="level-price-note" data-i18n="cultural.modal.package.local.note">3 Days Full Cultural Tour</div>
                             <ul class="level-features">
-                                <li><i class="fas fa-check"></i> Day 1 & 2: Maasai Village</li>
-                                <li><i class="fas fa-check"></i> Day 3: Hadzabe Day Trip</li>
-                                <li><i class="fas fa-check"></i> Chagga Experience</li>
-                                <li><i class="fas fa-check"></i> All Traditional Meals</li>
-                                <li><i class="fas fa-check"></i> Local Guide</li>
-                                <li><i class="fas fa-check"></i> Homestay (2 nights)</li>
-                                <li><i class="fas fa-check"></i> Transport Included</li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.local.feature1">Day 1 & 2: Maasai Village</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.local.feature2">Day 3: Hadzabe Day Trip</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.local.feature3">All Traditional Meals</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.local.feature4">Local Guide</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.local.feature5">Homestay (2 nights)</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.local.feature6">Transport Included</span></li>
                             </ul>
                         </div>
-                        <!-- VIP: 3-Day + extras -->
+                        <!-- VIP -->
                         <div class="package-level vip" data-level="vip" data-price="2000">
                             <div class="level-icon"><i class="fas fa-star"></i></div>
-                            <div class="level-name">VIP</div>
+                            <div class="level-name" data-i18n="cultural.modal.package.vip.name">VIP</div>
                             <div class="level-price">$2,000</div>
-                            <div class="level-price-note">3 Days Premium Cultural</div>
+                            <div class="level-price-note" data-i18n="cultural.modal.package.vip.note">3 Days Premium Cultural</div>
                             <ul class="level-features">
-                                <li><i class="fas fa-check"></i> Everything in Local</li>
-                                <li><i class="fas fa-check"></i> Private Cultural Guide</li>
-                                <li><i class="fas fa-check"></i> All Craft Workshops</li>
-                                <li><i class="fas fa-check"></i> Tribal Elder Meetings</li>
-                                <li><i class="fas fa-check"></i> Community Projects</li>
-                                <li><i class="fas fa-check"></i> Photography Permits</li>
-                                <li><i class="fas fa-check"></i> Cultural Souvenirs</li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vip.feature1">Everything in Local Experience</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vip.feature2">Private Cultural Guide</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vip.feature3">All Craft Workshops</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vip.feature4">Tribal Elder Meetings</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vip.feature5">Community Projects</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vip.feature6">Photography Permits</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vip.feature7">Cultural Souvenirs</span></li>
                             </ul>
                         </div>
-                        <!-- VVIP: Multi-community premium -->
+                        <!-- VVIP -->
                         <div class="package-level vvip" data-level="vvip" data-price="5000">
                             <div class="level-icon"><i class="fas fa-gem"></i></div>
-                            <div class="level-name">VVIP</div>
+                            <div class="level-name" data-i18n="cultural.modal.package.vvip.name">VVIP</div>
                             <div class="level-price">$5,000</div>
-                            <div class="level-price-note">5 Days Luxury Cultural</div>
+                            <div class="level-price-note" data-i18n="cultural.modal.package.vvip.note">5 Days Luxury Cultural</div>
                             <ul class="level-features">
-                                <li><i class="fas fa-check"></i> Everything in VIP</li>
-                                <li><i class="fas fa-check"></i> Multi-Community Tour</li>
-                                <li><i class="fas fa-check"></i> Luxury Accommodation</li>
-                                <li><i class="fas fa-check"></i> Traditional Ceremonies</li>
-                                <li><i class="fas fa-check"></i> Private Chef</li>
-                                <li><i class="fas fa-check"></i> All Entrances & Permits</li>
-                                <li><i class="fas fa-check"></i> Airport Transfers</li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vvip.feature1">Everything in VIP</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vvip.feature2">Multi-Community Tour</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vvip.feature3">Luxury Accommodation</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vvip.feature4">Traditional Ceremonies</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vvip.feature5">Private Chef</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vvip.feature6">All Entrances & Permits</span></li>
+                                <li><i class="fas fa-check"></i> <span data-i18n="cultural.modal.package.vvip.feature7">Airport Transfers</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Also Book Day Trips Section -->
+                    <!-- Day Trips Section -->
                     <div class="waterfall-options-box">
-                        <h4>🎯 Also Available: Stand-Alone Day Trips</h4>
+                        <h4 data-i18n="cultural.modal.daytrips.title">🎯 Also Available: Stand-Alone Day Trips</h4>
                         <div class="waterfall-option" data-trip="maasai_boma" data-trip-price="230" onclick="selectDayTrip(this)">
                             <div class="waterfall-option-header">
-                                <span class="waterfall-option-name">🏕️ Maasai Boma Day Trip</span>
+                                <span class="waterfall-option-name" data-i18n="cultural.modal.daytrips.maasai.name">🏕️ Maasai Boma Day Trip</span>
                                 <span class="waterfall-option-price">USD 230 / person</span>
                             </div>
-                            <div class="waterfall-option-desc">Full day at Maasai Boma — warrior training, beadwork, traditional lunch & Adumu dance. Day trip only.</div>
+                            <div class="waterfall-option-desc" data-i18n="cultural.modal.daytrips.maasai.desc">Full day at Maasai Boma — warrior training, beadwork, traditional lunch & Adumu dance.</div>
                         </div>
                         <div class="waterfall-option" data-trip="hadzabe" data-trip-price="500" onclick="selectDayTrip(this)">
                             <div class="waterfall-option-header">
-                                <span class="waterfall-option-name">🏹 Hadzabe Hunter-Gatherer Day Trip</span>
+                                <span class="waterfall-option-name" data-i18n="cultural.modal.daytrips.hadzabe.name">🏹 Hadzabe Hunter-Gatherer Day Trip</span>
                                 <span class="waterfall-option-price">USD 500 / person</span>
                             </div>
-                            <div class="waterfall-option-desc">Full day with the Hadzabe tribe — hunting, foraging, fire-making & click language. Day trip only.</div>
+                            <div class="waterfall-option-desc" data-i18n="cultural.modal.daytrips.hadzabe.desc">Full day with the Hadzabe tribe — hunting, foraging, fire-making & click language.</div>
                         </div>
                     </div>
-                    <p style="font-size:0.85rem;opacity:0.7;margin-bottom:20px;font-style:italic;">💡 Select a package above OR click a Day Trip. Both options will take you to select your travel style and complete booking.</p>
+                    <p style="font-size:0.85rem;opacity:0.7;margin-bottom:20px;font-style:italic;" data-i18n="cultural.modal.daytrips.note">💡 Select a package above OR click a Day Trip. Both options will take you to select your travel style and complete booking.</p>
 
                     <div class="mobile-actions">
                         <div class="mobile-actions-inner">
-                            <button class="mobile-back-btn" disabled style="opacity:0.4;cursor:not-allowed;"><i class="fas fa-arrow-left"></i><span>Back</span></button>
-                            <button class="mobile-next-btn" onclick="culturalNextStep(2)"><span>Next: Travel Style</span><i class="fas fa-arrow-right"></i></button>
+                            <button class="mobile-back-btn" disabled style="opacity:0.4;cursor:not-allowed;"><i class="fas fa-arrow-left"></i><span data-i18n="cultural.modal.back">Back</span></button>
+                            <button class="mobile-next-btn" onclick="culturalNextStep(2)"><span data-i18n="cultural.modal.next">Next: Travel Style</span><i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
                     <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="closeCulturalPremiumModal()">Cancel</button>
-                        <button class="modal-btn btn-primary desktop-only" onclick="culturalNextStep(2)">Next: Travel Style →</button>
+                        <button class="modal-btn btn-secondary" onclick="closeCulturalPremiumModal()" data-i18n="cultural.modal.cancel">Cancel</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="culturalNextStep(2)" data-i18n="cultural.modal.next">Next: Travel Style →</button>
                     </div>
                 </div>
 
                 <!-- STEP 2: Travel Style -->
                 <div class="booking-section" id="cultural-step-2">
-                    <h3 class="step-title" style="color:var(--premium-gold);font-family:'Cinzel',serif;margin-bottom:20px;">Select Your Travel Style</h3>
+                    <h3 class="step-title" style="color:var(--premium-gold);font-family:'Cinzel',serif;margin-bottom:20px;" data-i18n="cultural.modal.step2_title">Select Your Travel Style</h3>
                     <div class="group-selection">
                         <div class="group-options">
                             <div class="group-option" data-group="single">
                                 <div class="group-icon"><i class="fas fa-user"></i></div>
-                                <div class="group-name">Solo Traveler</div>
-                                <div class="group-description">Perfect for solo explorers</div>
+                                <div class="group-name" data-i18n="cultural.modal.travel.solo">Solo Traveler</div>
+                                <div class="group-description" data-i18n="cultural.modal.travel.solo_desc">Perfect for solo explorers</div>
                             </div>
                             <div class="group-option" data-group="double">
                                 <div class="group-icon"><i class="fas fa-heart"></i></div>
-                                <div class="group-name">Couple Package</div>
-                                <div class="group-description">Perfect for couples</div>
+                                <div class="group-name" data-i18n="cultural.modal.travel.couple">Couple Package</div>
+                                <div class="group-description" data-i18n="cultural.modal.travel.couple_desc">Perfect for couples</div>
                             </div>
                             <div class="group-option" data-group="family">
                                 <div class="group-icon"><i class="fas fa-users"></i></div>
-                                <div class="group-name">Family Package</div>
-                                <div class="group-description">2 adults + 2 children</div>
+                                <div class="group-name" data-i18n="cultural.modal.travel.family">Family Package</div>
+                                <div class="group-description" data-i18n="cultural.modal.travel.family_desc">2 adults + 2 children</div>
                             </div>
                             <div class="group-option" data-group="group">
                                 <div class="group-icon"><i class="fas fa-user-friends"></i></div>
-                                <div class="group-name">Group Adventure</div>
-                                <div class="group-description">2–30 people</div>
+                                <div class="group-name" data-i18n="cultural.modal.travel.group">Group Adventure</div>
+                                <div class="group-description" data-i18n="cultural.modal.travel.group_desc">2–30 people</div>
                             </div>
                         </div>
                         <div class="people-counter" id="cultural-people-counter" style="display:none;">
-                            <div class="counter-label">Group Size:</div>
+                            <div class="counter-label" data-i18n="cultural.modal.group_size">Group Size:</div>
                             <button class="counter-btn" onclick="culturalChangePeopleCount(-1)">-</button>
                             <div class="people-count" id="cultural-people-count">4</div>
                             <button class="counter-btn" onclick="culturalChangePeopleCount(1)">+</button>
@@ -711,7 +608,7 @@
                     <div class="price-summary">
                         <div class="price-breakdown">
                             <div class="price-item">
-                                <span id="cultural-selected-type-label">3-Day Cultural Tour (Local)</span>
+                                <span id="cultural-selected-type-label">3-Day Cultural Tour (Local Experience)</span>
                                 <span id="cultural-per-person-price">$1,200 / person</span>
                             </div>
                             <div class="price-item">
@@ -723,23 +620,23 @@
                                 <span id="cultural-people-multiplier">x 4</span>
                             </div>
                             <div class="price-item" id="cultural-discount-item" style="display:none;">
-                                <span class="discount-label">Group Discount (20%)</span>
+                                <span class="discount-label" data-i18n="cultural.modal.discount">Group Discount (20%)</span>
                                 <span class="discount-value" id="cultural-discount-amount">-$240</span>
                             </div>
                         </div>
                         <div class="total-price">
-                            <span class="total-label">Total Price:</span>
+                            <span class="total-label" data-i18n="cultural.modal.total">Total Price:</span>
                             <span class="total-value" id="cultural-total-price">$1,200</span>
                         </div>
                         <div class="original-price" id="cultural-original-price" style="display:none;">
-                            <span class="original-label">Original:</span>
+                            <span class="original-label" data-i18n="cultural.modal.original">Original:</span>
                             <span class="original-value" id="cultural-original-value">$4,800</span>
                         </div>
                     </div>
 
                     <!-- Cultural addon summary shown here -->
                     <div id="cultural-addon-summary-box" style="display:none;" class="cultural-addon-summary">
-                        <h4>Your Selection</h4>
+                        <h4 data-i18n="cultural.modal.selection">Your Selection</h4>
                         <div class="addon-item">
                             <span class="addon-name" id="cultural-addon-name">—</span>
                             <span class="addon-price" id="cultural-addon-price-display">—</span>
@@ -748,59 +645,59 @@
 
                     <div class="mobile-actions">
                         <div class="mobile-actions-inner">
-                            <button class="mobile-back-btn" onclick="culturalPrevStep(1)"><i class="fas fa-arrow-left"></i><span>Back</span></button>
-                            <button class="mobile-next-btn" onclick="culturalNextStep(3)"><span>Next: Book Now</span><i class="fas fa-arrow-right"></i></button>
+                            <button class="mobile-back-btn" onclick="culturalPrevStep(1)"><i class="fas fa-arrow-left"></i><span data-i18n="cultural.modal.back">Back</span></button>
+                            <button class="mobile-next-btn" onclick="culturalNextStep(3)"><span data-i18n="cultural.modal.next_booking">Next: Book Now</span><i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
                     <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="culturalPrevStep(1)">← Back</button>
-                        <button class="modal-btn btn-primary desktop-only" onclick="culturalNextStep(3)">Next: Book Now →</button>
+                        <button class="modal-btn btn-secondary" onclick="culturalPrevStep(1)" data-i18n="cultural.modal.back">← Back</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="culturalNextStep(3)" data-i18n="cultural.modal.next_booking">Next: Book Now →</button>
                     </div>
                 </div>
 
                 <!-- STEP 3: Confirm & Customer Details -->
                 <div class="booking-section" id="cultural-step-3">
-                    <h3 class="step-title" style="color:var(--premium-gold);font-family:'Cinzel',serif;margin-bottom:20px;">Confirm Your Booking</h3>
+                    <h3 class="step-title" style="color:var(--premium-gold);font-family:'Cinzel',serif;margin-bottom:20px;" data-i18n="cultural.modal.step3_title">Confirm Your Booking</h3>
                     <div class="price-summary">
-                        <h4 class="summary-title">Booking Summary</h4>
+                        <h4 class="summary-title" data-i18n="cultural.modal.summary_title">Booking Summary</h4>
                         <div class="price-breakdown">
-                            <div class="price-item"><span>Destination:</span><span>Cultural Tourism Tanzania</span></div>
-                            <div class="price-item"><span>Package / Experience:</span><span id="cultural-summary-package">—</span></div>
-                            <div class="price-item"><span>Travel Style:</span><span id="cultural-summary-group">—</span></div>
-                            <div class="price-item" id="cultural-summary-people-item" style="display:none;"><span>Number of People:</span><span id="cultural-summary-people">—</span></div>
-                            <div class="price-item"><span>Duration:</span><span id="cultural-summary-duration">3 Days</span></div>
-                            <div class="price-item" id="cultural-summary-discount-item" style="display:none;"><span class="discount-label">Group Discount Applied:</span><span class="discount-value" id="cultural-summary-discount">20%</span></div>
+                            <div class="price-item"><span data-i18n="cultural.modal.destination_label">Destination:</span><span data-i18n="cultural.modal.destination_value">Cultural Tourism Tanzania</span></div>
+                            <div class="price-item"><span data-i18n="cultural.modal.package_label">Package / Experience:</span><span id="cultural-summary-package">—</span></div>
+                            <div class="price-item"><span data-i18n="cultural.modal.travel_label">Travel Style:</span><span id="cultural-summary-group">—</span></div>
+                            <div class="price-item" id="cultural-summary-people-item" style="display:none;"><span data-i18n="cultural.modal.people_label">Number of People:</span><span id="cultural-summary-people">—</span></div>
+                            <div class="price-item"><span data-i18n="cultural.modal.duration_label">Duration:</span><span id="cultural-summary-duration">3 Days</span></div>
+                            <div class="price-item" id="cultural-summary-discount-item" style="display:none;"><span class="discount-label" data-i18n="cultural.modal.discount_applied">Group Discount Applied:</span><span class="discount-value" id="cultural-summary-discount">20%</span></div>
                         </div>
                         <div class="total-price">
-                            <span class="total-label">Total Amount:</span>
+                            <span class="total-label" data-i18n="cultural.modal.total_amount_label">Total Amount:</span>
                             <span class="total-value" id="cultural-summary-total">$1,200</span>
                         </div>
                         <div class="original-price" id="cultural-summary-original-price" style="display:none;">
-                            <span class="original-label">Original Price:</span>
+                            <span class="original-label" data-i18n="cultural.modal.original_price_label">Original Price:</span>
                             <span class="original-value" id="cultural-summary-original-value">—</span>
                         </div>
                     </div>
 
                     <!-- Customer Info -->
                     <div class="contact-form">
-                        <h4 class="summary-title">Customer Information</h4>
+                        <h4 class="summary-title" data-i18n="cultural.modal.contact_title">Customer Information</h4>
                         <div class="form-grid">
-                            <input type="text" id="cultural-first-name" class="form-input" placeholder="First Name" required>
-                            <input type="text" id="cultural-last-name" class="form-input" placeholder="Last Name" required>
-                            <input type="email" id="cultural-email" class="form-input full-width" placeholder="Email Address" required>
-                            <input type="tel" id="cultural-phone" class="form-input full-width" placeholder="Phone Number" required>
+                            <input type="text" id="cultural-first-name" class="form-input" data-i18n-placeholder="cultural.modal.first_name" placeholder="First Name" required>
+                            <input type="text" id="cultural-last-name" class="form-input" data-i18n-placeholder="cultural.modal.last_name" placeholder="Last Name" required>
+                            <input type="email" id="cultural-email" class="form-input full-width" data-i18n-placeholder="cultural.modal.email" placeholder="Email Address" required>
+                            <input type="tel" id="cultural-phone" class="form-input full-width" data-i18n-placeholder="cultural.modal.phone" placeholder="Phone Number" required>
                         </div>
                     </div>
                     <div class="contact-form">
-                        <h4 class="summary-title">Travel Information</h4>
+                        <h4 class="summary-title" data-i18n="cultural.modal.travel_info">Travel Information</h4>
                         <div class="form-grid">
-                            <input type="text" id="cultural-country" class="form-input full-width" placeholder="Your Country">
+                            <input type="text" id="cultural-country" class="form-input full-width" data-i18n-placeholder="cultural.modal.country" placeholder="Your Country">
                             <div style="grid-column:1/-1;">
-                                <label class="form-label">Arrival Date</label>
+                                <label class="form-label" data-i18n="cultural.modal.arrival_date">Arrival Date</label>
                                 <input type="date" id="cultural-arrival-date" class="form-input full-width" required>
                             </div>
                             <div style="grid-column:1/-1;">
-                                <label class="form-label">Departure Date</label>
+                                <label class="form-label" data-i18n="cultural.modal.departure_date">Departure Date</label>
                                 <input type="date" id="cultural-departure-date" class="form-input full-width" required>
                             </div>
                         </div>
@@ -808,13 +705,13 @@
 
                     <div class="mobile-actions">
                         <div class="mobile-actions-inner">
-                            <button class="mobile-back-btn" onclick="culturalPrevStep(2)"><i class="fas fa-arrow-left"></i><span>Back</span></button>
-                            <button class="mobile-complete-btn" onclick="culturalCompleteBooking()"><i class="fas fa-credit-card"></i><span>Complete Booking</span></button>
+                            <button class="mobile-back-btn" onclick="culturalPrevStep(2)"><i class="fas fa-arrow-left"></i><span data-i18n="cultural.modal.back">Back</span></button>
+                            <button class="mobile-complete-btn" onclick="culturalCompleteBooking()"><i class="fas fa-credit-card"></i><span data-i18n="cultural.modal.complete">Complete Booking</span></button>
                         </div>
                     </div>
                     <div class="modal-actions">
-                        <button class="modal-btn btn-secondary" onclick="culturalPrevStep(2)">← Back</button>
-                        <button class="modal-btn btn-primary desktop-only" onclick="culturalCompleteBooking()"><i class="fas fa-credit-card"></i> Complete Booking</button>
+                        <button class="modal-btn btn-secondary" onclick="culturalPrevStep(2)" data-i18n="cultural.modal.back">← Back</button>
+                        <button class="modal-btn btn-primary desktop-only" onclick="culturalCompleteBooking()"><i class="fas fa-credit-card"></i> <span data-i18n="cultural.modal.complete">Complete Booking</span></button>
                     </div>
                 </div>
             </div>
@@ -836,76 +733,1100 @@
         const destinationsDropdown = document.getElementById('destinationsDropdown');
 
         window.addEventListener('scroll', function() {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
         function closeSidebarFn() {
-            mobileMenuBtn.classList.remove('active');
-            premiumSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
+            if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+            if (premiumSidebar) premiumSidebar.classList.remove('active');
+            if (sidebarOverlay) sidebarOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenuBtn.classList.toggle('active');
-            premiumSidebar.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-            document.body.style.overflow = premiumSidebar.classList.contains('active') ? 'hidden' : '';
-        });
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenuBtn.classList.toggle('active');
+                premiumSidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+                document.body.style.overflow = premiumSidebar.classList.contains('active') ? 'hidden' : '';
+            });
+        }
 
-        closeSidebarBtn.addEventListener('click', closeSidebarFn);
-        sidebarOverlay.addEventListener('click', closeSidebarFn);
+        if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebarFn);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebarFn);
 
-        destinationsToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            this.classList.toggle('active');
-            destinationsDropdown.classList.toggle('active');
-        });
+        if (destinationsToggle) {
+            destinationsToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.classList.toggle('active');
+                if (destinationsDropdown) destinationsDropdown.classList.toggle('active');
+            });
+        }
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeSidebarFn();
         });
     });
 
-    // ===== CULTURAL BOOKING SYSTEM =====
-    let culturalBooking = {
-        mode: 'package',        // 'package' or 'daytrip'
-        packageLevel: 'local',
-        packagePrice: 1200,
-        dayTripKey: '',
-        dayTripPrice: 0,
-        dayTripName: '',
-        dayTripDuration: '',
-        groupType: 'single',
-        peopleCount: 1,
-        totalPrice: 1200,
-        originalPrice: 1200,
-        discountApplied: false,
-        discountAmount: 0
+    
+const translations = {
+  en: {
+    "nav.home": "Home", "nav.about": "About", "nav.destinations": "Destinations", "nav.mountain_climbing": "Mountain Climbing",
+    "nav.safaris": "Tanzania Safaris", "nav.zanzibar": "Zanzibar Beaches", "nav.cultural": "Cultural Tourism",
+    "nav.waterfalls": "Waterfall Tourism", "nav.historical": "Historical Sites", "nav.contact": "Contact",
+    "cultural.hero.title": "Cultural Tourism Tanzania", "cultural.hero.subtitle": "Experience Authentic Tribal Traditions and Local Communities",
+    "cultural.hero.cta": "Book Cultural Experience",
+    "cultural.content.title": "Cultural Immersion Journey", "cultural.content.subtitle": "3 Days of Authentic Tribal Experiences and Community Visits",
+    "cultural.about.title": "About Cultural Tourism", "cultural.about.description": "Immerse yourself in the rich cultural tapestry of Tanzania's diverse ethnic groups. Our cultural tourism packages offer authentic interactions with local communities, traditional ceremonies, and hands-on experiences that preserve ancient traditions while supporting sustainable community development.",
+    "cultural.highlights.title": "Cultural Highlights",
+    "cultural.highlights.item1": "Maasai village homestays & Boma experience",
+    "cultural.highlights.item2": "Hadzabe hunter-gatherer day trip",
+    "cultural.highlights.item3": "Chagga agricultural traditions & coffee tour",
+    "cultural.highlights.item4": "Traditional dance performances",
+    "cultural.highlights.item5": "Local craft workshops",
+    "cultural.highlights.item6": "Community development projects",
+    "cultural.tribes.title": "Meet Tanzania's Ethnic Groups",
+    "cultural.tribes.maasai.title": "Maasai Boma Day Trip — USD 230 (local package)",
+    "cultural.tribes.maasai.description": "A full day experiencing the iconic Maasai people at their Boma. Learn about their pastoral traditions, participate in jumping dances (Adumu), try beadwork, and share in their daily life.",
+    "cultural.tribes.maasai.feature1": "Manyatta Stay",
+    "cultural.tribes.maasai.feature2": "Warrior Training",
+    "cultural.tribes.maasai.feature3": "Beadwork Workshop",
+    "cultural.tribes.hadzabe.title": "Hadzabe Hunter-Gatherer Day Trip — USD 500 (local package)",
+    "cultural.tribes.hadzabe.description": "Spend a full day with the Hadzabe, one of the last hunter-gatherer tribes in Africa, learning ancient survival skills, traditional hunting techniques, and their unique click language.",
+    "cultural.tribes.hadzabe.feature1": "Traditional Hunting",
+    "cultural.tribes.hadzabe.feature2": "Foraging Skills",
+    "cultural.tribes.hadzabe.feature3": "Fire Making",
+    "cultural.itinerary.title": "3-Day Cultural Immersion Itinerary - USD 1200 (local package)",
+    "cultural.itinerary.day1.title": "Day 1: Arrival & Maasai Village Welcome",
+    "cultural.itinerary.day1.duration": "Maasai Community",
+    "cultural.itinerary.day1.activities": "Arrive at Maasai village and be welcomed with a traditional ceremony by elders. Settle into your homestay accommodations within the Boma.",
+    "cultural.itinerary.day2.title": "Day 2: Full Day Inside Maasai Village",
+    "cultural.itinerary.day2.duration": "Full Cultural Immersion",
+    "cultural.itinerary.day2.activities": "Morning livestock herding experience with Maasai warriors. Traditional beadwork workshop with women. Afternoon warrior training and Adumu dance.",
+    "cultural.itinerary.day3.title": "Day 3: Hadzabe Hunter-Gatherer Experience & Departure",
+    "cultural.itinerary.day3.duration": "Hadzabe Day Trip",
+    "cultural.itinerary.day3.activities": "Transfer to the Hadzabe community. Learn traditional hunting, foraging skills, and ancient fire-making techniques.",
+    "cultural.includes.title": "What's Included",
+    "cultural.includes.item1": "Community homestay accommodation (2 nights)",
+    "cultural.includes.item2": "All traditional meals during the tour",
+    "cultural.includes.item3": "Professional local guide services",
+    "cultural.includes.item4": "Cultural performance fees",
+    "cultural.includes.item5": "Craft workshop materials",
+    "cultural.includes.item6": "Community development contribution",
+    "cultural.includes.item7": "Transportation between communities",
+    "cultural.includes.item8": "Cultural orientation session",
+    "cultural.includes.item9": "Hadzabe day experience (in 3-day package)",
+    "cultural.excludes.title": "What's Excluded",
+    "cultural.excludes.item1": "International flights",
+    "cultural.excludes.item2": "Tanzania visa fees",
+    "cultural.excludes.item3": "Travel insurance",
+    "cultural.excludes.item4": "Alcoholic beverages",
+    "cultural.excludes.item5": "Personal shopping",
+    "cultural.excludes.item6": "Optional extra activities",
+    "cultural.excludes.item7": "Tips for guides and hosts",
+    "cultural.excludes.item8": "Personal expenses",
+    "cultural.booking.title": "Ready for Cultural Immersion?", "cultural.booking.subtitle": "Book your authentic cultural experience and connect with Tanzania's living traditions.", "cultural.booking.cta": "Book Cultural Experience",
+    "cultural.modal.title": "Book Your Cultural Experience", "cultural.modal.step1": "Package Level", "cultural.modal.step2": "Travel Style", "cultural.modal.step3": "Booking Details",
+    "cultural.modal.step1_title": "Choose Your Cultural Experience",
+    "cultural.modal.package.local.name": "LOCAL EXPERIENCE", "cultural.modal.package.local.note": "3 Days Full Cultural Tour",
+    "cultural.modal.package.local.feature1": "Day 1 & 2: Maasai Village", "cultural.modal.package.local.feature2": "Day 3: Hadzabe Day Trip",
+    "cultural.modal.package.local.feature3": "All Traditional Meals", "cultural.modal.package.local.feature4": "Local Guide",
+    "cultural.modal.package.local.feature5": "Homestay (2 nights)", "cultural.modal.package.local.feature6": "Transport Included",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "3 Days Premium Cultural",
+    "cultural.modal.package.vip.feature1": "Everything in Local Experience", "cultural.modal.package.vip.feature2": "Private Cultural Guide",
+    "cultural.modal.package.vip.feature3": "All Craft Workshops", "cultural.modal.package.vip.feature4": "Tribal Elder Meetings",
+    "cultural.modal.package.vip.feature5": "Community Projects", "cultural.modal.package.vip.feature6": "Photography Permits",
+    "cultural.modal.package.vip.feature7": "Cultural Souvenirs",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "5 Days Luxury Cultural",
+    "cultural.modal.package.vvip.feature1": "Everything in VIP", "cultural.modal.package.vvip.feature2": "Multi-Community Tour",
+    "cultural.modal.package.vvip.feature3": "Luxury Accommodation", "cultural.modal.package.vvip.feature4": "Traditional Ceremonies",
+    "cultural.modal.package.vvip.feature5": "Private Chef", "cultural.modal.package.vvip.feature6": "All Entrances & Permits",
+    "cultural.modal.package.vvip.feature7": "Airport Transfers",
+    "cultural.modal.daytrips.title": "🎯 Also Available: Stand-Alone Day Trips",
+    "cultural.modal.daytrips.maasai.name": "🏕️ Maasai Boma Day Trip", "cultural.modal.daytrips.maasai.desc": "Full day at Maasai Boma — warrior training, beadwork, traditional lunch & Adumu dance.",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 Hadzabe Hunter-Gatherer Day Trip", "cultural.modal.daytrips.hadzabe.desc": "Full day with the Hadzabe tribe — hunting, foraging, fire-making & click language.",
+    "cultural.modal.daytrips.note": "💡 Select a package above OR click a Day Trip.",
+    "cultural.modal.step2_title": "Select Your Travel Style",
+    "cultural.modal.travel.solo": "Solo Traveler", "cultural.modal.travel.solo_desc": "Perfect for solo explorers",
+    "cultural.modal.travel.couple": "Couple Package", "cultural.modal.travel.couple_desc": "Perfect for couples",
+    "cultural.modal.travel.family": "Family Package", "cultural.modal.travel.family_desc": "2 adults + 2 children",
+    "cultural.modal.travel.group": "Group Adventure", "cultural.modal.travel.group_desc": "2–30 people",
+    "cultural.modal.group_size": "Group Size:", "cultural.modal.discount": "Group Discount (20%)",
+    "cultural.modal.total": "Total Price:", "cultural.modal.original": "Original:",
+    "cultural.modal.selection": "Your Selection", "cultural.modal.step3_title": "Confirm Your Booking",
+    "cultural.modal.summary": "Booking Summary", "cultural.modal.destination_label": "Destination:", "cultural.modal.destination_value": "Cultural Tourism Tanzania",
+    "cultural.modal.package_label": "Package / Experience:", "cultural.modal.travel_label": "Travel Style:",
+    "cultural.modal.people_label": "Number of People:", "cultural.modal.duration_label": "Duration:",
+    "cultural.modal.discount_applied": "Group Discount Applied:", "cultural.modal.total_amount": "Total Amount:",
+    "cultural.modal.original_price": "Original Price:", "cultural.modal.customer_info": "Customer Information",
+    "cultural.modal.travel_info": "Travel Information", "cultural.modal.first_name": "First Name",
+    "cultural.modal.last_name": "Last Name", "cultural.modal.email": "Email Address",
+    "cultural.modal.phone": "Phone Number", "cultural.modal.country": "Country",
+    "cultural.modal.arrival_date": "Arrival Date", "cultural.modal.departure_date": "Departure Date",
+    "cultural.modal.back": "Back", "cultural.modal.next": "Next: Travel Style",
+    "cultural.modal.next_booking": "Next: Book Now", "cultural.modal.cancel": "Cancel",
+    "cultural.modal.complete": "Complete Booking",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creating unforgettable experiences in the heart of Tanzania.",
+    "footer.quick_links": "Quick Links", "footer.destinations": "Destinations",
+    "footer.contact_info": "Contact Info", "footer.address": "Arusha, Tanzania",
+    "footer.language": "Language:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. All rights reserved.",
+    "translation.loading": "Translating content..."
+  },
+  sw: {
+    "nav.home": "Nyumbani", "nav.about": "Kuhusu Sisi", "nav.destinations": "Sehemu za Kusisimua", "nav.mountain_climbing": "Kupanda Milima",
+    "nav.safaris": "Safari Tanzania", "nav.zanzibar": "Fuoni za Zanzibar", "nav.cultural": "Utalii wa Kitamaduni",
+    "nav.waterfalls": "Utalii wa Maporomoko", "nav.historical": "Maeneo ya Kihistoria", "nav.contact": "Wasiliana Nasi",
+    "cultural.hero.title": "Utalii wa Kitamaduni Tanzania", "cultural.hero.subtitle": "Pata Uzoefu wa Mila za Kiasili na Jamii za Kienyeji",
+    "cultural.hero.cta": "Weka Bukti ya Uzoefu wa Kitamaduni",
+    "cultural.content.title": "Safari ya Kuzamishwa Katika Utamaduni", "cultural.content.subtitle": "Siku 3 za Uzoefu wa Kikabila na Ziara za Jamii",
+    "cultural.about.title": "Kuhusu Utalii wa Kitamaduni", "cultural.about.description": "Jizamishe katika utajiri wa kitamaduni wa makabila mbalimbali ya Tanzania. Vifurushi vyetu vya utalii wa kitamaduni vinatoa mwingiliano halisi na jamii za mitaa, sherehe za kitamaduni, na uzoefu wa vitendo unaohifadhi mila za kale huku ukisaidia maendeleo endelevu ya jamii.",
+    "cultural.highlights.title": "Vivutio vya Kitamaduni",
+    "cultural.highlights.item1": "Kukaa katika kijiji cha Wamaasai na uzoefu wa Boma",
+    "cultural.highlights.item2": "Safari ya siku nzima na Wahadzabe wawindaji- wakusanyaji",
+    "cultural.highlights.item3": "Mila za kilimo za Wachagga na ziara ya kahawa",
+    "cultural.highlights.item4": "Maonyesho ya ngoma za kitamaduni",
+    "cultural.highlights.item5": "Warsha za ufundi wa kienyeji",
+    "cultural.highlights.item6": "Miradi ya maendeleo ya jamii",
+    "cultural.tribes.title": "Kutana na Makabila ya Tanzania",
+    "cultural.tribes.maasai.title": "Safari ya Siku ya Boma la Wamaasai — USD 230 (kifurushi cha ndani)",
+    "cultural.tribes.maasai.description": "Siku nzima ya kuwapata Wamaasai katika Boma lao. Jifunze mila zao za ufugaji, shiriki ngoma za kuruka (Adumu), jaribu ushonaji shanga, na ushiriki katika maisha yao ya kila siku.",
+    "cultural.tribes.maasai.feature1": "Kukaa Manyatta", "cultural.tribes.maasai.feature2": "Mafunzo ya Wapiganaji", "cultural.tribes.maasai.feature3": "Warsha ya Ushonaji Shanga",
+    "cultural.tribes.hadzabe.title": "Safari ya Siku ya Wahadzabe Wawindaji- Wakusanyaji — USD 500 (kifurushi cha ndani)",
+    "cultural.tribes.hadzabe.description": "Siku nzima na Wahadzabe, moja ya makabila ya mwisho ya kuwinda na kukusanya barani Afrika, ukijifunza ujuzi wa kale wa kuishi, mbinu za jadi za uwindaji, na lugha yao ya kipekee ya kubofya.",
+    "cultural.tribes.hadzabe.feature1": "Uwindaji wa Jadi", "cultural.tribes.hadzabe.feature2": "Ujuzi wa Kutafuta Chakula", "cultural.tribes.hadzabe.feature3": "Kuwasha Moto",
+    "cultural.itinerary.title": "Mpango wa Siku 3 wa Kuzamishwa Katika Utamaduni - USD 1200 (kifurushi cha ndani)",
+    "cultural.itinerary.day1.title": "Siku 1: Kuwasili na Kukaribishwa Kijijini kwa Wamaasai",
+    "cultural.itinerary.day1.duration": "Jamii ya Wamaasai",
+    "cultural.itinerary.day1.activities": "Fika kijijini kwa Wamaasai na ukaribishwe na wazee kwa sherehe ya jadi. Kaa katika makazi yako ya kukaa ndani ya Boma.",
+    "cultural.itinerary.day2.title": "Siku 2: Siku Nzima Ndani ya Kijiji cha Wamaasai",
+    "cultural.itinerary.day2.duration": "Kuzamishwa Kabisa Katika Utamaduni",
+    "cultural.itinerary.day2.activities": "Uzoefu wa ufugaji wa mifugo asubuhi na wapiganaji Wamaasai. Warsha ya ushonaji shanga na wanawake. Mafunzo ya wapiganaji mchana na ngoma ya Adumu.",
+    "cultural.itinerary.day3.title": "Siku 3: Uzoefu wa Wahadzabe Wawindaji- Wakusanyaji na Kuondoka",
+    "cultural.itinerary.day3.duration": "Safari ya Siku ya Wahadzabe",
+    "cultural.itinerary.day3.activities": "Hamishia kwa jamii ya Wahadzabe. Jifunze uwindaji wa jadi, ujuzi wa kutafuta chakula, na mbinu za kale za kuwasha moto.",
+    "cultural.includes.title": "Yaliyojumuishwa",
+    "cultural.includes.item1": "Makazi ya kukaa kijijini (usiku 2)",
+    "cultural.includes.item2": "Vyakula vyote vya kitamaduni wakati wa safari",
+    "cultural.includes.item3": "Huduma za mwongozaji wa kienyeji mtaalamu",
+    "cultural.includes.item4": "Ada za maonyesho ya kitamaduni",
+    "cultural.includes.item5": "Nyenzo za warsha za ufundi",
+    "cultural.includes.item6": "Mchango wa maendeleo ya jamii",
+    "cultural.includes.item7": "Usafiri kati ya jamii",
+    "cultural.includes.item8": "Kikao cha mwelekeo wa kitamaduni",
+    "cultural.includes.item9": "Uzoefu wa siku ya Wahadzabe (katika kifurushi cha siku 3)",
+    "cultural.excludes.title": "Yasiyojumuishwa",
+    "cultural.excludes.item1": "Safari za kimataifa za ndege",
+    "cultural.excludes.item2": "Ada za visa za Tanzania",
+    "cultural.excludes.item3": "Bima ya kusafiri",
+    "cultural.excludes.item4": "Vinywaji vyenye kileo",
+    "cultural.excludes.item5": "Ununuzi wa kibinafsi",
+    "cultural.excludes.item6": "Shughuli za hiari za ziada",
+    "cultural.excludes.item7": "Bahasha kwa waongozaji na wapangaji",
+    "cultural.excludes.item8": "Matumizi ya kibinafsi",
+    "cultural.booking.title": "Uko Tayari kwa Kuzamishwa Katika Utamaduni?", "cultural.booking.subtitle": "Weka bukti ya uzoefu wako wa kitamaduni halisi na uunganishe na mila hai za Tanzania.", "cultural.booking.cta": "Weka Bukti ya Uzoefu wa Kitamaduni",
+    "cultural.modal.title": "Weka Bukti ya Uzoefu Wako wa Kitamaduni", "cultural.modal.step1": "Kiwango cha Kifurushi", "cultural.modal.step2": "Mtindo wa Kusafiri", "cultural.modal.step3": "Maelezo ya Uwekaji Bukti",
+    "cultural.modal.step1_title": "Chagua Uzoefu Wako wa Kitamaduni",
+    "cultural.modal.package.local.name": "UZOEFU WA NDANI", "cultural.modal.package.local.note": "Siku 3 ya Utalii Kamili wa Kitamaduni",
+    "cultural.modal.package.local.feature1": "Siku 1 & 2: Kijiji cha Wamaasai", "cultural.modal.package.local.feature2": "Siku 3: Safari ya Siku ya Wahadzabe",
+    "cultural.modal.package.local.feature3": "Vyakula Vyote vya Jadi", "cultural.modal.package.local.feature4": "Mwongozaji wa Kienyeji",
+    "cultural.modal.package.local.feature5": "Kukaa Kijijini (usiku 2)", "cultural.modal.package.local.feature6": "Usafiri Umejumuishwa",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "Siku 3 za Kitamaduni za Kipremia",
+    "cultural.modal.package.vip.feature1": "Kila kitu katika Uzoefu wa Ndani", "cultural.modal.package.vip.feature2": "Mwongozaji Binafsi wa Kitamaduni",
+    "cultural.modal.package.vip.feature3": "Warsha Zote za Ufundi", "cultural.modal.package.vip.feature4": "Mikutano na Wazee wa Kikabila",
+    "cultural.modal.package.vip.feature5": "Miradi ya Jamii", "cultural.modal.package.vip.feature6": "Vibali vya Upigaji Picha",
+    "cultural.modal.package.vip.feature7": "Vikumbusho vya Kitamaduni",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "Siku 5 za Kitamaduni za Kifahari",
+    "cultural.modal.package.vvip.feature1": "Kila kitu katika VIP", "cultural.modal.package.vvip.feature2": "Utalii wa Jamii Nyingi",
+    "cultural.modal.package.vvip.feature3": "Makazi ya Kifahari", "cultural.modal.package.vvip.feature4": "Sherehe za Jadi",
+    "cultural.modal.package.vvip.feature5": "Mpishi Binafsi", "cultural.modal.package.vvip.feature6": "Viingilio na Vibali Vyote",
+    "cultural.modal.package.vvip.feature7": "Uhamisho wa Uwanja wa Ndege",
+    "cultural.modal.daytrips.title": "🎯 Inapatikana Pia: Safari za Siku Pekee",
+    "cultural.modal.daytrips.maasai.name": "🏕️ Safari ya Siku ya Boma la Wamaasai", "cultural.modal.daytrips.maasai.desc": "Siku nzima katika Boma la Wamaasai — mafunzo ya wapiganaji, ushonaji shanga, chakula cha mchana cha jadi na ngoma ya Adumu.",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 Safari ya Siku ya Wahadzabe Wawindaji- Wakusanyaji", "cultural.modal.daytrips.hadzabe.desc": "Siku nzima na kabila la Wahadzabe — uwindaji, kutafuta chakula, kuwasha moto na lugha ya kubofya.",
+    "cultural.modal.daytrips.note": "💡 Chagua kifurushi kilicho juu AU bonyeza Safari ya Siku.",
+    "cultural.modal.step2_title": "Chagua Mtindo Wako wa Kusafiri",
+    "cultural.modal.travel.solo": "Msafiri Peke Yake", "cultural.modal.travel.solo_desc": "Inafaa kwa wachunguzi peke yao",
+    "cultural.modal.travel.couple": "Kifurushi cha Wanandoa", "cultural.modal.travel.couple_desc": "Inafaa kwa wanandoa",
+    "cultural.modal.travel.family": "Kifurushi cha Familia", "cultural.modal.travel.family_desc": "Watu wazima 2 + watoto 2",
+    "cultural.modal.travel.group": "Adventure ya Kikundi", "cultural.modal.travel.group_desc": "Watu 2–30",
+    "cultural.modal.group_size": "Ukubwa wa Kikundi:", "cultural.modal.discount": "Punguzo la Kikundi (20%)",
+    "cultural.modal.total": "Bei Yote:", "cultural.modal.original": "Asili:",
+    "cultural.modal.selection": "Uchaguzi Wako", "cultural.modal.step3_title": "Thibitisha Uwekaji Bukti Wako",
+    "cultural.modal.summary": "Muhtasari wa Uwekaji Bukti", "cultural.modal.destination_label": "Mahali:", "cultural.modal.destination_value": "Utalii wa Kitamaduni Tanzania",
+    "cultural.modal.package_label": "Kifurushi / Uzoefu:", "cultural.modal.travel_label": "Mtindo wa Kusafiri:",
+    "cultural.modal.people_label": "Idadi ya Watu:", "cultural.modal.duration_label": "Muda:",
+    "cultural.modal.discount_applied": "Punguzo la Kikundi Linatumika:", "cultural.modal.total_amount": "Jumla ya Kiasi:",
+    "cultural.modal.original_price": "Bei Asili:", "cultural.modal.customer_info": "Taarifa za Mteja",
+    "cultural.modal.travel_info": "Taarifa za Kusafiri", "cultural.modal.first_name": "Jina la Kwanza",
+    "cultural.modal.last_name": "Jina la Mwisho", "cultural.modal.email": "Barua pepe",
+    "cultural.modal.phone": "Nambari ya Simu", "cultural.modal.country": "Nchi",
+    "cultural.modal.arrival_date": "Tarehe ya Kuwasili", "cultural.modal.departure_date": "Tarehe ya Kuondoka",
+    "cultural.modal.back": "Nyuma", "cultural.modal.next": "Inayofuata: Mtindo wa Kusafiri",
+    "cultural.modal.next_booking": "Inayofuata: Weka Bukti Sasa", "cultural.modal.cancel": "Ghairi",
+    "cultural.modal.complete": "Kamilisha Uwekaji Bukti",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Tunatengeneza uzoefu usiosahaulika moyoni mwa Tanzania.",
+    "footer.quick_links": "Viungo vya Haraka", "footer.destinations": "Sehemu za Kusisimua",
+    "footer.contact_info": "Maelezo ya Mawasiliano", "footer.address": "Arusha, Tanzania",
+    "footer.language": "Lugha:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Haki zote zimehifadhiwa.",
+    "translation.loading": "Inatafsiri maudhui..."
+  },
+  fr: {
+    "nav.home": "Accueil", "nav.about": "À Propos", "nav.destinations": "Destinations", "nav.mountain_climbing": "Ascension de Montagnes",
+    "nav.safaris": "Safaris Tanzanie", "nav.zanzibar": "Plages de Zanzibar", "nav.cultural": "Tourisme Culturel",
+    "nav.waterfalls": "Tourisme des Cascades", "nav.historical": "Sites Historiques", "nav.contact": "Contact",
+    "cultural.hero.title": "Tourisme Culturel Tanzanie", "cultural.hero.subtitle": "Vivez les Traditions Tribales Authentiques et les Communautés Locales",
+    "cultural.hero.cta": "Réservez l'Expérience Culturelle",
+    "cultural.content.title": "Voyage d'Immersion Culturelle", "cultural.content.subtitle": "3 Jours d'Expériences Tribales Authentiques et de Visites Communautaires",
+    "cultural.about.title": "À Propos du Tourisme Culturel", "cultural.about.description": "Plongez dans la riche tapisserie culturelle des divers groupes ethniques de Tanzanie. Nos forfaits de tourisme culturel offrent des interactions authentiques avec les communautés locales, des cérémonies traditionnelles et des expériences pratiques qui préservent les traditions anciennes tout en soutenant le développement communautaire durable.",
+    "cultural.highlights.title": "Points Forts Culturels",
+    "cultural.highlights.item1": "Séjours chez l'habitant Maasai et expérience Boma",
+    "cultural.highlights.item2": "Excursion d'une journée chez les Hadzabe chasseurs-cueilleurs",
+    "cultural.highlights.item3": "Traditions agricoles Chagga et tournée du café",
+    "cultural.highlights.item4": "Spectacles de danses traditionnelles",
+    "cultural.highlights.item5": "Ateliers d'artisanat local",
+    "cultural.highlights.item6": "Projets de développement communautaire",
+    "cultural.tribes.title": "Rencontrez les Groupes Ethniques de Tanzanie",
+    "cultural.tribes.maasai.title": "Excursion d'une journée au Boma Maasai — USD 230 (forfait local)",
+    "cultural.tribes.maasai.description": "Une journée complète pour découvrir le peuple emblématique Maasai dans leur Boma. Apprenez leurs traditions pastorales, participez aux danses sautées (Adumu), essayez le travail de perles et partagez leur vie quotidienne.",
+    "cultural.tribes.maasai.feature1": "Séjour Manyatta", "cultural.tribes.maasai.feature2": "Formation de Guerrier", "cultural.tribes.maasai.feature3": "Atelier de Perlage",
+    "cultural.tribes.hadzabe.title": "Excursion d'une journée chez les Hadzabe Chasseurs-Cueilleurs — USD 500 (forfait local)",
+    "cultural.tribes.hadzabe.description": "Passez une journée complète avec les Hadzabe, l'une des dernières tribus de chasseurs-cueilleurs en Afrique, apprenant des compétences de survie anciennes, des techniques de chasse traditionnelles et leur langue unique à clics.",
+    "cultural.tribes.hadzabe.feature1": "Chasse Traditionnelle", "cultural.tribes.hadzabe.feature2": "Compétences de Cueillette", "cultural.tribes.hadzabe.feature3": "Fabrication du Feu",
+    "cultural.itinerary.title": "Itinéraire d'Immersion Culturelle de 3 Jours - USD 1200 (forfait local)",
+    "cultural.itinerary.day1.title": "Jour 1: Arrivée et Accueil au Village Maasai",
+    "cultural.itinerary.day1.duration": "Communauté Maasai",
+    "cultural.itinerary.day1.activities": "Arrivée au village Maasai et accueil avec une cérémonie traditionnelle par les aînés. Installez-vous dans votre hébergement chez l'habitant au sein du Boma.",
+    "cultural.itinerary.day2.title": "Jour 2: Journée Complète dans le Village Maasai",
+    "cultural.itinerary.day2.duration": "Immersion Culturelle Complète",
+    "cultural.itinerary.day2.activities": "Expérience matinale de garde de bétail avec les guerriers Maasai. Atelier de perlage traditionnel avec les femmes. Après-midi de formation de guerrier et danse Adumu.",
+    "cultural.itinerary.day3.title": "Jour 3: Expérience Hadzabe Chasseur-Cueilleur et Départ",
+    "cultural.itinerary.day3.duration": "Excursion d'une journée Hadzabe",
+    "cultural.itinerary.day3.activities": "Transfert vers la communauté Hadzabe. Apprenez la chasse traditionnelle, les compétences de cueillette et les techniques anciennes de fabrication du feu.",
+    "cultural.includes.title": "Ce Qui Est Inclus",
+    "cultural.includes.item1": "Hébergement chez l'habitant (2 nuits)",
+    "cultural.includes.item2": "Tous les repas traditionnels pendant le circuit",
+    "cultural.includes.item3": "Services de guide local professionnel",
+    "cultural.includes.item4": "Frais de spectacles culturels",
+    "cultural.includes.item5": "Matériel d'atelier artisanal",
+    "cultural.includes.item6": "Contribution au développement communautaire",
+    "cultural.includes.item7": "Transport entre les communautés",
+    "cultural.includes.item8": "Session d'orientation culturelle",
+    "cultural.includes.item9": "Expérience d'une journée Hadzabe (dans le forfait 3 jours)",
+    "cultural.excludes.title": "Ce Qui N'Est Pas Inclus",
+    "cultural.excludes.item1": "Vols internationaux",
+    "cultural.excludes.item2": "Frais de visa Tanzanie",
+    "cultural.excludes.item3": "Assurance voyage",
+    "cultural.excludes.item4": "Boissons alcoolisées",
+    "cultural.excludes.item5": "Achats personnels",
+    "cultural.excludes.item6": "Activités supplémentaires optionnelles",
+    "cultural.excludes.item7": "Pourboires pour guides et hôtes",
+    "cultural.excludes.item8": "Dépenses personnelles",
+    "cultural.booking.title": "Prêt pour l'Immersion Culturelle ?", "cultural.booking.subtitle": "Réservez votre expérience culturelle authentique et connectez-vous aux traditions vivantes de la Tanzanie.", "cultural.booking.cta": "Réservez l'Expérience Culturelle",
+    "cultural.modal.title": "Réservez Votre Expérience Culturelle", "cultural.modal.step1": "Niveau de Forfait", "cultural.modal.step2": "Style de Voyage", "cultural.modal.step3": "Détails de Réservation",
+    "cultural.modal.step1_title": "Choisissez Votre Expérience Culturelle",
+    "cultural.modal.package.local.name": "EXPÉRIENCE LOCALE", "cultural.modal.package.local.note": "3 Jours de Circuit Culturel Complet",
+    "cultural.modal.package.local.feature1": "Jour 1 & 2 : Village Maasai", "cultural.modal.package.local.feature2": "Jour 3 : Excursion d'une journée Hadzabe",
+    "cultural.modal.package.local.feature3": "Tous les Repas Traditionnels", "cultural.modal.package.local.feature4": "Guide Local",
+    "cultural.modal.package.local.feature5": "Hébergement chez l'habitant (2 nuits)", "cultural.modal.package.local.feature6": "Transport Inclus",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "3 Jours Culturel Premium",
+    "cultural.modal.package.vip.feature1": "Tout ce qui est dans l'Expérience Locale", "cultural.modal.package.vip.feature2": "Guide Culturel Privé",
+    "cultural.modal.package.vip.feature3": "Tous les Ateliers Artisanaux", "cultural.modal.package.vip.feature4": "Rencontres avec les Aînés Tribaux",
+    "cultural.modal.package.vip.feature5": "Projets Communautaires", "cultural.modal.package.vip.feature6": "Permis Photographie",
+    "cultural.modal.package.vip.feature7": "Souvenirs Culturels",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "5 Jours Culturel de Luxe",
+    "cultural.modal.package.vvip.feature1": "Tout ce qui est dans VIP", "cultural.modal.package.vvip.feature2": "Circuit Multi-Communautés",
+    "cultural.modal.package.vvip.feature3": "Hébergement de Luxe", "cultural.modal.package.vvip.feature4": "Cérémonies Traditionnelles",
+    "cultural.modal.package.vvip.feature5": "Chef Privé", "cultural.modal.package.vvip.feature6": "Toutes Entrées et Permis",
+    "cultural.modal.package.vvip.feature7": "Transferts Aéroport",
+    "cultural.modal.daytrips.title": "🎯 Également Disponibles : Excursions Autonomes d'une Journée",
+    "cultural.modal.daytrips.maasai.name": "🏕️ Excursion d'une journée au Boma Maasai", "cultural.modal.daytrips.maasai.desc": "Journée complète au Boma Maasai — formation de guerrier, travail de perles, déjeuner traditionnel et danse Adumu.",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 Excursion d'une journée chez les Hadzabe Chasseurs-Cueilleurs", "cultural.modal.daytrips.hadzabe.desc": "Journée complète avec la tribu Hadzabe — chasse, cueillette, fabrication du feu et langue à clics.",
+    "cultural.modal.daytrips.note": "💡 Sélectionnez un forfait ci-dessus OU cliquez sur une Excursion d'une journée.",
+    "cultural.modal.step2_title": "Sélectionnez Votre Style de Voyage",
+    "cultural.modal.travel.solo": "Voyageur Solo", "cultural.modal.travel.solo_desc": "Parfait pour les explorateurs solitaires",
+    "cultural.modal.travel.couple": "Forfait Couple", "cultural.modal.travel.couple_desc": "Parfait pour les couples",
+    "cultural.modal.travel.family": "Forfait Famille", "cultural.modal.travel.family_desc": "2 adultes + 2 enfants",
+    "cultural.modal.travel.group": "Aventure en Groupe", "cultural.modal.travel.group_desc": "2 à 30 personnes",
+    "cultural.modal.group_size": "Taille du Groupe :", "cultural.modal.discount": "Réduction de Groupe (20%)",
+    "cultural.modal.total": "Prix Total :", "cultural.modal.original": "Original :",
+    "cultural.modal.selection": "Votre Sélection", "cultural.modal.step3_title": "Confirmez Votre Réservation",
+    "cultural.modal.summary": "Résumé de Réservation", "cultural.modal.destination_label": "Destination :", "cultural.modal.destination_value": "Tourisme Culturel Tanzanie",
+    "cultural.modal.package_label": "Forfait / Expérience :", "cultural.modal.travel_label": "Style de Voyage :",
+    "cultural.modal.people_label": "Nombre de Personnes :", "cultural.modal.duration_label": "Durée :",
+    "cultural.modal.discount_applied": "Réduction de Groupe Appliquée :", "cultural.modal.total_amount": "Montant Total :",
+    "cultural.modal.original_price": "Prix Original :", "cultural.modal.customer_info": "Informations Client",
+    "cultural.modal.travel_info": "Informations de Voyage", "cultural.modal.first_name": "Prénom",
+    "cultural.modal.last_name": "Nom", "cultural.modal.email": "Adresse E-mail",
+    "cultural.modal.phone": "Numéro de Téléphone", "cultural.modal.country": "Pays",
+    "cultural.modal.arrival_date": "Date d'Arrivée", "cultural.modal.departure_date": "Date de Départ",
+    "cultural.modal.back": "Retour", "cultural.modal.next": "Suivant : Style de Voyage",
+    "cultural.modal.next_booking": "Suivant : Réserver Maintenant", "cultural.modal.cancel": "Annuler",
+    "cultural.modal.complete": "Finaliser la Réservation",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Création d'expériences inoubliables au cœur de la Tanzanie.",
+    "footer.quick_links": "Liens Rapides", "footer.destinations": "Destinations",
+    "footer.contact_info": "Informations de Contact", "footer.address": "Arusha, Tanzanie",
+    "footer.language": "Langue :", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Tous droits réservés.",
+    "translation.loading": "Traduction du contenu..."
+  },
+  de: {
+    "nav.home": "Startseite", "nav.about": "Über Uns", "nav.destinations": "Destinationen", "nav.mountain_climbing": "Bergsteigen",
+    "nav.safaris": "Tansania Safaris", "nav.zanzibar": "Zanzibar Strände", "nav.cultural": "Kulturtourismus",
+    "nav.waterfalls": "Wasserfall-Tourismus", "nav.historical": "Historische Stätten", "nav.contact": "Kontakt",
+    "cultural.hero.title": "Kulturtourismus Tansania", "cultural.hero.subtitle": "Erleben Sie authentische Stammestraditionen und lokale Gemeinschaften",
+    "cultural.hero.cta": "Kulturelles Erlebnis Buchen",
+    "cultural.content.title": "Kulturelle Eintauchreise", "cultural.content.subtitle": "3 Tage authentische Stammeserlebnisse und Gemeinschaftsbesuche",
+    "cultural.about.title": "Über Kulturtourismus", "cultural.about.description": "Tauchen Sie ein in das reiche kulturelle Geflecht der verschiedenen ethnischen Gruppen Tansanias. Unsere Kulturtourismus-Pakete bieten authentische Interaktionen mit lokalen Gemeinschaften, traditionelle Zeremonien und praktische Erfahrungen, die alte Traditionen bewahren und gleichzeitig eine nachhaltige Gemeindeentwicklung unterstützen.",
+    "cultural.highlights.title": "Kulturelle Höhepunkte",
+    "cultural.highlights.item1": "Maasai-Dorfaufenthalte & Boma-Erlebnis",
+    "cultural.highlights.item2": "Hadzabe Jäger-Sammler Tagesausflug",
+    "cultural.highlights.item3": "Chagga Landwirtschaftstraditionen & Kaffeetour",
+    "cultural.highlights.item4": "Traditionelle Tanzvorführungen",
+    "cultural.highlights.item5": "Handwerksworkshops",
+    "cultural.highlights.item6": "Gemeinschaftsentwicklungsprojekte",
+    "cultural.tribes.title": "Treffen Sie Tansanias Ethnische Gruppen",
+    "cultural.tribes.maasai.title": "Maasai Boma Tagesausflug — USD 230 (lokales Paket)",
+    "cultural.tribes.maasai.description": "Ein ganzer Tag mit den ikonischen Maasai in ihrem Boma. Erfahren Sie mehr über ihre pastoralen Traditionen, nehmen Sie an Sprungtänzen (Adumu) teil, probieren Sie Perlenarbeiten und teilen Sie ihr tägliches Leben.",
+    "cultural.tribes.maasai.feature1": "Manyatta Aufenthalt", "cultural.tribes.maasai.feature2": "Kriegerausbildung", "cultural.tribes.maasai.feature3": "Perlenstickerei Workshop",
+    "cultural.tribes.hadzabe.title": "Hadzabe Jäger-Sammler Tagesausflug — USD 500 (lokales Paket)",
+    "cultural.tribes.hadzabe.description": "Verbringen Sie einen ganzen Tag mit den Hadzabe, einem der letzten Jäger- und Sammlervölker Afrikas, und lernen Sie alte Überlebensfähigkeiten, traditionelle Jagdtechniken und ihre einzigartige Klicklautsprache.",
+    "cultural.tribes.hadzabe.feature1": "Traditionelle Jagd", "cultural.tribes.hadzabe.feature2": "Sammelfähigkeiten", "cultural.tribes.hadzabe.feature3": "Feuermachen",
+    "cultural.itinerary.title": "3-tägige Kulturelle Eintauchroute - USD 1200 (lokales Paket)",
+    "cultural.itinerary.day1.title": "Tag 1: Ankunft & Begrüßung im Maasai-Dorf",
+    "cultural.itinerary.day1.duration": "Maasai-Gemeinschaft",
+    "cultural.itinerary.day1.activities": "Ankunft im Maasai-Dorf und Begrüßung mit einer traditionellen Zeremonie durch die Ältesten. Einrichtung in Ihrer Unterkunft innerhalb des Boma.",
+    "cultural.itinerary.day2.title": "Tag 2: Ganztägiger Aufenthalt im Maasai-Dorf",
+    "cultural.itinerary.day2.duration": "Vollständige kulturelle Eintauchung",
+    "cultural.itinerary.day2.activities": "Morgendliche Viehhüte-Erfahrung mit Maasai-Kriegern. Traditioneller Perlenstickerei-Workshop mit Frauen. Nachmittags Kriegerausbildung und Adumu-Tanz.",
+    "cultural.itinerary.day3.title": "Tag 3: Hadzabe Jäger-Sammler Erfahrung & Abreise",
+    "cultural.itinerary.day3.duration": "Hadzabe Tagesausflug",
+    "cultural.itinerary.day3.activities": "Transfer zur Hadzabe-Gemeinschaft. Lernen Sie traditionelle Jagd, Sammelfähigkeiten und alte Feuermachtechniken.",
+    "cultural.includes.title": "Was ist inkludiert",
+    "cultural.includes.item1": "Unterkunft in der Gemeinschaft (2 Nächte)",
+    "cultural.includes.item2": "Alle traditionellen Mahlzeiten während der Tour",
+    "cultural.includes.item3": "Professionelle lokale Reiseführer-Dienste",
+    "cultural.includes.item4": "Gebühren für kulturelle Darbietungen",
+    "cultural.includes.item5": "Materialien für Handwerksworkshops",
+    "cultural.includes.item6": "Beitrag zur Gemeinschaftsentwicklung",
+    "cultural.includes.item7": "Transport zwischen den Gemeinschaften",
+    "cultural.includes.item8": "Kulturelle Orientierungssitzung",
+    "cultural.includes.item9": "Hadzabe Tageserfahrung (im 3-Tage-Paket)",
+    "cultural.excludes.title": "Was ist nicht inkludiert",
+    "cultural.excludes.item1": "Internationale Flüge",
+    "cultural.excludes.item2": "Tansania Visagebühren",
+    "cultural.excludes.item3": "Reiseversicherung",
+    "cultural.excludes.item4": "Alkoholische Getränke",
+    "cultural.excludes.item5": "Persönliche Einkäufe",
+    "cultural.excludes.item6": "Optionale Zusatzaktivitäten",
+    "cultural.excludes.item7": "Trinkgelder für Reiseführer und Gastgeber",
+    "cultural.excludes.item8": "Persönliche Ausgaben",
+    "cultural.booking.title": "Bereit für kulturelles Eintauchen?", "cultural.booking.subtitle": "Buchen Sie Ihr authentisches Kulturerlebnis und verbinden Sie sich mit den lebendigen Traditionen Tansanias.", "cultural.booking.cta": "Kulturelles Erlebnis Buchen",
+    "cultural.modal.title": "Buchen Sie Ihr Kulturelles Erlebnis", "cultural.modal.step1": "Paketstufe", "cultural.modal.step2": "Reisestil", "cultural.modal.step3": "Buchungsdetails",
+    "cultural.modal.step1_title": "Wählen Sie Ihr Kulturelles Erlebnis",
+    "cultural.modal.package.local.name": "LOKALES ERLEBNIS", "cultural.modal.package.local.note": "3 Tage Komplette Kulturrundreise",
+    "cultural.modal.package.local.feature1": "Tag 1 & 2: Maasai-Dorf", "cultural.modal.package.local.feature2": "Tag 3: Hadzabe Tagesausflug",
+    "cultural.modal.package.local.feature3": "Alle Traditionellen Mahlzeiten", "cultural.modal.package.local.feature4": "Lokaler Reiseführer",
+    "cultural.modal.package.local.feature5": "Unterkunft (2 Nächte)", "cultural.modal.package.local.feature6": "Transport Inklusive",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "3 Tage Premium Kultur",
+    "cultural.modal.package.vip.feature1": "Alles im Lokalen Erlebnis", "cultural.modal.package.vip.feature2": "Privater Kulturführer",
+    "cultural.modal.package.vip.feature3": "Alle Handwerksworkshops", "cultural.modal.package.vip.feature4": "Treffen mit Stammesältesten",
+    "cultural.modal.package.vip.feature5": "Gemeinschaftsprojekte", "cultural.modal.package.vip.feature6": "Fotografiegenehmigungen",
+    "cultural.modal.package.vip.feature7": "Kulturelle Souvenirs",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "5 Tage Luxus Kultur",
+    "cultural.modal.package.vvip.feature1": "Alles im VIP", "cultural.modal.package.vvip.feature2": "Multi-Gemeinschafts-Rundreise",
+    "cultural.modal.package.vvip.feature3": "Luxusunterkunft", "cultural.modal.package.vvip.feature4": "Traditionelle Zeremonien",
+    "cultural.modal.package.vvip.feature5": "Privatkoch", "cultural.modal.package.vvip.feature6": "Alle Eintritte und Genehmigungen",
+    "cultural.modal.package.vvip.feature7": "Flughafentransfers",
+    "cultural.modal.daytrips.title": "🎯 Ebenfalls Verfügbar: Eigenständige Tagesausflüge",
+    "cultural.modal.daytrips.maasai.name": "🏕️ Maasai Boma Tagesausflug", "cultural.modal.daytrips.maasai.desc": "Ganztägiger Aufenthalt im Maasai Boma — Kriegerausbildung, Perlenarbeiten, traditionelles Mittagessen & Adumu-Tanz.",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 Hadzabe Jäger-Sammler Tagesausflug", "cultural.modal.daytrips.hadzabe.desc": "Ganztägiger Aufenthalt mit dem Hadzabe-Stamm — Jagd, Sammeln, Feuermachen und Klicklautsprache.",
+    "cultural.modal.daytrips.note": "💡 Wählen Sie ein Paket oben ODER klicken Sie auf einen Tagesausflug.",
+    "cultural.modal.step2_title": "Wählen Sie Ihren Reisestil",
+    "cultural.modal.travel.solo": "Alleinreisender", "cultural.modal.travel.solo_desc": "Perfekt für Solo-Entdecker",
+    "cultural.modal.travel.couple": "Paar-Paket", "cultural.modal.travel.couple_desc": "Perfekt für Paare",
+    "cultural.modal.travel.family": "Familien-Paket", "cultural.modal.travel.family_desc": "2 Erwachsene + 2 Kinder",
+    "cultural.modal.travel.group": "Gruppenabenteuer", "cultural.modal.travel.group_desc": "2–30 Personen",
+    "cultural.modal.group_size": "Gruppengröße:", "cultural.modal.discount": "Gruppenrabatt (20%)",
+    "cultural.modal.total": "Gesamtpreis:", "cultural.modal.original": "Original:",
+    "cultural.modal.selection": "Ihre Auswahl", "cultural.modal.step3_title": "Bestätigen Sie Ihre Buchung",
+    "cultural.modal.summary": "Buchungszusammenfassung", "cultural.modal.destination_label": "Reiseziel:", "cultural.modal.destination_value": "Kulturtourismus Tansania",
+    "cultural.modal.package_label": "Paket / Erlebnis:", "cultural.modal.travel_label": "Reisestil:",
+    "cultural.modal.people_label": "Anzahl der Personen:", "cultural.modal.duration_label": "Dauer:",
+    "cultural.modal.discount_applied": "Gruppenrabatt angewendet:", "cultural.modal.total_amount": "Gesamtbetrag:",
+    "cultural.modal.original_price": "Ursprünglicher Preis:", "cultural.modal.customer_info": "Kundeninformationen",
+    "cultural.modal.travel_info": "Reiseinformationen", "cultural.modal.first_name": "Vorname",
+    "cultural.modal.last_name": "Nachname", "cultural.modal.email": "E-Mail-Adresse",
+    "cultural.modal.phone": "Telefonnummer", "cultural.modal.country": "Land",
+    "cultural.modal.arrival_date": "Anreisedatum", "cultural.modal.departure_date": "Abreisedatum",
+    "cultural.modal.back": "Zurück", "cultural.modal.next": "Weiter: Reisestil",
+    "cultural.modal.next_booking": "Weiter: Jetzt Buchen", "cultural.modal.cancel": "Abbrechen",
+    "cultural.modal.complete": "Buchung abschließen",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Schaffung unvergesslicher Erlebnisse im Herzen Tansanias.",
+    "footer.quick_links": "Schnelllinks", "footer.destinations": "Destinationen",
+    "footer.contact_info": "Kontaktinformationen", "footer.address": "Arusha, Tansania",
+    "footer.language": "Sprache:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Alle Rechte vorbehalten.",
+    "translation.loading": "Inhalte werden übersetzt..."
+  },
+  es: {
+    "nav.home": "Inicio", "nav.about": "Acerca de", "nav.destinations": "Destinos", "nav.mountain_climbing": "Escalada de Montañas",
+    "nav.safaris": "Safaris Tanzania", "nav.zanzibar": "Playas de Zanzíbar", "nav.cultural": "Turismo Cultural",
+    "nav.waterfalls": "Turismo de Cascadas", "nav.historical": "Sitios Históricos", "nav.contact": "Contacto",
+    "cultural.hero.title": "Turismo Cultural Tanzania", "cultural.hero.subtitle": "Experimente Tradiciones Tribales Auténticas y Comunidades Locales",
+    "cultural.hero.cta": "Reservar Experiencia Cultural",
+    "cultural.content.title": "Viaje de Inmersión Cultural", "cultural.content.subtitle": "3 Días de Experiencias Tribales Auténticas y Visitas Comunitarias",
+    "cultural.about.title": "Acerca del Turismo Cultural", "cultural.about.description": "Sumérjase en el rico tapiz cultural de los diversos grupos étnicos de Tanzania. Nuestros paquetes de turismo cultural ofrecen interacciones auténticas con comunidades locales, ceremonias tradicionales y experiencias prácticas que preservan tradiciones ancestrales mientras apoyan el desarrollo comunitario sostenible.",
+    "cultural.highlights.title": "Aspectos Culturales Destacados",
+    "cultural.highlights.item1": "Estancias en aldeas Maasai y experiencia en Boma",
+    "cultural.highlights.item2": "Excursión de un día a los Hadzabe cazadores-recolectores",
+    "cultural.highlights.item3": "Tradiciones agrícolas Chagga y tour del café",
+    "cultural.highlights.item4": "Espectáculos de danza tradicional",
+    "cultural.highlights.item5": "Talleres de artesanía local",
+    "cultural.highlights.item6": "Proyectos de desarrollo comunitario",
+    "cultural.tribes.title": "Conozca los Grupos Étnicos de Tanzania",
+    "cultural.tribes.maasai.title": "Excursión de un día al Boma Maasai — USD 230 (paquete local)",
+    "cultural.tribes.maasai.description": "Un día completo experimentando al pueblo icónico Maasai en su Boma. Aprenda sobre sus tradiciones pastoriles, participe en danzas de salto (Adumu), pruebe el trabajo con cuentas y comparta su vida diaria.",
+    "cultural.tribes.maasai.feature1": "Estancia Manyatta", "cultural.tribes.maasai.feature2": "Entrenamiento de Guerrero", "cultural.tribes.maasai.feature3": "Taller de Abalorios",
+    "cultural.tribes.hadzabe.title": "Excursión de un día a los Hadzabe Cazadores-Recolectores — USD 500 (paquete local)",
+    "cultural.tribes.hadzabe.description": "Pase un día completo con los Hadzabe, una de las últimas tribus de cazadores-recolectores de África, aprendiendo habilidades antiguas de supervivencia, técnicas de caza tradicionales y su singular lenguaje de chasquidos.",
+    "cultural.tribes.hadzabe.feature1": "Caza Tradicional", "cultural.tribes.hadzabe.feature2": "Habilidades de Recolección", "cultural.tribes.hadzabe.feature3": "Creación de Fuego",
+    "cultural.itinerary.title": "Itinerario de Inmersión Cultural de 3 Días - USD 1200 (paquete local)",
+    "cultural.itinerary.day1.title": "Día 1: Llegada y Bienvenida en la Aldea Maasai",
+    "cultural.itinerary.day1.duration": "Comunidad Maasai",
+    "cultural.itinerary.day1.activities": "Llegue a la aldea Maasai y sea recibido con una ceremonia tradicional por los ancianos. Instálese en su alojamiento de familia dentro del Boma.",
+    "cultural.itinerary.day2.title": "Día 2: Día Completo Dentro de la Aldea Maasai",
+    "cultural.itinerary.day2.duration": "Inmersión Cultural Completa",
+    "cultural.itinerary.day2.activities": "Experiencia matutina de pastoreo de ganado con guerreros Maasai. Taller tradicional de abalorios con mujeres. Por la tarde entrenamiento de guerrero y danza Adumu.",
+    "cultural.itinerary.day3.title": "Día 3: Experiencia Hadzabe Cazador-Recolector y Salida",
+    "cultural.itinerary.day3.duration": "Excursión de un día a los Hadzabe",
+    "cultural.itinerary.day3.activities": "Traslado a la comunidad Hadzabe. Aprenda caza tradicional, habilidades de recolección y antiguas técnicas de creación de fuego.",
+    "cultural.includes.title": "Qué Incluye",
+    "cultural.includes.item1": "Alojamiento en comunidad (2 noches)",
+    "cultural.includes.item2": "Todas las comidas tradicionales durante el recorrido",
+    "cultural.includes.item3": "Servicios de guía local profesional",
+    "cultural.includes.item4": "Tarifas de espectáculos culturales",
+    "cultural.includes.item5": "Materiales de talleres artesanales",
+    "cultural.includes.item6": "Contribución al desarrollo comunitario",
+    "cultural.includes.item7": "Transporte entre comunidades",
+    "cultural.includes.item8": "Sesión de orientación cultural",
+    "cultural.includes.item9": "Experiencia de un día con los Hadzabe (en paquete de 3 días)",
+    "cultural.excludes.title": "Qué No Incluye",
+    "cultural.excludes.item1": "Vuelos internacionales",
+    "cultural.excludes.item2": "Tarifas de visa para Tanzania",
+    "cultural.excludes.item3": "Seguro de viaje",
+    "cultural.excludes.item4": "Bebidas alcohólicas",
+    "cultural.excludes.item5": "Compras personales",
+    "cultural.excludes.item6": "Actividades extra opcionales",
+    "cultural.excludes.item7": "Propinas para guías y anfitriones",
+    "cultural.excludes.item8": "Gastos personales",
+    "cultural.booking.title": "¿Listo para la Inmersión Cultural?", "cultural.booking.subtitle": "Reserve su experiencia cultural auténtica y conéctese con las tradiciones vivas de Tanzania.", "cultural.booking.cta": "Reservar Experiencia Cultural",
+    "cultural.modal.title": "Reserve Su Experiencia Cultural", "cultural.modal.step1": "Nivel de Paquete", "cultural.modal.step2": "Estilo de Viaje", "cultural.modal.step3": "Detalles de la Reserva",
+    "cultural.modal.step1_title": "Elija Su Experiencia Cultural",
+    "cultural.modal.package.local.name": "EXPERIENCIA LOCAL", "cultural.modal.package.local.note": "3 Días de Tour Cultural Completo",
+    "cultural.modal.package.local.feature1": "Día 1 y 2: Aldea Maasai", "cultural.modal.package.local.feature2": "Día 3: Excursión de un día a los Hadzabe",
+    "cultural.modal.package.local.feature3": "Todas las Comidas Tradicionales", "cultural.modal.package.local.feature4": "Guía Local",
+    "cultural.modal.package.local.feature5": "Hospedaje en Familia (2 noches)", "cultural.modal.package.local.feature6": "Transporte Incluido",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "3 Días Cultural Premium",
+    "cultural.modal.package.vip.feature1": "Todo en la Experiencia Local", "cultural.modal.package.vip.feature2": "Guía Cultural Privado",
+    "cultural.modal.package.vip.feature3": "Todos los Talleres Artesanales", "cultural.modal.package.vip.feature4": "Reuniones con Ancianos Tribales",
+    "cultural.modal.package.vip.feature5": "Proyectos Comunitarios", "cultural.modal.package.vip.feature6": "Permisos de Fotografía",
+    "cultural.modal.package.vip.feature7": "Recuerdos Culturales",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "5 Días Cultural de Lujo",
+    "cultural.modal.package.vvip.feature1": "Todo en VIP", "cultural.modal.package.vvip.feature2": "Tour Multi-Comunidad",
+    "cultural.modal.package.vvip.feature3": "Alojamiento de Lujo", "cultural.modal.package.vvip.feature4": "Ceremonias Tradicionales",
+    "cultural.modal.package.vvip.feature5": "Chef Privado", "cultural.modal.package.vvip.feature6": "Todas las Entradas y Permisos",
+    "cultural.modal.package.vvip.feature7": "Traslados al Aeropuerto",
+    "cultural.modal.daytrips.title": "🎯 También Disponible: Excursiones Individuales de un Día",
+    "cultural.modal.daytrips.maasai.name": "🏕️ Excursión de un día al Boma Maasai", "cultural.modal.daytrips.maasai.desc": "Día completo en el Boma Maasai — entrenamiento de guerrero, abalorios, almuerzo tradicional y danza Adumu.",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 Excursión de un día a los Hadzabe Cazadores-Recolectores", "cultural.modal.daytrips.hadzabe.desc": "Día completo con la tribu Hadzabe — caza, recolección, creación de fuego y lenguaje de chasquidos.",
+    "cultural.modal.daytrips.note": "💡 Seleccione un paquete arriba O haga clic en una Excursión de un día.",
+    "cultural.modal.step2_title": "Seleccione Su Estilo de Viaje",
+    "cultural.modal.travel.solo": "Viajero Solitario", "cultural.modal.travel.solo_desc": "Perfecto para exploradores solitarios",
+    "cultural.modal.travel.couple": "Paquete Pareja", "cultural.modal.travel.couple_desc": "Perfecto para parejas",
+    "cultural.modal.travel.family": "Paquete Familiar", "cultural.modal.travel.family_desc": "2 adultos + 2 niños",
+    "cultural.modal.travel.group": "Aventura en Grupo", "cultural.modal.travel.group_desc": "2–30 personas",
+    "cultural.modal.group_size": "Tamaño del Grupo:", "cultural.modal.discount": "Descuento por Grupo (20%)",
+    "cultural.modal.total": "Precio Total:", "cultural.modal.original": "Original:",
+    "cultural.modal.selection": "Su Selección", "cultural.modal.step3_title": "Confirme Su Reserva",
+    "cultural.modal.summary": "Resumen de la Reserva", "cultural.modal.destination_label": "Destino:", "cultural.modal.destination_value": "Turismo Cultural Tanzania",
+    "cultural.modal.package_label": "Paquete / Experiencia:", "cultural.modal.travel_label": "Estilo de Viaje:",
+    "cultural.modal.people_label": "Número de Personas:", "cultural.modal.duration_label": "Duración:",
+    "cultural.modal.discount_applied": "Descuento por Grupo Aplicado:", "cultural.modal.total_amount": "Monto Total:",
+    "cultural.modal.original_price": "Precio Original:", "cultural.modal.customer_info": "Información del Cliente",
+    "cultural.modal.travel_info": "Información de Viaje", "cultural.modal.first_name": "Nombre",
+    "cultural.modal.last_name": "Apellido", "cultural.modal.email": "Correo Electrónico",
+    "cultural.modal.phone": "Número de Teléfono", "cultural.modal.country": "País",
+    "cultural.modal.arrival_date": "Fecha de Llegada", "cultural.modal.departure_date": "Fecha de Salida",
+    "cultural.modal.back": "Atrás", "cultural.modal.next": "Siguiente: Estilo de Viaje",
+    "cultural.modal.next_booking": "Siguiente: Reservar Ahora", "cultural.modal.cancel": "Cancelar",
+    "cultural.modal.complete": "Completar Reserva",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creando experiencias inolvidables en el corazón de Tanzania.",
+    "footer.quick_links": "Enlaces Rápidos", "footer.destinations": "Destinos",
+    "footer.contact_info": "Información de Contacto", "footer.address": "Arusha, Tanzania",
+    "footer.language": "Idioma:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Todos los derechos reservados.",
+    "translation.loading": "Traduciendo contenido..."
+  },
+  it: {
+    "nav.home": "Home", "nav.about": "Chi Siamo", "nav.destinations": "Destinazioni", "nav.mountain_climbing": "Arrampicata su Montagne",
+    "nav.safaris": "Safari Tanzania", "nav.zanzibar": "Spiagge di Zanzibar", "nav.cultural": "Turismo Culturale",
+    "nav.waterfalls": "Turismo delle Cascate", "nav.historical": "Siti Storici", "nav.contact": "Contatto",
+    "cultural.hero.title": "Turismo Culturale Tanzania", "cultural.hero.subtitle": "Vivi Tradizioni Tribali Autentiche e Comunità Locali",
+    "cultural.hero.cta": "Prenota Esperienza Culturale",
+    "cultural.content.title": "Viaggio di Immersione Culturale", "cultural.content.subtitle": "3 Giorni di Esperienze Tribali Autentiche e Visite alle Comunità",
+    "cultural.about.title": "Informazioni sul Turismo Culturale", "cultural.about.description": "Immergiti nel ricco arazzo culturale dei diversi gruppi etnici della Tanzania. I nostri pacchetti di turismo culturale offrono interazioni autentiche con le comunità locali, cerimonie tradizionali ed esperienze pratiche che preservano le antiche tradizioni sostenendo lo sviluppo comunitario sostenibile.",
+    "cultural.highlights.title": "Punti Salienti Culturali",
+    "cultural.highlights.item1": "Soggiorni in villaggio Maasai ed esperienza Boma",
+    "cultural.highlights.item2": "Gita di un giorno agli Hadzabe cacciatori-raccoglitori",
+    "cultural.highlights.item3": "Tradizioni agricole Chagga e tour del caffè",
+    "cultural.highlights.item4": "Spettacoli di danza tradizionale",
+    "cultural.highlights.item5": "Laboratori di artigianato locale",
+    "cultural.highlights.item6": "Progetti di sviluppo comunitario",
+    "cultural.tribes.title": "Incontra i Gruppi Etnici della Tanzania",
+    "cultural.tribes.maasai.title": "Gita di un giorno al Boma Maasai — USD 230 (pacchetto locale)",
+    "cultural.tribes.maasai.description": "Una giornata intera per sperimentare l'iconico popolo Maasai nel loro Boma. Impara le loro tradizioni pastorali, partecipa alle danze saltate (Adumu), prova la lavorazione delle perline e condividi la loro vita quotidiana.",
+    "cultural.tribes.maasai.feature1": "Soggiorno Manyatta", "cultural.tribes.maasai.feature2": "Addestramento Guerrieri", "cultural.tribes.maasai.feature3": "Laboratorio di Perline",
+    "cultural.tribes.hadzabe.title": "Gita di un giorno agli Hadzabe Cacciatori-Raccoglitori — USD 500 (pacchetto locale)",
+    "cultural.tribes.hadzabe.description": "Trascorri una giornata intera con gli Hadzabe, una delle ultime tribù di cacciatori-raccoglitori in Africa, imparando antiche abilità di sopravvivenza, tecniche di caccia tradizionali e il loro linguaggio unico di click.",
+    "cultural.tribes.hadzabe.feature1": "Caccia Tradizionale", "cultural.tribes.hadzabe.feature2": "Abilità di Raccolta", "cultural.tribes.hadzabe.feature3": "Creazione del Fuoco",
+    "cultural.itinerary.title": "Itinerario di Immersione Culturale di 3 Giorni - USD 1200 (pacchetto locale)",
+    "cultural.itinerary.day1.title": "Giorno 1: Arrivo e Benvenuto nel Villaggio Maasai",
+    "cultural.itinerary.day1.duration": "Comunità Maasai",
+    "cultural.itinerary.day1.activities": "Arriva al villaggio Maasai e sii accolto con una cerimonia tradizionale dagli anziani. Sistemati nel tuo alloggio in famiglia all'interno del Boma.",
+    "cultural.itinerary.day2.title": "Giorno 2: Giornata Intera all'Interno del Villaggio Maasai",
+    "cultural.itinerary.day2.duration": "Immersione Culturale Completa",
+    "cultural.itinerary.day2.activities": "Esperienza mattutina di pastorizia con i guerrieri Maasai. Laboratorio tradizionale di perline con le donne. Pomeriggio di addestramento dei guerrieri e danza Adumu.",
+    "cultural.itinerary.day3.title": "Giorno 3: Esperienza Hadzabe Cacciatore-Raccoglitore e Partenza",
+    "cultural.itinerary.day3.duration": "Gita di un giorno agli Hadzabe",
+    "cultural.itinerary.day3.activities": "Trasferimento alla comunità Hadzabe. Impara la caccia tradizionale, le abilità di raccolta e le antiche tecniche di creazione del fuoco.",
+    "cultural.includes.title": "Cosa è Incluso",
+    "cultural.includes.item1": "Alloggio in comunità (2 notti)",
+    "cultural.includes.item2": "Tutti i pasti tradizionali durante il tour",
+    "cultural.includes.item3": "Servizi di guida locale professionale",
+    "cultural.includes.item4": "Tariffe per spettacoli culturali",
+    "cultural.includes.item5": "Materiali per laboratori artigianali",
+    "cultural.includes.item6": "Contributo allo sviluppo comunitario",
+    "cultural.includes.item7": "Trasporto tra le comunità",
+    "cultural.includes.item8": "Sessione di orientamento culturale",
+    "cultural.includes.item9": "Esperienza di un giorno con gli Hadzabe (nel pacchetto di 3 giorni)",
+    "cultural.excludes.title": "Cosa non è Incluso",
+    "cultural.excludes.item1": "Voli internazionali",
+    "cultural.excludes.item2": "Tariffe per il visto Tanzania",
+    "cultural.excludes.item3": "Assicurazione di viaggio",
+    "cultural.excludes.item4": "Bevande alcoliche",
+    "cultural.excludes.item5": "Acquisti personali",
+    "cultural.excludes.item6": "Attività extra opzionali",
+    "cultural.excludes.item7": "Mance per guide e ospiti",
+    "cultural.excludes.item8": "Spese personali",
+    "cultural.booking.title": "Pronto per l'Immersione Culturale?", "cultural.booking.subtitle": "Prenota la tua autentica esperienza culturale e connettiti con le tradizioni viventi della Tanzania.", "cultural.booking.cta": "Prenota Esperienza Culturale",
+    "cultural.modal.title": "Prenota la Tua Esperienza Culturale", "cultural.modal.step1": "Livello del Pacchetto", "cultural.modal.step2": "Stile di Viaggio", "cultural.modal.step3": "Dettagli della Prenotazione",
+    "cultural.modal.step1_title": "Scegli la Tua Esperienza Culturale",
+    "cultural.modal.package.local.name": "ESPERIENZA LOCALE", "cultural.modal.package.local.note": "3 Giorni di Tour Culturale Completo",
+    "cultural.modal.package.local.feature1": "Giorno 1 e 2: Villaggio Maasai", "cultural.modal.package.local.feature2": "Giorno 3: Gita di un giorno agli Hadzabe",
+    "cultural.modal.package.local.feature3": "Tutti i Pasti Tradizionali", "cultural.modal.package.local.feature4": "Guida Locale",
+    "cultural.modal.package.local.feature5": "Alloggio in Famiglia (2 notti)", "cultural.modal.package.local.feature6": "Trasporto Incluso",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "3 Giorni Culturale Premium",
+    "cultural.modal.package.vip.feature1": "Tutto nell'Esperienza Locale", "cultural.modal.package.vip.feature2": "Guida Culturale Privata",
+    "cultural.modal.package.vip.feature3": "Tutti i Laboratori Artigianali", "cultural.modal.package.vip.feature4": "Incontri con Anziani Tribali",
+    "cultural.modal.package.vip.feature5": "Progetti Comunitari", "cultural.modal.package.vip.feature6": "Permessi Fotografici",
+    "cultural.modal.package.vip.feature7": "Souvenir Culturali",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "5 Giorni Culturale di Lusso",
+    "cultural.modal.package.vvip.feature1": "Tutto nel VIP", "cultural.modal.package.vvip.feature2": "Tour Multi-Comunità",
+    "cultural.modal.package.vvip.feature3": "Alloggio di Lusso", "cultural.modal.package.vvip.feature4": "Cerimonie Tradizionali",
+    "cultural.modal.package.vvip.feature5": "Chef Privato", "cultural.modal.package.vvip.feature6": "Tutti gli Ingressi e i Permessi",
+    "cultural.modal.package.vvip.feature7": "Trasferimenti Aeroportuali",
+    "cultural.modal.daytrips.title": "🎯 Disponibili Anche: Gite Autonome di un Giorno",
+    "cultural.modal.daytrips.maasai.name": "🏕️ Gita di un giorno al Boma Maasai", "cultural.modal.daytrips.maasai.desc": "Giornata intera al Boma Maasai — addestramento guerrieri, lavorazione perline, pranzo tradizionale e danza Adumu.",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 Gita di un giorno agli Hadzabe Cacciatori-Raccoglitori", "cultural.modal.daytrips.hadzabe.desc": "Giornata intera con la tribù Hadzabe — caccia, raccolta, creazione del fuoco e linguaggio a click.",
+    "cultural.modal.daytrips.note": "💡 Seleziona un pacchetto sopra OPPURE clicca su una Gita di un giorno.",
+    "cultural.modal.step2_title": "Seleziona il Tuo Stile di Viaggio",
+    "cultural.modal.travel.solo": "Viaggiatore Singolo", "cultural.modal.travel.solo_desc": "Perfetto per esploratori solitari",
+    "cultural.modal.travel.couple": "Pacchetto Coppia", "cultural.modal.travel.couple_desc": "Perfetto per coppie",
+    "cultural.modal.travel.family": "Pacchetto Famiglia", "cultural.modal.travel.family_desc": "2 adulti + 2 bambini",
+    "cultural.modal.travel.group": "Avventura di Gruppo", "cultural.modal.travel.group_desc": "2–30 persone",
+    "cultural.modal.group_size": "Dimensione del Gruppo:", "cultural.modal.discount": "Sconto di Gruppo (20%)",
+    "cultural.modal.total": "Prezzo Totale:", "cultural.modal.original": "Originale:",
+    "cultural.modal.selection": "La Tua Selezione", "cultural.modal.step3_title": "Conferma la Tua Prenotazione",
+    "cultural.modal.summary": "Riepilogo Prenotazione", "cultural.modal.destination_label": "Destinazione:", "cultural.modal.destination_value": "Turismo Culturale Tanzania",
+    "cultural.modal.package_label": "Pacchetto / Esperienza:", "cultural.modal.travel_label": "Stile di Viaggio:",
+    "cultural.modal.people_label": "Numero di Persone:", "cultural.modal.duration_label": "Durata:",
+    "cultural.modal.discount_applied": "Sconto di Gruppo Applicato:", "cultural.modal.total_amount": "Importo Totale:",
+    "cultural.modal.original_price": "Prezzo Originale:", "cultural.modal.customer_info": "Informazioni Cliente",
+    "cultural.modal.travel_info": "Informazioni di Viaggio", "cultural.modal.first_name": "Nome",
+    "cultural.modal.last_name": "Cognome", "cultural.modal.email": "Indirizzo Email",
+    "cultural.modal.phone": "Numero di Telefono", "cultural.modal.country": "Paese",
+    "cultural.modal.arrival_date": "Data di Arrivo", "cultural.modal.departure_date": "Data di Partenza",
+    "cultural.modal.back": "Indietro", "cultural.modal.next": "Avanti: Stile di Viaggio",
+    "cultural.modal.next_booking": "Avanti: Prenota Ora", "cultural.modal.cancel": "Annulla",
+    "cultural.modal.complete": "Completa Prenotazione",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Creare esperienze indimenticabili nel cuore della Tanzania.",
+    "footer.quick_links": "Link Rapidi", "footer.destinations": "Destinazioni",
+    "footer.contact_info": "Informazioni di Contatto", "footer.address": "Arusha, Tanzania",
+    "footer.language": "Lingua:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Tutti i diritti riservati.",
+    "translation.loading": "Traduzione del contenuto..."
+  },
+  pt: {
+    "nav.home": "Início", "nav.about": "Sobre", "nav.destinations": "Destinos", "nav.mountain_climbing": "Escalada de Montanhas",
+    "nav.safaris": "Safaris Tanzânia", "nav.zanzibar": "Praias de Zanzibar", "nav.cultural": "Turismo Cultural",
+    "nav.waterfalls": "Turismo de Cachoeiras", "nav.historical": "Sítios Históricos", "nav.contact": "Contato",
+    "cultural.hero.title": "Turismo Cultural Tanzânia", "cultural.hero.subtitle": "Experimente Tradições Tribais Autênticas e Comunidades Locais",
+    "cultural.hero.cta": "Reserve Experiência Cultural",
+    "cultural.content.title": "Jornada de Imersão Cultural", "cultural.content.subtitle": "3 Dias de Experiências Tribais Autênticas e Visitas Comunitárias",
+    "cultural.about.title": "Sobre o Turismo Cultural", "cultural.about.description": "Mergulhe na rica tapeçaria cultural dos diversos grupos étnicos da Tanzânia. Nossos pacotes de turismo cultural oferecem interações autênticas com comunidades locais, cerimônias tradicionais e experiências práticas que preservam tradições antigas enquanto apoiam o desenvolvimento comunitário sustentável.",
+    "cultural.highlights.title": "Destaques Culturais",
+    "cultural.highlights.item1": "Estadias em aldeias Maasai e experiência Boma",
+    "cultural.highlights.item2": "Excursão de um dia aos Hadzabe caçadores-coletores",
+    "cultural.highlights.item3": "Tradições agrícolas Chagga e tour do café",
+    "cultural.highlights.item4": "Apresentações de dança tradicional",
+    "cultural.highlights.item5": "Oficinas de artesanato local",
+    "cultural.highlights.item6": "Projetos de desenvolvimento comunitário",
+    "cultural.tribes.title": "Conheça os Grupos Étnicos da Tanzânia",
+    "cultural.tribes.maasai.title": "Excursão de um dia ao Boma Maasai — USD 230 (pacote local)",
+    "cultural.tribes.maasai.description": "Um dia inteiro experimentando o povo icônico Maasai em seu Boma. Aprenda sobre suas tradições pastoris, participe de danças de salto (Adumu), experimente o trabalho com miçangas e compartilhe sua vida diária.",
+    "cultural.tribes.maasai.feature1": "Estadia Manyatta", "cultural.tribes.maasai.feature2": "Treinamento de Guerreiro", "cultural.tribes.maasai.feature3": "Oficina de Miçangas",
+    "cultural.tribes.hadzabe.title": "Excursão de um dia aos Hadzabe Caçadores-Coletores — USD 500 (pacote local)",
+    "cultural.tribes.hadzabe.description": "Passe um dia inteiro com os Hadzabe, uma das últimas tribos de caçadores-coletores da África, aprendendo habilidades antigas de sobrevivência, técnicas de caça tradicionais e sua linguagem única de cliques.",
+    "cultural.tribes.hadzabe.feature1": "Caça Tradicional", "cultural.tribes.hadzabe.feature2": "Habilidades de Coleta", "cultural.tribes.hadzabe.feature3": "Fazendo Fogo",
+    "cultural.itinerary.title": "Roteiro de Imersão Cultural de 3 Dias - USD 1200 (pacote local)",
+    "cultural.itinerary.day1.title": "Dia 1: Chegada e Boas-vindas na Aldeia Maasai",
+    "cultural.itinerary.day1.duration": "Comunidade Maasai",
+    "cultural.itinerary.day1.activities": "Chegue à aldeia Maasai e seja recebido com uma cerimônia tradicional pelos mais velhos. Instale-se em sua acomodação de família dentro do Boma.",
+    "cultural.itinerary.day2.title": "Dia 2: Dia Inteiro Dentro da Aldeia Maasai",
+    "cultural.itinerary.day2.duration": "Imersão Cultural Completa",
+    "cultural.itinerary.day2.activities": "Experiência matinal de pastoreio de gado com guerreiros Maasai. Oficina tradicional de miçangas com mulheres. À tarde, treinamento de guerreiro e dança Adumu.",
+    "cultural.itinerary.day3.title": "Dia 3: Experiência Hadzabe Caçador-Coletor e Partida",
+    "cultural.itinerary.day3.duration": "Excursão de um dia aos Hadzabe",
+    "cultural.itinerary.day3.activities": "Transferência para a comunidade Hadzabe. Aprenda caça tradicional, habilidades de coleta e antigas técnicas de fazer fogo.",
+    "cultural.includes.title": "O que Está Incluído",
+    "cultural.includes.item1": "Acomodação em comunidade (2 noites)",
+    "cultural.includes.item2": "Todas as refeições tradicionais durante o tour",
+    "cultural.includes.item3": "Serviços de guia local profissional",
+    "cultural.includes.item4": "Taxas de apresentações culturais",
+    "cultural.includes.item5": "Materiais de oficinas de artesanato",
+    "cultural.includes.item6": "Contribuição para o desenvolvimento comunitário",
+    "cultural.includes.item7": "Transporte entre comunidades",
+    "cultural.includes.item8": "Sessão de orientação cultural",
+    "cultural.includes.item9": "Experiência de um dia com os Hadzabe (no pacote de 3 dias)",
+    "cultural.excludes.title": "O que Não Está Incluído",
+    "cultural.excludes.item1": "Voos internacionais",
+    "cultural.excludes.item2": "Taxas de visto para Tanzânia",
+    "cultural.excludes.item3": "Seguro de viagem",
+    "cultural.excludes.item4": "Bebidas alcoólicas",
+    "cultural.excludes.item5": "Compras pessoais",
+    "cultural.excludes.item6": "Atividades extras opcionais",
+    "cultural.excludes.item7": "Gorjetas para guias e anfitriões",
+    "cultural.excludes.item8": "Despesas pessoais",
+    "cultural.booking.title": "Pronto para a Imersão Cultural?", "cultural.booking.subtitle": "Reserve sua experiência cultural autêntica e conecte-se com as tradições vivas da Tanzânia.", "cultural.booking.cta": "Reserve Experiência Cultural",
+    "cultural.modal.title": "Reserve Sua Experiência Cultural", "cultural.modal.step1": "Nível do Pacote", "cultural.modal.step2": "Estilo de Viagem", "cultural.modal.step3": "Detalhes da Reserva",
+    "cultural.modal.step1_title": "Escolha Sua Experiência Cultural",
+    "cultural.modal.package.local.name": "EXPERIÊNCIA LOCAL", "cultural.modal.package.local.note": "3 Dias de Tour Cultural Completo",
+    "cultural.modal.package.local.feature1": "Dia 1 e 2: Aldeia Maasai", "cultural.modal.package.local.feature2": "Dia 3: Excursão de um dia aos Hadzabe",
+    "cultural.modal.package.local.feature3": "Todas as Refeições Tradicionais", "cultural.modal.package.local.feature4": "Guia Local",
+    "cultural.modal.package.local.feature5": "Hospedagem em Família (2 noites)", "cultural.modal.package.local.feature6": "Transporte Incluído",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "3 Dias Cultural Premium",
+    "cultural.modal.package.vip.feature1": "Tudo na Experiência Local", "cultural.modal.package.vip.feature2": "Guia Cultural Privado",
+    "cultural.modal.package.vip.feature3": "Todas as Oficinas de Artesanato", "cultural.modal.package.vip.feature4": "Reuniões com Anciãos Tribais",
+    "cultural.modal.package.vip.feature5": "Projetos Comunitários", "cultural.modal.package.vip.feature6": "Permissões de Fotografia",
+    "cultural.modal.package.vip.feature7": "Lembranças Culturais",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "5 Dias Cultural de Luxo",
+    "cultural.modal.package.vvip.feature1": "Tudo no VIP", "cultural.modal.package.vvip.feature2": "Tour Multi-Comunidade",
+    "cultural.modal.package.vvip.feature3": "Acomodação de Luxo", "cultural.modal.package.vvip.feature4": "Cerimônias Tradicionais",
+    "cultural.modal.package.vvip.feature5": "Chef Privado", "cultural.modal.package.vvip.feature6": "Todas as Entradas e Permissões",
+    "cultural.modal.package.vvip.feature7": "Transferências Aeroportuárias",
+    "cultural.modal.daytrips.title": "🎯 Também Disponível: Excursões Independentes de Um Dia",
+    "cultural.modal.daytrips.maasai.name": "🏕️ Excursão de um dia ao Boma Maasai", "cultural.modal.daytrips.maasai.desc": "Dia inteiro no Boma Maasai — treinamento de guerreiro, miçangas, almoço tradicional e dança Adumu.",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 Excursão de um dia aos Hadzabe Caçadores-Coletores", "cultural.modal.daytrips.hadzabe.desc": "Dia inteiro com a tribo Hadzabe — caça, coleta, fazer fogo e linguagem de cliques.",
+    "cultural.modal.daytrips.note": "💡 Selecione um pacote acima OU clique em uma Excursão de Um Dia.",
+    "cultural.modal.step2_title": "Selecione Seu Estilo de Viagem",
+    "cultural.modal.travel.solo": "Viajante Solo", "cultural.modal.travel.solo_desc": "Perfeito para exploradores solo",
+    "cultural.modal.travel.couple": "Pacote Casal", "cultural.modal.travel.couple_desc": "Perfeito para casais",
+    "cultural.modal.travel.family": "Pacote Família", "cultural.modal.travel.family_desc": "2 adultos + 2 crianças",
+    "cultural.modal.travel.group": "Aventura em Grupo", "cultural.modal.travel.group_desc": "2–30 pessoas",
+    "cultural.modal.group_size": "Tamanho do Grupo:", "cultural.modal.discount": "Desconto em Grupo (20%)",
+    "cultural.modal.total": "Preço Total:", "cultural.modal.original": "Original:",
+    "cultural.modal.selection": "Sua Seleção", "cultural.modal.step3_title": "Confirme Sua Reserva",
+    "cultural.modal.summary": "Resumo da Reserva", "cultural.modal.destination_label": "Destino:", "cultural.modal.destination_value": "Turismo Cultural Tanzânia",
+    "cultural.modal.package_label": "Pacote / Experiência:", "cultural.modal.travel_label": "Estilo de Viagem:",
+    "cultural.modal.people_label": "Número de Pessoas:", "cultural.modal.duration_label": "Duração:",
+    "cultural.modal.discount_applied": "Desconto em Grupo Aplicado:", "cultural.modal.total_amount": "Valor Total:",
+    "cultural.modal.original_price": "Preço Original:", "cultural.modal.customer_info": "Informações do Cliente",
+    "cultural.modal.travel_info": "Informações de Viagem", "cultural.modal.first_name": "Nome",
+    "cultural.modal.last_name": "Sobrenome", "cultural.modal.email": "Endereço de E-mail",
+    "cultural.modal.phone": "Número de Telefone", "cultural.modal.country": "País",
+    "cultural.modal.arrival_date": "Data de Chegada", "cultural.modal.departure_date": "Data de Partida",
+    "cultural.modal.back": "Voltar", "cultural.modal.next": "Próximo: Estilo de Viagem",
+    "cultural.modal.next_booking": "Próximo: Reservar Agora", "cultural.modal.cancel": "Cancelar",
+    "cultural.modal.complete": "Completar Reserva",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Criando experiências inesquecíveis no coração da Tanzânia.",
+    "footer.quick_links": "Links Rápidos", "footer.destinations": "Destinos",
+    "footer.contact_info": "Informações de Contato", "footer.address": "Arusha, Tanzânia",
+    "footer.language": "Idioma:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Todos os direitos reservados.",
+    "translation.loading": "Traduzindo conteúdo..."
+  },
+  ru: {
+    "nav.home": "Главная", "nav.about": "О Нас", "nav.destinations": "Направления", "nav.mountain_climbing": "Восхождение на Горы",
+    "nav.safaris": "Сафари Танзания", "nav.zanzibar": "Пляжи Занзибара", "nav.cultural": "Культурный Туризм",
+    "nav.waterfalls": "Туризм к Водопадам", "nav.historical": "Исторические Места", "nav.contact": "Контакты",
+    "cultural.hero.title": "Культурный Туризм Танзания", "cultural.hero.subtitle": "Испытайте Аутентичные Племенные Традиции и Местные Сообщества",
+    "cultural.hero.cta": "Забронировать Культурный Опыт",
+    "cultural.content.title": "Путешествие Культурного Погружения", "cultural.content.subtitle": "3 Дня Аутентичных Племенных Впечатлений и Посещений Сообществ",
+    "cultural.about.title": "О Культурном Туризме", "cultural.about.description": "Погрузитесь в богатое культурное полотно разнообразных этнических групп Танзании. Наши пакеты культурного туризма предлагают аутентичное взаимодействие с местными сообществами, традиционные церемонии и практический опыт, который сохраняет древние традиции, поддерживая устойчивое развитие сообществ.",
+    "cultural.highlights.title": "Культурные Особенности",
+    "cultural.highlights.item1": "Проживание в деревне Масаи и опыт Бома",
+    "cultural.highlights.item2": "Однодневная поездка к Хадазбе охотникам-собирателям",
+    "cultural.highlights.item3": "Сельскохозяйственные традиции Чагга и кофейный тур",
+    "cultural.highlights.item4": "Выступления традиционных танцев",
+    "cultural.highlights.item5": "Мастер-классы по местным ремеслам",
+    "cultural.highlights.item6": "Проекты развития сообщества",
+    "cultural.tribes.title": "Встречайте Этнические Группы Танзании",
+    "cultural.tribes.maasai.title": "Однодневная поездка в Бома Масаи — USD 230 (местный пакет)",
+    "cultural.tribes.maasai.description": "Полный день знакомства с культовым народом масаи в их Бома. Узнайте об их пастушьих традициях, участвуйте в танцах-прыжках (Адуму), попробуйте себя в бисероплетении и разделите их повседневную жизнь.",
+    "cultural.tribes.maasai.feature1": "Проживание Маньятта", "cultural.tribes.maasai.feature2": "Обучение Воинов", "cultural.tribes.maasai.feature3": "Мастер-класс по Бисероплетению",
+    "cultural.tribes.hadzabe.title": "Однодневная поездка к Хадазбе Охотникам-Собирателям — USD 500 (местный пакет)",
+    "cultural.tribes.hadzabe.description": "Проведите целый день с хадазбе, одним из последних племен охотников-собирателей в Африке, изучая древние навыки выживания, традиционные техники охоты и их уникальный щелкающий язык.",
+    "cultural.tribes.hadzabe.feature1": "Традиционная Охота", "cultural.tribes.hadzabe.feature2": "Навыки Собирательства", "cultural.tribes.hadzabe.feature3": "Добывание Огня",
+    "cultural.itinerary.title": "Маршрут Культурного Погружения на 3 Дня - USD 1200 (местный пакет)",
+    "cultural.itinerary.day1.title": "День 1: Прибытие и Приветствие в Деревне Масаи",
+    "cultural.itinerary.day1.duration": "Сообщество Масаи",
+    "cultural.itinerary.day1.activities": "Прибытие в деревню масаи и приветствие с традиционной церемонией старейшин. Разместитесь в вашем жилье внутри Бома.",
+    "cultural.itinerary.day2.title": "День 2: Полный День Внутри Деревни Масаи",
+    "cultural.itinerary.day2.duration": "Полное Культурное Погружение",
+    "cultural.itinerary.day2.activities": "Утренний опыт выпаса скота с воинами масаи. Традиционный мастер-класс по бисероплетению с женщинами. Днем обучение воинов и танец Адуму.",
+    "cultural.itinerary.day3.title": "День 3: Опыт Хадазбе Охотника-Собирателя и Отъезд",
+    "cultural.itinerary.day3.duration": "Однодневная поездка к Хадазбе",
+    "cultural.itinerary.day3.activities": "Трансфер в сообщество хадазбе. Изучите традиционную охоту, навыки собирательства и древние техники добывания огня.",
+    "cultural.includes.title": "Что Включено",
+    "cultural.includes.item1": "Проживание в сообществе (2 ночи)",
+    "cultural.includes.item2": "Все традиционные блюда во время тура",
+    "cultural.includes.item3": "Услуги профессионального местного гида",
+    "cultural.includes.item4": "Плата за культурные выступления",
+    "cultural.includes.item5": "Материалы для мастер-классов",
+    "cultural.includes.item6": "Вклад в развитие сообщества",
+    "cultural.includes.item7": "Транспорт между сообществами",
+    "cultural.includes.item8": "Сессия культурной ориентации",
+    "cultural.includes.item9": "Однодневный опыт с хадазбе (в 3-дневном пакете)",
+    "cultural.excludes.title": "Что Не Включено",
+    "cultural.excludes.item1": "Международные авиаперелеты",
+    "cultural.excludes.item2": "Визовые сборы Танзании",
+    "cultural.excludes.item3": "Туристическая страховка",
+    "cultural.excludes.item4": "Алкогольные напитки",
+    "cultural.excludes.item5": "Личные покупки",
+    "cultural.excludes.item6": "Дополнительные опциональные активности",
+    "cultural.excludes.item7": "Чаевые гидам и хозяевам",
+    "cultural.excludes.item8": "Личные расходы",
+    "cultural.booking.title": "Готовы к Культурному Погружению?", "cultural.booking.subtitle": "Забронируйте свой аутентичный культурный опыт и соединитесь с живыми традициями Танзании.", "cultural.booking.cta": "Забронировать Культурный Опыт",
+    "cultural.modal.title": "Забронируйте Ваш Культурный Опыт", "cultural.modal.step1": "Уровень Пакета", "cultural.modal.step2": "Стиль Путешествия", "cultural.modal.step3": "Детали Бронирования",
+    "cultural.modal.step1_title": "Выберите Ваш Культурный Опыт",
+    "cultural.modal.package.local.name": "МЕСТНЫЙ ОПЫТ", "cultural.modal.package.local.note": "3-дневный Полный Культурный Тур",
+    "cultural.modal.package.local.feature1": "День 1 и 2: Деревня Масаи", "cultural.modal.package.local.feature2": "День 3: Однодневная поездка к Хадазбе",
+    "cultural.modal.package.local.feature3": "Все Традиционные Блюда", "cultural.modal.package.local.feature4": "Местный Гид",
+    "cultural.modal.package.local.feature5": "Проживание в семье (2 ночи)", "cultural.modal.package.local.feature6": "Транспорт Включен",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "3-дневный Премиум Культурный",
+    "cultural.modal.package.vip.feature1": "Все в Местном Опыте", "cultural.modal.package.vip.feature2": "Частный Культурный Гид",
+    "cultural.modal.package.vip.feature3": "Все Мастер-классы", "cultural.modal.package.vip.feature4": "Встречи с Племенными Старейшинами",
+    "cultural.modal.package.vip.feature5": "Проекты Сообщества", "cultural.modal.package.vip.feature6": "Разрешения на Фотосъемку",
+    "cultural.modal.package.vip.feature7": "Культурные Сувениры",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "5-дневный Люкс Культурный",
+    "cultural.modal.package.vvip.feature1": "Все в VIP", "cultural.modal.package.vvip.feature2": "Много-Сообществный Тур",
+    "cultural.modal.package.vvip.feature3": "Люкс Проживание", "cultural.modal.package.vvip.feature4": "Традиционные Церемонии",
+    "cultural.modal.package.vvip.feature5": "Частный Шеф-повар", "cultural.modal.package.vvip.feature6": "Все Входы и Разрешения",
+    "cultural.modal.package.vvip.feature7": "Трансфер из Аэропорта",
+    "cultural.modal.daytrips.title": "🎯 Также Доступно: Самостоятельные Однодневные Поездки",
+    "cultural.modal.daytrips.maasai.name": "🏕️ Однодневная поездка в Бома Масаи", "cultural.modal.daytrips.maasai.desc": "Полный день в Бома Масаи — обучение воинов, бисероплетение, традиционный обед и танец Адуму.",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 Однодневная поездка к Хадазбе Охотникам-Собирателям", "cultural.modal.daytrips.hadzabe.desc": "Полный день с племенем хадазбе — охота, собирательство, добывание огня и щелкающий язык.",
+    "cultural.modal.daytrips.note": "💡 Выберите пакет выше ИЛИ нажмите на Однодневную поездку.",
+    "cultural.modal.step2_title": "Выберите Ваш Стиль Путешествия",
+    "cultural.modal.travel.solo": "Путешественник-одиночка", "cultural.modal.travel.solo_desc": "Идеально для соло-исследователей",
+    "cultural.modal.travel.couple": "Пакет для Пары", "cultural.modal.travel.couple_desc": "Идеально для пар",
+    "cultural.modal.travel.family": "Семейный Пакет", "cultural.modal.travel.family_desc": "2 взрослых + 2 ребенка",
+    "cultural.modal.travel.group": "Групповое Приключение", "cultural.modal.travel.group_desc": "2–30 человек",
+    "cultural.modal.group_size": "Размер Группы:", "cultural.modal.discount": "Групповая Скидка (20%)",
+    "cultural.modal.total": "Общая Цена:", "cultural.modal.original": "Оригинал:",
+    "cultural.modal.selection": "Ваш Выбор", "cultural.modal.step3_title": "Подтвердите Ваше Бронирование",
+    "cultural.modal.summary": "Сводка Бронирования", "cultural.modal.destination_label": "Направление:", "cultural.modal.destination_value": "Культурный Туризм Танзания",
+    "cultural.modal.package_label": "Пакет / Опыт:", "cultural.modal.travel_label": "Стиль Путешествия:",
+    "cultural.modal.people_label": "Количество Людей:", "cultural.modal.duration_label": "Продолжительность:",
+    "cultural.modal.discount_applied": "Групповая Скидка Применена:", "cultural.modal.total_amount": "Общая Сумма:",
+    "cultural.modal.original_price": "Оригинальная Цена:", "cultural.modal.customer_info": "Информация о Клиенте",
+    "cultural.modal.travel_info": "Информация о Путешествии", "cultural.modal.first_name": "Имя",
+    "cultural.modal.last_name": "Фамилия", "cultural.modal.email": "Адрес Электронной Почты",
+    "cultural.modal.phone": "Номер Телефона", "cultural.modal.country": "Страна",
+    "cultural.modal.arrival_date": "Дата Прибытия", "cultural.modal.departure_date": "Дата Отъезда",
+    "cultural.modal.back": "Назад", "cultural.modal.next": "Далее: Стиль Путешествия",
+    "cultural.modal.next_booking": "Далее: Забронировать Сейчас", "cultural.modal.cancel": "Отмена",
+    "cultural.modal.complete": "Завершить Бронирование",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "Создание незабываемых впечатлений в сердце Танзании.",
+    "footer.quick_links": "Быстрые Ссылки", "footer.destinations": "Направления",
+    "footer.contact_info": "Контактная Информация", "footer.address": "Аруша, Танзания",
+    "footer.language": "Язык:", "footer.copyright": "© 2026 MMexy Tanzania Adventures. Все права защищены.",
+    "translation.loading": "Перевод содержимого..."
+  },
+  zh: {
+    "nav.home": "首页", "nav.about": "关于我们", "nav.destinations": "目的地", "nav.mountain_climbing": "登山",
+    "nav.safaris": "坦桑尼亚游猎", "nav.zanzibar": "桑给巴尔海滩", "nav.cultural": "文化旅游",
+    "nav.waterfalls": "瀑布旅游", "nav.historical": "历史遗址", "nav.contact": "联系我们",
+    "cultural.hero.title": "坦桑尼亚文化旅游", "cultural.hero.subtitle": "体验真实的部落传统和当地社区",
+    "cultural.hero.cta": "预订文化体验",
+    "cultural.content.title": "文化沉浸之旅", "cultural.content.subtitle": "3天真实的部落体验和社区访问",
+    "cultural.about.title": "关于文化旅游", "cultural.about.description": "沉浸在坦桑尼亚多元民族丰富的文化织锦中。我们的文化旅游套餐提供与当地社区的真实互动、传统仪式和实践体验，在保护古老传统的同时支持可持续的社区发展。",
+    "cultural.highlights.title": "文化亮点",
+    "cultural.highlights.item1": "马赛村寄宿和博马体验",
+    "cultural.highlights.item2": "哈扎贝狩猎采集者一日游",
+    "cultural.highlights.item3": "查加农业传统和咖啡之旅",
+    "cultural.highlights.item4": "传统舞蹈表演",
+    "cultural.highlights.item5": "当地手工艺工作坊",
+    "cultural.highlights.item6": "社区发展项目",
+    "cultural.tribes.title": "认识坦桑尼亚的族群",
+    "cultural.tribes.maasai.title": "马赛博马一日游 — 230美元（当地套餐）",
+    "cultural.tribes.maasai.description": "全天体验标志性的马赛人在他们的博马。了解他们的牧区传统，参加跳跃舞（Adumu），尝试珠饰工艺，分享他们的日常生活。",
+    "cultural.tribes.maasai.feature1": "马尼亚塔住宿", "cultural.tribes.maasai.feature2": "战士训练", "cultural.tribes.maasai.feature3": "珠饰工作坊",
+    "cultural.tribes.hadzabe.title": "哈扎贝狩猎采集者一日游 — 500美元（当地套餐）",
+    "cultural.tribes.hadzabe.description": "与哈扎贝人共度一整天，他们是非洲最后的狩猎采集部落之一，学习古老的生存技能、传统狩猎技巧和他们独特的咔嗒语。",
+    "cultural.tribes.hadzabe.feature1": "传统狩猎", "cultural.tribes.hadzabe.feature2": "采集技能", "cultural.tribes.hadzabe.feature3": "生火",
+    "cultural.itinerary.title": "3天文化沉浸行程 - 1200美元（当地套餐）",
+    "cultural.itinerary.day1.title": "第1天：抵达并受到马赛村欢迎",
+    "cultural.itinerary.day1.duration": "马赛社区",
+    "cultural.itinerary.day1.activities": "抵达马赛村，受到长者传统仪式的欢迎。安顿在博马内的寄宿住所。",
+    "cultural.itinerary.day2.title": "第2天：马赛村内全天活动",
+    "cultural.itinerary.day2.duration": "完全文化沉浸",
+    "cultural.itinerary.day2.activities": "清晨与马赛战士一起放牧。与妇女们一起进行传统珠饰工作坊。下午战士训练和阿杜姆舞。",
+    "cultural.itinerary.day3.title": "第3天：哈扎贝狩猎采集者体验与离境",
+    "cultural.itinerary.day3.duration": "哈扎贝一日游",
+    "cultural.itinerary.day3.activities": "转移到哈扎贝社区。学习传统狩猎、采集技能和古老的生火技术。",
+    "cultural.includes.title": "费用包含",
+    "cultural.includes.item1": "社区寄宿住宿（2晚）",
+    "cultural.includes.item2": "行程中的所有传统餐食",
+    "cultural.includes.item3": "专业当地导游服务",
+    "cultural.includes.item4": "文化表演费",
+    "cultural.includes.item5": "手工艺工作坊材料",
+    "cultural.includes.item6": "社区发展贡献金",
+    "cultural.includes.item7": "社区之间的交通",
+    "cultural.includes.item8": "文化说明会",
+    "cultural.includes.item9": "哈扎贝一日体验（包含在3天套餐中）",
+    "cultural.excludes.title": "费用不含",
+    "cultural.excludes.item1": "国际航班",
+    "cultural.excludes.item2": "坦桑尼亚签证费",
+    "cultural.excludes.item3": "旅游保险",
+    "cultural.excludes.item4": "含酒精饮料",
+    "cultural.excludes.item5": "个人购物",
+    "cultural.excludes.item6": "可选额外活动",
+    "cultural.excludes.item7": "给导游和主人的小费",
+    "cultural.excludes.item8": "个人开支",
+    "cultural.booking.title": "准备好文化沉浸了吗？", "cultural.booking.subtitle": "预订您的真实文化体验，与坦桑尼亚鲜活传统相连接。", "cultural.booking.cta": "预订文化体验",
+    "cultural.modal.title": "预订您的文化体验", "cultural.modal.step1": "套餐级别", "cultural.modal.step2": "旅行风格", "cultural.modal.step3": "预订详情",
+    "cultural.modal.step1_title": "选择您的文化体验",
+    "cultural.modal.package.local.name": "当地体验", "cultural.modal.package.local.note": "3天全套文化旅游",
+    "cultural.modal.package.local.feature1": "第1和第2天：马赛村", "cultural.modal.package.local.feature2": "第3天：哈扎贝一日游",
+    "cultural.modal.package.local.feature3": "所有传统餐食", "cultural.modal.package.local.feature4": "当地导游",
+    "cultural.modal.package.local.feature5": "寄宿（2晚）", "cultural.modal.package.local.feature6": "包含交通",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "3天高级文化",
+    "cultural.modal.package.vip.feature1": "当地体验的所有内容", "cultural.modal.package.vip.feature2": "私人文化导游",
+    "cultural.modal.package.vip.feature3": "所有手工艺工作坊", "cultural.modal.package.vip.feature4": "部落长者会面",
+    "cultural.modal.package.vip.feature5": "社区项目", "cultural.modal.package.vip.feature6": "摄影许可",
+    "cultural.modal.package.vip.feature7": "文化纪念品",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "5天豪华文化",
+    "cultural.modal.package.vvip.feature1": "VIP的所有内容", "cultural.modal.package.vvip.feature2": "多社区之旅",
+    "cultural.modal.package.vvip.feature3": "豪华住宿", "cultural.modal.package.vvip.feature4": "传统仪式",
+    "cultural.modal.package.vvip.feature5": "私人厨师", "cultural.modal.package.vvip.feature6": "所有入场和许可",
+    "cultural.modal.package.vvip.feature7": "机场接送",
+    "cultural.modal.daytrips.title": "🎯 也可提供：独立一日游",
+    "cultural.modal.daytrips.maasai.name": "🏕️ 马赛博马一日游", "cultural.modal.daytrips.maasai.desc": "全天在马赛博马 — 战士训练、珠饰工艺、传统午餐和阿杜姆舞。",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 哈扎贝狩猎采集者一日游", "cultural.modal.daytrips.hadzabe.desc": "与哈扎贝部落共度全天 — 狩猎、采集、生火和咔嗒语。",
+    "cultural.modal.daytrips.note": "💡 选择上面的套餐或点击一日游。",
+    "cultural.modal.step2_title": "选择您的旅行风格",
+    "cultural.modal.travel.solo": "独自旅行者", "cultural.modal.travel.solo_desc": "适合独自探索者",
+    "cultural.modal.travel.couple": "情侣套餐", "cultural.modal.travel.couple_desc": "适合情侣",
+    "cultural.modal.travel.family": "家庭套餐", "cultural.modal.travel.family_desc": "2个成人 + 2个儿童",
+    "cultural.modal.travel.group": "团体冒险", "cultural.modal.travel.group_desc": "2–30人",
+    "cultural.modal.group_size": "团体人数：", "cultural.modal.discount": "团体折扣（20%）",
+    "cultural.modal.total": "总价：", "cultural.modal.original": "原价：",
+    "cultural.modal.selection": "您的选择", "cultural.modal.step3_title": "确认您的预订",
+    "cultural.modal.summary": "预订摘要", "cultural.modal.destination_label": "目的地：", "cultural.modal.destination_value": "坦桑尼亚文化旅游",
+    "cultural.modal.package_label": "套餐/体验：", "cultural.modal.travel_label": "旅行风格：",
+    "cultural.modal.people_label": "人数：", "cultural.modal.duration_label": "时长：",
+    "cultural.modal.discount_applied": "已应用团体折扣：", "cultural.modal.total_amount": "总金额：",
+    "cultural.modal.original_price": "原价：", "cultural.modal.customer_info": "客户信息",
+    "cultural.modal.travel_info": "旅行信息", "cultural.modal.first_name": "名",
+    "cultural.modal.last_name": "姓", "cultural.modal.email": "电子邮箱地址",
+    "cultural.modal.phone": "电话号码", "cultural.modal.country": "国家",
+    "cultural.modal.arrival_date": "抵达日期", "cultural.modal.departure_date": "离境日期",
+    "cultural.modal.back": "返回", "cultural.modal.next": "下一步：旅行风格",
+    "cultural.modal.next_booking": "下一步：立即预订", "cultural.modal.cancel": "取消",
+    "cultural.modal.complete": "完成预订",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "在坦桑尼亚中心创造难忘的体验。",
+    "footer.quick_links": "快速链接", "footer.destinations": "目的地",
+    "footer.contact_info": "联系信息", "footer.address": "阿鲁沙，坦桑尼亚",
+    "footer.language": "语言：", "footer.copyright": "© 2026 MMexy Tanzania Adventures. 保留所有权利。",
+    "translation.loading": "正在翻译内容..."
+  },
+  ja: {
+    "nav.home": "ホーム", "nav.about": "会社概要", "nav.destinations": "目的地", "nav.mountain_climbing": "登山",
+    "nav.safaris": "タンザニアサファリ", "nav.zanzibar": "ザンジバルビーチ", "nav.cultural": "文化観光",
+    "nav.waterfalls": "滝観光", "nav.historical": "歴史的遺跡", "nav.contact": "お問い合わせ",
+    "cultural.hero.title": "タンザニア文化観光", "cultural.hero.subtitle": "本格的な部族の伝統と地域コミュニティを体験",
+    "cultural.hero.cta": "文化体験を予約",
+    "cultural.content.title": "文化没入の旅", "cultural.content.subtitle": "3日間の本格的な部族体験とコミュニティ訪問",
+    "cultural.about.title": "文化観光について", "cultural.about.description": "タンザニアの多様な民族グループの豊かな文化のタペストリーに浸ってください。当社の文化観光パッケージは、地域コミュニティとの本格的な交流、伝統的な儀式、そして持続可能なコミュニティ開発を支援しながら古代の伝統を保存する実践的な体験を提供します。",
+    "cultural.highlights.title": "文化のハイライト",
+    "cultural.highlights.item1": "マサイ村ホームステイとボマ体験",
+    "cultural.highlights.item2": "ハダザベ狩猟採集民1日トリップ",
+    "cultural.highlights.item3": "チャガ農業伝統とコーヒーツアー",
+    "cultural.highlights.item4": "伝統舞踊のパフォーマンス",
+    "cultural.highlights.item5": "地元工芸ワークショップ",
+    "cultural.highlights.item6": "コミュニティ開発プロジェクト",
+    "cultural.tribes.title": "タンザニアの民族グループに出会う",
+    "cultural.tribes.maasai.title": "マサイボマ1日トリップ — 230 USD（地元パッケージ）",
+    "cultural.tribes.maasai.description": "象徴的なマサイ族のボマで丸一日過ごします。彼らの牧畜の伝統を学び、跳躍ダンス（アドゥム）に参加し、ビーズワークを試し、日常生活を共有します。",
+    "cultural.tribes.maasai.feature1": "マニャッタ滞在", "cultural.tribes.maasai.feature2": "戦士訓練", "cultural.tribes.maasai.feature3": "ビーズワークワークショップ",
+    "cultural.tribes.hadzabe.title": "ハダザベ狩猟採集民1日トリップ — 500 USD（地元パッケージ）",
+    "cultural.tribes.hadzabe.description": "アフリカ最後の狩猟採集部族の一つであるハダザベと丸一日過ごし、古代のサバイバルスキル、伝統的な狩猟技術、そして彼らのユニークなクリック言語を学びます。",
+    "cultural.tribes.hadzabe.feature1": "伝統的狩猟", "cultural.tribes.hadzabe.feature2": "採集スキル", "cultural.tribes.hadzabe.feature3": "火おこし",
+    "cultural.itinerary.title": "3日間文化没入旅程 - 1200 USD（地元パッケージ）",
+    "cultural.itinerary.day1.title": "1日目：マサイ村到着と歓迎",
+    "cultural.itinerary.day1.duration": "マサイコミュニティ",
+    "cultural.itinerary.day1.activities": "マサイ村に到着し、長老たちによる伝統的な儀式で歓迎されます。ボマ内のホームステイ宿泊施設に落ち着きます。",
+    "cultural.itinerary.day2.title": "2日目：マサイ村での丸一日",
+    "cultural.itinerary.day2.duration": "完全な文化没入",
+    "cultural.itinerary.day2.activities": "マサイ戦士との朝の家畜放牧体験。女性たちとの伝統的なビーズワークワークショップ。午後の戦士訓練とアドゥムダンス。",
+    "cultural.itinerary.day3.title": "3日目：ハダザベ狩猟採集民体験と出発",
+    "cultural.itinerary.day3.duration": "ハダザベ1日トリップ",
+    "cultural.itinerary.day3.activities": "ハダザベコミュニティへ移動。伝統的な狩猟、採集スキル、古代の火おこし技術を学びます。",
+    "cultural.includes.title": "含まれるもの",
+    "cultural.includes.item1": "コミュニティホームステイ宿泊（2泊）",
+    "cultural.includes.item2": "ツアー中の全ての伝統的な食事",
+    "cultural.includes.item3": "プロフェッショナルな地元ガイドサービス",
+    "cultural.includes.item4": "文化パフォーマンス料",
+    "cultural.includes.item5": "工芸ワークショップ材料",
+    "cultural.includes.item6": "コミュニティ開発貢献金",
+    "cultural.includes.item7": "コミュニティ間の交通",
+    "cultural.includes.item8": "文化オリエンテーションセッション",
+    "cultural.includes.item9": "ハダザベ1日体験（3日間パッケージに含む）",
+    "cultural.excludes.title": "含まれないもの",
+    "cultural.excludes.item1": "国際航空券",
+    "cultural.excludes.item2": "タンザニアビザ料金",
+    "cultural.excludes.item3": "旅行保険",
+    "cultural.excludes.item4": "アルコール飲料",
+    "cultural.excludes.item5": "個人的な買い物",
+    "cultural.excludes.item6": "オプションの追加アクティビティ",
+    "cultural.excludes.item7": "ガイドとホストへのチップ",
+    "cultural.excludes.item8": "個人的な出費",
+    "cultural.booking.title": "文化没入の準備はできましたか？", "cultural.booking.subtitle": "本格的な文化体験を予約し、タンザニアの生きた伝統とつながりましょう。", "cultural.booking.cta": "文化体験を予約",
+    "cultural.modal.title": "文化体験を予約する", "cultural.modal.step1": "パッケージレベル", "cultural.modal.step2": "旅行スタイル", "cultural.modal.step3": "予約詳細",
+    "cultural.modal.step1_title": "文化体験を選択",
+    "cultural.modal.package.local.name": "地元体験", "cultural.modal.package.local.note": "3日間完全文化ツアー",
+    "cultural.modal.package.local.feature1": "1日目と2日目：マサイ村", "cultural.modal.package.local.feature2": "3日目：ハダザベ1日トリップ",
+    "cultural.modal.package.local.feature3": "全ての伝統的な食事", "cultural.modal.package.local.feature4": "地元ガイド",
+    "cultural.modal.package.local.feature5": "ホームステイ（2泊）", "cultural.modal.package.local.feature6": "交通費含む",
+    "cultural.modal.package.vip.name": "VIP", "cultural.modal.package.vip.note": "3日間プレミアム文化",
+    "cultural.modal.package.vip.feature1": "地元体験の全て", "cultural.modal.package.vip.feature2": "プライベート文化ガイド",
+    "cultural.modal.package.vip.feature3": "全ての工芸ワークショップ", "cultural.modal.package.vip.feature4": "部族長老との会合",
+    "cultural.modal.package.vip.feature5": "コミュニティプロジェクト", "cultural.modal.package.vip.feature6": "写真撮影許可",
+    "cultural.modal.package.vip.feature7": "文化のお土産",
+    "cultural.modal.package.vvip.name": "VVIP", "cultural.modal.package.vvip.note": "5日間ラグジュアリー文化",
+    "cultural.modal.package.vvip.feature1": "VIPの全て", "cultural.modal.package.vvip.feature2": "マルチコミュニティツアー",
+    "cultural.modal.package.vvip.feature3": "ラグジュアリー宿泊", "cultural.modal.package.vvip.feature4": "伝統的な儀式",
+    "cultural.modal.package.vvip.feature5": "プライベートシェフ", "cultural.modal.package.vvip.feature6": "全ての入場と許可",
+    "cultural.modal.package.vvip.feature7": "空港送迎",
+    "cultural.modal.daytrips.title": "🎯 別途提供：スタンドアロンの1日トリップ",
+    "cultural.modal.daytrips.maasai.name": "🏕️ マサイボマ1日トリップ", "cultural.modal.daytrips.maasai.desc": "マサイボマでの丸一日 — 戦士訓練、ビーズワーク、伝統的な昼食とアドゥムダンス。",
+    "cultural.modal.daytrips.hadzabe.name": "🏹 ハダザベ狩猟採集民1日トリップ", "cultural.modal.daytrips.hadzabe.desc": "ハダザベ族との丸一日 — 狩猟、採集、火おこしとクリック言語。",
+    "cultural.modal.daytrips.note": "💡 上のパッケージを選択するか、1日トリップをクリックしてください。",
+    "cultural.modal.step2_title": "旅行スタイルを選択",
+    "cultural.modal.travel.solo": "ソロ旅行者", "cultural.modal.travel.solo_desc": "ソロ探検家に最適",
+    "cultural.modal.travel.couple": "カップルパッケージ", "cultural.modal.travel.couple_desc": "カップルに最適",
+    "cultural.modal.travel.family": "ファミリーパッケージ", "cultural.modal.travel.family_desc": "大人2名 + 子供2名",
+    "cultural.modal.travel.group": "グループアドベンチャー", "cultural.modal.travel.group_desc": "2～30人",
+    "cultural.modal.group_size": "グループサイズ：", "cultural.modal.discount": "グループ割引（20％）",
+    "cultural.modal.total": "合計金額：", "cultural.modal.original": "元の価格：",
+    "cultural.modal.selection": "あなたの選択", "cultural.modal.step3_title": "予約を確認する",
+    "cultural.modal.summary": "予約サマリー", "cultural.modal.destination_label": "目的地：", "cultural.modal.destination_value": "タンザニア文化観光",
+    "cultural.modal.package_label": "パッケージ / 体験：", "cultural.modal.travel_label": "旅行スタイル：",
+    "cultural.modal.people_label": "人数：", "cultural.modal.duration_label": "期間：",
+    "cultural.modal.discount_applied": "グループ割引適用：", "cultural.modal.total_amount": "合計金額：",
+    "cultural.modal.original_price": "元の価格：", "cultural.modal.customer_info": "お客様情報",
+    "cultural.modal.travel_info": "旅行情報", "cultural.modal.first_name": "名",
+    "cultural.modal.last_name": "姓", "cultural.modal.email": "メールアドレス",
+    "cultural.modal.phone": "電話番号", "cultural.modal.country": "国",
+    "cultural.modal.arrival_date": "到着日", "cultural.modal.departure_date": "出発日",
+    "cultural.modal.back": "戻る", "cultural.modal.next": "次へ：旅行スタイル",
+    "cultural.modal.next_booking": "次へ：今すぐ予約", "cultural.modal.cancel": "キャンセル",
+    "cultural.modal.complete": "予約を完了する",
+    "footer.company": "MMexy Tanzania Adventures", "footer.description": "タンザニアの中心で忘れられない体験を創造。",
+    "footer.quick_links": "クイックリンク", "footer.destinations": "目的地",
+    "footer.contact_info": "連絡先情報", "footer.address": "アルーシャ, タンザニア",
+    "footer.language": "言語：", "footer.copyright": "© 2026 MMexy Tanzania Adventures. 全著作権所有。",
+    "translation.loading": "コンテンツを翻訳中..."
+  }
+};
+
+    // ===== TRANSLATION ENGINE =====
+    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+
+    function applyTranslations(lang) {
+        if (!translations[lang]) return;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = translations[lang][key];
+                else el.innerHTML = translations[lang][key];
+            }
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang][key]) el.placeholder = translations[lang][key];
+        });
+    }
+
+    window.changeLanguage = function(lang) {
+        if (translations[lang]) {
+            localStorage.setItem('preferredLanguage', lang);
+            applyTranslations(lang);
+            currentLang = lang;
+            document.querySelectorAll('.language-option, .floating-language-option').forEach(opt => {
+                if (opt.getAttribute('data-lang') === lang) opt.classList.add('active');
+                else opt.classList.remove('active');
+            });
+            const currentLangSpan = document.querySelector('.current-language');
+            if (currentLangSpan) {
+                const flagMap = { en:'🇺🇸', fr:'🇫🇷', de:'🇩🇪', es:'🇪🇸', it:'🇮🇹', pt:'🇵🇹', ru:'🇷🇺', zh:'🇨🇳', ja:'🇯🇵', pl:'🇵🇱' };
+                const nameMap = { en:'English', fr:'Français', de:'Deutsch', es:'Español', it:'Italiano', pt:'Português', ru:'Русский', zh:'中文', ja:'日本語', pl:'Polski' };
+                currentLangSpan.innerHTML = `<span class="language-flag">${flagMap[lang]}</span><span>${nameMap[lang]}</span><i class="fas fa-chevron-down"></i>`;
+            }
+            const sidebarSelect = document.getElementById('sidebarLanguage');
+            if (sidebarSelect) sidebarSelect.value = lang;
+        }
     };
 
-    // Package config
+    // Apply on load
+    document.addEventListener('DOMContentLoaded', () => applyTranslations(currentLang));
+
+    // Add event listeners to language selectors (these will be added by navbar-loader.js as well, but safe)
+    document.querySelectorAll('.language-option, .floating-language-option').forEach(opt => {
+        opt.addEventListener('click', (e) => {
+            e.preventDefault();
+            changeLanguage(opt.getAttribute('data-lang'));
+        });
+    });
+    const sidebarLang = document.getElementById('sidebarLanguage');
+    if (sidebarLang) sidebarLang.addEventListener('change', (e) => changeLanguage(e.target.value));
+
+    // ===== CULTURAL BOOKING SYSTEM (unchanged logic) =====
+    let culturalBooking = {
+        mode: 'package', packageLevel: 'local', packagePrice: 1200, dayTripKey: '', dayTripPrice: 0, dayTripName: '', dayTripDuration: '',
+        groupType: 'single', peopleCount: 1, totalPrice: 1200, originalPrice: 1200, discountApplied: false, discountAmount: 0
+    };
     const culturalPackages = {
-        local: { price: 1200, name: 'LOCAL — 3-Day Cultural Tour', duration: '3 Days' },
+        local: { price: 1200, name: 'LOCAL EXPERIENCE — 3-Day Cultural Tour', duration: '3 Days' },
         vip:   { price: 2000, name: 'VIP — 3-Day Premium Cultural', duration: '3 Days' },
         vvip:  { price: 5000, name: 'VVIP — 5-Day Luxury Cultural', duration: '5 Days' }
     };
-
     const dayTrips = {
         maasai_boma: { price: 230, name: 'Maasai Boma Day Trip', duration: 'Day Trip' },
         hadzabe:     { price: 500, name: 'Hadzabe Hunter-Gatherer Day Trip', duration: 'Day Trip' }
     };
-
     const groupMultipliers = { single: 1, double: 2, family: 2.5, group: 1 };
 
-    // Select day trip from step 1
     function selectDayTrip(el) {
-        // Deselect packages
         document.querySelectorAll('#cultural-premium-modal .package-level').forEach(l => l.classList.remove('selected'));
-        // Toggle this trip
         document.querySelectorAll('#cultural-premium-modal .waterfall-option').forEach(o => o.classList.remove('selected'));
         el.classList.add('selected');
-
         const key = el.dataset.trip;
         const price = parseInt(el.dataset.tripPrice);
         culturalBooking.mode = 'daytrip';
@@ -918,7 +1839,6 @@
         culturalCalculatePrice();
     }
 
-    // Package click handlers
     document.querySelectorAll('#cultural-premium-modal .package-level').forEach(level => {
         level.addEventListener('click', function() {
             document.querySelectorAll('#cultural-premium-modal .package-level').forEach(l => l.classList.remove('selected'));
@@ -932,7 +1852,6 @@
         });
     });
 
-    // Travel style click handlers
     document.querySelectorAll('#cultural-premium-modal .group-option').forEach(opt => {
         opt.addEventListener('click', function() {
             document.querySelectorAll('#cultural-premium-modal .group-option').forEach(o => o.classList.remove('selected'));
@@ -965,20 +1884,12 @@
     }
 
     function culturalCalculatePrice() {
-        const basePrice = culturalBooking.mode === 'package'
-            ? culturalBooking.packagePrice
-            : culturalBooking.dayTripPrice;
-
+        const basePrice = culturalBooking.mode === 'package' ? culturalBooking.packagePrice : culturalBooking.dayTripPrice;
         let multiplier;
-        if (culturalBooking.groupType === 'group') {
-            multiplier = culturalBooking.peopleCount;
-        } else {
-            multiplier = groupMultipliers[culturalBooking.groupType];
-        }
-
+        if (culturalBooking.groupType === 'group') multiplier = culturalBooking.peopleCount;
+        else multiplier = groupMultipliers[culturalBooking.groupType];
         const raw = basePrice * multiplier;
         culturalBooking.originalPrice = raw;
-
         if (culturalBooking.groupType === 'group' && culturalBooking.peopleCount >= 3) {
             culturalBooking.discountApplied = true;
             culturalBooking.discountAmount = raw * 0.2;
@@ -988,12 +1899,10 @@
             culturalBooking.discountAmount = 0;
             culturalBooking.totalPrice = raw;
         }
-
         updateCulturalPriceDisplay();
     }
 
     function updateCulturalPriceDisplay() {
-        // Update selected type label
         const typeLabel = document.getElementById('cultural-selected-type-label');
         const perPersonEl = document.getElementById('cultural-per-person-price');
         if (culturalBooking.mode === 'package') {
@@ -1004,20 +1913,14 @@
             typeLabel.textContent = culturalBooking.dayTripName;
             perPersonEl.textContent = `$${culturalBooking.dayTripPrice} / person`;
         }
-
-        // Group label
         const groupLabels = { single: 'Solo Traveler', double: 'Couple Package', family: 'Family Package', group: 'Group Adventure' };
         const groupCounts = { single: '× 1', double: '× 2', family: '× 2.5', group: `× ${culturalBooking.peopleCount}` };
         document.getElementById('cultural-group-type-label').textContent = groupLabels[culturalBooking.groupType];
         document.getElementById('cultural-group-multiplier').textContent = groupCounts[culturalBooking.groupType];
-
-        // People label for group
         if (culturalBooking.groupType === 'group') {
             document.getElementById('cultural-people-count-label').textContent = `${culturalBooking.peopleCount} people`;
             document.getElementById('cultural-people-multiplier').textContent = `× ${culturalBooking.peopleCount}`;
         }
-
-        // Discount
         const discountItem = document.getElementById('cultural-discount-item');
         const origDisplay = document.getElementById('cultural-original-price');
         if (culturalBooking.discountApplied) {
@@ -1029,10 +1932,7 @@
             discountItem.style.display = 'none';
             origDisplay.style.display = 'none';
         }
-
         document.getElementById('cultural-total-price').textContent = `$${Math.round(culturalBooking.totalPrice).toLocaleString()}`;
-
-        // Addon summary box
         const addonBox = document.getElementById('cultural-addon-summary-box');
         if (culturalBooking.mode === 'daytrip') {
             addonBox.style.display = 'block';
@@ -1052,14 +1952,11 @@
             pkgText = culturalBooking.dayTripName;
             durationText = culturalBooking.dayTripDuration;
         }
-
         document.getElementById('cultural-summary-package').textContent = pkgText;
         document.getElementById('cultural-summary-duration').textContent = durationText;
-
         const groupLabels = { single: 'Solo Traveler', double: 'Couple Package', family: 'Family Package', group: 'Group Adventure' };
         document.getElementById('cultural-summary-group').textContent = groupLabels[culturalBooking.groupType];
         document.getElementById('cultural-summary-total').textContent = `$${Math.round(culturalBooking.totalPrice).toLocaleString()}`;
-
         const peopleItem = document.getElementById('cultural-summary-people-item');
         if (culturalBooking.groupType === 'group') {
             peopleItem.style.display = 'flex';
@@ -1067,7 +1964,6 @@
         } else {
             peopleItem.style.display = 'none';
         }
-
         const discountItem = document.getElementById('cultural-summary-discount-item');
         const origDisplay = document.getElementById('cultural-summary-original-price');
         if (culturalBooking.discountApplied) {
@@ -1081,7 +1977,6 @@
         }
     }
 
-    // Step navigation
     function culturalShowStep(n) {
         document.querySelectorAll('#cultural-premium-modal .booking-section').forEach(s => s.classList.remove('active'));
         document.getElementById(`cultural-step-${n}`).classList.add('active');
@@ -1092,15 +1987,12 @@
         const body = document.querySelector('#cultural-premium-modal .premium-modal-body');
         if (body) body.scrollTop = 0;
     }
-
     function culturalNextStep(n) { culturalShowStep(n); }
     function culturalPrevStep(n) { culturalShowStep(n); }
 
     function openCulturalBookingModal() {
         culturalShowStep(1);
-        // Reset
         culturalBooking = { mode: 'package', packageLevel: 'local', packagePrice: 1200, dayTripKey: '', dayTripPrice: 0, dayTripName: '', dayTripDuration: '', groupType: 'single', peopleCount: 1, totalPrice: 1200, originalPrice: 1200, discountApplied: false, discountAmount: 0 };
-        // Click defaults
         const localPkg = document.querySelector('#cultural-premium-modal .package-level.local');
         if (localPkg) { document.querySelectorAll('#cultural-premium-modal .package-level').forEach(l => l.classList.remove('selected')); localPkg.classList.add('selected'); }
         const soloOpt = document.querySelector('#cultural-premium-modal .group-option[data-group="single"]');
@@ -1108,11 +2000,7 @@
         document.querySelectorAll('#cultural-premium-modal .waterfall-option').forEach(o => o.classList.remove('selected'));
         document.getElementById('cultural-people-counter').style.display = 'none';
         document.getElementById('cultural-people-item').style.display = 'none';
-        // Clear form
-        ['cultural-first-name','cultural-last-name','cultural-email','cultural-phone','cultural-country'].forEach(id => {
-            const el = document.getElementById(id); if (el) el.value = '';
-        });
-        // Set dates
+        ['cultural-first-name','cultural-last-name','cultural-email','cultural-phone','cultural-country'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
         const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
         const tStr = tomorrow.toISOString().split('T')[0];
         const arrEl = document.getElementById('cultural-arrival-date');
@@ -1121,7 +2009,6 @@
         const dStr = dep.toISOString().split('T')[0];
         const depEl = document.getElementById('cultural-departure-date');
         if (depEl) { depEl.value = dStr; depEl.min = tStr; }
-
         updateCulturalPriceDisplay();
         document.getElementById('cultural-premium-modal').style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -1131,11 +2018,8 @@
         document.getElementById('cultural-premium-modal').style.display = 'none';
         document.body.style.overflow = 'auto';
     }
-
     document.getElementById('close-cultural-premium-modal').addEventListener('click', closeCulturalPremiumModal);
-    window.addEventListener('click', function(e) {
-        if (e.target === document.getElementById('cultural-premium-modal')) closeCulturalPremiumModal();
-    });
+    window.addEventListener('click', function(e) { if (e.target === document.getElementById('cultural-premium-modal')) closeCulturalPremiumModal(); });
 
     function culturalCompleteBooking() {
         const firstName = document.getElementById('cultural-first-name').value.trim();
@@ -1145,16 +2029,8 @@
         const country = document.getElementById('cultural-country').value.trim();
         const arrival = document.getElementById('cultural-arrival-date').value;
         const departure = document.getElementById('cultural-departure-date').value;
-
-        if (!firstName) { alert('Please enter your first name'); document.getElementById('cultural-first-name').focus(); return; }
-        if (!lastName) { alert('Please enter your last name'); document.getElementById('cultural-last-name').focus(); return; }
-        if (!email) { alert('Please enter your email address'); document.getElementById('cultural-email').focus(); return; }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address'); document.getElementById('cultural-email').focus(); return; }
-        if (!phone) { alert('Please enter your phone number'); document.getElementById('cultural-phone').focus(); return; }
-        if (!country) { alert('Please enter your country'); document.getElementById('cultural-country').focus(); return; }
-        if (!arrival) { alert('Please select arrival date'); document.getElementById('cultural-arrival-date').focus(); return; }
-        if (!departure) { alert('Please select departure date'); document.getElementById('cultural-departure-date').focus(); return; }
-
+        if (!firstName || !lastName || !email || !phone || !country || !arrival || !departure) { alert('Please fill all required fields.'); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Invalid email address.'); return; }
         const groupLabels = { single: 'Solo Traveler', double: 'Couple Package', family: 'Family Package', group: 'Group Adventure' };
         let pkgText, durationText;
         if (culturalBooking.mode === 'package') {
@@ -1164,96 +2040,39 @@
             pkgText = culturalBooking.dayTripName;
             durationText = culturalBooking.dayTripDuration;
         }
-
-        const discountText = culturalBooking.discountApplied
-            ? `\n*Group Discount (20%):* -$${Math.round(culturalBooking.discountAmount).toLocaleString()}\n*Original Price:* $${Math.round(culturalBooking.originalPrice).toLocaleString()}`
-            : '';
+        const discountText = culturalBooking.discountApplied ? `\n*Group Discount (20%):* -$${Math.round(culturalBooking.discountAmount).toLocaleString()}\n*Original Price:* $${Math.round(culturalBooking.originalPrice).toLocaleString()}` : '';
         const peopleText = culturalBooking.groupType === 'group' ? `\n*Number of People:* ${culturalBooking.peopleCount}` : '';
-
-        const summary = `🎭 *NEW CULTURAL EXPERIENCE BOOKING* 🌍
-
-*CUSTOMER INFORMATION:*
-*Name:* ${firstName} ${lastName}
-*Email:* ${email}
-*Phone:* ${phone}
-
-*BOOKING DETAILS:*
-*Destination:* Cultural Tourism Tanzania
-*Package / Experience:* ${pkgText}
-*Travel Style:* ${groupLabels[culturalBooking.groupType]}${peopleText}
-*Duration:* ${durationText}${discountText}
-*TOTAL AMOUNT:* $${Math.round(culturalBooking.totalPrice).toLocaleString()}
-
-*TRAVEL INFORMATION:*
-*Country:* ${country}
-*Arrival Date:* ${arrival}
-*Departure Date:* ${departure}
-
-*Booking Time:* ${new Date().toLocaleString()}`.trim();
-
+        const summary = `🎭 *NEW CULTURAL EXPERIENCE BOOKING* 🌍\n\n*CUSTOMER INFORMATION:*\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Phone:* ${phone}\n\n*BOOKING DETAILS:*\n*Destination:* Cultural Tourism Tanzania\n*Package / Experience:* ${pkgText}\n*Travel Style:* ${groupLabels[culturalBooking.groupType]}${peopleText}\n*Duration:* ${durationText}${discountText}\n*TOTAL AMOUNT:* $${Math.round(culturalBooking.totalPrice).toLocaleString()}\n\n*TRAVEL INFORMATION:*\n*Country:* ${country}\n*Arrival Date:* ${arrival}\n*Departure Date:* ${departure}\n\n*Booking Time:* ${new Date().toLocaleString()}`;
         const whatsappUrl = `https://wa.me/255714331051?text=${encodeURIComponent(summary)}`;
         const emailUrl = `mailto:barackwilliam12@gmail.com?subject=${encodeURIComponent('New Cultural Experience Booking')}&body=${encodeURIComponent(summary)}`;
-
         window.open(whatsappUrl, '_blank');
         setTimeout(() => window.open(emailUrl, '_blank'), 1000);
-
         alert(`✅ Booking Confirmed!\n\n${firstName} ${lastName}\n${pkgText}\nTotal: $${Math.round(culturalBooking.totalPrice).toLocaleString()}\n\nYour booking details have been sent to our team via WhatsApp and email. We will contact you shortly!`);
         closeCulturalPremiumModal();
     }
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' && e.target.classList.contains('form-input')) e.preventDefault();
-    });
     </script>
+
     <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/255797331005" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
-        <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/>
-        <path fill="#25D366" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/>
-        <path fill="#25D366" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974"/>
-        <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/>
-        <path fill="#25D366" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"/>
-    </svg>
-</a>
-
-<style>
-.whatsapp-float {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #25D366;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5);
-    z-index: 9999;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    animation: pulse-wa 2.5s infinite;
-}
-
-.whatsapp-float:hover {
-    transform: translateY(-50%) scale(1.12);
-    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.7);
-    background-color: #20ba5a;
-    animation: none;
-}
-
-@keyframes pulse-wa {
-    0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-    70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-</style>
-
-<script
-  src="jamiitek-status.js"
-  data-api-key="THEIR_API_KEY_HERE"
-  data-api-url="https://jamiitek.co.tz/api/site-status/">
-</script>
+    <a href="https://wa.me/255797331005" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+            <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/>
+            <path fill="#25D366" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/>
+            <path fill="#25D366" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974"/>
+            <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/>
+            <path fill="#25D366" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"/>
+        </svg>
+    </a>
+    <style>
+        .whatsapp-float {
+            position: fixed; right: 20px; top: 50%; transform: translateY(-50%); background-color: #25D366;
+            width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.5); z-index: 9999; text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            animation: pulse-wa 2.5s infinite;
+        }
+        .whatsapp-float:hover { transform: translateY(-50%) scale(1.12); box-shadow: 0 6px 24px rgba(37,211,102,0.7); background-color: #20ba5a; animation: none; }
+        @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); } 70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+    </style>
+    <script src="jamiitek-status.js" data-api-key="THEIR_API_KEY_HERE" data-api-url="https://jamiitek.co.tz/api/site-status/"></script>
 </body>
 </html>
